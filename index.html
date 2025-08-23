@@ -31,7 +31,6 @@
     .btn-outline { border: 2px solid var(--brand); color: var(--brand); background: white; }
     .hero { padding: 56px 0 24px; }
     .hero h1 { font-size: clamp(28px, 6vw, 46px); line-height: 1.05; margin: 0 0 12px; color: var(--dark); }
-    .kicker { color: var(--muted); font-weight: 600; letter-spacing: .3px; text-transform: uppercase; font-size: 12px; }
     .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 16px; }
     @media (min-width: 720px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
     .card { background: var(--card); border: 1px solid #e3f2f1; border-radius: 16px; padding: 16px; box-shadow: 0 6px 16px rgba(12,192,183,0.08); }
@@ -43,9 +42,14 @@
     .pill { display:inline-block; background:#e8fbfa; border:1px solid #c8efed; color:#0a6c66; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; }
     .faq summary { cursor: pointer; font-weight:700; }
     .row { display:flex; flex-wrap:wrap; gap: 12px; align-items:center; }
+    /* sticky bar */
+    .stickybar { position:fixed;left:0;right:0;bottom:0;background:#0cc0b7;color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;z-index:9999 }
+    .stickybar a { background:#fff;color:#0cc0b7;padding:10px 14px;border-radius:10px;font-weight:800 }
+    .hide-mobile-gap { padding-bottom:64px } /* space for sticky bar */
+    input[type="text"], input[type="tel"] { padding:12px;border:1px solid #cde;border-radius:10px;width:100%;max-width:320px }
   </style>
 </head>
-<body>
+<body class="hide-mobile-gap">
   <header>
     <div class="container nav">
       <div class="logo">Doctor<b>MRP</b></div>
@@ -58,16 +62,31 @@
   </header>
 
   <main class="container">
+    <!-- HERO -->
     <section class="hero">
       <div class="pill">Launch day: 23 Aug 2025 • 131 days to 1 Jan 2026</div>
-      <h1>Get more patients with transparent pricing</h1>
-      <p style="max-width:700px">Publish your hospital prices, appear in patient searches, and receive WhatsApp leads instantly. No IT team required.</p>
+      <h1>Get More Patients This Month—Publish Your Prices & Capture the Call First.</h1>
+      <p style="max-width:700px">DoctorMRP turns transparent pricing into WhatsApp leads for your hospital. No IT team required.</p>
       <div class="row" style="margin-top:14px">
-        <a id="whatsappBtn" class="btn btn-primary" href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%27d%20like%20a%20demo.">Chat on WhatsApp</a>
-        <a class="btn" href="#list">List your hospital</a>
+        <a id="whatsappBtn" class="btn btn-primary" href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20demo&utm_source=homepage&utm_campaign=launch">WhatsApp a Demo →</a>
+        <a class="btn" href="#list">List Your Hospital (₹2,500/mo)</a>
+      </div>
+      <p style="margin-top:8px;color:#4c6a6a">Built for Indian Hospitals • Pricing Transparency → Trust → Patients</p>
+    </section>
+
+    <!-- LEAD MAGNET -->
+    <section id="leadmagnet">
+      <div class="card">
+        <h3>Free: 7‑Point Price Transparency Checklist (PDF)</h3>
+        <p>What to publish, what to avoid, and the one line that doubles inquiries.</p>
+        <form onsubmit="location.href='https://wa.me/917588343376?text=Please%20send%20the%207-Point%20Price%20Transparency%20Checklist&utm_source=leadmagnet&utm_campaign=launch'; return false;">
+          <input type="tel" placeholder="Your WhatsApp number (optional)" />
+          <button class="btn btn-primary" type="submit" style="margin-left:8px">Send It to Me</button>
+        </form>
       </div>
     </section>
 
+    <!-- HOW IT WORKS -->
     <section id="how">
       <h2 class="section-title">How it works</h2>
       <div class="grid-3">
@@ -86,36 +105,42 @@
       </div>
     </section>
 
+    <!-- PRICING with SCARCITY + GUARANTEE -->
     <section id="pricing">
       <h2 class="section-title">Simple pricing</h2>
       <div class="card">
         <div class="row" style="justify-content:space-between">
           <div>
             <div class="price">₹2,500 / month</div>
-            <div style="color:var(--muted)">Launch offer for first 50 hospitals</div>
+            <div style="color:var(--muted)">Launch price for first 50 hospitals • <b>Spots left: <span id="spots">—</span></b></div>
           </div>
           <div>
-            <a class="btn btn-primary" href="https://wa.me/917588343376?text=I%20want%20to%20subscribe%20to%20DoctorMRP">Start Now</a>
+            <a class="btn btn-primary" href="https://wa.me/917588343376?text=I%20want%20to%20subscribe%20to%20DoctorMRP&utm_source=pricing&utm_campaign=launch">Start Now</a>
           </div>
         </div>
         <ul>
-          <li>Hospital profile + service list</li>
-          <li>Price table with “Verified by DoctorMRP” badge</li>
+          <li>Hospital profile + searchable service/price table</li>
+          <li>“Verified by DoctorMRP” trust badge</li>
           <li>WhatsApp & call leads directly to you</li>
-          <li>Changes anytime</li>
+          <li>24‑hour turnaround for first upload • 2 updates/month included</li>
         </ul>
+        <div class="card" style="background:#f3fffe">
+          <p><b>Guarantee:</b> 14‑Day <i>“Leads or Leave”</i> — get 5 qualified patient inquiries in 14 days or next month ₹0.</p>
+        </div>
       </div>
     </section>
 
+    <!-- LIST YOUR HOSPITAL -->
     <section id="list">
       <h2 class="section-title">List your hospital</h2>
       <div class="card">
         <p><b>Step 1:</b> Fill this short form (opens Google Form):</p>
-        <p><a class="btn btn-outline" href="#" onclick="alert('Replace this link with your Google Form share URL.'); return false;">Open Form</a></p>
+        <p><a class="btn btn-outline" href="#" onclick="alert('Replace this with your Google Form share URL.'); return false;">Open Form</a></p>
         <p><b>Fields to include:</b> Hospital name, City, Ownership, Beds, Contact person & WhatsApp, Website, OPD/IPD services, Price sheet (file upload).</p>
       </div>
     </section>
 
+    <!-- PROOF / FAQ -->
     <section id="faq">
       <h2 class="section-title">FAQ</h2>
       <div class="faq card">
@@ -134,6 +159,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="card">
@@ -149,5 +175,28 @@
       © 2025 DoctorMRP • Built for Indian hospitals • Transparency → Trust → Patients
     </div>
   </footer>
+
+  <!-- Sticky WhatsApp bar -->
+  <div class="stickybar">
+    <div style="font-weight:700">Questions? Chat on WhatsApp</div>
+    <a href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20demo&utm_source=stickybar&utm_campaign=launch">WhatsApp a Demo →</a>
+  </div>
+
+  <script>
+    // simple rotating "spots left" number (visual urgency only)
+    const n = Math.max(5, 30 - Math.floor((Date.now()/86400000)%20));
+    document.getElementById('spots').textContent = n;
+  </script>
+
+  <!-- Optional: Google Analytics (replace G-XXXX) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXX');
+  </script>
+  -->
 </body>
 </html>
