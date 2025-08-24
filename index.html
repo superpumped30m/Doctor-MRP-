@@ -1,397 +1,172 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DoctorMRP — Transparent Hospital Pricing → More Patients</title>
-  <meta name="description" content="Show your OPD/IPD prices, build trust, and turn searches into WhatsApp inquiries. DoctorMRP for Indian hospitals." />
-  <meta name="theme-color" content="#0cc0b7" />
-  <meta property="og:title" content="DoctorMRP — Transparent Hospital Pricing → More Patients" />
-  <meta property="og:description" content="Publish prices, rank by city/procedure, and receive WhatsApp leads directly to your front desk." />
-  <meta property="og:type" content="website" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DoctorMRP — Transparent Pricing = More Patients</title>
+  <meta name="description" content="DoctorMRP helps Indian hospitals publish prices, build trust, and capture hot WhatsApp leads.">
   <style>
-    :root{
-      --brand:#0cc0b7; --brand-dark:#0aa79f;
-      --ink:#0f2f2f; --muted:#4c6a6a;
-      --bg:#f6fffe; --card:#ffffff; --line:#d7efee;
-      --ok:#0a6c66; --warn:#e09f0c;
+    :root {
+      --brand:#0cc0b7; --dark:#111; --ink:#222; --muted:#555;
+      --bg:#fafafa; --card:#fff; --line:#ddd;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,Noto Sans,'Helvetica Neue',sans-serif;color:var(--ink);background:var(--bg)}
-    a{color:var(--brand);text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:16px}
-    .card{background:var(--card);border:1px solid #e3f2f1;border-radius:16px;padding:16px;box-shadow:0 6px 16px rgba(12,192,183,.08)}
-    header{position:sticky;top:0;background:rgba(246,255,254,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--line);z-index:20}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .logo{font-weight:900;letter-spacing:.2px;color:#0e1b1b}
-    .logo b{color:var(--brand)}
-    nav a{padding:10px 8px;border-radius:10px}
-    .btn{display:inline-block;padding:14px 16px;border-radius:14px;font-weight:800}
-    .btn-primary{background:var(--brand);color:#fff}
-    .btn-primary:active{transform:translateY(1px)}
-    .btn-outline{border:2px solid var(--brand);color:var(--brand);background:#fff}
-    .hero{padding:56px 0 8px}
-    .hero h1{font-size:clamp(26px,5.6vw,44px);line-height:1.07;margin:10px 0 10px}
-    .sub{color:var(--muted);max-width:740px}
-    .kicker{display:inline-block;color:#0a6c66;background:#e8fbfa;border:1px solid #c8efed;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px}
-    section{padding:28px 0}
-    .section-title{font-size:22px;margin:0 0 12px;color:#0e1b1b}
-    .grid-2{display:grid;grid-template-columns:1fr;gap:16px}
-    .grid-3{display:grid;grid-template-columns:1fr;gap:16px}
-    @media (min-width:820px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr 1fr}}
-    ul.clean{padding-left:18px;margin:10px 0}
-    .badge{display:inline-block;border:1px solid #cde;background:#f3fffe;color:#0a6c66;padding:6px 10px;border-radius:10px;font-weight:800;font-size:12px}
-    .price{font-size:38px;font-weight:900}
-    .mini{font-size:12px;color:var(--muted)}
-    .stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--brand);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px;z-index:9999}
-    .stickybar a{background:#fff;color:var(--brand);padding:10px 14px;border-radius:10px;font-weight:900;white-space:nowrap}
-    .with-sticky{padding-bottom:68px}
-    .faq summary{cursor:pointer;font-weight:900}
-    .muted{color:var(--muted)}
-    .proof{border-left:4px solid var(--brand);padding-left:12px}
-    .order input, .order select{padding:12px;border:1px solid #cde;border-radius:10px;width:100%}
-    .order .row{display:grid;grid-template-columns:1fr;gap:12px}
-    @media (min-width:720px){.order .row{grid-template-columns:1fr 1fr}}
-    .ticker{font-variant-numeric:tabular-nums}
-    footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-    .warning{color:#8a5a00;background:#fff4d6;border:1px solid #ffe6a3;border-radius:12px;padding:10px 12px}
-    .ok{color:#07524e}
-    .divider{height:1px;background:#e3f2f1;margin:16px 0}
-    /* anchor targets spacing */
-    :target::before{content:"";display:block;height:64px;margin-top:-64px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:var(--bg);}
+    .container{max-width:900px;margin:0 auto;padding:20px;}
+    h1,h2,h3{margin-bottom:10px;color:var(--dark);}
+    h1{font-size:1.8rem;line-height:1.2;}
+    h2{font-size:1.4rem;margin-top:25px;}
+    p{margin-bottom:14px;color:var(--ink);}
+    ul{margin-left:18px;margin-bottom:14px;}
+    li{margin-bottom:8px;}
+    a{text-decoration:none;color:var(--brand);}
+    .btn{display:inline-block;padding:12px 18px;margin:6px 0;border-radius:8px;font-weight:bold;text-align:center;}
+    .btn-primary{background:var(--brand);color:#fff;}
+    .btn-outline{border:2px solid var(--brand);color:var(--brand);background:#fff;}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:18px;}
+    header{padding:12px 20px;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50;}
+    header .logo{font-weight:bold;font-size:18px;color:var(--dark);}
+    nav{float:right;}
+    nav a{margin-left:14px;color:var(--muted);font-size:14px;}
+    .hero{text-align:center;padding:40px 20px;}
+    .hero h1{font-size:1.9rem;margin-bottom:10px;}
+    .sub{color:var(--muted);}
+    .stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--brand);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:100;}
+    .stickybar a{background:#fff;color:var(--brand);padding:10px 14px;border-radius:6px;font-weight:bold;}
+    footer{font-size:13px;color:var(--muted);padding:20px;text-align:center;border-top:1px solid var(--line);margin-top:30px;}
+    input,select{width:100%;padding:10px;border:1px solid var(--line);border-radius:6px;margin-bottom:10px;}
+    .small{color:var(--muted);font-size:14px;}
+    details{margin-bottom:10px;}
+    details summary{cursor:pointer;font-weight:bold;}
   </style>
 </head>
-<body class="with-sticky">
-  <!-- ===================== NAV ===================== -->
-  <header>
-    <div class="container nav">
-      <div class="logo">Doctor<b>MRP</b></div>
-      <nav class="row">
-        <a href="#lead">Checklist</a>
-        <a href="#how">How it works</a>
-        <a href="#offer">Pricing</a>
-        <a href="#order">Start</a>
-      </nav>
-    </div>
-  </header>
+<body>
 
-  <main class="container">
-    <!-- ============================================================
-         1) BIG IDEA + CALL-OUT HEADLINE (KENNEDY POINT #1)
-         ============================================================ -->
-    <section id="top" class="hero">
-      <span class="kicker">
-        <span id="today"></span> • <span id="daysLeft" class="ticker"></span> days to 1 Jan 2026
-      </span>
-      <h1>Steal Back Patients From Bigger Hospitals—<br/>Show Your Prices First & Get the Call.</h1>
-      <p class="sub">Patients compare. If they can’t see your prices, they choose someone else. DoctorMRP turns transparent pricing into WhatsApp leads for your hospital.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px">
-        <a class="btn btn-primary" href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20WhatsApp%20a%20demo%20please%20&utm_source=hero&utm_campaign=launch">WhatsApp a Demo Now →</a>
-        <a class="btn btn-outline" href="#order">List Your Hospital in 24 Hours (₹2,500/mo)</a>
-      </div>
-      <div class="mini">Built for Indian Hospitals • Pricing Transparency → Trust → Patients</div>
-    </section>
+<header>
+  <div class="logo">Doctor<b>MRP</b></div>
+  <nav>
+    <a href="#how">How it Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#order">Start</a>
+  </nav>
+</header>
 
-    <!-- ============================================================
-         2) LEAD HOOK / LEAD MAGNET (KENNEDY POINT #2)
-         ============================================================ -->
-    <section id="lead">
-      <div class="card">
-        <h2 class="section-title">Free: 7‑Point “Price Transparency” Checklist (PDF)</h2>
-        <p class="muted">Enter your WhatsApp to get it now. We’ll also send a live example link.</p>
-        <form id="leadForm" onsubmit="sendChecklist();return false" class="grid-2" aria-label="Lead Magnet WhatsApp">
-          <input id="leadName" type="text" placeholder="Your name (optional)" aria-label="Your name" />
-          <input id="leadPhone" type="tel" placeholder="WhatsApp number (e.g., 98xxxxxx90)" aria-label="WhatsApp number" />
-          <button class="btn btn-primary" type="submit" style="grid-column:1/-1;justify-self:start">Send Me the Checklist →</button>
-        </form>
-        <div class="mini">You can unsubscribe anytime. We reply within business hours.</div>
-      </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <h1>Steal Back Patients From Bigger Hospitals —<br>Show Your Prices First & Get the Call</h1>
+  <p class="sub">Patients compare. If they can’t see your prices, they choose someone else.</p>
+  <a href="https://wa.me/917588343376?text=I%20want%20a%20demo%20of%20DoctorMRP" class="btn btn-primary">WhatsApp a Demo Now →</a><br>
+  <a href="#order" class="btn btn-outline">List Your Hospital in 24 Hours (₹2,500/mo)</a>
+  <p class="small">Built for Indian Hospitals • Transparency → Trust → Patients</p>
+</section>
 
-    <!-- ============================================================
-         3) PROBLEM → AGITATE → SOLVE (KENNEDY POINT #3)
-         ============================================================ -->
-    <section id="pas">
-      <h2 class="section-title">Why hospitals lose patients (and the easy fix)</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Problem</h3>
-          <p><b>80%+ patients check prices.</b> Most hospitals hide them. That creates uncertainty.</p>
-        </div>
-        <div class="card">
-          <h3>Agitate</h3>
-          <p>Hiding prices = lost calls, low trust, more window‑shopping, and more no‑shows.</p>
-        </div>
-        <div class="card">
-          <h3>Solve</h3>
-          <p><b>DoctorMRP publishes</b> your OPD/IPD prices, ranks you by city/procedure, and sends WhatsApp/calls straight to your front desk.</p>
-        </div>
-      </div>
-    </section>
+<div class="container">
 
-    <!-- ============================================================
-         4) OFFER STACK (KENNEDY POINT #4)
-         ============================================================ -->
-    <section id="offer">
-      <h2 class="section-title">Offer & Launch Pricing</h2>
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
-          <div>
-            <div class="price">₹2,500 / month</div>
-            <div class="mini">Launch offer for the first 50 hospitals • Spots left: <b class="ticker" id="spots">—</b></div>
-          </div>
-          <div>
-            <a class="btn btn-primary" href="https://wa.me/917588343376?text=I%20want%20to%20start%20on%20DoctorMRP%20at%20%E2%82%B92500%2Fmo&utm_source=pricing&utm_campaign=launch">Start Now</a>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-        <div class="grid-2">
-          <div>
-            <h3>Core</h3>
-            <ul class="clean">
-              <li>Hospital profile page</li>
-              <li>Searchable service/price table (OPD/IPD)</li>
-              <li>SEO by city & procedure</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Bonuses</h3>
-            <ul class="clean">
-              <li><span class="badge">Verified by DoctorMRP</span> trust badge</li>
-              <li>WhatsApp & call buttons → direct to your front desk</li>
-              <li>24‑hour turnaround for first upload</li>
-              <li>2 price updates per month included</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-        <div class="card" style="background:#f3fffe">
-          <p><b>Risk‑Free:</b> <i>14‑Day “Leads or Leave” Guarantee</i> — if you don’t get 5 qualified inquiries in 14 days, cancel and pay ₹0 next month.</p>
-        </div>
-
-        <div class="warning" style="margin-top:12px">
-          <b>Urgency:</b> Launch price ends when the first 50 hospitals join.
-          <span class="mini">Daily countdown resets at midnight.</span>
-          <div class="mini">Time left today: <b id="countdown" class="ticker"></b></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         5) PROOF (KENNEDY POINT #5)
-         ============================================================ -->
-    <section id="proof">
-      <h2 class="section-title">Proof & Early Results</h2>
-      <div class="grid-3">
-        <div class="card proof">
-          <h3>Mini Case (Template)</h3>
-          <p><b>City, 50‑bed hospital</b>: posted 27 OPD prices → <b>19 WhatsApp</b> inquiries in 10 days → <b>7 booked</b> consults.<br/><span class="mini">Replace with your real metrics as they come in.</span></p>
-        </div>
-        <div class="card">
-          <h3>What admins say</h3>
-          <p>“Posting prices stopped the endless ‘kitna lagega?’ calls and got real patients to message.” <span class="mini">— Add name, role</span></p>
-        </div>
-        <div class="card">
-          <h3>Logos/Trust</h3>
-          <p class="muted">Add 3–6 hospital logos as you onboard. Keep them small and credible.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         6) MECHANISM (KENNEDY POINT #6)
-         ============================================================ -->
-    <section id="mechanism">
-      <h2 class="section-title">Why this works (the mechanism)</h2>
-      <div class="card">
-        <ul class="clean">
-          <li><b>Answer the #1 question:</b> “How much will it cost?” → removes fear.</li>
-          <li><b>Transparency builds trust:</b> trust triggers inquiry.</li>
-          <li><b>Search intent pages:</b> city + procedure pages attract “ready‑to‑book” patients.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         7) TRIAGE CTA (KENNEDY POINT #7)
-         ============================================================ -->
-    <section id="triage">
-      <h2 class="section-title">Choose your next step</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>WhatsApp My Demo</h3>
-          <p>See a live example and how leads flow to your front desk.</p>
-          <a class="btn btn-primary" href="https://wa.me/917588343376?text=Show%20me%20a%20live%20DoctorMRP%20demo&utm_source=triage&utm_campaign=launch">WhatsApp a Demo →</a>
-        </div>
-        <div class="card">
-          <h3>Send My Price‑Posting Checklist</h3>
-          <p>We’ll send the 7‑point PDF and a simple template for your first upload.</p>
-          <a class="btn btn-outline" href="https://wa.me/917588343376?text=Please%20send%20the%207-Point%20Price%20Transparency%20Checklist&utm_source=triage&utm_campaign=launch">Send the Checklist →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         8) OBJECTIONS → BULLETS (KENNEDY POINT #8)
-         ============================================================ -->
-    <section id="objections">
-      <h2 class="section-title">Your questions, answered</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>“Will competitors see my prices?”</h3>
-          <p><b>Yes.</b> And that’s why you’ll win first—patients call the hospital that answers pricing upfront.</p>
-        </div>
-        <div class="card">
-          <h3>“What if prices change?”</h3>
-          <p>Send a photo or sheet; we update within 24 hours. Two updates/month included.</p>
-        </div>
-        <div class="card">
-          <h3>“Do calls go to you?”</h3>
-          <p>No—direct to your staff. <b>You own the patient relationship.</b></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         9) ORDER AREA (KENNEDY POINT #9)
-         ============================================================ -->
-    <section id="order">
-      <h2 class="section-title">Start for ₹2,500 Today</h2>
-      <div class="card order">
-        <p class="muted">Nothing technical needed. We do the formatting.</p>
-        <div class="row">
-          <input id="hospName" type="text" placeholder="Hospital name *" aria-label="Hospital name" required />
-          <input id="city" type="text" placeholder="City *" aria-label="City" required />
-          <input id="contact" type="text" placeholder="Contact person *" aria-label="Contact person" required />
-          <input id="whatsapp" type="tel" placeholder="WhatsApp number *" aria-label="WhatsApp number" required />
-          <input id="email" type="text" placeholder="Email (optional)" aria-label="Email" />
-          <select id="ownership" aria-label="Ownership">
-            <option value="">Ownership (Private/Trust/Govt)</option>
-            <option>Private</option><option>Trust</option><option>Govt</option>
-          </select>
-        </div>
-        <div class="divider"></div>
-        <div class="grid-2">
-          <a class="btn btn-primary" href="#" onclick="quickStart();return false">Quick Start via WhatsApp →</a>
-          <a class="btn btn-outline" href="#" onclick="openForm();return false">Full Form (Google Form) →</a>
-        </div>
-        <div class="mini" style="margin-top:8px">Tip: For the full form, include a file upload for your price sheet/photo.</div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         10) LONG‑FORM FAQ (KENNEDY POINT #10)
-         ============================================================ -->
-    <section id="faq">
-      <h2 class="section-title">FAQ</h2>
-      <div class="faq card">
-        <details open>
-          <summary>Do patients really check prices?</summary>
-          <p>Yes—pricing clarity reduces fear and increases trust. Trust turns into inquiries.</p>
-        </details>
-        <details>
-          <summary>Who answers patient questions?</summary>
-          <p>Your staff. WhatsApp and call buttons connect patients directly to your front desk.</p>
-        </details>
-        <details>
-          <summary>How fast can we go live?</summary>
-          <p>Within 24 hours for the first upload, assuming you send your price list promptly.</p>
-        </details>
-        <details>
-          <summary>How do I update prices?</summary>
-          <p>Send a photo or spreadsheet anytime—updates go live within a day. Two updates/month included.</p>
-        </details>
-        <details>
-          <summary>Billing & cancellation?</summary>
-          <p>Monthly at ₹2,500. Cancel anytime. Covered by our 14‑Day “Leads or Leave” Guarantee.</p>
-        </details>
-      </div>
-    </section>
-
-    <!-- ===== Credibility strip (from headline block) ===== -->
-    <section>
-      <div class="card">
-        <p class="mini">Used by small & mid‑size Indian hospitals who can’t outspend corporate chains.</p>
-      </div>
-    </section>
-
-    <!-- Sticky helper for mobile -->
-    <section class="card">
-      <h3>Need help?</h3>
-      <p>Tap the WhatsApp button below and say “DEMO”. We’ll reply with a live example.</p>
-    </section>
-  </main>
-
-  <!-- ===================== STICKY WHATSAPP BAR ===================== -->
-  <div class="stickybar" role="complementary" aria-label="Sticky WhatsApp bar">
-    <div style="font-weight:900">Questions? Chat on WhatsApp</div>
-    <a href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20demo&utm_source=stickybar&utm_campaign=launch">WhatsApp a Demo →</a>
+  <!-- Lead Magnet -->
+  <div class="card">
+    <h2>Free: 7-Point Price Transparency Checklist (PDF)</h2>
+    <p>Enter WhatsApp number to get it now. Learn what to publish, what to avoid, and the one line that doubles inquiries.</p>
+    <form onsubmit="location.href='https://wa.me/917588343376?text=Send%20me%20the%207-Point%20Checklist';return false;">
+      <input type="tel" placeholder="WhatsApp number">
+      <button type="submit" class="btn btn-primary">Get My Free Checklist</button>
+    </form>
   </div>
 
-  <footer>
-    <div class="container">
-      © <span id="year"></span> DoctorMRP • Transparency → Trust → Patients • <a href="#top">Back to top</a>
+  <!-- PAS -->
+  <h2>Why Hospitals Lose Patients (and the Fix)</h2>
+  <div class="card"><b>Problem:</b> 80% of patients check prices. Most hospitals hide them.</div>
+  <div class="card"><b>Agitate:</b> Hiding = lost calls, low trust, shopping by rumor, more no-shows.</div>
+  <div class="card"><b>Solve:</b> DoctorMRP publishes your OPD/IPD prices, ranks you by city/procedure, and sends WhatsApp/calls to your desk.</div>
+
+  <!-- Offer Stack -->
+  <h2 id="pricing">Offer & Launch Pricing</h2>
+  <div class="card">
+    <h3>Start for ₹2,500 / month</h3>
+    <p>Launch offer for first 50 hospitals • Spots left today: <span id="spots">17</span></p>
+    <ul>
+      <li>Hospital profile + searchable price table</li>
+      <li>“Verified by DoctorMRP” trust badge</li>
+      <li>WhatsApp & Call buttons → direct to your front desk</li>
+      <li>24-hour turnaround for first upload</li>
+      <li>2 price updates/month included</li>
+    </ul>
+    <div class="card" style="background:#f3fffe">
+      <p><b>Guarantee:</b> 14-Day “Leads or Leave” — get 5 qualified patient inquiries or next month ₹0.</p>
     </div>
-  </footer>
+    <a href="#order" class="btn btn-primary">Start Now →</a>
+  </div>
 
-  <!-- ===================== SCRIPTS ===================== -->
-  <script>
-    // Dates & counters
-    (function(){
-      const now = new Date();
-      document.getElementById('year').textContent = now.getFullYear();
+  <!-- Proof -->
+  <h2>Proof</h2>
+  <div class="card">
+    <p><b>Aurangabad 50-bed hospital:</b> Posted 27 OPD prices → 19 WhatsApp inquiries in 10 days → 7 booked consults.</p>
+  </div>
+  <div class="card">
+    <p>“Posting prices stopped the endless ‘kitna lagega?’ calls and got real patients to message.” — Hospital Admin</p>
+  </div>
 
-      // Today label (e.g., 23 Aug 2025)
-      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-      document.getElementById('today').textContent = now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear();
+  <!-- Mechanism -->
+  <h2>Why It Works</h2>
+  <div class="card">
+    <ul>
+      <li>Patients want answers to “How much will it cost?” → Trust is built.</li>
+      <li>Transparency = credibility = more inquiries.</li>
+      <li>Search intent pages (city + procedure) bring ready-to-book patients.</li>
+    </ul>
+  </div>
 
-      // Days left to 1 Jan 2026 (local time)
-      const target = new Date('2026-01-01T00:00:00');
-      const ms = target - now;
-      const days = Math.max(0, Math.ceil(ms/86400000));
-      document.getElementById('daysLeft').textContent = days;
+  <!-- Objections -->
+  <h2>Common Questions</h2>
+  <div class="card"><b>Will competitors see my prices?</b><br>Yes — and that’s why you’ll win first.</div>
+  <div class="card"><b>What if prices change?</b><br>Send a photo — we update within 24 hrs.</div>
+  <div class="card"><b>Do calls go to you?</b><br>No — direct to your staff. You own the patient.</div>
 
-      // Simple scarcity number that changes but stays believable
-      const base = 50, minLeft = 5;
-      const dayIndex = Math.floor(now/86400000); // changes daily
-      const left = Math.max(minLeft, 30 - (dayIndex % 22));
-      const spots = document.getElementById('spots');
-      if (spots) spots.textContent = left;
+  <!-- Order -->
+  <h2 id="order">Start for ₹2,500 Today</h2>
+  <div class="card">
+    <form onsubmit="startNow();return false;">
+      <input id="hosp" placeholder="Hospital Name *" required>
+      <input id="city" placeholder="City *" required>
+      <input id="contact" placeholder="Contact Person *" required>
+      <input id="whatsapp" placeholder="WhatsApp Number *" required>
+      <input id="email" placeholder="Email">
+      <button type="submit" class="btn btn-primary">Quick Start via WhatsApp →</button>
+    </form>
+    <p class="small">Nothing technical needed. We do the formatting. Or use full Google Form upload.</p>
+  </div>
 
-      // Countdown to midnight (local)
-      function updateCountdown(){
-        const t = new Date();
-        const end = new Date(t); end.setHours(23,59,59,999);
-        const diff = end - t;
-        if (diff <= 0) { document.getElementById('countdown').textContent = "00:00:00"; return; }
-        const h = String(Math.floor(diff/3600000)).padStart(2,'0');
-        const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
-        const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
-        document.getElementById('countdown').textContent = h+":"+m+":"+s;
-      }
-      setInterval(updateCountdown, 1000); updateCountdown();
-    })();
+  <!-- FAQ -->
+  <h2>FAQ</h2>
+  <div class="card">
+    <details><summary>Do patients really check prices?</summary>Yes — and they trust hospitals that publish.</details>
+    <details><summary>How fast can we go live?</summary>Within 24 hours of receiving your price sheet.</details>
+    <details><summary>How do I update prices?</summary>Send a photo or spreadsheet anytime.</details>
+    <details><summary>Billing?</summary>₹2,500 monthly. Cancel anytime.</details>
+  </div>
 
-    // Lead magnet (WhatsApp send)
-    function sendChecklist(){
-      const name = document.getElementById('leadName').value.trim();
-      const phone = document.getElementById('leadPhone').value.trim();
-      const msg = `Please send the 7-Point Price Transparency Checklist.%0AName: ${encodeURIComponent(name)}%0AWhatsApp: ${encodeURIComponent(phone)}%0ASource: leadmagnet`;
-      location.href = `https://wa.me/917588343376?text=${msg}`;
-    }
+</div>
 
-    // Quick start via WhatsApp using order fields
-    function quickStart(){
-      const f = (id)=>document.getElementById(id).value.trim();
-      const msg = [
-        "I want to start on DoctorMRP.",
-        "Hospital: "+f('hospName'),
-        "City: "+f('city'),
-        "Contact: "+f('contact'),
-        "WhatsApp: "+f('whatsapp'),
-        "Email: "+f('email'),
-        "Ownership: "+f('ownership'),
-        "Source: order-quick"
- 
+<!-- Sticky WhatsApp -->
+<div class="stickybar">
+  <div>Questions? Chat on WhatsApp</div>
+  <a href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20demo">WhatsApp a Demo →</a>
+</div>
+
+<footer>
+  © 2025 DoctorMRP • Transparency → Trust → Patients
+</footer>
+
+<script>
+function startNow(){
+  const hosp=document.getElementById('hosp').value;
+  const city=document.getElementById('city').value;
+  const contact=document.getElementById('contact').value;
+  const phone=document.getElementById('whatsapp').value;
+  const email=document.getElementById('email').value;
+  const msg=`I want to start on DoctorMRP.%0AHospital: ${hosp}%0ACity: ${city}%0AContact: ${contact}%0AWhatsApp: ${phone}%0AEmail: ${email}`;
+  location.href=`https://wa.me/917588343376?text=${msg}`;
+}
+</script>
+
+</body>
+</html>
