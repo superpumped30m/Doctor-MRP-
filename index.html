@@ -1,441 +1,232 @@
 <!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>DoctorMRP — Transparent Pricing = More Patients</title>
-  <meta name="description" content="DoctorMRP helps Indian hospitals publish prices, build trust, and capture hot WhatsApp leads.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DoctorMRP – Turn Your Hospital’s Price List Into Patient Leads</title>
+  <meta name="description" content="DoctorMRP turns your hospital’s price list into a high‑trust page that ranks on Google and drives direct patient inquiries. 24‑hour free demo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --brand:#0cc0b7; --dark:#111; --ink:#222; --muted:#555;
-      --bg:#fafafa; --card:#fff; --line:#ddd;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:var(--bg);}
-    .container{max-width:900px;margin:0 auto;padding:20px;}
-    h1,h2,h3{margin-bottom:10px;color:var(--dark);}
-    h1{font-size:1.8rem;line-height:1.2;}
-    h2{font-size:1.4rem;margin-top:25px;}
-    p{margin-bottom:14px;color:var(--ink);}
-    ul{margin-left:18px;margin-bottom:14px;}
-    li{margin-bottom:8px;}
-    a{text-decoration:none;color:var(--brand);}
-    .btn{display:inline-block;padding:12px 18px;margin:6px 0;border-radius:8px;font-weight:bold;text-align:center;}
-    .btn-primary{background:var(--brand);color:#fff;}
-    .btn-outline{border:2px solid var(--brand);color:var(--brand);background:#fff;}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:18px;}
-    header{padding:12px 20px;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50;}
-    header .logo{font-weight:bold;font-size:18px;color:var(--dark);}
-    nav{float:right;}
-    nav a{margin-left:14px;color:var(--muted);font-size:14px;}
-    .hero{text-align:center;padding:40px 20px;}
-    .hero h1{font-size:1.9rem;margin-bottom:10px;}
-    .sub{color:var(--muted);}
-    .stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--brand);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:100;}
-    .stickybar a{background:#fff;color:var(--brand);padding:10px 14px;border-radius:6px;font-weight:bold;}
-    footer{font-size:13px;color:var(--muted);padding:20px;text-align:center;border-top:1px solid var(--line);margin-top:30px;}
-    input,select{width:100%;padding:10px;border:1px solid var(--line);border-radius:6px;margin-bottom:10px;}
-    .small{color:var(--muted);font-size:14px;}
-    details{margin-bottom:10px;}
-    details summary{cursor:pointer;font-weight:bold;}
+    :root { --brand:#14b8a6; --brand-dark:#0d9488; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .btn { @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 text-base font-semibold shadow-sm transition; }
+    .btn-primary { background: var(--brand); color: white; }
+    .btn-primary:hover { background: var(--brand-dark); }
+    .btn-outline { @apply border border-gray-300 bg-white text-gray-900; }
+    .badge { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium; background: #ecfeff; color:#155e75; }
+    .container-tight { @apply mx-auto max-w-screen-md px-4; }
+    .floating-wa { position: fixed; right: 16px; bottom: 16px; z-index: 60; }
+    .sticky-cta { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(6px); background: rgba(255,255,255,.8); }
+    .grid-card { @apply rounded-2xl border border-gray-200 bg-white p-5 shadow-sm; }
+    .section { @apply py-12 sm:py-16; }
   </style>
+  <!-- FAQ Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org", "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Will transparent prices make us look cheap?","acceptedAnswer":{"@type":"Answer","text":"No. Clarity is not discounting. Patients fear hidden costs; transparency builds trust and wins premium cases too."}},
+      {"@type":"Question","name":"We don’t have fixed prices for many procedures.","acceptedAnswer":{"@type":"Answer","text":"Use price ranges, \"From ₹X\" tiers, and list inclusions/exclusions. Patients still call when they understand the scope."}},
+      {"@type":"Question","name":"Can you do this without touching our website?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can host your price page on DoctorMRP or a subdomain like prices.yourhospital.in."}},
+      {"@type":"Question","name":"How fast can we go live?","acceptedAnswer":{"@type":"Answer","text":"24 hours for the first demo. Full page in 2–5 days after approval."}},
+      {"@type":"Question","name":"How do we measure ROI?","acceptedAnswer":{"@type":"Answer","text":"Every call, WhatsApp, and form submission is tracked in a simple dashboard so you see real patient inquiries, not vanity metrics."}}
+    ]
+  }
+  </script>
 </head>
-<body>
-
-<header>
-  <div class="logo">Doctor<b>MRP</b></div>
-  <nav>
-    <a href="#how">How it Works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#order">Start</a>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <h1>Steal Back Patients From Bigger Hospitals —<br>Show Your Prices First & Get the Call</h1>
-  <p class="sub">Patients compare. If they can’t see your prices, they choose someone else.</p>
-  <a href="https://wa.me/917588343376?text=I%20want%20a%20demo%20of%20DoctorMRP" class="btn btn-primary">WhatsApp a Demo Now →</a><br>
-  <a href="#order" class="btn btn-outline">List Your Hospital in 24 Hours (₹2,500/mo)</a>
-  <p class="small">Built for Indian Hospitals • Transparency → Trust → Patients</p>
-</section>
-
-<div class="container">
-
-  <!-- Lead Magnet -->
-  <div class="card">
-    <h2>Free: 7-Point Price Transparency Checklist (PDF)</h2>
-    <p>Enter WhatsApp number to get it now. Learn what to publish, what to avoid, and the one line that doubles inquiries.</p>
-    <form onsubmit="location.href='https://wa.me/917588343376?text=Send%20me%20the%207-Point%20Checklist';return false;">
-      <input type="tel" placeholder="WhatsApp number">
-      <button type="submit" class="btn btn-primary">Get My Free Checklist</button>
-    </form>
-  </div>
-
-  <!-- PAS -->
-  <h2>Why Hospitals Lose Patients (and the Fix)</h2>
-  <div class="card"><b>Problem:</b> 80% of patients check prices. Most hospitals hide them.</div>
-  <div class="card"><b>Agitate:</b> Hiding = lost calls, low trust, shopping by rumor, more no-shows.</div>
-  <div class="card"><b>Solve:</b> DoctorMRP publishes your OPD/IPD prices, ranks you by city/procedure, and sends WhatsApp/calls to your desk.</div>
-
-  <!-- Offer Stack -->
-  <h2 id="pricing">Offer & Launch Pricing</h2>
-  <div class="card">
-    <h3>Start for ₹2,500 / month</h3>
-    <p>Launch offer for first 50 hospitals • Spots left today: <span id="spots">17</span></p>
-    <ul>
-      <li>Hospital profile + searchable price table</li>
-      <li>“Verified by DoctorMRP” trust badge</li>
-      <li>WhatsApp & Call buttons → direct to your front desk</li>
-      <li>24-hour turnaround for first upload</li>
-      <li>2 price updates/month included</li>
-    </ul>
-    <div class="card" style="background:#f3fffe">
-      <p><b>Guarantee:</b> 14-Day “Leads or Leave” — get 5 qualified patient inquiries or next month ₹0.</p>
+<body class="bg-gradient-to-b from-white via-white to-slate-50 text-slate-900">  <!-- Sticky Mini-Header CTA -->  <div class="sticky-cta border-b border-slate-200">
+    <div class="container-tight flex items-center justify-between gap-3 py-3">
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl bg-teal-500/10 flex items-center justify-center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-teal-600"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7l9-4 9 4-9 4-9-4zm9 4v9"/></svg>
+        </div>
+        <span class="font-semibold">DoctorMRP</span>
+        <span class="hidden sm:inline text-xs text-slate-500">Transparent Prices → Trusted Patients</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#lead" class="btn btn-primary">Get My Free Price Page</a>
+        <a href="tel:+917588343376" class="btn btn-outline">Call</a>
+      </div>
     </div>
-    <a href="#order" class="btn btn-primary">Start Now →</a>
+  </div>  <!-- HERO -->  <header class="section pt-10 sm:pt-16">
+    <div class="container-tight text-center">
+      <div class="mb-3 flex justify-center"><span class="badge">New • 24‑Hour Demo</span></div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+        Turn Your Hospital’s <span class="text-teal-600">Price List</span> Into <span class="text-teal-600">Patient Leads</span> —
+        <span class="whitespace-nowrap">Without Extra Ad Spend</span>
+      </h1>
+      <p class="mt-4 text-slate-600">Patients are already googling <em>“MRI cost”, “IVF package”, “bypass surgery price”</em>.
+        If they don’t see <strong>your</strong> prices, they call someone else. We build a high‑trust price page that ranks and converts.</p>
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#lead" class="btn btn-primary w-full sm:w-auto">Get My Free Price Page</a>
+        <a href="#how" class="btn btn-outline w-full sm:w-auto">See How It Works</a>
+      </div>
+      <div class="mt-6 text-xs text-slate-500">WhatsApp fast track: <a class="underline" href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20free%20price%20page%20demo.">+91 75883 43376</a></div>
+    </div>
+  </header>  <!-- Why It Works / What You Get -->  <section class="section">
+    <div class="container-tight grid gap-4">
+      <div class="grid-card">
+        <h2 class="text-xl font-bold">Why Transparent Prices Win</h2>
+        <ul class="mt-3 space-y-2 text-slate-700 list-disc pl-5">
+          <li><strong>Trust beats advertising.</strong> Hospitals that show prices earn the call.</li>
+          <li><strong>Price-first search.</strong> People type <em>procedure + cost + city</em>. Show up there and you win.</li>
+          <li><strong>Speed to decision.</strong> A clear page gets calls today — not “awareness” next month.</li>
+        </ul>
+      </div>
+      <div class="grid-card">
+        <h3 class="font-semibold">What You Get</h3>
+        <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="rounded-xl border border-slate-200 p-4">
+            <p class="font-medium">High‑Converting Price Page</p>
+            <p class="text-sm text-slate-600">20–100 services, inclusions/exclusions, OPD/IPD, packages.</p>
+          </div>
+          <div class="rounded-xl border border-slate-200 p-4">
+            <p class="font-medium">Google Visibility Basics</p>
+            <p class="text-sm text-slate-600">SEO titles, schema, internal links — so you get discovered.</p>
+          </div>
+          <div class="rounded-xl border border-slate-200 p-4">
+            <p class="font-medium">Direct Patient Inquiries</p>
+            <p class="text-sm text-slate-600">Click‑to‑Call, WhatsApp, and forms go straight to you.</p>
+          </div>
+          <div class="rounded-xl border border-slate-200 p-4">
+            <p class="font-medium">Simple Lead Dashboard</p>
+            <p class="text-sm text-slate-600">Track calls, messages, forms. Real inquiries, not vanity metrics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Why Now / Money Math -->  <section class="section" id="why">
+    <div class="container-tight grid-card">
+      <h2 class="text-xl font-bold">Why Do This Now (Not Next Quarter)</h2>
+      <div class="mt-3 grid gap-3">
+        <p>The first hospitals in your city to publish prices will own the search. Competitors are already boosting “MRI price” and “IVF cost” ads. One patient for a major procedure can pay for this many times over.</p>
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+          <p class="font-semibold">Money Math</p>
+          <p class="text-sm text-slate-600">1 IVF cycle ₹1.5–2.5 lakh; 1 cardiac procedure ₹1.8–3.5 lakh. A single additional case more than covers your investment.</p>
+        </div>
+      </div>
+      <div class="mt-4">
+        <a href="#lead" class="btn btn-primary">I Want the First‑Mover Advantage</a>
+      </div>
+    </div>
+  </section>  <!-- Process -->  <section class="section" id="how">
+    <div class="container-tight grid-card">
+      <h2 class="text-xl font-bold">Exact Process (7‑Minute Decision)</h2>
+      <ol class="mt-3 space-y-2 text-slate-700 list-decimal pl-5">
+        <li><strong>Day 0:</strong> Share hospital name, logo, address, and 20–50 services (or we draft from your brochure).</li>
+        <li><strong>Day 1:</strong> See your live demo with call/WhatsApp buttons.</li>
+        <li><strong>Day 2–7:</strong> Approve → we publish → inquiries start.</li>
+        <li><strong>Day 30:</strong> If you’re not happy, you don’t pay.</li>
+      </ol>
+      <div class="mt-4 flex gap-3 flex-wrap">
+        <a href="#lead" class="btn btn-primary">Build My Free Sample Page</a>
+        <a class="btn btn-outline" href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20show%20me%20examples%20for%20my%20specialty.">Show Me Examples for My Specialty</a>
+      </div>
+    </div>
+  </section>  <!-- Lead Magnet / Ethical Bribe & Main Lead Form -->  <section class="section" id="lead">
+    <div class="container-tight grid gap-4">
+      <div class="grid-card">
+        <h2 class="text-xl font-bold">Free PDF: 5 Reasons Patients Choose Hospitals That Show Prices (and 3 Mistakes to Avoid)</h2>
+        <p class="mt-2 text-slate-600">Get it on WhatsApp in 30 seconds. We’ll also build your first price page demo at no cost.</p>
+        <form id="leadForm" class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="text-sm text-slate-600">Your Name</label>
+            <input required name="name" class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2" placeholder="Dr. / Mr. / Ms." />
+          </div>
+          <div>
+            <label class="text-sm text-slate-600">Hospital / Clinic</label>
+            <input required name="hospital" class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2" placeholder="e.g., Sunrise Multispeciality" />
+          </div>
+          <div>
+            <label class="text-sm text-slate-600">City</label>
+            <input required name="city" class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2" placeholder="e.g., Pune" />
+          </div>
+          <div>
+            <label class="text-sm text-slate-600">WhatsApp Number</label>
+            <input required name="wa" class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2" placeholder="10‑digit mobile" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="text-sm text-slate-600">Top Services to Publish (comma‑separated)</label>
+            <textarea name="services" rows="3" class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2" placeholder="MRI Brain, CT Chest, IVF Basic, Knee Replacement…"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex items-center gap-3">
+            <button type="submit" class="btn btn-primary">Send Me the PDF & Build My Demo</button>
+            <a class="btn btn-outline" href="tel:+917588343376">Or Call Now</a>
+          </div>
+          <p class="sm:col-span-2 text-xs text-slate-500">By submitting, you’ll receive the PDF and a WhatsApp message to confirm your 24‑hour demo request.</p>
+        </form>
+      </div><div class="grid-card">
+    <h3 class="font-semibold">Limited Onboarding (Scarcity)</h3>
+    <p class="mt-2 text-slate-600">We’re building <strong>10 showcase pages</strong> this month for early partners in Mumbai, Pune, Delhi NCR, Ahmedabad, Hyderabad. After 10, onboarding closes till next month.</p>
+    <a href="#lead" class="mt-3 btn btn-primary">Reserve My Slot</a>
   </div>
-
-  <!-- Proof -->
-  <h2>Proof</h2>
-  <div class="card">
-    <p><b>Aurangabad 50-bed hospital:</b> Posted 27 OPD prices → 19 WhatsApp inquiries in 10 days → 7 booked consults.</p>
-  </div>
-  <div class="card">
-    <p>“Posting prices stopped the endless ‘kitna lagega?’ calls and got real patients to message.” — Hospital Admin</p>
-  </div>
-
-  <!-- Mechanism -->
-  <h2>Why It Works</h2>
-  <div class="card">
-    <ul>
-      <li>Patients want answers to “How much will it cost?” → Trust is built.</li>
-      <li>Transparency = credibility = more inquiries.</li>
-      <li>Search intent pages (city + procedure) bring ready-to-book patients.</li>
-    </ul>
-  </div>
-
-  <!-- Objections -->
-  <h2>Common Questions</h2>
-  <div class="card"><b>Will competitors see my prices?</b><br>Yes — and that’s why you’ll win first.</div>
-  <div class="card"><b>What if prices change?</b><br>Send a photo — we update within 24 hrs.</div>
-  <div class="card"><b>Do calls go to you?</b><br>No — direct to your staff. You own the patient.</div>
-
-  <!-- Order -->
-  <h2 id="order">Start for ₹2,500 Today</h2>
-  <div class="card">
-    <form onsubmit="startNow();return false;">
-      <input id="hosp" placeholder="Hospital Name *" required>
-      <input id="city" placeholder="City *" required>
-      <input id="contact" placeholder="Contact Person *" required>
-      <input id="whatsapp" placeholder="WhatsApp Number *" required>
-      <input id="email" placeholder="Email">
-      <button type="submit" class="btn btn-primary">Quick Start via WhatsApp →</button>
-    </form>
-    <p class="small">Nothing technical needed. We do the formatting. Or use full Google Form upload.</p>
-  </div>
-
-  <!-- FAQ -->
-  <h2>FAQ</h2>
-  <div class="card">
-    <details><summary>Do patients really check prices?</summary>Yes — and they trust hospitals that publish.</details>
-    <details><summary>How fast can we go live?</summary>Within 24 hours of receiving your price sheet.</details>
-    <details><summary>How do I update prices?</summary>Send a photo or spreadsheet anytime.</details>
-    <details><summary>Billing?</summary>₹2,500 monthly. Cancel anytime.</details>
-  </div>
-
 </div>
 
-<!-- Sticky WhatsApp -->
-<div class="stickybar">
-  <div>Questions? Chat on WhatsApp</div>
-  <a href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20demo">WhatsApp a Demo →</a>
-</div>
+  </section>  <!-- FAQs -->  <section class="section">
+    <div class="container-tight grid-card">
+      <h2 class="text-xl font-bold">Frequently Asked Questions</h2>
+      <div class="mt-3 space-y-2">
+        <details class="rounded-xl border border-slate-200 p-4" open>
+          <summary class="font-medium cursor-pointer">Will this make us look cheap?</summary>
+          <p class="mt-2 text-sm text-slate-600">No. Clarity ≠ discounting. Patients fear hidden costs; the hospital that removes fear wins the case — including premium cases.</p>
+        </details>
+        <details class="rounded-xl border border-slate-200 p-4">
+          <summary class="font-medium cursor-pointer">We don’t have fixed prices for many procedures.</summary>
+          <p class="mt-2 text-sm text-slate-600">Use ranges (e.g., “From ₹X”) and list what’s included/excluded. Patients still call because expectation is set.</p>
+        </details>
+        <details class="rounded-xl border border-slate-200 p-4">
+          <summary class="font-medium cursor-pointer">Can you do this without touching our website?</summary>
+          <p class="mt-2 text-sm text-slate-600">Yes. We can host on DoctorMRP or on a subdomain like <strong>prices.yourhospital.in</strong>.</p>
+        </details>
+        <details class="rounded-xl border border-slate-200 p-4">
+          <summary class="font-medium cursor-pointer">How fast can we go live?</summary>
+          <p class="mt-2 text-sm text-slate-600">24 hours for the first demo; 2–5 days for the full page after approval.</p>
+        </details>
+        <details class="rounded-xl border border-slate-200 p-4">
+          <summary class="font-medium cursor-pointer">How do we measure ROI?</summary>
+          <p class="mt-2 text-sm text-slate-600">Every call/WhatsApp/form is tracked in a simple dashboard so you see real inquiries, not vanity metrics.</p>
+        </details>
+      </div>
+    </div>
+  </section>  <!-- Footer -->  <footer class="section pt-6">
+    <div class="container-tight text-center">
+      <p class="text-sm text-slate-500">Inspired by global transparency leaders (e.g., Turquoise Health, MD Clarity). DoctorMRP focuses on Indian hospitals and patient acquisition.</p>
+      <div class="mt-3 flex items-center justify-center gap-3">
+        <a href="#lead" class="btn btn-primary">Claim Your Free Demo</a>
+        <a href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20let%27s%20start%20my%20price%20page." class="btn btn-outline">WhatsApp</a>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">Contact: <a class="underline" href="mailto:myfirstmillionapp@gmail.com">myfirstmillionapp@gmail.com</a> • <a class="underline" href="tel:+917588343376">+91 75883 43376</a></p>
+    </div>
+  </footer>  <!-- Floating WhatsApp Button -->  <div class="floating-wa">
+    <a aria-label="WhatsApp DoctorMRP" title="WhatsApp DoctorMRP" href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20free%20price%20page%20demo." class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-500 shadow-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="h-7 w-7 fill-white"><path d="M19.11 17.53c-.27-.14-1.6-.79-1.84-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.7-1.32-1.57-1.48-1.84-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.12.65.28 1.15.45 1.54.57.65.2 1.24.17 1.71.1.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.16.16-1.28-.07-.11-.25-.18-.52-.32z"/><path d="M16.02 3.2C9.42 3.2 4.08 8.54 4.08 15.13c0 2.62.85 5.04 2.29 7.01L4 29.59l7.64-2c1.9 1.04 4.09 1.64 6.38 1.64 6.6 0 11.94-5.34 11.94-11.94S22.62 3.2 16.02 3.2zm0 21.72c-2.3 0-4.42-.75-6.14-2.02l-.44-.33-4.53 1.19 1.21-4.41-.29-.45c-1.29-1.79-2.04-3.98-2.04-6.33 0-6.03 4.91-10.94 10.94-10.94s10.94 4.91 10.94 10.94-4.91 10.94-10.94 10.94z"/></svg>
+    </a>
+  </div>  <!-- Simple JS: form → WhatsApp prefill (and optional email fallback) -->  <script>
+    const form = document.getElementById('leadForm');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = fd.get('name')?.toString().trim() || '';
+      const hospital = fd.get('hospital')?.toString().trim() || '';
+      const city = fd.get('city')?.toString().trim() || '';
+      const wa = fd.get('wa')?.toString().trim() || '';
+      const services = fd.get('services')?.toString().trim() || '';
 
-<footer>
-  © 2025 DoctorMRP • Transparency → Trust → Patients
-</footer>
-
-<script>
-function startNow(){
-  const hosp=document.getElementById('hosp').value;
-  const city=document.getElementById('city').value;
-  const contact=document.getElementById('contact').value;
-  const phone=document.getElementById('whatsapp').value;
-  const email=document.getElementById('email').value;
-  const msg=`I want to start on DoctorMRP.%0AHospital: ${hosp}%0ACity: ${city}%0AContact: ${contact}%0AWhatsApp: ${phone}%0AEmail: ${email}`;
-  location.href=`https://wa.me/917588343376?text=${msg}`;
-}
-</script>
-
-</body>
+      const msg = encodeURIComponent(
+        `New DoctorMRP Lead\nName: ${name}\nHospital: ${hospital}\nCity: ${city}\nWhatsApp: ${wa}\nServices: ${services}\n\nPlease send the PDF and 24-hour demo.`
+      );
+      // Open WhatsApp chat prefilled
+      window.open(`https://wa.me/917588343376?text=${msg}`, '_blank');
+      // Optional: also open a mailto as fallback
+      const subject = encodeURIComponent('DoctorMRP – New Demo Request');
+      const body = msg;
+      setTimeout(() => {
+        window.location.href = `mailto: contact@doctormrp.com?subject=${subject}&body=${body}`;
+      }, 600);
+    });
+  </script></body>
 </html>
-// Doctor MRP – Homepage in Dan Kennedy Direct-Response Style // Single-file React component. TailwindCSS recommended. No external state. // Default export so it can be dropped into any React app or a Next.js page.
-
-import React, { useState } from "react"; import { motion } from "framer-motion";
-
-export default function DoctorMRPHome() { const [form, setForm] = useState({ name: "", email: "", hospital: "", phone: "" }); const [submitted, setSubmitted] = useState(false);
-
-const painPoints = [ "Patients compare prices before choosing a hospital.", "If your prices aren't visible, patients call your competitors.", "'Branding' without leads wastes time and money.", "Every week of invisibility costs OPD & IPD volume.", ];
-
-const steps = [ { title: "List Your Prices", desc: "Upload common procedures & package rates in minutes." }, { title: "Get Found Instantly", desc: "Appear where patients search for procedures and costs." }, { title: "Convert to Calls", desc: "Leads come straight to your phone, WhatsApp, or desk." }, ];
-
-const handleSubmit = (e) => { e.preventDefault(); // In production, post to your backend or form service. setSubmitted(true); };
-
-return ( <div className="min-h-screen bg-neutral-50 text-neutral-900"> {/* Top Bar */} <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-neutral-200"> <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"> <div className="flex items-center gap-3"> <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600" /> <span className="font-extrabold tracking-tight text-lg">Doctor <span className="text-teal-600">MRP</span></span> </div> <nav className="hidden md:flex items-center gap-6 text-sm font-medium"> <a href="#proof" className="hover:text-teal-700">Proof</a> <a href="#how" className="hover:text-teal-700">How it works</a> <a href="#guarantee" className="hover:text-teal-700">Guarantee</a> <a href="#lead-form" className="px-4 py-2 rounded-xl bg-teal-600 text-white shadow hover:bg-teal-700">Get Free Report</a> </nav> </div> </header>
-
-{/* HERO */}
-  <section className="relative overflow-hidden">
-    <div className="absolute inset-0 -z-10 bg-gradient-to-b from-teal-50 via-white to-white" />
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div className="grid lg:grid-cols-12 gap-10 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="lg:col-span-7"
-        >
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Turn Your Hospital’s Price List Into a <span className="text-teal-700">Patient Magnet</span>
-          </h1>
-          <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
-            Without spending a rupee more on advertising. Patients are searching right now. If they can’t
-            see your prices online, they will go somewhere else.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="#lead-form" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-teal-600 text-white font-semibold shadow hover:bg-teal-700">
-              🔥 Upload Your Price List Now
-            </a>
-            <a href="#demo" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-white border border-neutral-300 font-semibold hover:bg-neutral-50">
-              📞 Book a Free Demo
-            </a>
-          </div>
-          <p className="mt-4 text-sm text-neutral-500">
-            Kennedy-style, direct-response design: headline → pain → offer → CTA.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="lg:col-span-5"
-        >
-          <div className="relative rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
-            <div className="absolute -top-3 -left-3 rotate-[-2deg] bg-teal-600 text-white text-xs font-bold rounded px-2 py-1 shadow">
-              New Patients, Not "Branding"
-            </div>
-            <ul className="space-y-3 mt-2">
-              {painPoints.map((p, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-teal-600" />
-                  <span className="text-neutral-800">{p}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 grid sm:grid-cols-3 gap-3">
-              {[
-                { k: "+120", t: "patient calls in 30 days" },
-                { k: "7", t: "days to go live" },
-                { k: "0%", t: "extra ad spend" },
-              ].map((m, i) => (
-                <div key={i} className="rounded-2xl border border-neutral-200 p-4 text-center">
-                  <div className="text-2xl font-extrabold text-teal-700">{m.k}</div>
-                  <div className="text-xs text-neutral-500">{m.t}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  </section>
-
-  {/* PROOF */}
-  <section id="proof" className="border-t border-neutral-200 bg-white">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-      <div className="grid md:grid-cols-3 gap-6">
-        {[1,2,3].map((_,i)=> (
-          <div key={i} className="rounded-3xl border border-neutral-200 p-6 bg-neutral-50">
-            <p className="text-sm italic text-neutral-700">
-              “A mid-size hospital in Pune listed 25 procedures and got 120+ new patient calls in the first month.”
-            </p>
-            <div className="mt-4 text-xs text-neutral-500">Administrator, 100-bed Hospital</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* HOW IT WORKS */}
-  <section id="how" className="border-t border-neutral-200 bg-white">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">How Doctor MRP Works</h2>
-      <p className="mt-2 text-neutral-600 max-w-2xl">We don’t just list your prices — we turn them into patient leads.</p>
-      <div className="mt-8 grid md:grid-cols-3 gap-6">
-        {steps.map((s, i) => (
-          <div key={i} className="rounded-3xl p-6 border border-neutral-200 bg-white shadow-sm">
-            <div className="text-sm font-bold text-teal-700">Step {i + 1}</div>
-            <div className="mt-2 text-lg font-semibold">{s.title}</div>
-            <p className="mt-2 text-neutral-600">{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* OFFER + GUARANTEE */}
-  <section id="guarantee" className="relative border-t border-neutral-200">
-    <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-teal-50" />
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Start Getting Patient Inquiries Within 7 Days</h3>
-          <p className="mt-3 text-neutral-700">
-            This isn’t “branding.” This is direct patient acquisition. List your prices today and
-            convert searchers into callers.
-          </p>
-          <div className="mt-6">
-            <a href="#lead-form" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-teal-600 text-white font-semibold shadow hover:bg-teal-700">
-              Get Started Now
-            </a>
-          </div>
-        </div>
-        <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
-          <div className="text-sm font-bold text-teal-700">Risk Reversal</div>
-          <p className="mt-2 text-lg font-semibold">If you don’t get patient inquiries within 30 days, you don’t pay.</p>
-          <ul className="mt-4 space-y-2 text-neutral-700">
-            <li>• Clear terms & transparent onboarding</li>
-            <li>• Cancel anytime if results don’t show</li>
-            <li>• Keep your listing data</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* DEMO CTA */}
-  <section id="demo" className="border-t border-neutral-200 bg-white">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-      <div className="rounded-3xl border border-neutral-200 p-8 bg-neutral-50 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h4 className="text-xl font-extrabold tracking-tight">Prefer a walkthrough?</h4>
-          <p className="text-neutral-700">Book a 15-minute demo. See listings, search, and lead flow live.</p>
-        </div>
-        <a href="#lead-form" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-white border border-neutral-300 font-semibold hover:bg-neutral-100">Book Free Demo</a>
-      </div>
-    </div>
-  </section>
-
-  {/* LEAD MAGNET / FORM */}
-  <section id="lead-form" className="border-t border-neutral-200">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
-        <div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Free Report: 5 Mistakes That Cost Hospitals 100+ Patients Every Month</h3>
-          <p className="mt-3 text-neutral-700 max-w-2xl">
-            Don’t leave empty-handed. Kennedy never wastes a visit. Drop your details and we’ll send you the
-            step-by-step playbook to turn transparency into patient volume.
-          </p>
-          <ul className="mt-6 space-y-3 text-neutral-700">
-            <li>• The single line every price page must include</li>
-            <li>• The 3 procedures to list first for quick wins</li>
-            <li>• Invisible trust signals that double inquiries</li>
-          </ul>
-        </div>
-        <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="text-sm font-medium">Your Name</label>
-                <input
-                  required
-                  value={form.name}
-                  onChange={(e)=>setForm({ ...form, name: e.target.value })}
-                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-                  placeholder="e.g., Dr. A. Sharma"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium">Work Email</label>
-                <input
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e)=>setForm({ ...form, email: e.target.value })}
-                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-                  placeholder="name@hospital.com"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium">Hospital / Clinic</label>
-                <input
-                  required
-                  value={form.hospital}
-                  onChange={(e)=>setForm({ ...form, hospital: e.target.value })}
-                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-                  placeholder="e.g., Shreecare Multispeciality"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium">Phone (optional)</label>
-                <input
-                  value={form.phone}
-                  onChange={(e)=>setForm({ ...form, phone: e.target.value })}
-                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-                  placeholder="WhatsApp preferred"
-                />
-              </div>
-              <button type="submit" className="w-full rounded-xl px-4 py-3 bg-teal-600 text-white font-semibold shadow hover:bg-teal-700">
-                📩 Email Me the Free Report
-              </button>
-              <p className="text-xs text-neutral-500">By submitting, you agree to receive practical emails about patient acquisition. No spam. Unsubscribe anytime.</p>
-            </form>
-          ) : (
-            <div className="text-center p-6">
-              <div className="mx-auto h-12 w-12 rounded-full bg-teal-100 flex items-center justify-center">✅</div>
-              <h4 className="mt-4 text-lg font-bold">Check your inbox!</h4>
-              <p className="text-neutral-700">Your report is on the way. We’ll also follow up with a short demo option.</p>
-              <a href="#how" className="mt-6 inline-flex items-center justify-center rounded-xl px-6 py-3 bg-white border border-neutral-300 font-semibold hover:bg-neutral-50">See How It Works</a>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* FAQ */}
-  <section className="border-t border-neutral-200 bg-white">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Frequently Asked Questions</h3>
-      <div className="mt-8 grid md:grid-cols-2 gap-6">
-        {[
-          { q: "Do patients actually care about prices?", a: "Yes. Price transparency builds trust, improves conversion, and reduces enquiry friction." },
-          { q: "How fast can we go live?", a: "Most hospitals publish 20–30 procedures in under a week and start receiving calls immediately after indexing." },
-          { q: "Is this just listing?", a: "No. We optimize pages for search intent and route leads directly to your team via phone/WhatsApp." },
-          { q: "What if it doesn’t work for us?", a: "Our 30‑day results guarantee means you don’t pay unless inquiries start coming in." },
-        ].map((f,i)=> (
-          <div key={i} className="rounded-3xl border border-neutral-200 p-6 bg-neutral-50">
-            <div className="font-semibold">{f.q}</div>
-            <p className="mt-2 text-neutral-700">{f.a}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* FOOTER */}
-  <footer className="border-t border-neutral-200 bg-white">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div className="text-sm text-neutral-600">© {new Date().getFullYear()} Doctor MRP. All rights reserved.</div>
-      <div className="flex items-center gap-4 text-sm">
-        <a href="#" className="hover:text-teal-700">Privacy</a>
-        <a href="#" className="hover:text-teal-700">Terms</a>
-        <a href="#lead-form" className="px-4 py-2 rounded-xl bg-teal-600 text-white shadow hover:bg-teal-700">Start Now</a>
-      </div>
-    </div>
-  </footer>
-</div>
-
-); }
-
