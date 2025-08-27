@@ -170,3 +170,272 @@ function startNow(){
 
 </body>
 </html>
+// Doctor MRP – Homepage in Dan Kennedy Direct-Response Style // Single-file React component. TailwindCSS recommended. No external state. // Default export so it can be dropped into any React app or a Next.js page.
+
+import React, { useState } from "react"; import { motion } from "framer-motion";
+
+export default function DoctorMRPHome() { const [form, setForm] = useState({ name: "", email: "", hospital: "", phone: "" }); const [submitted, setSubmitted] = useState(false);
+
+const painPoints = [ "Patients compare prices before choosing a hospital.", "If your prices aren't visible, patients call your competitors.", "'Branding' without leads wastes time and money.", "Every week of invisibility costs OPD & IPD volume.", ];
+
+const steps = [ { title: "List Your Prices", desc: "Upload common procedures & package rates in minutes." }, { title: "Get Found Instantly", desc: "Appear where patients search for procedures and costs." }, { title: "Convert to Calls", desc: "Leads come straight to your phone, WhatsApp, or desk." }, ];
+
+const handleSubmit = (e) => { e.preventDefault(); // In production, post to your backend or form service. setSubmitted(true); };
+
+return ( <div className="min-h-screen bg-neutral-50 text-neutral-900"> {/* Top Bar */} <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-neutral-200"> <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"> <div className="flex items-center gap-3"> <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600" /> <span className="font-extrabold tracking-tight text-lg">Doctor <span className="text-teal-600">MRP</span></span> </div> <nav className="hidden md:flex items-center gap-6 text-sm font-medium"> <a href="#proof" className="hover:text-teal-700">Proof</a> <a href="#how" className="hover:text-teal-700">How it works</a> <a href="#guarantee" className="hover:text-teal-700">Guarantee</a> <a href="#lead-form" className="px-4 py-2 rounded-xl bg-teal-600 text-white shadow hover:bg-teal-700">Get Free Report</a> </nav> </div> </header>
+
+{/* HERO */}
+  <section className="relative overflow-hidden">
+    <div className="absolute inset-0 -z-10 bg-gradient-to-b from-teal-50 via-white to-white" />
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="grid lg:grid-cols-12 gap-10 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="lg:col-span-7"
+        >
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            Turn Your Hospital’s Price List Into a <span className="text-teal-700">Patient Magnet</span>
+          </h1>
+          <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
+            Without spending a rupee more on advertising. Patients are searching right now. If they can’t
+            see your prices online, they will go somewhere else.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#lead-form" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-teal-600 text-white font-semibold shadow hover:bg-teal-700">
+              🔥 Upload Your Price List Now
+            </a>
+            <a href="#demo" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-white border border-neutral-300 font-semibold hover:bg-neutral-50">
+              📞 Book a Free Demo
+            </a>
+          </div>
+          <p className="mt-4 text-sm text-neutral-500">
+            Kennedy-style, direct-response design: headline → pain → offer → CTA.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="lg:col-span-5"
+        >
+          <div className="relative rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div className="absolute -top-3 -left-3 rotate-[-2deg] bg-teal-600 text-white text-xs font-bold rounded px-2 py-1 shadow">
+              New Patients, Not "Branding"
+            </div>
+            <ul className="space-y-3 mt-2">
+              {painPoints.map((p, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-teal-600" />
+                  <span className="text-neutral-800">{p}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 grid sm:grid-cols-3 gap-3">
+              {[
+                { k: "+120", t: "patient calls in 30 days" },
+                { k: "7", t: "days to go live" },
+                { k: "0%", t: "extra ad spend" },
+              ].map((m, i) => (
+                <div key={i} className="rounded-2xl border border-neutral-200 p-4 text-center">
+                  <div className="text-2xl font-extrabold text-teal-700">{m.k}</div>
+                  <div className="text-xs text-neutral-500">{m.t}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+
+  {/* PROOF */}
+  <section id="proof" className="border-t border-neutral-200 bg-white">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <div className="grid md:grid-cols-3 gap-6">
+        {[1,2,3].map((_,i)=> (
+          <div key={i} className="rounded-3xl border border-neutral-200 p-6 bg-neutral-50">
+            <p className="text-sm italic text-neutral-700">
+              “A mid-size hospital in Pune listed 25 procedures and got 120+ new patient calls in the first month.”
+            </p>
+            <div className="mt-4 text-xs text-neutral-500">Administrator, 100-bed Hospital</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* HOW IT WORKS */}
+  <section id="how" className="border-t border-neutral-200 bg-white">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">How Doctor MRP Works</h2>
+      <p className="mt-2 text-neutral-600 max-w-2xl">We don’t just list your prices — we turn them into patient leads.</p>
+      <div className="mt-8 grid md:grid-cols-3 gap-6">
+        {steps.map((s, i) => (
+          <div key={i} className="rounded-3xl p-6 border border-neutral-200 bg-white shadow-sm">
+            <div className="text-sm font-bold text-teal-700">Step {i + 1}</div>
+            <div className="mt-2 text-lg font-semibold">{s.title}</div>
+            <p className="mt-2 text-neutral-600">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* OFFER + GUARANTEE */}
+  <section id="guarantee" className="relative border-t border-neutral-200">
+    <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-teal-50" />
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Start Getting Patient Inquiries Within 7 Days</h3>
+          <p className="mt-3 text-neutral-700">
+            This isn’t “branding.” This is direct patient acquisition. List your prices today and
+            convert searchers into callers.
+          </p>
+          <div className="mt-6">
+            <a href="#lead-form" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-teal-600 text-white font-semibold shadow hover:bg-teal-700">
+              Get Started Now
+            </a>
+          </div>
+        </div>
+        <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="text-sm font-bold text-teal-700">Risk Reversal</div>
+          <p className="mt-2 text-lg font-semibold">If you don’t get patient inquiries within 30 days, you don’t pay.</p>
+          <ul className="mt-4 space-y-2 text-neutral-700">
+            <li>• Clear terms & transparent onboarding</li>
+            <li>• Cancel anytime if results don’t show</li>
+            <li>• Keep your listing data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* DEMO CTA */}
+  <section id="demo" className="border-t border-neutral-200 bg-white">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <div className="rounded-3xl border border-neutral-200 p-8 bg-neutral-50 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h4 className="text-xl font-extrabold tracking-tight">Prefer a walkthrough?</h4>
+          <p className="text-neutral-700">Book a 15-minute demo. See listings, search, and lead flow live.</p>
+        </div>
+        <a href="#lead-form" className="inline-flex items-center justify-center rounded-xl px-6 py-3 bg-white border border-neutral-300 font-semibold hover:bg-neutral-100">Book Free Demo</a>
+      </div>
+    </div>
+  </section>
+
+  {/* LEAD MAGNET / FORM */}
+  <section id="lead-form" className="border-t border-neutral-200">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Free Report: 5 Mistakes That Cost Hospitals 100+ Patients Every Month</h3>
+          <p className="mt-3 text-neutral-700 max-w-2xl">
+            Don’t leave empty-handed. Kennedy never wastes a visit. Drop your details and we’ll send you the
+            step-by-step playbook to turn transparency into patient volume.
+          </p>
+          <ul className="mt-6 space-y-3 text-neutral-700">
+            <li>• The single line every price page must include</li>
+            <li>• The 3 procedures to list first for quick wins</li>
+            <li>• Invisible trust signals that double inquiries</li>
+          </ul>
+        </div>
+        <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="text-sm font-medium">Your Name</label>
+                <input
+                  required
+                  value={form.name}
+                  onChange={(e)=>setForm({ ...form, name: e.target.value })}
+                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                  placeholder="e.g., Dr. A. Sharma"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium">Work Email</label>
+                <input
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={(e)=>setForm({ ...form, email: e.target.value })}
+                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                  placeholder="name@hospital.com"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium">Hospital / Clinic</label>
+                <input
+                  required
+                  value={form.hospital}
+                  onChange={(e)=>setForm({ ...form, hospital: e.target.value })}
+                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                  placeholder="e.g., Shreecare Multispeciality"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium">Phone (optional)</label>
+                <input
+                  value={form.phone}
+                  onChange={(e)=>setForm({ ...form, phone: e.target.value })}
+                  className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                  placeholder="WhatsApp preferred"
+                />
+              </div>
+              <button type="submit" className="w-full rounded-xl px-4 py-3 bg-teal-600 text-white font-semibold shadow hover:bg-teal-700">
+                📩 Email Me the Free Report
+              </button>
+              <p className="text-xs text-neutral-500">By submitting, you agree to receive practical emails about patient acquisition. No spam. Unsubscribe anytime.</p>
+            </form>
+          ) : (
+            <div className="text-center p-6">
+              <div className="mx-auto h-12 w-12 rounded-full bg-teal-100 flex items-center justify-center">✅</div>
+              <h4 className="mt-4 text-lg font-bold">Check your inbox!</h4>
+              <p className="text-neutral-700">Your report is on the way. We’ll also follow up with a short demo option.</p>
+              <a href="#how" className="mt-6 inline-flex items-center justify-center rounded-xl px-6 py-3 bg-white border border-neutral-300 font-semibold hover:bg-neutral-50">See How It Works</a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ */}
+  <section className="border-t border-neutral-200 bg-white">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Frequently Asked Questions</h3>
+      <div className="mt-8 grid md:grid-cols-2 gap-6">
+        {[
+          { q: "Do patients actually care about prices?", a: "Yes. Price transparency builds trust, improves conversion, and reduces enquiry friction." },
+          { q: "How fast can we go live?", a: "Most hospitals publish 20–30 procedures in under a week and start receiving calls immediately after indexing." },
+          { q: "Is this just listing?", a: "No. We optimize pages for search intent and route leads directly to your team via phone/WhatsApp." },
+          { q: "What if it doesn’t work for us?", a: "Our 30‑day results guarantee means you don’t pay unless inquiries start coming in." },
+        ].map((f,i)=> (
+          <div key={i} className="rounded-3xl border border-neutral-200 p-6 bg-neutral-50">
+            <div className="font-semibold">{f.q}</div>
+            <p className="mt-2 text-neutral-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* FOOTER */}
+  <footer className="border-t border-neutral-200 bg-white">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="text-sm text-neutral-600">© {new Date().getFullYear()} Doctor MRP. All rights reserved.</div>
+      <div className="flex items-center gap-4 text-sm">
+        <a href="#" className="hover:text-teal-700">Privacy</a>
+        <a href="#" className="hover:text-teal-700">Terms</a>
+        <a href="#lead-form" className="px-4 py-2 rounded-xl bg-teal-600 text-white shadow hover:bg-teal-700">Start Now</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+); }
+
