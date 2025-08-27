@@ -1,279 +1,172 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AIIMS New Delhi — Info, Contacts, Legacy Sample Rates | DoctorMRP</title>
-<meta name="description" content="AIIMS New Delhi — contacts, address, directions, gallery, and legacy sample rates. Built by DoctorMRP.">
-<meta name="theme-color" content="#0cc0b7">
-<style>
-  :root{
-    --brand:#0cc0b7; --ink:#1a2d2d; --muted:#5a6f6f; --bg:#f8fefe;
-    --card:#fff; --line:#d9efee;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
-  a{color:var(--brand);text-decoration:none}
-  header{position:sticky;top:0;background:#ffffffee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:50}
-  .wrap{max-width:1000px;margin:0 auto;padding:16px}
-  .logo{font-weight:900;color:#0f1f1f}
-  .logo b{color:var(--brand)}
-  .hero{padding:26px 16px 10px;text-align:left}
-  .hero h1{font-size:clamp(26px,6vw,40px);line-height:1.08;margin:6px 0}
-  .sub{color:var(--muted)}
-  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .btn{display:inline-block;padding:12px 14px;border-radius:12px;font-weight:800}
-  .btn-primary{background:var(--brand);color:#fff}
-  .btn-outline{border:2px solid var(--brand);color:var(--brand);background:#fff}
-  section{padding:18px 16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 6px 16px rgba(12,192,183,.08)}
-  h2{font-size:22px;margin:0 0 10px}
-  .grid-3{display:grid;grid-template-columns:1fr;gap:12px}
-  @media(min-width:820px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-  .kicker{display:inline-block;background:#e8fbfa;border:1px solid #c8efed;color:#0a6c66;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px}
-  .gallery img{width:100%;height:190px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
-  .stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--brand);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:9999}
-  .stickybar a{background:#fff;color:var(--brand);padding:10px 14px;border-radius:10px;font-weight:900;white-space:nowrap}
-  body{padding-bottom:64px} /* space for sticky */
-  details{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:12px}
-  details summary{padding:12px 14px;cursor:pointer;font-weight:800}
-  details .content{padding:0 14px 14px}
-  table{width:100%;border-collapse:collapse}
-  th,td{padding:8px;border-bottom:1px solid #eef7f6;font-size:14px}
-  th{text-align:left;color:#0f1f1f}
-  .note{color:#6a7f7f;font-size:13px}
-  input[type="search"]{width:100%;padding:12px;border:1px solid #cfe; border-radius:10px;margin:8px 0}
-  .pill{display:inline-block;background:#f3fffe;border:1px solid #c8efed;color:#0a6c66;padding:6px 10px;border-radius:10px;font-weight:800;font-size:12px}
-  footer{border-top:1px solid var(--line);color:#6c8080;font-size:14px;padding:22px 16px}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DoctorMRP — Transparent Pricing = More Patients</title>
+  <meta name="description" content="DoctorMRP helps Indian hospitals publish prices, build trust, and capture hot WhatsApp leads.">
+  <style>
+    :root {
+      --brand:#0cc0b7; --dark:#111; --ink:#222; --muted:#555;
+      --bg:#fafafa; --card:#fff; --line:#ddd;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:var(--bg);}
+    .container{max-width:900px;margin:0 auto;padding:20px;}
+    h1,h2,h3{margin-bottom:10px;color:var(--dark);}
+    h1{font-size:1.8rem;line-height:1.2;}
+    h2{font-size:1.4rem;margin-top:25px;}
+    p{margin-bottom:14px;color:var(--ink);}
+    ul{margin-left:18px;margin-bottom:14px;}
+    li{margin-bottom:8px;}
+    a{text-decoration:none;color:var(--brand);}
+    .btn{display:inline-block;padding:12px 18px;margin:6px 0;border-radius:8px;font-weight:bold;text-align:center;}
+    .btn-primary{background:var(--brand);color:#fff;}
+    .btn-outline{border:2px solid var(--brand);color:var(--brand);background:#fff;}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:18px;}
+    header{padding:12px 20px;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50;}
+    header .logo{font-weight:bold;font-size:18px;color:var(--dark);}
+    nav{float:right;}
+    nav a{margin-left:14px;color:var(--muted);font-size:14px;}
+    .hero{text-align:center;padding:40px 20px;}
+    .hero h1{font-size:1.9rem;margin-bottom:10px;}
+    .sub{color:var(--muted);}
+    .stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--brand);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:100;}
+    .stickybar a{background:#fff;color:var(--brand);padding:10px 14px;border-radius:6px;font-weight:bold;}
+    footer{font-size:13px;color:var(--muted);padding:20px;text-align:center;border-top:1px solid var(--line);margin-top:30px;}
+    input,select{width:100%;padding:10px;border:1px solid var(--line);border-radius:6px;margin-bottom:10px;}
+    .small{color:var(--muted);font-size:14px;}
+    details{margin-bottom:10px;}
+    details summary{cursor:pointer;font-weight:bold;}
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap row" style="justify-content:space-between">
-    <div class="logo">Doctor<b>MRP</b> • Hospital Profile</div>
-    <nav class="row">
-      <a href="#contact">Contact</a>
-      <a href="#gallery">Photos</a>
-      <a href="#rates">Rates</a>
-    </nav>
-  </div>
+  <div class="logo">Doctor<b>MRP</b></div>
+  <nav>
+    <a href="#how">How it Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#order">Start</a>
+  </nav>
 </header>
 
-<main class="wrap">
-  <!-- HERO -->
-  <section class="hero">
-    <span class="kicker">AIIMS New Delhi • National Institute</span>
-    <h1>AIIMS, New Delhi — Address, Contacts, Photos & Legacy Sample Rates</h1>
-    <p class="sub">Fast facts and patient‑friendly info. Built for mobile by DoctorMRP.</p>
-    <div class="row" style="margin-top:10px">
-      <a class="btn btn-primary" href="https://wa.me/917588343376?text=AIIMS%20listing%20enquiry" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-outline" href="tel:+911126588500">Call Board: 011‑26588500</a>
-      <a class="btn btn-outline" href="https://maps.google.com/?q=AIIMS%20Ansari%20Nagar%20New%20Delhi%20110029" target="_blank" rel="noopener">Directions</a>
-      <a class="btn btn-outline" href="https://www.aiims.edu" target="_blank" rel="noopener">Official Website</a>
+<!-- HERO -->
+<section class="hero">
+  <h1>Steal Back Patients From Bigger Hospitals —<br>Show Your Prices First & Get the Call</h1>
+  <p class="sub">Patients compare. If they can’t see your prices, they choose someone else.</p>
+  <a href="https://wa.me/917588343376?text=I%20want%20a%20demo%20of%20DoctorMRP" class="btn btn-primary">WhatsApp a Demo Now →</a><br>
+  <a href="#order" class="btn btn-outline">List Your Hospital in 24 Hours (₹2,500/mo)</a>
+  <p class="small">Built for Indian Hospitals • Transparency → Trust → Patients</p>
+</section>
+
+<div class="container">
+
+  <!-- Lead Magnet -->
+  <div class="card">
+    <h2>Free: 7-Point Price Transparency Checklist (PDF)</h2>
+    <p>Enter WhatsApp number to get it now. Learn what to publish, what to avoid, and the one line that doubles inquiries.</p>
+    <form onsubmit="location.href='https://wa.me/917588343376?text=Send%20me%20the%207-Point%20Checklist';return false;">
+      <input type="tel" placeholder="WhatsApp number">
+      <button type="submit" class="btn btn-primary">Get My Free Checklist</button>
+    </form>
+  </div>
+
+  <!-- PAS -->
+  <h2>Why Hospitals Lose Patients (and the Fix)</h2>
+  <div class="card"><b>Problem:</b> 80% of patients check prices. Most hospitals hide them.</div>
+  <div class="card"><b>Agitate:</b> Hiding = lost calls, low trust, shopping by rumor, more no-shows.</div>
+  <div class="card"><b>Solve:</b> DoctorMRP publishes your OPD/IPD prices, ranks you by city/procedure, and sends WhatsApp/calls to your desk.</div>
+
+  <!-- Offer Stack -->
+  <h2 id="pricing">Offer & Launch Pricing</h2>
+  <div class="card">
+    <h3>Start for ₹2,500 / month</h3>
+    <p>Launch offer for first 50 hospitals • Spots left today: <span id="spots">17</span></p>
+    <ul>
+      <li>Hospital profile + searchable price table</li>
+      <li>“Verified by DoctorMRP” trust badge</li>
+      <li>WhatsApp & Call buttons → direct to your front desk</li>
+      <li>24-hour turnaround for first upload</li>
+      <li>2 price updates/month included</li>
+    </ul>
+    <div class="card" style="background:#f3fffe">
+      <p><b>Guarantee:</b> 14-Day “Leads or Leave” — get 5 qualified patient inquiries or next month ₹0.</p>
     </div>
-  </section>
+    <a href="#order" class="btn btn-primary">Start Now →</a>
+  </div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact & Address</h2>
-    <div class="card">
-      <p><b>All India Institute of Medical Sciences (AIIMS), New Delhi</b><br>
-      Ansari Nagar, New Delhi – 110029, India</p>
-      <p><b>Board Numbers:</b> +91‑11‑26588500 / 26588700 / 26589900<br>
-      <b>Exam Section:</b> Convergence Block, 1st Floor • aiimsexams.ac.in</p>
-      <p class="note">Source: AIIMS official pages (address & board numbers). 0</p>
-      <div class="row">
-        <a class="btn btn-primary" href="mailto:examinations@aiims.gov.in">Email</a>
-        <a class="btn btn-outline" href="https://aiimsexams.ac.in/info/ContactUs.html" target="_blank" rel="noopener">Exam Section Page</a>
-      </div>
-    </div>
-  </section>
+  <!-- Proof -->
+  <h2>Proof</h2>
+  <div class="card">
+    <p><b>Aurangabad 50-bed hospital:</b> Posted 27 OPD prices → 19 WhatsApp inquiries in 10 days → 7 booked consults.</p>
+  </div>
+  <div class="card">
+    <p>“Posting prices stopped the endless ‘kitna lagega?’ calls and got real patients to message.” — Hospital Admin</p>
+  </div>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <h2>Campus Photos</h2>
-    <div class="grid-3 gallery">
-      <img src="https://www.aiims.edu/images/stories/gallery/aiims2.jpg" alt="AIIMS New Delhi main block (gallery)" loading="lazy">
-      <img src="https://delhicapital.com/wp-content/uploads/2021/01/AIIMS-Delhi.jpg" alt="AIIMS lawns and facade" loading="lazy">
-      <img src="https://collegebatch.com/static/clg-gallery/all-india-institute-of-medical-sciences-campus-tour-new-delhi-129.jpg" alt="AIIMS campus view" loading="lazy">
-    </div>
-    <p class="note">Images are for reference; copyrights belong to respective owners/sources. </p>
-  </section>
+  <!-- Mechanism -->
+  <h2>Why It Works</h2>
+  <div class="card">
+    <ul>
+      <li>Patients want answers to “How much will it cost?” → Trust is built.</li>
+      <li>Transparency = credibility = more inquiries.</li>
+      <li>Search intent pages (city + procedure) bring ready-to-book patients.</li>
+    </ul>
+  </div>
 
-  <!-- RATES -->
-  <section id="rates">
-    <h2>Revised Rates of Hospital Charges <span class="pill">Legacy sample rates</span></h2>
-    <p class="note">These figures are historical examples for layout/demo. Please verify current fees with AIIMS before relying on them.</p>
+  <!-- Objections -->
+  <h2>Common Questions</h2>
+  <div class="card"><b>Will competitors see my prices?</b><br>Yes — and that’s why you’ll win first.</div>
+  <div class="card"><b>What if prices change?</b><br>Send a photo — we update within 24 hrs.</div>
+  <div class="card"><b>Do calls go to you?</b><br>No — direct to your staff. You own the patient.</div>
 
-    <!-- Search -->
-    <input id="search" type="search" placeholder="Search a test/procedure (e.g., 'Amylase', 'X‑Ray Chest', 'OPD')">
+  <!-- Order -->
+  <h2 id="order">Start for ₹2,500 Today</h2>
+  <div class="card">
+    <form onsubmit="startNow();return false;">
+      <input id="hosp" placeholder="Hospital Name *" required>
+      <input id="city" placeholder="City *" required>
+      <input id="contact" placeholder="Contact Person *" required>
+      <input id="whatsapp" placeholder="WhatsApp Number *" required>
+      <input id="email" placeholder="Email">
+      <button type="submit" class="btn btn-primary">Quick Start via WhatsApp →</button>
+    </form>
+    <p class="small">Nothing technical needed. We do the formatting. Or use full Google Form upload.</p>
+  </div>
 
-    <!-- OUTPATIENT & INPATIENT -->
-    <details open>
-      <summary>Outpatient & Inpatient — Overview</summary>
-      <div class="content">
-        <table id="tbl-overview">
-          <thead><tr><th>Item</th><th>Amount (₹)</th><th>Notes</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </details>
+  <!-- FAQ -->
+  <h2>FAQ</h2>
+  <div class="card">
+    <details><summary>Do patients really check prices?</summary>Yes — and they trust hospitals that publish.</details>
+    <details><summary>How fast can we go live?</summary>Within 24 hours of receiving your price sheet.</details>
+    <details><summary>How do I update prices?</summary>Send a photo or spreadsheet anytime.</details>
+    <details><summary>Billing?</summary>₹2,500 monthly. Cancel anytime.</details>
+  </div>
 
-    <!-- BLOOD CLINICAL CHEMISTRY -->
-    <details>
-      <summary>Laboratory Investigations — Blood Clinical Chemistry</summary>
-      <div class="content">
-        <table id="tbl-blood">
-          <thead><tr><th>Test</th><th>Amount (₹)</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </details>
-
-    <!-- CLINICAL HAEMATOLOGY -->
-    <details>
-      <summary>Clinical Haematology</summary>
-      <div class="content">
-        <table id="tbl-haem">
-          <thead><tr><th>Test</th><th>Amount (₹)</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </details>
-
-    <!-- URINE CLINICAL CHEMISTRY -->
-    <details>
-      <summary>Urine Clinical Chemistry</summary>
-      <div class="content">
-        <table id="tbl-urine">
-          <thead><tr><th>Test</th><th>Amount (₹)</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </details>
-
-    <!-- RADIO DIAGNOSIS -->
-    <details>
-      <summary>Radio‑Diagnosis (OPD/General vs Private Ward)</summary>
-      <div class="content">
-        <table id="tbl-radio">
-          <thead><tr><th>Procedure</th><th>OPD/General (₹)</th><th>Private (₹)</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </details>
-
-    <p class="note">To add more categories (Microbiology, Pathology, etc.), follow the same pattern in the script data block below.</p>
-  </section>
-</main>
+</div>
 
 <!-- Sticky WhatsApp -->
 <div class="stickybar">
-  <div style="font-weight:900">Questions about this page?</div>
-  <a href="https://wa.me/917588343376?text=Question%20about%20AIIMS%20Delhi%20profile%20page">WhatsApp DoctorMRP →</a>
+  <div>Questions? Chat on WhatsApp</div>
+  <a href="https://wa.me/917588343376?text=Hi%20DoctorMRP%2C%20I%20want%20a%20demo">WhatsApp a Demo →</a>
 </div>
 
 <footer>
-  <div class="wrap">
-    © <span id="yr"></span> DoctorMRP • AIIMS New Delhi profile (public information; no affiliation). Sources linked above.
-  </div>
+  © 2025 DoctorMRP • Transparency → Trust → Patients
 </footer>
 
 <script>
-  // ---------- DATA (legacy sample rates pulled from your brief; verify before use) ----------
-  const overview = [
-    { item:"Outpatient: New Registration (valid calendar year)", amt:10, note:"OPD card" },
-    { item:"Inpatient: Admission (General Ward, non‑refundable)", amt:25, note:"at time of admission" },
-    { item:"Inpatient: Hospitalization (General Ward, per day)", amt:35, note:"advance 10 days = ₹375 incl. admission" },
-    { item:"ICU Treatment (Private Ward patients) — per day over room charge", amt:1000, note:"All ICUs / CCU / Neonatal Nursery" }
-  ];
-
-  const bloodChem = [
-    ["Acid phosphatase",25],["Alkaline phosphatase",25],["Amylase",25],
-    ["Bilirubin (total/direct/indirect)",25],["Blood Sugar (micro method)",50],
-    ["Calcium",25],["Cholesterol (total/free ester)",25],
-    ["Creatinine",25],["Creatinine clearance test",50],
-    ["D‑xylose Absorption",50],["Glucose Tolerance Test",250],
-    ["LDH Total",50],["Lactose Tolerance Test",50],
-    ["Lithium",25],["Magnesium",25],
-    ["NPN (Non‑proteins Nitrogen)",25],["PCO2 and/or pH",50],
-    ["Phosphorus",25],["Plasma Bicarbonates",50],
-    ["Plasma Cortisol",450],["Plasma Testosterone",450],
-    ["PBI (Protein Bound Iodine)",50],["Proteins & A/G",25],
-    ["SGOT and/or SGPT",25],["Serum CRP",25],
-    ["Serum Electrophoresis",50],["Serum Iron",25],
-    ["Sodium and/or Potassium",25],["Triglycerides",50],
-    ["T3 and T4",200],["TSH",200],["Uric Acid",25],
-    ["LFT (panel)",220],["KFT/RFT (panel)",400]
-  ];
-
-  const haem = [
-    ["ABO & Rh grouping",50],["APTT",50],["Blood film morphology",25],
-    ["Clotting time",10],["Cross matching",25],["HbA1c (glycosylated)",25],
-    ["Haemogram (HB, PCV, TLC, DLC, ESR)",15],["HIV (per test)",100],
-    ["Screening coagulation studies",100],["Serum B12 assay",100],
-    ["Factor VIII assay/inhibitor",50],["Genotyping",100]
-  ];
-
-  const urine = [
-    ["17‑Ketosteroids (24 hrs.)",50],["5‑HIAA (24 hrs. quantitative)",25],
-    ["Microalbuminuria test",50],["Osmolarity urine",50],
-    ["Urinary Catecholamines",25],["Urinary Creatinine (24 hrs.)",25],
-    ["Urinary dilution & concentration studies",25],
-    ["Urinary Glucose (Quantitative)",10],
-    ["Urine Pregnancy Test",250],["Urine Routine & Microscopy",0]
-  ];
-
-  const radio = [
-    ["X‑Ray Chest (per film)",30,50],["X‑Ray Abdomen",30,50],
-    ["X‑Ray Skull",30,50],["X‑Ray PNS",30,50],["X‑Ray Extremities",30,50],
-    ["X‑Ray Spine",30,50],["X‑Ray Pelvis",30,50],["Panorax",30,50],
-    ["Tooth (Intraoral)",30,50],["Skeletal Survey",200,250],
-    ["Barium Swallow",200,250],["Barium Meal",300,350],["Barium Enema",300,350],
-    ["TT Cholangiography",200,250],["ERCP",300,350],
-    ["IVU",300,350],["MRU/RGU",300,350],["Nephrostogram",200,250],
-    ["Mammography (Std 4 film)",300,350],
-    ["HSG",200,250],["Fistulogram/Sinogram",200,250],["OT Procedures",200,250],["Venogram (one limb)",500,600],
-    ["Ultrasound — routine",200,250],["US Doppler",300,350],
-    ["CT Head/PNS/Neck",200,750],["CT Body (one part)",750,1000],["CT Angio",1000,1100]
-  ];
-
-  // ---------- RENDER ----------
-  function renderRows(tblId, rows){
-    const tb=document.querySelector(`#${tblId} tbody`);
-    tb.innerHTML="";
-    rows.forEach(r=>{
-      const tr=document.createElement('tr');
-      if(Array.isArray(r)){
-        tr.innerHTML = `<td>${r[0]}</td><td>${r[1]}</td>${r[2]!=null?`<td>${r[2]}</td>`:''}`;
-      }else{
-        tr.innerHTML = `<td>${r.item}</td><td>${r.amt}</td><td>${r.note||""}</td>`;
-      }
-      tb.appendChild(tr);
-    });
-  }
-  renderRows("tbl-overview", overview);
-  renderRows("tbl-blood", bloodChem);
-  renderRows("tbl-haem", haem);
-  renderRows("tbl-urine", urine);
-  renderRows("tbl-radio", radio);
-
-  // ---------- SEARCH ----------
-  const allTables = ["tbl-overview","tbl-blood","tbl-haem","tbl-urine","tbl-radio"];
-  document.getElementById('search').addEventListener('input', function(){
-    const q = this.value.toLowerCase();
-    allTables.forEach(id=>{
-      const rows = document.querySelectorAll(`#${id} tbody tr`);
-      rows.forEach(tr=>{
-        const show = tr.textContent.toLowerCase().includes(q);
-        tr.style.display = show ? "" : "none";
-      });
-    });
-  });
-
-  // Footer year
-  document.getElementById('yr').textContent = new Date().getFullYear();
+function startNow(){
+  const hosp=document.getElementById('hosp').value;
+  const city=document.getElementById('city').value;
+  const contact=document.getElementById('contact').value;
+  const phone=document.getElementById('whatsapp').value;
+  const email=document.getElementById('email').value;
+  const msg=`I want to start on DoctorMRP.%0AHospital: ${hosp}%0ACity: ${city}%0AContact: ${contact}%0AWhatsApp: ${phone}%0AEmail: ${email}`;
+  location.href=`https://wa.me/917588343376?text=${msg}`;
+}
 </script>
+
 </body>
 </html>
