@@ -1,5 +1,2 @@
-# Mahavir Arogya Sansthan (Patana)
 mahavirarogya.patana.doctormrp.com/*   /hospitals/patana/mahavirarogya/:splat   200
-
-# Fallback: any other subdomain → homepage
-*.doctormrp.com/*                      /index.html   200
+*.doctormrp.com/*                       /index.html                               200
