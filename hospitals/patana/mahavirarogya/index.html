@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahavir Arogya Sansthan — Orthopaedic Prices | DoctorMRP</title>
+  <meta name="description" content="Verified orthopaedic procedure prices for Mahavir Arogya Sansthan (Patana). Compare costs and send an inquiry on WhatsApp in seconds." />
+  <link rel="canonical" href="https://mahavirarogya.patana.doctormrp.com/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Mahavir Arogya Sansthan — Orthopaedic Prices" />
+  <meta property="og:description" content="Transparent prices + instant WhatsApp inquiry. Verified by DoctorMRP." />
+  <meta property="og:url" content="https://mahavirarogya.patana.doctormrp.com/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Local business schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Hospital",
+    "name":"Mahavir Arogya Sansthan",
+    "address":{"@type":"PostalAddress","addressLocality":"Patana","addressCountry":"IN"},
+    "url":"https://mahavirarogya.patana.doctormrp.com",
+    "telephone":"+91-9270343376"
+  }
+  </script>
+
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .shadow-soft{box-shadow:0 18px 40px rgba(20,184,166,.18)}
+    th button{display:flex;align-items:center;gap:.35rem}
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- HEADER -->
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-2xl bg-teal-600 text-white grid place-items-center font-black">DM</div>
+        <div>
+          <div class="font-extrabold leading-tight">Mahavir Arogya Sansthan</div>
+          <div class="text-xs text-gray-500">Verified by <span class="font-semibold text-teal-700">DoctorMRP</span></div>
+        </div>
+      </div>
+      <a href="#lead" class="px-4 py-2 rounded-xl bg-teal-600 text-white shadow-soft">Get Exact Quote</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Orthopaedic Procedure Prices (Patana)</h1>
+        <p class="mt-2 text-gray-600">Transparent rates sourced from publicly available information. Final estimate is confirmed after consultation.</p>
+        <div class="mt-4 flex gap-3">
+          <input id="q" class="w-full md:w-96 border p-3 rounded-lg" placeholder="Search e.g. ACL, hip, plaster…">
+          <a id="whatsappTop" class="px-4 py-3 rounded-lg bg-green-600 text-white" href="#" target="_blank">WhatsApp Inquiry</a>
+        </div>
+        <p class="text-xs text-gray-500 mt-2">Tip: sort by clicking column headers.</p>
+      </div>
+      <aside class="border rounded-2xl p-4 bg-teal-50">
+        <div class="font-semibold">Need help?</div>
+        <div class="text-sm text-gray-700">Share your case on WhatsApp. You’ll get the exact quote & earliest appointment.</div>
+        <a id="whatsappSide" class="mt-3 inline-block px-4 py-2 rounded-xl bg-green-600 text-white" href="#" target="_blank">Message on WhatsApp</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="py-6">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="overflow-x-auto bg-white border rounded-2xl">
+        <table id="priceTable" class="min-w-full text-sm">
+          <thead class="bg-teal-600 text-white">
+            <tr>
+              <th class="p-3 text-left w-16">
+                <button data-sort="sr">Sr ▾</button>
+              </th>
+              <th class="p-3 text-left">
+                <button data-sort="name">Service Name ▾</button>
+              </th>
+              <th class="p-3 text-left w-36">
+                <button data-sort="rate">Rate (₹) ▾</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div id="count" class="text-xs text-gray-500 mt-2"></div>
+    </div>
+  </section>
+
+  <!-- LEAD FORM -->
+  <section id="lead" class="py-10">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-6">
+      <div class="border rounded-2xl p-6 bg-white">
+        <h3 class="text-xl font-bold">Get Exact Price & Appointment</h3>
+        <p class="text-sm text-gray-600 mb-4">Share your details; we’ll confirm today.</p>
+        <!-- Netlify form capture -->
+        <form name="hospital-lead" method="POST" data-netlify="true" class="grid gap-3" onsubmit="return handleSubmit(event)">
+          <input type="hidden" name="form-name" value="hospital-lead">
+          <input id="fName" name="name" class="border p-3 rounded-lg" placeholder="Your name *" required>
+          <input id="fPhone" name="phone" class="border p-3 rounded-lg" placeholder="Phone *" required>
+          <input id="fService" name="service" class="border p-3 rounded-lg" placeholder="Service / Procedure">
+          <textarea id="fNotes" name="notes" rows="3" class="border p-3 rounded-lg" placeholder="Notes (optional)"></textarea>
+          <div class="flex gap-3 items-center">
+            <button class="px-5 py-3 rounded-xl bg-teal-600 text-white shadow-soft" type="submit">Request Quote</button>
+            <a id="waButton" class="px-5 py-3 rounded-xl bg-green-600 text-white" href="#" target="_blank">WhatsApp Now</a>
+          </div>
+          <p class="text-xs text-gray-500">By submitting, you agree to be contacted about your inquiry.</p>
+        </form>
+      </div>
+      <div class="border rounded-2xl p-6 bg-teal-50">
+        <div class="font-semibold mb-2">Why patients choose transparency</div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>• Know the expected cost before you visit</li>
+          <li>• Compare alternatives fairly</li>
+          <li>• Faster booking on WhatsApp/phone</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 text-center text-xs text-gray-500">
+    © 2025 DoctorMRP — Transparent Prices → Patient Leads
+  </footer>
+
+  <script>
+    // ---------------- CONFIG ----------------
+    const HOSPITAL = "Mahavir Arogya Sansthan";
+    const CITY = "Patana";
+    const WHATSAPP_NUMBER = "9270343376"; // your routing number
+    // Publish your Google Sheet as CSV and paste URL here:
+    const PUBLIC_CSV_URL = "PASTE_GOOGLE_SHEET_CSV_URL_HERE";
+    // ----------------------------------------
+
+    const $ = sel => document.querySelector(sel);
+    const q = $("#q"), tbody = $("#tbody"), count = $("#count");
+    const waEls = ["#whatsappTop","#whatsappSide","#waButton"].map(s=>$(s));
+
+    function waLink(prefill=""){
+      const msg = encodeURIComponent(prefill);
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    }
+
+    function buildWAMessage(){
+      const name = $("#fName").value || "";
+      const phone = $("#fPhone").value || "";
+      const svc = $("#fService").value || (q.value || "");
+      const notes = $("#fNotes").value || "";
+      return `Hello DoctorMRP!%0AHospital: ${HOSPITAL}, ${CITY}%0AName: ${name}%0APhone: ${phone}%0AService: ${svc}%0ANotes: ${notes}`;
+    }
+
+    function updateWALinks(){
+      const msg = decodeURIComponent(buildWAMessage());
+      waEls.forEach(a => a.href = waLink(msg));
+    }
+
+    // Attach listeners to keep WhatsApp links in sync
+    ["input","change"].forEach(evt => {
+      document.addEventListener(evt, e=>{
+        if(e.target && ["fName","fPhone","fService","fNotes"].includes(e.target.id)) updateWALinks();
+      });
+    });
+
+    // Simple CSV -> array
+    async function loadCSV(url){
+      const res = await fetch(url, {cache:'no-store'});
+      const text = await res.text();
+      const rows = text.trim().split(/\r?\n/).map(r=>r.split(","));
+      // Expect header: Sr,Service,Rate
+      const data = rows.slice(1).map(r=>({sr:+r[0], name:r[1], rate:+(r[2]||0)}));
+      return data;
+    }
+
+    // Fallback sample (a few rows) if no CSV yet
+    const SAMPLE = [
+      {sr:1,name:"Amputation of A/K, B/K, B/E, A/E",rate:12000},
+      {sr:2,name:"Amputation of multiple Phalynx",rate:9600},
+      {sr:3,name:"Ankle Striping with material",rate:450},
+      {sr:4,name:"Arthroscopic ACL Reconstruction",rate:25000},
+      {sr:5,name:"Arthroscopic Lavage & Debridement",rate:12000},
+      {sr:6,name:"Aspiration + I.A. Injection",rate:600},
+      {sr:7,name:"Bandage",rate:180},
+      {sr:8,name:"Clavicular Plating",rate:12000}
+    ];
+
+    let data = [];
+    let sortKey = "sr", sortDir = 1;
+
+    function render(){
+      const qv = q.value.toLowerCase().trim();
+      let items = data.filter(d => !qv || d.name.toLowerCase().includes(qv));
+      items.sort((a,b)=>{
+        const A = a[sortKey], B = b[sortKey];
+        if (typeof A === "string") return sortDir * A.localeCompare(B);
+        return sortDir * (A-B);
+      });
+      tbody.innerHTML = items.map(d => `
+        <tr class="odd:bg-gray-50">
+          <td class="p-3 border">${d.sr}</td>
+          <td class="p-3 border">${d.name}</td>
+          <td class="p-3 border">₹${d.rate.toLocaleString("en-IN")}</td>
+        </tr>
+      `).join("");
+      count.textContent = `${items.length} result(s) • Source: public data`;
+    }
+
+    q.addEventListener("input", render);
+    document.querySelectorAll("th button").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const k = btn.dataset.sort;
+        sortDir = (k===sortKey)? -sortDir : 1;
+        sortKey = k; render();
+      });
+    });
+
+    async function init(){
+      updateWALinks();
+      try{
+        data = PUBLIC_CSV_URL.startsWith("http") ? await loadCSV(PUBLIC_CSV_URL) : SAMPLE;
+      }catch(e){
+        console.warn("CSV load failed, using SAMPLE", e);
+        data = SAMPLE;
+      }
+      render();
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      updateWALinks();
+      window.open(waEls[2].href,'_blank'); // open WhatsApp
+      // Let Netlify capture the form silently:
+      const form = e.target;
+      fetch("/", { method: "POST", headers: {"Content-Type":"application/x-www-form-urlencoded"},
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).catch(()=>{});
+      alert("Thanks! We’ve opened WhatsApp to finish your request.");
+      form.reset(); updateWALinks();
+      return false;
+    }
+
+    init();
+  </script>
+</body>
+</html>
