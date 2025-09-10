@@ -1,259 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DoctorMRP — Transparent Prices → Reputation → More Patients</title>
-  <meta name="description" content="DoctorMRP turns transparent pricing into reputation and ROI. Rank for 'service + price + city' searches and convert 3× more patients without extra ad spend." />
-  <link rel="canonical" href="https://doctormrp.com/">
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="DoctorMRP — Transparent Prices → Reputation → More Patients">
-  <meta property="og:description" content="Publish verified prices, earn trust, and convert 3× more patients from the same traffic. 24–48 hr setup.">
-  <meta property="og:url" content="https://doctormrp.com/">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoctorMRP – Hospital Pricing Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    html{scroll-behavior:smooth}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .shadow-soft{box-shadow:0 18px 40px rgba(20,184,166,.22)}
-    .container{max-width:1152px}
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: #222;
+    }
+    .hero {
+      background: linear-gradient(135deg, #20c997, #17a2b8);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
+    .btn-cta {
+      background-color: #ffc107;
+      color: #000;
+      font-weight: bold;
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn-cta:hover {
+      background-color: #e0a800;
+      color: #fff;
+    }
+    .section {
+      padding: 60px 20px;
+    }
+    .proof {
+      background-color: #e6f9f6;
+      border-left: 6px solid #20c997;
+      padding: 20px;
+      margin: 15px 0;
+    }
+    .cta-banner {
+      background: #20c997;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .cta-banner a {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ffc107;
+      color: #000;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    .cta-banner a:hover {
+      background: #e0a800;
+      color: #fff;
+    }
   </style>
-
-  <!-- Organization schema -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"DoctorMRP",
-    "url":"https://doctormrp.com",
-    "logo":"https://doctormrp.com/logo.png",
-    "sameAs": ["https://www.linkedin.com/", "https://twitter.com/"],
-    "contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+91-9270343376"}]
-  }
-  </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-100">
-    <div class="mx-auto container px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2">
-        <div class="h-9 w-9 rounded-2xl bg-teal-600 text-white grid place-items-center font-black">DM</div>
-        <span class="font-bold">Doctor<span class="text-teal-600">MRP</span></span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#math" class="hover:text-teal-700">The Math</a>
-        <a href="#solution" class="hover:text-teal-700">How It Works</a>
-        <a href="#proof" class="hover:text-teal-700">Proof</a>
-        <a href="#offer" class="hover:text-teal-700">Offer</a>
-        <a href="#order" class="hover:text-teal-700">Start</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="#order" class="inline-flex px-4 py-2 rounded-xl bg-teal-600 text-white shadow-soft">Start Free Setup</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="home" class="bg-white">
-    <div class="mx-auto container px-4 py-14 grid lg:grid-cols-3 gap-10">
-      <div class="lg:col-span-2">
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-          Transparent Hospitals Convert <span class="text-teal-700">3× More Patients</span> — Without Spending Extra On Ads.
-        </h1>
-        <p class="mt-5 text-lg text-gray-700">
-          Patients search: <em>“MRI price in Bhopal”</em>, <em>“IVF cost in Solapur”</em>, <em>“CT scan charges near me”</em>.
-          If you don’t show verified prices, they assume you’re hiding something—and call your competitor.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#order" class="px-6 py-3 rounded-xl bg-teal-600 text-white shadow-soft">Start Your Trial</a>
-          <a href="https://wa.me/919270343376" class="px-6 py-3 rounded-xl border border-gray-300">WhatsApp Sales</a>
-        </div>
-        <p class="mt-3 text-xs text-gray-500">Reputation via transparency → trust → more OPD from the same traffic.</p>
-      </div>
-      <aside class="border p-6 rounded-2xl bg-teal-50">
-        <ul class="space-y-2 text-sm">
-          <li>✅ Go live in 24–48 hrs</li>
-          <li>✅ Verified Transparency Badge</li>
-          <li>✅ Leads via WhatsApp, phone & email</li>
-          <li>✅ Exclusive city placements</li>
-        </ul>
-        <a href="#order" class="mt-4 block text-center px-4 py-3 rounded-xl bg-teal-600 text-white">First 5 Hospitals Get 40% Off »</a>
-      </aside>
-    </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>DoctorMRP – Dominate Your City’s Healthcare Market</h1>
+    <p>Transparent Prices. Verified Leads. More OPD Patients.</p>
+    <form class="d-flex justify-content-center mt-4">
+      <input type="text" class="form-control w-50 me-2" placeholder="Search: MRI in Bhopal, IVF Pune...">
+      <button class="btn btn-cta">Search</button>
+    </form>
   </section>
 
-  <!-- THE MATH -->
-  <section id="math" class="py-12 bg-gray-50">
-    <div class="mx-auto container px-4 max-w-4xl">
-      <h2 class="text-3xl font-extrabold">The Math (Hormozi Style)</h2>
-      <div class="mt-4 grid md:grid-cols-2 gap-6">
-        <div class="p-6 bg-white rounded-2xl border">
-          <p class="text-gray-700">
-            100 people search “MRI price in Bhopal.” If <strong>5%</strong> trust you → <strong>5 patients</strong>.<br>
-            If <strong>15%</strong> trust you (transparent prices + verified badge) → <strong>15 patients</strong>.
-          </p>
-          <p class="mt-3 font-semibold text-emerald-700">Same traffic. <span class="font-extrabold">3× more OPD.</span></p>
-        </div>
-        <div class="p-6 bg-white rounded-2xl border">
-          <p class="text-gray-700">
-            Reputation multiplies conversion. You pay the same on ads (or zero ads), but convert more because patients trust you.
-          </p>
-          <p class="mt-3 text-sm text-gray-500">Transparency = Trust. Trust = Bookings. Bookings = Revenue.</p>
-        </div>
+  <!-- Pain Section -->
+  <section class="section text-center">
+    <h2 class="mb-4">❌ The Harsh Truth</h2>
+    <p>Patients search daily for “MRI cost”, “IVF price”, “Stent surgery fees”. If your hospital isn’t visible, you don’t exist. Competitors are taking the patients that should be yours.</p>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="section bg-light text-center">
+    <h2 class="mb-4">✅ The DoctorMRP Advantage</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>🚀 More OPD Patients</h4>
+        <p>Your hospital shows up exactly when patients are searching.</p>
+      </div>
+      <div class="col-md-4">
+        <h4>🔒 Verified Trust</h4>
+        <p>DoctorMRP Verified ✅ Badge builds instant credibility.</p>
+      </div>
+      <div class="col-md-4">
+        <h4>📲 Direct Leads</h4>
+        <p>We send patients straight to your WhatsApp & phone.</p>
       </div>
     </div>
   </section>
 
-  <!-- SOLUTION -->
-  <section id="solution" class="py-12 bg-white">
-    <div class="mx-auto container px-4 grid md:grid-cols-2 gap-8">
-      <div>
-        <h2 class="text-3xl font-extrabold">How DoctorMRP Works</h2>
-        <ul class="mt-5 space-y-3 text-gray-700">
-          <li>• Build SEO-ready pages with your verified prices (MRI, CT, maternity, surgeries).</li>
-          <li>• Display your <strong>Verified Transparency Badge</strong> to boost trust.</li>
-          <li>• Rank for “service + price + city” searches.</li>
-          <li>• Route patient inquiries directly to your <strong>WhatsApp, phone, email</strong>.</li>
-          <li>• Setup in <strong>24–48 hours</strong>. No IT team needed.</li>
-        </ul>
-      </div>
-      <div class="rounded-2xl border bg-teal-50 p-6">
-        <h3 class="font-semibold text-lg">What You’ll See</h3>
-        <p class="mt-2 text-sm text-gray-700">
-          Search impressions rise in 7–21 days. You receive live inquiries with procedure context, name, phone—ready for your front desk to convert.
-        </p>
-      </div>
+  <!-- ROI Section -->
+  <section class="section text-center">
+    <h2 class="mb-4">💰 ROI So Obvious It Hurts</h2>
+    <p>Just 3–5 extra OPD patients cover your monthly fee. Everything beyond is pure profit.</p>
+    <p><strong>Investment: ₹25,000/month</strong></p>
+    <p class="text-danger fw-bold">If you can’t see the value here, you’re not serious about winning. Your competitor will sign up and eat your market alive.</p>
+  </section>
+
+  <!-- Proof Section -->
+  <section class="section">
+    <h2 class="text-center mb-4">⭐ Proof That It Works</h2>
+    <div class="proof">
+      <p>“After listing our IVF packages, we got <strong>27 new inquiries in 2 weeks</strong>.” – Mahavir Arogya Hospital</p>
+    </div>
+    <div class="proof">
+      <p>“Patients trust us more because they see our prices upfront.” – Yashodhara Multispeciality</p>
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section id="proof" class="py-12 bg-gray-50">
-    <div class="mx-auto container px-4">
-      <h2 class="text-3xl font-extrabold text-center">Proof (Numbers Talk)</h2>
-      <div class="mt-8 grid md:grid-cols-3 gap-6 text-center">
-        <div class="p-6 bg-white rounded-2xl border">
-          <div class="text-gray-500">Monthly patient leads</div>
-          <div class="text-3xl font-extrabold">37</div>
-          <div class="text-xs text-emerald-600">+212% after listing</div>
-        </div>
-        <div class="p-6 bg-white rounded-2xl border">
-          <div class="text-gray-500">Avg. CPL (₹)</div>
-          <div class="text-3xl font-extrabold">183</div>
-          <div class="text-xs text-emerald-600">vs ₹450+ on ads</div>
-        </div>
-        <div class="p-6 bg-white rounded-2xl border">
-          <div class="text-gray-500">Ranking window</div>
-          <div class="text-3xl font-extrabold">7–21 days</div>
-          <div class="text-xs text-emerald-600">for long-tail queries</div>
-        </div>
-      </div>
-    </div>
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    ⚡ Only 1–2 Hospitals Allowed Per City. Move Before Your Competitor Does.
+    <br>
+    <a href="#">List Your Hospital Now – ₹25,000/month</a>
   </section>
 
-  <!-- OFFER -->
-  <section id="offer" class="py-12 bg-white">
-    <div class="mx-auto container px-4 grid md:grid-cols-2 gap-8">
-      <div class="border rounded-2xl p-6 bg-white">
-        <h3 class="text-2xl font-bold">Growth Plan (Reputation + Leads)</h3>
-        <ul class="mt-4 space-y-2 text-sm text-gray-700">
-          <li>• Unlimited services & packages listed</li>
-          <li>• City + service SEO pages</li>
-          <li>• Priority placement + lead routing</li>
-          <li>• Dashboard & ROI tracking</li>
-          <li>• Quarterly “Price Check” optimization</li>
-        </ul>
-        <div class="mt-5 p-4 rounded-xl bg-teal-50 text-sm">
-          <strong>Bonus (this month):</strong> Done-for-you upload + competitor snapshot
-        </div>
-        <div class="mt-6 text-xl">
-          Investment: <s>₹50,000/mo</s> <strong class="text-teal-700">₹29,999</strong> for first 5 hospitals
-        </div>
-        <a href="#order" class="mt-4 inline-block px-6 py-3 rounded-xl bg-teal-600 text-white">Get Started Now »</a>
-      </div>
-      <div class="border rounded-2xl p-6 bg-white">
-        <h4 class="text-lg font-semibold">Why the discount?</h4>
-        <p class="mt-2 text-sm text-gray-700">
-          Our onboarding team can only handle <strong>5 hospitals</strong> this month. After those are full, pricing returns to ₹50,000/month.
-        </p>
-        <div id="spots" class="mt-4 p-4 rounded-xl bg-amber-50 text-amber-700 text-sm">
-          Spots left this month: <strong>2</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GUARANTEE -->
-  <section class="bg-white">
-    <div class="mx-auto container px-4 py-10">
-      <div class="border-2 border-teal-600 rounded-2xl p-6">
-        <h3 class="text-2xl font-bold">30-Day Outcome Guarantee</h3>
-        <p class="mt-2 text-sm text-gray-700">
-          If you don’t get <strong>15+ qualified patient inquiries</strong> in 30 days, we’ll <strong>work for free</strong> until you do.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ORDER FORM -->
-  <section id="order" class="py-16 bg-white">
-    <div class="mx-auto container px-4 max-w-3xl">
-      <h3 class="text-2xl font-bold text-center">Start Free Setup — Go Live in 48 hrs</h3>
-      <form id="leadForm" class="mt-6 grid gap-4 bg-gray-50 p-6 rounded-2xl border">
-        <input id="hospital" class="border p-3 rounded-lg" placeholder="Hospital Name *" required>
-        <div class="grid md:grid-cols-2 gap-4">
-          <input id="city" class="border p-3 rounded-lg" placeholder="City *" required>
-          <input id="contact" class="border p-3 rounded-lg" placeholder="Contact Person *" required>
-        </div>
-        <div class="grid md:grid-cols-2 gap-4">
-          <input id="phone" class="border p-3 rounded-lg" placeholder="Phone *" required>
-          <input id="email" class="border p-3 rounded-lg" placeholder="Email">
-        </div>
-        <input id="whatsapp" class="border p-3 rounded-lg" placeholder="WhatsApp Number">
-        <textarea id="notes" class="border p-3 rounded-lg" placeholder="Notes / Services to list" rows="3"></textarea>
-        <div class="flex flex-wrap gap-3 items-center">
-          <button type="submit" class="px-6 py-3 rounded-xl bg-teal-600 text-white">Start Free Setup »</button>
-          <a id="waLink" href="https://wa.me/919270343376" class="text-teal-700 underline">Or message us on WhatsApp</a>
-        </div>
-        <p class="text-xs text-gray-500">No lock-in. Cancel anytime.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 text-center text-gray-500 text-sm">
-    © 2025 DoctorMRP. All rights reserved. | <a class="underline text-teal-700" href="https://wa.me/919270343376">WhatsApp Sales</a>
-  </footer>
-
-  <!-- JS: WhatsApp helper -->
-  <script>
-    const form = document.getElementById('leadForm');
-    const waLink = document.getElementById('waLink');
-    const defaultWA = '+919270343376'; // your number
-
-    function buildMessage(){
-      const h = document.getElementById('hospital').value || '';
-      const c = document.getElementById('city').value || '';
-      const p = document.getElementById('phone').value || '';
-      const cp = document.getElementById('contact').value || '';
-      const notes = document.getElementById('notes').value || '';
-      return `Hello DoctorMRP!%0A Hospital: ${h}%0A City: ${c}%0A Contact: ${cp}%0A Phone: ${p}%0A Notes: ${notes}`;
-    }
-    function updateWA(){
-      const msg = buildMessage();
-      waLink.href = `https://wa.me/${defaultWA.replace(/[^\d]/g,'')}?text=${msg}`;
-    }
-    ['input','change'].forEach(evt=>form.addEventListener(evt, updateWA));
-    updateWA();
-    form.addEventListener('submit',(e)=>{
-      e.preventDefault();
-      updateWA();
-      window.open(waLink.href,'_blank');
-      alert('Thanks! We\'ll reach out shortly. (WhatsApp opened in a new tab)');
-    });
-  </script>
 </body>
 </html>
