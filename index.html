@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DoctorMRP — Hospital Prices in India</title>
-  <meta name="description" content="Real hospital prices in India. Compare, avoid surprises, and contact hospitals directly." />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>DoctorMRP — Real Hospital Prices in India</title>
+  <meta name="description" content="Compare real hospital prices in India. Avoid surprises and contact hospitals directly."/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,56 +13,73 @@
       theme: {
         extend: {
           colors: {
-            dm_teal: "#0b3d3a",
-            dm_turq: "#1AA39A",
-            dm_light: "#E6F7F5",
+            brand: {
+              900: "#093533",  /* deep teal */
+              800: "#0C4A47",
+              700: "#0F6F69",  /* links / accents */
+              600: "#148E86",  /* primary CTA */
+              500: "#17A79E",
+              100: "#D8F2EF",
+              50:  "#E9F8F6"   /* soft background */
+            }
           },
-          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] }
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui"] },
+          boxShadow: {
+            card: "0 10px 25px -10px rgba(0,0,0,.15)",
+            soft: "0 6px 16px -8px rgba(0,0,0,.12)"
+          }
         }
       }
     }
   </script>
   <style>
-    .btn-primary{background:#1AA39A;color:#083330;font-weight:700;border-radius:.75rem;padding:.75rem 1rem}
-    .btn-primary:hover{filter:brightness(.95)}
-    .btn-ghost{background:#fff;border:1px solid rgba(13,148,136,.25);color:#0b3d3a;border-radius:.75rem;padding:.75rem 1rem}
-    .btn-ghost:hover{background:#E6F7F5}
-    .btn-light{background:#ffffff;color:#0b3d3a;border-radius:.75rem;padding:.75rem 1rem;font-weight:700}
-    .input{border:1px solid #e2e8f0;border-radius:.75rem;padding:.625rem .875rem;outline:none;width:100%}
-    .input:focus{box-shadow:0 0 0 2px rgba(13,148,136,.3);border-color:#14b8a6}
-    .pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;border:1px solid rgba(13,148,136,.3);padding:.5rem 1rem;background:#fff}
-    .pill:hover{background:#E6F7F5}
+    .btn-primary{background:#148E86;color:#062C2A;font-weight:700;border-radius:1rem;padding:.85rem 1.2rem}
+    .btn-primary:hover{filter:brightness(.96)}
+    .btn-ghost{background:#fff;border:1px solid rgba(15,111,105,.22);color:#093533;border-radius:1rem;padding:.85rem 1.2rem}
+    .btn-ghost:hover{background:#E9F8F6}
+    .btn-light{background:#ffffff;color:#093533;border-radius:1rem;padding:.85rem 1.2rem;font-weight:700}
+    .input{border:1px solid #e2e8f0;border-radius:1rem;padding:.7rem 1rem;outline:none;width:100%}
+    .input:focus{box-shadow:0 0 0 3px rgba(20,142,134,.25);border-color:#148E86}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;border:1.5px solid rgba(15,111,105,.35);padding:.55rem 1rem;background:#fff}
+    .pill:hover{background:#E9F8F6}
+    .eyebrow{letter-spacing:.16em}
+    .link{color:#0F6F69}
+    .link:hover{text-decoration:underline}
+    .section{padding-top:3rem;padding-bottom:3rem}
+    @media (min-width:640px){ .section{padding-top:3.5rem;padding-bottom:3.5rem} }
+    @media (min-width:1024px){ .section{padding-top:4rem;padding-bottom:4rem} }
   </style>
 </head>
 <body class="font-sans text-slate-900 bg-white">
+
   <!-- HERO -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-dm_light/60"></div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-12 sm:pt-16 sm:pb-16">
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
+  <section class="relative overflow-hidden section">
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-brand-50/70"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7">
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
-            Know what you’ll pay—for care in India.
+          <h1 class="text-[2rem] sm:text-[2.6rem] lg:text-[3.1rem] font-extrabold tracking-tight leading-tight">
+            Know what you’ll pay — for care in India.
           </h1>
           <p class="mt-4 text-lg text-slate-700 max-w-2xl">
             Real hospital prices in ₹. Compare options, avoid surprises, and book with confidence.
           </p>
 
           <!-- Search Card -->
-          <div class="mt-6 bg-white/90 backdrop-blur rounded-2xl shadow-xl ring-1 ring-black/5 p-3 sm:p-4">
+          <div class="mt-7 bg-white rounded-3xl shadow-card ring-1 ring-black/5 p-4 sm:p-5">
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
               <div class="sm:col-span-5">
                 <label class="sr-only" for="proc">Procedure/Test</label>
-                <div class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2 focus-within:ring-2 focus-within:ring-teal-500">
+                <div class="flex items-center gap-3 rounded-2xl border border-slate-200 px-3 py-2 focus-within:ring-2 focus-within:ring-brand-600">
                   <svg class="w-5 h-5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"/></svg>
-                  <input id="proc" class="w-full outline-none placeholder-slate-400" placeholder="Search procedure or test" />
+                  <input id="proc" class="w-full outline-none placeholder-slate-400" placeholder="Search procedure or test"/>
                 </div>
               </div>
               <div class="sm:col-span-4">
                 <label class="sr-only" for="city">City / Pincode</label>
-                <div class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2 focus-within:ring-2 focus-within:ring-teal-500">
+                <div class="flex items-center gap-3 rounded-2xl border border-slate-200 px-3 py-2 focus-within:ring-2 focus-within:ring-brand-600">
                   <svg class="w-5 h-5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-5.5 8-12a8 8 0 1 0-16 0c0 6.5 8 12 8 12z"/><circle cx="12" cy="10" r="3" stroke-width="2"/></svg>
-                  <input id="city" class="w-full outline-none placeholder-slate-400" placeholder="City or pincode" />
+                  <input id="city" class="w-full outline-none placeholder-slate-400" placeholder="City or pincode"/>
                 </div>
               </div>
               <div class="sm:col-span-3 flex">
@@ -71,7 +88,7 @@
             </div>
 
             <!-- Quick chips -->
-            <div class="mt-3 flex flex-wrap gap-2">
+            <div class="mt-4 flex flex-wrap gap-2.5">
               <button class="pill" onclick="setProc('MRI Knee')">MRI Knee</button>
               <button class="pill" onclick="setProc('CT Chest HRCT')">CT Chest HRCT</button>
               <button class="pill" onclick="setProc('Dialysis (per session)')">Dialysis (per session)</button>
@@ -82,20 +99,16 @@
           </div>
 
           <!-- Micro trust stats -->
-          <div class="mt-5 flex flex-wrap items-center gap-6 text-sm text-slate-600">
-            <div class="flex items-center gap-2">
-              <span class="inline-block h-2 w-2 rounded-full" style="background:#1AA39A"></span> 12,430 searches this month
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="inline-block h-2 w-2 rounded-full" style="background:#1AA39A"></span> Avg. savings ₹3,200 on diagnostics
-            </div>
+          <div class="mt-6 grid gap-3 sm:grid-cols-2 text-sm text-slate-700">
+            <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-600"></span>12,430 searches this month</div>
+            <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-600"></span>Avg. savings ₹3,200 on diagnostics</div>
           </div>
         </div>
 
         <div class="lg:col-span-5 lg:block hidden">
           <div class="relative">
-            <div class="absolute -inset-8 -z-10 blur-2xl opacity-30" style="background:#1AA39A"></div>
-            <div class="rounded-3xl border border-teal-700/10 bg-white shadow-2xl p-6">
+            <div class="absolute -inset-8 -z-10 blur-2xl opacity-25 bg-brand-600"></div>
+            <div class="rounded-3xl border border-brand-700/10 bg-white shadow-card p-7">
               <h3 class="text-xl font-bold mb-4">Why DoctorMRP?</h3>
               <ul class="space-y-3 text-slate-700">
                 <li>• Verified prices from Indian hospitals</li>
@@ -112,64 +125,64 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="py-10 sm:py-14 bg-white">
+  <section class="section bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
-        <div class="text-sm tracking-widest uppercase text-teal-600 font-semibold">How it works</div>
-        <h2 class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">Search. Compare. Connect.</h2>
+        <div class="eyebrow text-sm uppercase text-brand-700 font-semibold">How it works</div>
+        <h2 class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold">Search. Compare. Connect.</h2>
         <p class="mt-3 text-slate-600 leading-relaxed max-w-3xl">Enter a procedure and city to see real prices, then call or WhatsApp the hospital you like.</p>
       </div>
-      <div class="grid gap-4 sm:gap-6 sm:grid-cols-3">
-        <div class="rounded-2xl border border-teal-700/10 bg-white shadow-sm p-6">
+      <div class="grid gap-5 sm:gap-6 sm:grid-cols-3">
+        <div class="rounded-3xl border border-brand-700/10 bg-white shadow-soft p-6">
           <h3 class="font-semibold text-lg">Search Hospitals & Procedures</h3>
-          <p class="mt-2 text-slate-600 leading-relaxed">Find MRI, CT, cataract, deliveries and more across your city.</p>
+          <p class="mt-2 text-slate-600">Find MRI, CT, cataract, deliveries and more across your city.</p>
         </div>
-        <div class="rounded-2xl border border-teal-700/10 bg-white shadow-sm p-6">
+        <div class="rounded-3xl border border-brand-700/10 bg-white shadow-soft p-6">
           <h3 class="font-semibold text-lg">Compare Prices & Inclusions</h3>
-          <p class="mt-2 text-slate-600 leading-relaxed">Filter by distance, accreditation (NABH/NABL) and cashless.</p>
+          <p class="mt-2 text-slate-600">Filter by distance, accreditation (NABH/NABL) and cashless.</p>
         </div>
-        <div class="rounded-2xl border border-teal-700/10 bg-white shadow-sm p-6">
+        <div class="rounded-3xl border border-brand-700/10 bg-white shadow-soft p-6">
           <h3 class="font-semibold text-lg">Connect & Book</h3>
-          <p class="mt-2 text-slate-600 leading-relaxed">Contact hospitals directly—no middleman fees or markup.</p>
+          <p class="mt-2 text-slate-600">Contact hospitals directly—no middleman fees or markup.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- POPULAR PROCEDURES -->
-  <section class="py-10 sm:py-14 bg-dm_light/60">
+  <section class="section bg-brand-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
-        <div class="text-sm tracking-widest uppercase text-teal-600 font-semibold">Popular in your city</div>
-        <h2 class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">Compare provider costs for common procedures</h2>
+        <div class="eyebrow text-sm uppercase text-brand-700 font-semibold">Popular in your city</div>
+        <h2 class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold">Compare provider costs for common procedures</h2>
       </div>
       <div class="grid gap-4">
-        <button class="flex items-center justify-between rounded-2xl bg-white border border-teal-700/10 px-5 py-4 shadow-sm hover:shadow-md text-left" onclick="openLeadWith('MRI Brain (With/Without Contrast)')">
-          <span class="font-medium">MRI Brain (With/Without Contrast)</span><span class="text-teal-700">→</span>
+        <button class="flex items-center justify-between rounded-3xl bg-white border border-brand-700/10 px-5 py-4 shadow-soft hover:shadow-card text-left" onclick="openLeadWith('MRI Brain (With/Without Contrast)')">
+          <span class="font-medium">MRI Brain (With/Without Contrast)</span><span class="text-brand-700">→</span>
         </button>
-        <button class="flex items-center justify-between rounded-2xl bg-white border border-teal-700/10 px-5 py-4 shadow-sm hover:shadow-md text-left" onclick="openLeadWith('CT Abdomen')">
-          <span class="font-medium">CT Abdomen</span><span class="text-teal-700">→</span>
+        <button class="flex items-center justify-between rounded-3xl bg-white border border-brand-700/10 px-5 py-4 shadow-soft hover:shadow-card text-left" onclick="openLeadWith('CT Abdomen')">
+          <span class="font-medium">CT Abdomen</span><span class="text-brand-700">→</span>
         </button>
-        <button class="flex items-center justify-between rounded-2xl bg-white border border-teal-700/10 px-5 py-4 shadow-sm hover:shadow-md text-left" onclick="openLeadWith('Normal Delivery')">
-          <span class="font-medium">Normal Delivery</span><span class="text-teal-700">→</span>
+        <button class="flex items-center justify-between rounded-3xl bg-white border border-brand-700/10 px-5 py-4 shadow-soft hover:shadow-card text-left" onclick="openLeadWith('Normal Delivery')">
+          <span class="font-medium">Normal Delivery</span><span class="text-brand-700">→</span>
         </button>
-        <button class="flex items-center justify-between rounded-2xl bg-white border border-teal-700/10 px-5 py-4 shadow-sm hover:shadow-md text-left" onclick="openLeadWith('Cataract Surgery')">
-          <span class="font-medium">Cataract Surgery</span><span class="text-teal-700">→</span>
+        <button class="flex items-center justify-between rounded-3xl bg-white border border-brand-700/10 px-5 py-4 shadow-soft hover:shadow-card text-left" onclick="openLeadWith('Cataract Surgery')">
+          <span class="font-medium">Cataract Surgery</span><span class="text-brand-700">→</span>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- TRANSPARENCY (INDIA) + TESTIMONIAL -->
-  <section class="py-12 sm:py-16 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+  <!-- TRANSPARENCY + TESTIMONIAL -->
+  <section class="section bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-start">
       <div class="lg:col-span-6">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold">Hospital prices in India, made simple.</h2>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold">Hospital prices in India, made simple.</h2>
         <p class="mt-4 text-slate-700 leading-relaxed">In India, hospitals rarely publish clear procedure rates. DoctorMRP collects and verifies price lists so you can plan your healthcare budget, avoid surprise bills, and choose confidently.</p>
-        <div class="mt-6 grid gap-4">
+        <div class="mt-6 grid gap-5">
           <div>
             <h3 class="font-semibold">Our verification steps</h3>
-            <ul class="mt-2 space-y-1 text-slate-700">
+            <ul class="mt-2 space-y-1.5 text-slate-700">
               <li>1. Public rate cards or hospital-submitted prices</li>
               <li>2. Team verification by phone/email</li>
               <li>3. Regular updates & “Verified on” date</li>
@@ -182,50 +195,50 @@
         </div>
       </div>
       <div class="lg:col-span-6">
-        <blockquote class="rounded-3xl p-8 bg-dm_teal text-white shadow-xl">
+        <blockquote class="rounded-3xl p-8 bg-brand-900 text-white shadow-card">
           <p class="text-xl sm:text-2xl leading-relaxed font-semibold">“I compared knee replacement prices across Pune and saved ₹45,000 while choosing an NABH hospital.”</p>
-          <footer class="mt-4 text-sm text-teal-100">— Priya, Pune</footer>
+          <footer class="mt-4 text-sm text-brand-100">— Priya, Pune</footer>
         </blockquote>
       </div>
     </div>
   </section>
 
   <!-- TRUST STATS -->
-  <section class="py-10 sm:py-14 bg-white">
+  <section class="section bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid sm:grid-cols-3 gap-6">
-      <div class="rounded-2xl border border-teal-700/10 p-6 text-center shadow-sm">
-        <div class="text-3xl font-extrabold" style="color:#1AA39A">2.4M+</div>
+      <div class="rounded-3xl border border-brand-700/10 p-6 text-center shadow-soft">
+        <div class="text-3xl font-extrabold text-brand-600">2.4M+</div>
         <div class="mt-1 text-slate-600">Prices compared</div>
       </div>
-      <div class="rounded-2xl border border-teal-700/10 p-6 text-center shadow-sm">
-        <div class="text-3xl font-extrabold" style="color:#1AA39A">1,200+</div>
+      <div class="rounded-3xl border border-brand-700/10 p-6 text-center shadow-soft">
+        <div class="text-3xl font-extrabold text-brand-600">1,200+</div>
         <div class="mt-1 text-slate-600">Hospitals referenced</div>
       </div>
-      <div class="rounded-2xl border border-teal-700/10 p-6 text-center shadow-sm">
-        <div class="text-3xl font-extrabold" style="color:#1AA39A">98%</div>
+      <div class="rounded-3xl border border-brand-700/10 p-6 text-center shadow-soft">
+        <div class="text-3xl font-extrabold text-brand-600">98%</div>
         <div class="mt-1 text-slate-600">User satisfaction</div>
       </div>
     </div>
   </section>
 
   <!-- B2B -->
-  <section id="for-hospitals" class="py-12 sm:py-16 bg-dm_light/60">
+  <section id="for-hospitals" class="section bg-brand-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
-        <div class="text-sm tracking-widest uppercase text-teal-600 font-semibold">For Hospitals & Clinics</div>
-        <h2 class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">List your prices. Earn more trust. Grow OPD.</h2>
+        <div class="eyebrow text-sm uppercase text-brand-700 font-semibold">For Hospitals & Clinics</div>
+        <h2 class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold">List your prices. Earn more trust. Grow OPD.</h2>
         <p class="mt-3 text-slate-600 leading-relaxed max-w-3xl">Publish verified prices on DoctorMRP and receive qualified patient leads. No setup hassle—go live in 7 days.</p>
       </div>
       <div class="grid gap-6 lg:grid-cols-3">
-        <div class="rounded-2xl bg-white border border-teal-700/10 p-6 shadow-sm">
+        <div class="rounded-3xl bg-white border border-brand-700/10 p-6 shadow-soft">
           <h3 class="font-semibold text-lg">Data & SEO reach</h3>
           <p class="mt-2 text-slate-700">Appear for searches like “MRI price in Surat”. City pages + structured data help patients find you.</p>
         </div>
-        <div class="rounded-2xl bg-white border border-teal-700/10 p-6 shadow-sm">
+        <div class="rounded-3xl bg-white border border-brand-700/10 p-6 shadow-soft">
           <h3 class="font-semibold text-lg">Leads you can track</h3>
           <p class="mt-2 text-slate-700">Get calls and WhatsApp inquiries directly. Track verified leads and conversions.</p>
         </div>
-        <div class="rounded-2xl bg-white border border-teal-700/10 p-6 shadow-sm">
+        <div class="rounded-3xl bg-white border border-brand-700/10 p-6 shadow-soft">
           <h3 class="font-semibold text-lg">Compliance & transparency</h3>
           <p class="mt-2 text-slate-700">Build trust with clear inclusions, last-updated dates, and “Verified by DoctorMRP” badges.</p>
         </div>
@@ -238,9 +251,9 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-12 bg-dm_teal">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <h3 class="text-white text-2xl font-bold">Know the cost before you go.</h3>
+  <section class="py-14 bg-brand-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+      <h3 class="text-white text-2xl font-extrabold">Know the cost before you go.</h3>
       <div class="flex gap-3">
         <button onclick="openLead()" class="btn-light">Get 3 Quotes Free</button>
         <a href="https://wa.me/917588343376" class="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-white hover:bg-white/10">
@@ -253,42 +266,42 @@
 
   <!-- FOOTER -->
   <footer class="bg-white border-t">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div class="text-2xl font-extrabold" style="color:#1AA39A">DoctorMRP</div>
+          <div class="text-2xl font-extrabold text-brand-600">DoctorMRP</div>
           <p class="mt-2 text-slate-600 max-w-xs">India’s hospital price transparency & patient-lead platform.</p>
         </div>
         <div>
           <div class="font-semibold mb-2">Care</div>
           <ul class="space-y-1 text-slate-700">
-            <li><a class="text-teal-700 hover:underline" href="#">Search Prices</a></li>
-            <li><a class="text-teal-700 hover:underline" href="#">Popular Procedures</a></li>
-            <li><a class="text-teal-700 hover:underline" href="#">Cities</a></li>
+            <li><a class="link" href="#">Search Prices</a></li>
+            <li><a class="link" href="#">Popular Procedures</a></li>
+            <li><a class="link" href="#">Cities</a></li>
           </ul>
         </div>
         <div>
           <div class="font-semibold mb-2">Solutions</div>
           <ul class="space-y-1 text-slate-700">
-            <li><a class="text-teal-700 hover:underline" href="#for-hospitals">For Hospitals</a></li>
-            <li><a class="text-teal-700 hover:underline" href="#">For Employers</a></li>
-            <li><a class="text-teal-700 hover:underline" href="#">For Insurers</a></li>
+            <li><a class="link" href="#for-hospitals">For Hospitals</a></li>
+            <li><a class="link" href="#">For Employers</a></li>
+            <li><a class="link" href="#">For Insurers</a></li>
           </ul>
         </div>
         <div>
           <div class="font-semibold mb-2">Company</div>
           <ul class="space-y-1 text-slate-700">
-            <li><a class="text-teal-700 hover:underline" href="#">About</a></li>
-            <li><a class="text-teal-700 hover:underline" href="#">Privacy</a></li>
-            <li><a class="text-teal-700 hover:underline" href="#">Terms</a></li>
+            <li><a class="link" href="#">About</a></li>
+            <li><a class="link" href="#">Privacy</a></li>
+            <li><a class="link" href="#">Terms</a></li>
           </ul>
         </div>
       </div>
-      <div class="mt-8 flex items-center justify-between text-sm text-slate-500">
+      <div class="mt-10 flex items-center justify-between text-sm text-slate-500">
         <div>© <span id="year"></span> DoctorMRP • Made for India</div>
-        <div class="flex items-center gap-3">
-          <a class="text-teal-700 hover:underline" href="https://wa.me/917588343376">WhatsApp</a>
-          <a class="text-teal-700 hover:underline" href="mailto:sales@doctormrp.com">sales@doctormrp.com</a>
+        <div class="flex items-center gap-4">
+          <a class="link" href="https://wa.me/917588343376">WhatsApp</a>
+          <a class="link" href="mailto:sales@doctormrp.com">sales@doctormrp.com</a>
         </div>
       </div>
     </div>
@@ -296,46 +309,26 @@
 
   <!-- LEAD DIALOG -->
   <div id="leadModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/50 p-0 sm:p-6">
-    <div class="w-full sm:max-w-lg bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden">
+    <div class="w-full sm:max-w-lg bg-white rounded-t-2xl sm:rounded-2xl shadow-card overflow-hidden">
       <div class="p-6 border-b">
         <h3 class="text-xl font-semibold">Get 3 quotes in 10 minutes</h3>
         <p class="text-slate-600 text-sm mt-1">We’ll connect you to hospitals that match your needs.</p>
       </div>
       <form class="p-6 grid grid-cols-1 gap-4" onsubmit="event.preventDefault(); closeLead(); alert('Submitted!');">
-        <label class="grid gap-1">
-          <span class="text-sm font-medium">Your Name</span>
-          <input class="input" placeholder="Full name" />
-        </label>
-        <label class="grid gap-1">
-          <span class="text-sm font-medium">Phone (WhatsApp)</span>
-          <input class="input" placeholder="10-digit mobile" inputmode="numeric" />
-        </label>
+        <label class="grid gap-1"><span class="text-sm font-medium">Your Name</span><input class="input" placeholder="Full name"/></label>
+        <label class="grid gap-1"><span class="text-sm font-medium">Phone (WhatsApp)</span><input class="input" placeholder="10-digit mobile" inputmode="numeric"/></label>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label class="grid gap-1">
-            <span class="text-sm font-medium">City</span>
-            <input class="input" id="leadCity" placeholder="e.g., Pune" />
-          </label>
-          <label class="grid gap-1">
-            <span class="text-sm font-medium">Procedure/Test</span>
-            <input class="input" id="leadProc" placeholder="e.g., MRI Brain" />
-          </label>
+          <label class="grid gap-1"><span class="text-sm font-medium">City</span><input class="input" id="leadCity" placeholder="e.g., Pune"/></label>
+          <label class="grid gap-1"><span class="text-sm font-medium">Procedure/Test</span><input class="input" id="leadProc" placeholder="e.g., MRI Brain"/></label>
         </div>
-        <label class="grid gap-1">
-          <span class="text-sm font-medium">Budget Range (₹)</span>
-          <input class="input" placeholder="e.g., 3000–6000" />
-        </label>
-        <label class="grid gap-1">
-          <span class="text-sm font-medium">Notes</span>
-          <textarea class="input min-h-[96px]" placeholder="Preferred date, insurance/cashless, any details"></textarea>
-        </label>
-        <div class="flex items-center gap-2">
-          <input id="consent" type="checkbox" class="rounded border-slate-300 text-teal-600 focus:ring-teal-500" />
-          <label for="consent" class="text-sm text-slate-600">I agree to be contacted by DoctorMRP & partner hospitals.</label>
-        </div>
-        <div class="flex gap-3 pt-2">
-          <button type="button" class="btn-ghost" onclick="closeLead()">Cancel</button>
-          <button type="submit" class="btn-primary">Submit</button>
-        </div>
+        <label class="grid gap-1"><span class="text-sm font-medium">Budget Range (₹)</span><input class="input" placeholder="e.g., 3000–6000"/></label>
+        <label class="grid gap-1"><span class="text-sm font-medium">Notes</span><textarea class="input min-h-[96px]" placeholder="Preferred date, insurance/cashless, any details"></textarea></label>
+        <div class="flex items-center gap-2"><input id="consent" type="checkbox" class="rounded border-slate-300 text-brand-600 focus:ring-brand-600"/><label for="consent" class="text-sm text-slate-600">I agree to be contacted by DoctorMRP & partner hospitals.</label></div>
+        <div class="flex gap-3 pt-2"><button type="button" class="btn-ghost" onclick="closeLead()">Cancel</button><button type="submit" class="btn-primary">Submit</button></div>
       </form>
     </div>
   </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    f
