@@ -7,6 +7,8 @@
   <meta name="description" content="Compare real hospital prices in India. Avoid surprises and contact hospitals directly."/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,11 +18,11 @@
             brand: {
               900: "#093533",  /* deep teal */
               800: "#0C4A47",
-              700: "#0F6F69",  /* links / accents */
+              700: "#0F6F69",
               600: "#148E86",  /* primary CTA */
               500: "#17A79E",
               100: "#D8F2EF",
-              50:  "#E9F8F6"   /* soft background */
+              50:  "#E9F8F6"
             }
           },
           fontFamily: { sans: ["Inter","ui-sans-serif","system-ui"] },
@@ -52,12 +54,82 @@
 </head>
 <body class="font-sans text-slate-900 bg-white">
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden section">
-    <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-brand-50/70"></div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <!-- ================= NAV / HEADER ================= -->
+  <header class="bg-brand-900 text-white sticky top-0 z-40">
+    <div class="mx-auto max-w-7xl px-4 md:px-8 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <!-- Swap src with your logo -->
+        <img src="/logo.svg" alt="DoctorMRP" class="h-6 w-6 hidden sm:block"/>
+        <span class="text-xl font-extrabold tracking-tight">DoctorMRP</span>
+      </a>
+
+      <!-- Desktop links -->
+      <nav class="hidden md:flex items-center gap-8 font-medium">
+        <a href="#search" class="hover:text-brand-500">Search Care</a>
+        <a href="#for-hospitals" class="hover:text-brand-500">Solutions</a>
+        <a href="#resources" class="hover:text-brand-500">Resources</a>
+        <a href="#about" class="hover:text-brand-500">About</a>
+        <a href="#lead" onclick="openLead()" class="btn-light">Get Quotes</a>
+      </nav>
+
+      <!-- Mobile burger -->
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl bg-white/10 px-3 py-2">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-brand-900/98 border-t border-white/10">
+      <div class="px-4 py-3 space-y-2 text-base">
+        <details class="group">
+          <summary class="flex items-center justify-between py-3 border-b border-white/10 cursor-pointer">Search Care
+            <span>▾</span>
+          </summary>
+          <nav class="pl-2 py-2 space-y-2">
+            <a class="block hover:text-brand-500" href="#search">Search Prices</a>
+            <a class="block hover:text-brand-500" href="#popular">Popular Procedures</a>
+            <a class="block hover:text-brand-500" href="#cities">Browse by City</a>
+          </nav>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-3 border-b border-white/10 cursor-pointer">Solutions
+            <span>▾</span>
+          </summary>
+          <nav class="pl-2 py-2 space-y-2">
+            <a class="block hover:text-brand-500" href="#for-hospitals">For Hospitals</a>
+            <a class="block hover:text-brand-500" href="#for-employers">For Employers</a>
+            <a class="block hover:text-brand-500" href="#for-insurers">For Insurers</a>
+          </nav>
+        </details>
+
+        <details id="resources" class="group">
+          <summary class="flex items-center justify-between py-3 border-b border-white/10 cursor-pointer">Resources
+            <span>▾</span>
+          </summary>
+          <nav class="pl-2 py-2 space-y-2">
+            <a class="block hover:text-brand-500" href="#">Guides</a>
+            <a class="block hover:text-brand-500" href="#">FAQ</a>
+            <a class="block hover:text-brand-500" href="mailto:sales@doctormrp.com">Contact</a>
+          </nav>
+        </details>
+
+        <div class="pt-3 flex flex-col gap-3">
+          <a href="#lead" onclick="openLead()" class="btn-primary text-center">List Your Hospital</a>
+          <a href="https://wa.me/917588343376" class="btn-ghost text-center">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="relative overflow-hidden section bg-gradient-to-b from-white via-white to-brand-50/70" id="search">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7">
+          <p class="mb-2 text-brand-600 font-semibold">DoctorMRP for India</p>
           <h1 class="text-[2rem] sm:text-[2.6rem] lg:text-[3.1rem] font-extrabold tracking-tight leading-tight">
             Know what you’ll pay — for care in India.
           </h1>
@@ -124,7 +196,7 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- ================= HOW IT WORKS ================= -->
   <section class="section bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
@@ -149,8 +221,8 @@
     </div>
   </section>
 
-  <!-- POPULAR PROCEDURES -->
-  <section class="section bg-brand-50">
+  <!-- ================= POPULAR PROCEDURES ================= -->
+  <section id="popular" class="section bg-brand-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
         <div class="eyebrow text-sm uppercase text-brand-700 font-semibold">Popular in your city</div>
@@ -173,7 +245,7 @@
     </div>
   </section>
 
-  <!-- TRANSPARENCY + TESTIMONIAL -->
+  <!-- ================= TRANSPARENCY / TESTIMONIAL ================= -->
   <section class="section bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-start">
       <div class="lg:col-span-6">
@@ -203,7 +275,7 @@
     </div>
   </section>
 
-  <!-- TRUST STATS -->
+  <!-- ================= TRUST STATS ================= -->
   <section class="section bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid sm:grid-cols-3 gap-6">
       <div class="rounded-3xl border border-brand-700/10 p-6 text-center shadow-soft">
@@ -221,7 +293,7 @@
     </div>
   </section>
 
-  <!-- B2B -->
+  <!-- ================= B2B ================= -->
   <section id="for-hospitals" class="section bg-brand-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
@@ -250,7 +322,7 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ================= CTA ================= -->
   <section class="py-14 bg-brand-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-5">
       <h3 class="text-white text-2xl font-extrabold">Know the cost before you go.</h3>
@@ -264,71 +336,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ================= FOOTER ================= -->
   <footer class="bg-white border-t">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div class="text-2xl font-extrabold text-brand-600">DoctorMRP</div>
-          <p class="mt-2 text-slate-600 max-w-xs">India’s hospital price transparency & patient-lead platform.</p>
-        </div>
-        <div>
-          <div class="font-semibold mb-2">Care</div>
-          <ul class="space-y-1 text-slate-700">
-            <li><a class="link" href="#">Search Prices</a></li>
-            <li><a class="link" href="#">Popular Procedures</a></li>
-            <li><a class="link" href="#">Cities</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="font-semibold mb-2">Solutions</div>
-          <ul class="space-y-1 text-slate-700">
-            <li><a class="link" href="#for-hospitals">For Hospitals</a></li>
-            <li><a class="link" href="#">For Employers</a></li>
-            <li><a class="link" href="#">For Insurers</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="font-semibold mb-2">Company</div>
-          <ul class="space-y-1 text-slate-700">
-            <li><a class="link" href="#">About</a></li>
-            <li><a class="link" href="#">Privacy</a></li>
-            <li><a class="link" href="#">Terms</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mt-10 flex items-center justify-between text-sm text-slate-500">
-        <div>© <span id="year"></span> DoctorMRP • Made for India</div>
-        <div class="flex items-center gap-4">
-          <a class="link" href="https://wa.me/917588343376">WhatsApp</a>
-          <a class="link" href="mailto:sales@doctormrp.com">sales@doctormrp.com</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- LEAD DIALOG -->
-  <div id="leadModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/50 p-0 sm:p-6">
-    <div class="w-full sm:max-w-lg bg-white rounded-t-2xl sm:rounded-2xl shadow-card overflow-hidden">
-      <div class="p-6 border-b">
-        <h3 class="text-xl font-semibold">Get 3 quotes in 10 minutes</h3>
-        <p class="text-slate-600 text-sm mt-1">We’ll connect you to hospitals that match your needs.</p>
-      </div>
-      <form class="p-6 grid grid-cols-1 gap-4" onsubmit="event.preventDefault(); closeLead(); alert('Submitted!');">
-        <label class="grid gap-1"><span class="text-sm font-medium">Your Name</span><input class="input" placeholder="Full name"/></label>
-        <label class="grid gap-1"><span class="text-sm font-medium">Phone (WhatsApp)</span><input class="input" placeholder="10-digit mobile" inputmode="numeric"/></label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label class="grid gap-1"><span class="text-sm font-medium">City</span><input class="input" id="leadCity" placeholder="e.g., Pune"/></label>
-          <label class="grid gap-1"><span class="text-sm font-medium">Procedure/Test</span><input class="input" id="leadProc" placeholder="e.g., MRI Brain"/></label>
-        </div>
-        <label class="grid gap-1"><span class="text-sm font-medium">Budget Range (₹)</span><input class="input" placeholder="e.g., 3000–6000"/></label>
-        <label class="grid gap-1"><span class="text-sm font-medium">Notes</span><textarea class="input min-h-[96px]" placeholder="Preferred date, insurance/cashless, any details"></textarea></label>
-        <div class="flex items-center gap-2"><input id="consent" type="checkbox" class="rounded border-slate-300 text-brand-600 focus:ring-brand-600"/><label for="consent" class="text-sm text-slate-600">I agree to be contacted by DoctorMRP & partner hospitals.</label></div>
-        <div class="flex gap-3 pt-2"><button type="button" class="btn-ghost" onclick="closeLead()">Cancel</button><button type="submit" class="btn-primary">Submit</button></div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    const $ = (id) => document.getElementById(id);
-    f
+          <p class="mt-2 text-slate-600 max-w
