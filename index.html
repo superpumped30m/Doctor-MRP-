@@ -348,4 +348,124 @@
         </div>
         <div class="rounded-3xl bg-white border border-brand-700/10 p-6 shadow-soft">
           <h3 class="font-semibold text-lg">Compliance & transparency</h3>
-          <p class="mt-2 text-slate-700">Cle
+          <p class="mt-2 text-slate-700">Clear inclusions, update dates, and “Verified by DoctorMRP”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <div class="text-2xl font-extrabold text-brand-600">DoctorMRP</div>
+          <p class="mt-2 text-slate-600 max-w-xs">India’s hospital price transparency & patient-lead platform.</p>
+        </div>
+        <div>
+          <div class="font-semibold mb-2">Care</div>
+          <ul class="space-y-1 text-slate-700">
+            <li><a class="link" href="#search">Search Prices</a></li>
+            <li><a class="link" href="#popular">Popular Procedures</a></li>
+            <li><a class="link" href="#cities">Cities</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-2">Solutions</div>
+          <ul class="space-y-1 text-slate-700">
+            <li><a class="link" href="#for-hospitals">For Hospitals</a></li>
+            <li><a class="link" href="#for-employers">For Employers</a></li>
+            <li><a class="link" href="#for-insurers">For Insurers</a></li>
+          </ul>
+        </div>
+        <div id="about">
+          <div class="font-semibold mb-2">Company</div>
+          <ul class="space-y-1 text-slate-700">
+            <li><a class="link" href="#">About</a></li>
+            <li><a class="link" href="#">Privacy</a></li>
+            <li><a class="link" href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 flex items-center justify-between text-sm text-slate-500">
+        <div>© <span id="year"></span> DoctorMRP • Made for India</div>
+        <div class="flex items-center gap-4">
+          <a class="link" href="https://wa.me/917588343376">WhatsApp</a>
+          <a class="link" href="mailto:sales@doctormrp.com">sales@doctormrp.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= LEAD DIALOG (kept; no “Get 3 Quotes Free” CTA section) ================= -->
+  <div id="leadModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/50 p-0 sm:p-6">
+    <div class="w-full sm:max-w-lg bg-white rounded-t-2xl sm:rounded-2xl shadow-card overflow-hidden">
+      <div class="p-6 border-b">
+        <h3 class="text-xl font-semibold">Get price options fast</h3>
+        <p class="text-slate-600 text-sm mt-1">We’ll connect you to hospitals that match your need.</p>
+      </div>
+      <form class="p-6 grid grid-cols-1 gap-4" onsubmit="event.preventDefault(); closeLead(); alert('Submitted!');">
+        <label class="grid gap-1"><span class="text-sm font-medium">Your Name</span><input class="input" placeholder="Full name"/></label>
+        <label class="grid gap-1"><span class="text-sm font-medium">Phone (WhatsApp)</span><input class="input" placeholder="10-digit mobile" inputmode="numeric"/></label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="grid gap-1"><span class="text-sm font-medium">City</span><input class="input" id="leadCity" placeholder="e.g., Pune"/></label>
+          <label class="grid gap-1"><span class="text-sm font-medium">Procedure/Test</span><input class="input" id="leadProc" placeholder="e.g., MRI Brain"/></label>
+        </div>
+        <label class="grid gap-1"><span class="text-sm font-medium">Budget Range (₹)</span><input class="input" placeholder="e.g., 3000–6000"/></label>
+        <label class="grid gap-1"><span class="text-sm font-medium">Notes</span><textarea class="input min-h-[96px]" placeholder="Preferred date, insurance/cashless, any details"></textarea></label>
+        <div class="flex items-center gap-2"><input id="consent" type="checkbox" class="rounded border-slate-300 text-brand-600 focus:ring-brand-600"/><label for="consent" class="text-sm text-slate-600">I agree to be contacted by DoctorMRP & partner hospitals.</label></div>
+        <div class="flex gap-3 pt-2"><button type="button" class="btn-ghost" onclick="closeLead()">Cancel</button><button type="submit" class="btn-primary">Submit</button></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // ---- Mobile drawer (guaranteed working, with slide animation)
+    (function () {
+      const btn = document.getElementById('menuBtn');
+      const drawer = document.getElementById('mobileDrawer');
+      const panel  = document.getElementById('drawerPanel');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('backdrop');
+
+      function openDrawer() {
+        drawer.classList.remove('hidden');
+        // allow paint before sliding
+        requestAnimationFrame(() => panel.classList.remove('translate-x-full'));
+        btn?.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        panel.classList.add('translate-x-full');
+        panel.addEventListener('transitionend', () => {
+          drawer.classList.add('hidden');
+        }, { once: true });
+        btn?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      btn?.addEventListener('click', () => {
+        if (drawer.classList.contains('hidden')) openDrawer();
+        else closeDrawer();
+      });
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+    })();
+
+    // ---- Lead helpers
+    const $ = (id) => document.getElementById(id);
+    function setProc(text){ document.getElementById('proc').value = text; }
+    function openLead(){
+      const m = $('leadModal'); m.classList.remove('hidden'); m.classList.add('flex');
+      $('leadProc').value = document.getElementById('proc').value || '';
+      $('leadCity').value = document.getElementById('city')?.value || '';
+    }
+    function openLeadWith(proc){ document.getElementById('proc').value = proc; openLead(); }
+    function closeLead(){ const m = $('leadModal'); m.classList.add('hidden'); m.classList.remove('flex'); }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+            
