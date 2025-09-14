@@ -1,273 +1,298 @@
-<!DOCTYPE html><html lang="en">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hospital Name — Provider Info | DoctorMRP</title>
-  <meta name="description" content="Provider information, financial assistance, care quality, and clinical services. Built in a clean turquoise-style layout for DoctorMRP." />  <!-- Fonts + Tailwind -->  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Hospital Prices — DoctorMRP</title>
+  <meta name="description" content="Transparent hospital prices. Search, compare, and share. Built by DoctorMRP." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?ver=turquoise"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Turquoise Health–like palette
+            tqs: {
+              50:'#e6fffb', 100:'#bffcf3', 200:'#93f7ea', 300:'#5ceee0',
+              400:'#2fded2', 500:'#14c7bd', 600:'#10a6a1', 700:'#0c8583',
+              800:'#0b6a69', 900:'#0a5555'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .soft{box-shadow:0 20px 60px rgba(0,0,0,.06)}
-    .chip{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.5rem .85rem}
+    html{scroll-behavior:smooth}
+    .chip{ @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm;}
+    .pill{ @apply inline-flex items-center justify-center rounded-full px-2 py-0.5 text-xs font-medium;}
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
-  <!-- Top Nav -->
-  <header class="bg-teal-900 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="h-9 w-9 grid place-items-center rounded-xl bg-teal-600 font-black">DM</div>
-        <nav class="hidden md:flex items-center gap-6 text-sm text-teal-100/80">
-          <a href="#" class="hover:text-white">Search Care</a>
-          <a href="#" class="hover:text-white">Solutions</a>
-          <a href="#" class="hover:text-white">Platform</a>
-          <a href="#" class="hover:text-white">Resources</a>
-        </nav>
-      </div>
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- Sticky header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <a class="hidden md:inline px-3 py-1 rounded-full bg-teal-700/60 hover:bg-teal-700 text-sm" href="#">Sign Up</a>
-        <a class="px-3 py-1 rounded-full bg-teal-600 hover:bg-teal-500 text-sm" href="#">Provider Sign In</a>
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded bg-tqs-600 text-white font-bold">DM</span>
+        <span class="font-semibold tracking-wide">DoctorMRP</span>
+        <span class="text-lg">🇮🇳</span>
       </div>
+      <nav class="flex items-center gap-6 text-sm">
+        <a href="#pricing" class="hover:text-tqs-700">Prices</a>
+        <a href="#faq" class="hover:text-tqs-700">FAQ</a>
+        <a href="tel:+919270343376" class="chip border-slate-300 hover:border-tqs-500 hover:text-tqs-700">Call: +91 92703 43376</a>
+        <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">WhatsApp</a>
+      </nav>
     </div>
-  </header>  <!-- Page Title + CTA -->  <section class="bg-teal-900 text-teal-50">
-    <div class="max-w-6xl mx-auto px-4 py-10">
-      <h1 class="text-3xl md:text-4xl font-extrabold">Hospital Name</h1>
-      <div class="mt-4">
-        <a href="#claim" class="chip bg-white/10 hover:bg-white/20 text-white border border-white/20">Get a Complimentary Review</a>
-        <button class="chip bg-white text-teal-900 soft" onclick="navigator.share?navigator.share({title:'Hospital Profile',url:location.href}):alert('Link copied');">Share</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-tqs-50 to-white">
+    <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-tqs-800">
+          Transparent Prices for Patients
+        </h1>
+        <p class="mt-4 text-lg text-slate-700">
+          Simple list. Clear numbers. No hidden fees. Search and share with family and doctors.
+        </p>
       </div>
-    </div>
-  </section>  <!-- Provider Info Card -->  <main class="max-w-6xl mx-auto px-4 -mt-10">
-    <div class="bg-white rounded-2xl border soft">
-      <div class="px-5 md:px-8 pt-6 pb-4 border-b">
-        <div class="text-sm text-teal-700 font-semibold">Provider Info</div>
-        <h2 class="text-xl md:text-2xl font-bold mt-1">Provider Information</h2>
-        <div class="mt-4">
-          <a href="#claim" class="px-4 py-2 rounded-full bg-teal-600 text-white hover:bg-teal-500">Claim This Provider</a>
+
+      <!-- Search + Filters -->
+      <div class="mt-6 grid gap-3 md:grid-cols-[1fr,220px,220px]">
+        <div class="relative">
+          <input id="q" type="search" placeholder="Search procedure (e.g., MRI, CT, OPD)"
+                 class="w-full rounded-xl border px-4 py-3 pr-10 focus:outline-none focus:ring-4 focus:ring-tqs-200" />
+          <svg class="pointer-events-none absolute right-3 top-3.5 h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4a6 6 0 104.472 10.06l3.734 3.734 1.414-1.414-3.734-3.734A6 6 0 0010 4z"/></svg>
         </div>
-      </div><div class="px-5 md:px-8 py-6 grid md:grid-cols-2 gap-6">
-    <dl class="grid grid-cols-3 gap-x-4 gap-y-3 text-sm">
-      <dt class="col-span-1 text-slate-500">Name</dt>
-      <dd class="col-span-2" id="hName">Hospital Name</dd>
+        <select id="dept" class="rounded-xl border px-3 py-3 focus:ring-4 focus:ring-tqs-200">
+          <option value="">All Departments</option>
+          <option>OPD</option><option>Radiology</option><option>Pathology</option>
+          <option>Day Care</option><option>Packages</option>
+        </select>
+        <select id="type" class="rounded-xl border px-3 py-3 focus:ring-4 focus:ring-tqs-200">
+          <option value="">All Types</option>
+          <option>Consultation</option><option>Scan</option><option>Test</option>
+          <option>Procedure</option><option>Package</option>
+        </select>
+      </div>
 
-      <dt class="col-span-1 text-slate-500">Address</dt>
-      <dd class="col-span-2" id="hAddr">123 Example Street, City, ST 12345</dd>
-
-      <dt class="col-span-1 text-slate-500">Phone</dt>
-      <dd class="col-span-2"><a id="hPhone" href="tel:+91XXXXXXXXXX" class="text-teal-700 underline">(612) 863‑4457</a></dd>
-
-      <dt class="col-span-1 text-slate-500">Medicare Provider ID</dt>
-      <dd class="col-span-2" id="hMPID">—</dd>
-
-      <dt class="col-span-1 text-slate-500">National Provider ID (NPI)</dt>
-      <dd class="col-span-2" id="hNPI">—</dd>
-
-      <dt class="col-span-1 text-slate-500">Website</dt>
-      <dd class="col-span-2"><a id="hWeb" href="#" target="_blank" class="text-teal-700 underline">Visit</a></dd>
-
-      <dt class="col-span-1 text-slate-500">Provider Type</dt>
-      <dd class="col-span-2" id="hType">Short Term Acute Care Hospital</dd>
-
-      <dt class="col-span-1 text-slate-500">Ownership</dt>
-      <dd class="col-span-2" id="hOwner">Voluntary non‑profit – Private</dd>
-
-      <dt class="col-span-1 text-slate-500">Beds</dt>
-      <dd class="col-span-2" id="hBeds">—</dd>
-
-      <dt class="col-span-1 text-slate-500">Health System Affiliation</dt>
-      <dd class="col-span-2"><a id="hSystem" class="text-teal-700 underline" href="#">—</a></dd>
-    </dl>
-
-    <!-- Map -->
-    <div class="rounded-xl overflow-hidden border">
-      <iframe class="w-full h-72" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hospital%20Name%20City&output=embed"></iframe>
-    </div>
-  </div>
-
-  <div class="px-5 md:px-8 pb-6 text-sm text-slate-600">
-    <div class="mt-2">
-      <span class="text-slate-500">Nearby Providers</span>
-      <div class="mt-1 flex flex-wrap gap-2">
-        <a href="#" class="text-teal-700 underline">Example Children’s Hospital</a>
-        <span class="text-slate-400">(1 mile)</span>
-        <a href="#" class="text-teal-700 underline">City Medical Center</a>
-        <span class="text-slate-400">(2 miles)</span>
+      <!-- Legend -->
+      <div class="mt-3 text-sm text-slate-600 flex items-center gap-3">
+        <span class="pill bg-tqs-100 text-tqs-800">Cash</span>
+        <span class="pill bg-slate-100 text-slate-700">With Insurance</span>
+        <span class="pill bg-amber-100 text-amber-800">Package</span>
+        <span class="pill bg-emerald-100 text-emerald-800">Includes GST</span>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- Financial Assistance -->
-<section class="mt-6 bg-white rounded-2xl border soft">
-  <div class="px-5 md:px-8 py-6 grid md:grid-cols-3 gap-6 items-start">
-    <div class="md:col-span-2">
-      <h3 class="text-xl font-bold">Financial Assistance</h3>
-      <p class="mt-2 text-sm text-slate-600">Non‑profit hospitals are required to provide Financial Assistance Programs for eligible patients. DoctorMRP can help you discover options and apply for medical debt relief.</p>
-      <a href="#learn-fa" class="inline-block mt-3 px-4 py-2 rounded-xl bg-teal-600 text-white hover:bg-teal-500">Learn More</a>
+  <!-- Pricing -->
+  <section id="pricing" class="mx-auto max-w-6xl px-4 pb-20">
+    <!-- Category blocks -->
+    <div class="space-y-10">
+
+      <!-- OPD -->
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center justify-between px-5 py-4 bg-white rounded-t-2xl">
+          <h2 class="text-xl md:text-2xl font-bold text-tqs-800">OPD</h2>
+          <span class="pill bg-tqs-100 text-tqs-800">Walk-in friendly</span>
+        </div>
+        <div class="divide-y">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
+            <div>
+              <p class="font-semibold">General Physician Consultation</p>
+              <p class="text-sm text-slate-600">Includes 10-minute consult & e-prescription</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <div class="text-2xl font-bold text-tqs-800">₹500</div>
+                <div class="text-xs text-slate-500">Cash</div>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-semibold">₹0–₹500</div>
+                <div class="text-xs text-slate-500">With Insurance</div>
+              </div>
+              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
+            <div>
+              <p class="font-semibold">Specialist Consultation</p>
+              <p class="text-sm text-slate-600">Cardio / Ortho / Neuro OPD</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <div class="text-2xl font-bold text-tqs-800">₹800</div>
+                <div class="text-xs text-slate-500">Cash</div>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-semibold">₹0–₹800</div>
+                <div class="text-xs text-slate-500">With Insurance</div>
+              </div>
+              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radiology -->
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center justify-between px-5 py-4 bg-white rounded-t-2xl">
+          <h2 class="text-xl md:text-2xl font-bold text-tqs-800">Radiology</h2>
+          <span class="pill bg-emerald-100 text-emerald-800">GST included</span>
+        </div>
+        <div class="divide-y">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
+            <div>
+              <p class="font-semibold">X-Ray (Chest PA)</p>
+              <p class="text-sm text-slate-600">Digital image + report</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <div class="text-2xl font-bold text-tqs-800">₹350</div>
+                <div class="text-xs text-slate-500">Cash</div>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-semibold">₹0–₹350</div>
+                <div class="text-xs text-slate-500">With Insurance</div>
+              </div>
+              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
+            <div>
+              <p class="font-semibold">MRI Brain (Plain)</p>
+              <p class="text-sm text-slate-600">Price includes report & films</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <div class="text-2xl font-bold text-tqs-800">₹4,800</div>
+                <div class="text-xs text-slate-500">Cash</div>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-semibold">₹0–₹4,800</div>
+                <div class="text-xs text-slate-500">With Insurance</div>
+              </div>
+              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day Care Package -->
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center justify-between px-5 py-4 bg-white rounded-t-2xl">
+          <h2 class="text-xl md:text-2xl font-bold text-tqs-800">Day-Care Packages</h2>
+          <span class="pill bg-amber-100 text-amber-800">Package price</span>
+        </div>
+        <div class="divide-y">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
+            <div>
+              <p class="font-semibold">Cataract Surgery (Single Eye)</p>
+              <p class="text-sm text-slate-600">OT + Lens + Surgeon fee + 1-day stay</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <div class="text-2xl font-bold text-tqs-800">₹22,500</div>
+                <div class="text-xs text-slate-500">Cash Package</div>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-semibold">Per Policy</div>
+                <div class="text-xs text-slate-500">With Insurance</div>
+              </div>
+              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
+            <div>
+              <p class="font-semibold">Lap. Appendectomy</p>
+              <p class="text-sm text-slate-600">OT + Surgeon/Anesthesia + 2-day stay</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <div class="text-2xl font-bold text-tqs-800">₹48,000</div>
+                <div class="text-xs text-slate-500">Cash Package</div>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-semibold">Per Policy</div>
+                <div class="text-xs text-slate-500">With Insurance</div>
+              </div>
+              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="md:col-span-1">
-      <div class="px-3 py-2 rounded-lg border text-sm flex items-center justify-between">
-        <span class="font-semibold">DOLLAR FOR</span>
-        <input type="checkbox" class="h-5 w-10 appearance-none rounded-full bg-slate-200 relative">
+
+    <!-- Notes -->
+    <p class="mt-6 text-sm text-slate-500">
+      Prices include standard consumables and GST where shown. Final cost may vary for special lenses, implants, or extra stay.
+      Insurance coverage depends on your policy and TPA approval.
+    </p>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-tqs-50 border-t">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-tqs-800">FAQ</h3>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
+          <summary class="font-semibold cursor-pointer">Will showing prices reduce our margins?</summary>
+          <p class="mt-2 text-slate-700">No. You choose what to list. Packages reduce surprises and improve conversion, which increases OPD and referrals.</p>
+        </details>
+        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
+          <summary class="font-semibold cursor-pointer">Can we change prices later?</summary>
+          <p class="mt-2 text-slate-700">Yes. Send your updated PDF and we’ll edit the page within 24–72 hours.</p>
+        </details>
+        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
+          <summary class="font-semibold cursor-pointer">What about insurance?</summary>
+          <p class="mt-2 text-slate-700">We show a simple “Cash” price and a “With Insurance” range. Final approvals depend on your policy.</p>
+        </details>
+        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
+          <summary class="font-semibold cursor-pointer">How do we start?</summary>
+          <p class="mt-2 text-slate-700">WhatsApp your price list PDF to <a class="text-tqs-700 underline" href="https://wa.me/919270343376">+91 92703 43376</a>. We build your page in 3 days.</p>
+        </details>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Care Quality -->
-<section class="mt-6 bg-white rounded-2xl border soft">
-  <div class="px-5 md:px-8 py-6">
-    <h3 class="text-xl font-bold">Care Quality</h3>
-    <div class="mt-2 flex items-center gap-1">
-      <div aria-label="rating" class="flex items-center gap-1">
-        <span class="text-emerald-500">★</span><span class="text-emerald-500">★</span><span class="text-emerald-500">★</span><span class="text-emerald-500">★</span><span class="text-slate-300">★</span>
+  <!-- Footer -->
+  <footer class="border-t">
+    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p><strong>DoctorMRP</strong> — Simple online price page for hospitals.</p>
+      <div class="flex items-center gap-3">
+        <a class="chip border-slate-300 hover:border-tqs-500 hover:text-tqs-700" href="tel:+919270343376">Call Sales</a>
+        <a class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100" href="https://wa.me/919270343376">WhatsApp</a>
       </div>
-      <span class="text-xs text-slate-500">Overall Ranking from CMS</span>
     </div>
+  </footer>
 
-    <div class="mt-5 overflow-x-auto border rounded-xl">
-      <table class="min-w-full text-sm">
-        <thead class="bg-slate-100 text-slate-600">
-          <tr>
-            <th class="text-left p-3">Metric</th>
-            <th class="text-left p-3">Performance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="odd:bg-slate-50">
-            <td class="p-3 border">Effectiveness of Care</td>
-            <td class="p-3 border">Same as the national average</td>
-          </tr>
-          <tr class="odd:bg-slate-50">
-            <td class="p-3 border">Efficient Use of Medical Imaging</td>
-            <td class="p-3 border">Same as the national average</td>
-          </tr>
-          <tr class="odd:bg-slate-50">
-            <td class="p-3 border">Mortality</td>
-            <td class="p-3 border">Same as the national average</td>
-          </tr>
-          <tr class="odd:bg-slate-50">
-            <td class="p-3 border">Patient Experience</td>
-            <td class="p-3 border">Above the national average</td>
-          </tr>
-          <tr class="odd:bg-slate-50">
-            <td class="p-3 border">Readmission</td>
-            <td class="p-3 border">Above the national average</td>
-          </tr>
-          <tr class="odd:bg-slate-50">
-            <td class="p-3 border">Safety of Care</td>
-            <td class="p-3 border">Same as the national average</td>
-          </tr>
-          <tr class="odd:bg-slate-50">
-            <td class="p-3 border">Timeliness of Care</td>
-            <td class="p-3 border">Same as the national average</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="mt-2 text-sm"><a href="#" class="text-teal-700 underline">View more at Medicare's Care Compare</a></div>
-  </div>
-</section>
-
-<!-- Clinical Services -->
-<section class="mt-6 bg-white rounded-2xl border soft">
-  <div class="px-5 md:px-8 py-6">
-    <h3 class="text-xl font-bold">Clinical Services</h3>
-    <div class="grid md:grid-cols-3 gap-6 mt-4 text-sm">
-      <ul class="space-y-2 list-disc pl-5">
-        <li>Acute Renal Dialysis</li>
-        <li>Adult Inpatient Psychiatric Care</li>
-        <li>Anesthesia</li>
-        <li>Cardiac Catheterization Lab</li>
-        <li>Cardiothoracic Surgery</li>
-        <li>Chemotherapy</li>
-        <li>CT Scan</li>
-        <li>Diagnostic Radiology</li>
-      </ul>
-      <ul class="space-y-2 list-disc pl-5">
-        <li>Emergency Department</li>
-        <li>ESWL (Lithotripsy)</li>
-        <li>Inpatient Surgical</li>
-        <li>Neonatal Nursery</li>
-        <li>Neurosurgical</li>
-        <li>Nuclear Medicine</li>
-        <li>Obstetrics / Child Birth</li>
-        <li>Orthopedic Surgery</li>
-      </ul>
-      <ul class="space-y-2 list-disc pl-5">
-        <li>Outpatient Care</li>
-        <li>Outpatient Rehabilitation</li>
-        <li>Pediatric Care / PICU</li>
-        <li>Physical Therapy</li>
-        <li>Pharmacy</li>
-        <li>Post‑operative Recovery Room</li>
-        <li>Respiratory Care</li>
-        <li>Therapeutic Radiology</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Footer Provider Card -->
-<section class="mt-6 bg-white rounded-2xl border soft">
-  <div class="px-5 md:px-8 py-6 grid md:grid-cols-3 gap-6">
-    <div class="md:col-span-2">
-      <div class="font-semibold">Hospital Name</div>
-      <div class="text-xs uppercase tracking-wide text-slate-500 mt-1">DoctorMRP Verification</div>
-      <div class="text-sm text-slate-600 mt-1">Unverified rates for this provider</div>
-      <a href="#claim" class="inline-block mt-3 px-4 py-2 rounded-xl bg-teal-600 text-white hover:bg-teal-500">Claim This Provider</a>
-    </div>
-    <div class="md:col-span-1 text-sm">
-      <div class="font-semibold text-slate-700">Location</div>
-      <div class="text-slate-600" id="locText">123 Example Street, City, ST 12345</div>
-      <div class="mt-3 rounded-lg overflow-hidden border">
-        <iframe class="w-full h-48" loading="lazy" src="https://www.google.com/maps?q=Hospital%20Name%20City&output=embed"></iframe>
-      </div>
-      <div class="mt-3"><span class="font-semibold">Contact:</span> <a href="tel:+916128634457" class="text-teal-700 underline">(612) 863‑4457</a></div>
-      <div class="mt-1"><a href="#" class="text-teal-700 underline">Visit Website</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- Bottom CTA Banner -->
-<section class="mt-10 mb-16 bg-teal-900 text-teal-50 rounded-2xl soft">
-  <div class="px-6 md:px-10 py-8 text-center md:text-left grid md:grid-cols-2 items-center gap-6">
-    <div>
-      <h4 class="text-2xl font-extrabold">Are you a transparent provider or payer?</h4>
-      <p class="mt-1 text-teal-100">There is a market for transparency. Let patients find you by claiming your provider page and listing your services. It only takes 10 minutes.</p>
-    </div>
-    <div class="text-center md:text-right">
-      <a href="#claim" class="inline-block px-5 py-3 rounded-xl bg-white text-teal-900 font-semibold hover:bg-teal-50">Get Started</a>
-    </div>
-  </div>
-</section>
-
-  </main>  <footer class="py-10 text-center text-xs text-slate-500">
-    © 2025 DoctorMRP — Transparent Prices → Patient Leads
-  </footer>  <script>
-    // Optional: simple data injection so you can reuse this template
-    const DATA = {
-      name: 'Mahavir Arogya Sansthan',
-      address: 'Near Chiraiyatand Pul, Old Bypass Road, Kankarbagh, Patna 800020',
-      phone: '+916122384220',
-      website: 'https://www.mahavirarogyasansthan.com/',
-      type: 'Multispeciality Hospital',
-      ownership: 'Trust / Non‑profit',
-      beds: '—',
-      system: { name:'—', url:'#' }
-    };
-    function $(s){return document.querySelector(s)}
-    document.title = `${DATA.name} — Provider Info | DoctorMRP`;
-    $('#hName').textContent = DATA.name;
-    $('#hAddr').textContent = DATA.address;
-    $('#locText').textContent = DATA.address;
-    $('#hPhone').href = `tel:${DATA.phone}`;
-    $('#hPhone').textContent = DATA.phone.replace('+91','+91 ');
-    $('#hWeb').href = DATA.website;
-    $('#hType').textContent = DATA.type;
-    $('#hOwner').textContent = DATA.ownership;
-    $('#hSystem').textContent = DATA.system.name; $('#hSystem').href = DATA.system.url;
-  </script></body>
+  <!-- Simple client-side filtering -->
+  <script>
+    (function(){
+      const rows = Array.from(document.querySelectorAll('#pricing .divide-y > div'));
+      function filter(){
+        const q = document.getElementById('q').value.toLowerCase();
+        const dept = document.getElementById('dept').value.toLowerCase();
+        const type = document.getElementById('type').value.toLowerCase();
+        rows.forEach(r=>{
+          const text = r.innerText.toLowerCase();
+          const inDept = dept ? r.closest('.rounded-2xl').querySelector('h2').innerText.toLowerCase().includes(dept) : true;
+          const inType = type ? text.includes(type) : true;
+          const inQuery = q ? text.includes(q) : true;
+          r.style.display = (inDept && inType && inQuery) ? '' : 'none';
+        });
+      }
+      ['q','dept','type'].forEach(id=>document.getElementById(id).addEventListener('input',filter));
+    })();
+  </script>
+</body>
 </html>
