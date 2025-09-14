@@ -1,20 +1,19 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DoctorMRP — Transparent Prices. Trusted Care. More Patients.</title>
+  <title>DoctorMRP — Online Price Page for Hospitals</title>
   <meta name="description" content="Show your hospital prices online. Build trust. Grow OPD. Simple setup in 3 days at hospital.city.doctormrp.com" />
   <meta name="theme-color" content="#0ea5a4" />
-
-  <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { 50:'#ecfeff',100:'#cffafe',200:'#a5f3fc',300:'#67e8f9',400:'#22d3ee',500:'#06b6d4',600:'#0891b2',700:'#0e7490',800:'#155e75',900:'#164e63',950:'#083344' }
+            brand: { 600:'#0891b2',700:'#0e7490',800:'#155e75' }
           }
         }
       }
@@ -23,7 +22,7 @@
   <style>html{scroll-behavior:smooth}</style>
 </head>
 <body class="bg-white text-slate-800">
-  <!-- Top Utility Bar -->
+  <!-- Top Bar -->
   <div class="w-full bg-slate-900 text-white">
     <div class="mx-auto max-w-6xl flex items-center justify-between px-4 py-2 text-sm">
       <div class="flex items-center gap-2">
@@ -37,119 +36,101 @@
         <a href="https://wa.me/919270343376" class="hover:underline">Chat</a>
       </div>
     </div>
-  </div>
-
-  <main class="mx-auto max-w-5xl px-4 pb-28">
-    <!-- HERO -->
+  </div>  <main class="mx-auto max-w-5xl px-4 pb-28">
+    <!-- Hero -->
     <section class="pt-16 md:pt-24 text-center">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-brand-800">Show Your Prices. Build Trust. Grow OPD.</h1>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">Show Your Prices. Build Trust. Grow OPD.</h1>
       <p class="mt-4 text-lg md:text-xl text-slate-700">Build patient confidence and increase revenue with transparent pricing.</p>
       <div class="mt-6 flex items-center justify-center gap-3">
-        <!-- Solid brand primary CTA (fixes “white badge” confusion) -->
-        <a href="#cta"
-           class="inline-flex items-center justify-center rounded-full bg-brand-600 px-8 py-4 text-white text-lg font-semibold shadow hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-300">
-           Get My Price Page
-        </a>
+        <a href="#cta" class="inline-flex items-center justify-center rounded-full bg-brand-600 px-8 py-4 text-white text-lg font-semibold shadow hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-300">Get My Price Page</a>
       </div>
-    </section>
+    </section><div class="my-12 h-px w-full bg-slate-200"></div>
 
-    <div class="my-12 h-px w-full bg-slate-200"></div>
+<!-- Why Transparency Matters -->
+<section class="grid gap-6">
+  <h2 class="text-2xl font-bold text-slate-900 text-center">Why Price Transparency Matters</h2>
+  <ul class="list-disc pl-5 space-y-2 text-slate-700">
+    <li>Grow OPD and revenue with more walk-ins.</li>
+    <li>Build referral network with local doctors.</li>
+    <li>Earn lasting trust and become the go-to hospital in your city.</li>
+    <li>Patients appreciate clear pricing—no surprises means confidence.</li>
+  </ul>
+</section>
 
-    <!-- Why Price Transparency Matters -->
-    <section class="grid gap-6">
-      <h2 class="text-2xl font-bold text-brand-800 text-center">Why Price Transparency Matters</h2>
-      <ul class="list-disc pl-5 space-y-2 text-slate-700">
-        <li>Grow OPD and revenue with more walk-ins.</li>
-        <li>Build referral network with local doctors.</li>
-        <li>Earn lasting trust and become the go-to hospital in your city.</li>
-        <li>Patients appreciate clear pricing—no surprises means confidence.</li>
-      </ul>
-    </section>
+<!-- How It Works -->
+<section class="mt-12">
+  <h2 class="text-2xl font-bold text-slate-900 text-center">How It Works</h2>
+  <ol class="mt-6 grid gap-4 md:grid-cols-3">
+    <li class="rounded-2xl border p-6 shadow-sm">
+      <p class="text-lg font-semibold">1) Send Your Price List</p>
+      <p class="mt-1 text-slate-700 text-sm">Provide a PDF of the prices you want to share.</p>
+    </li>
+    <li class="rounded-2xl border p-6 shadow-sm">
+      <p class="text-lg font-semibold">2) Turn Transparency Into Cash in 3 Days</p>
+      <p class="mt-1 text-slate-700 text-sm">In just <strong>72 hours</strong> you’ll have a price page that pulls in more OPD visits and referral revenue—without hiring staff or spending on ads.</p>
+    </li>
+    <li class="rounded-2xl border p-6 shadow-sm">
+      <p class="text-lg font-semibold">3) Share With Everyone</p>
+      <p class="mt-1 text-slate-700 text-sm">Staff can show this page to every patient for transparency.</p>
+    </li>
+  </ol>
+</section>
 
-    <!-- How It Works -->
-    <section class="mt-12">
-      <h2 class="text-2xl font-bold text-brand-800 text-center">How It Works</h2>
-      <ol class="mt-6 grid gap-4 md:grid-cols-3">
-        <li class="rounded-2xl border p-6 shadow-sm">
-          <p class="text-lg font-semibold">1) Send Your Price List</p>
-          <p class="mt-1 text-slate-700 text-sm">Provide a PDF of the prices you want to share.</p>
-        </li>
-        <li class="rounded-2xl border p-6 shadow-sm">
-          <!-- Dan Kennedy Profit Hook -->
-          <p class="text-lg font-semibold">2) Turn Transparency Into Cash in 3 Days</p>
-          <p class="mt-1 text-slate-700 text-sm">In just <strong>72 hours</strong> you’ll have a price page that pulls in more OPD visits and referral revenue—without hiring staff or spending on ads.</p>
-        </li>
-        <li class="rounded-2xl border p-6 shadow-sm">
-          <p class="text-lg font-semibold">3) Share With Everyone</p>
-          <p class="mt-1 text-slate-700 text-sm">Staff can show this page to every patient for transparency.</p>
-        </li>
-      </ol>
-    </section>
+<!-- Testimonial -->
+<section class="mt-12 max-w-3xl mx-auto text-center">
+  <h2 class="text-2xl font-bold text-slate-800">What Hospitals Are Saying</h2>
+  <div class="mt-6 rounded-2xl border p-6 shadow-sm bg-white">
+    <blockquote class="text-2xl font-semibold text-slate-800 leading-snug">“OPD visits increased <span class="font-bold">22% in 3 months</span> after we listed our prices.”</blockquote>
+    <p class="mt-2 text-slate-700 text-sm">Result: More walk-ins and smoother billing conversations.</p>
+    <div class="flex items-center justify-center mt-4 gap-3">
+      <img src="citycare-logo.png" alt="CityCare Hospital logo" class="w-10 h-10 rounded-full" />
+      <p class="text-slate-800">CityCare Hospital, Pune</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Testimonial (refined, premium) -->
-    <section class="mt-12 max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-bold text-brand-800">What Hospitals Are Saying</h2>
-      <div class="mt-6 rounded-2xl border p-6 shadow-sm bg-white">
-        <blockquote class="text-2xl font-semibold text-brand-800 leading-snug">
-          “OPD visits increased <span class="font-bold">22% in 3 months</span> after we listed our prices.”
-        </blockquote>
-        <p class="mt-2 text-slate-600 text-sm">Result: More walk-ins and smoother billing conversations.</p>
-        <div class="flex items-center justify-center mt-4 gap-3">
-          <img src="citycare-logo.png" alt="CityCare Hospital logo" class="w-10 h-10 rounded-full">
-          <p class="text-slate-700">CityCare Hospital, Pune</p>
-        </div>
-      </div>
-    </section>
+<!-- Research -->
+<section id="research" class="mt-12 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-extrabold text-slate-900 text-center">Research & Industry Insights</h2>
+  <p class="mt-3 text-slate-700 text-center max-w-3xl mx-auto">Independent research supports transparent pricing to build patient trust and informed choice.</p>
 
-    <!-- Research & Industry Insights (left AS-IS per your request) -->
-    <section id="research" class="mt-12 max-w-5xl mx-auto">
-      <h2 class="text-3xl font-extrabold text-brand-800 text-center">Research & Industry Insights</h2>
-      <p class="mt-3 text-slate-700 text-center max-w-3xl mx-auto">Independent research supports transparent pricing to build patient trust and informed choice.</p>
+  <div class="mt-8 grid gap-6">
+    <article class="rounded-2xl border p-6 shadow-sm bg-white">
+      <h3 class="text-xl font-semibold text-slate-900">Accenture — The Power of Trust</h3>
+      <p class="mt-2 text-slate-700">Trust and clear information drive loyalty and business outcomes.</p>
+      <a class="mt-2 inline-block text-brand-600 underline" href="https://www.accenture.com/us-en/insights/health/difference-between-loyalty-leaving" target="_blank" rel="noopener">Read the study →</a>
+    </article>
 
-      <div class="mt-8 grid gap-6">
-        <article class="rounded-2xl border p-6 shadow-sm bg-white">
-          <h3 class="text-xl font-semibold text-brand-800">Accenture — The Power of Trust</h3>
-          <p class="mt-2 text-slate-700">Trust and clear information drive loyalty and business outcomes.</p>
-          <p class="mt-2 text-xs text-slate-500">Accenture (NYSE: ACN) — Public company. Market cap: update on finance page. Site: <a class="underline" href="https://www.accenture.com" target="_blank" rel="noopener">accenture.com</a></p>
-          <a class="mt-2 inline-block text-brand-700 underline" href="https://www.accenture.com/us-en/insights/health/difference-between-loyalty-leaving" target="_blank" rel="noopener">Read the study →</a>
-        </article>
+    <article class="rounded-2xl border p-6 shadow-sm bg-white">
+      <h3 class="text-xl font-semibold text-slate-900">McKinsey — Price Transparency Impact</h3>
+      <p class="mt-2 text-slate-700">Price transparency increases consumerism and influences provider choice.</p>
+      <a class="mt-2 inline-block text-brand-600 underline" href="https://www.mckinsey.com/industries/healthcare/our-insights/how-price-transparency-could-affect-us-healthcare-markets" target="_blank" rel="noopener">Read the study →</a>
+    </article>
+  </div>
+</section>
 
-        <article class="rounded-2xl border p-6 shadow-sm bg-white">
-          <h3 class="text-xl font-semibold text-brand-800">McKinsey — Price Transparency Impact</h3>
-          <p class="mt-2 text-slate-700">Price transparency increases consumerism and influences provider choice.</p>
-          <p class="mt-2 text-xs text-slate-500">McKinsey &amp; Company — Global consultancy (private). Latest revenue (publicly stated): ~US$16B. Site: <a class="underline" href="https://www.mckinsey.com" target="_blank" rel="noopener">mckinsey.com</a></p>
-          <a class="mt-2 inline-block text-brand-700 underline" href="https://www.mckinsey.com/industries/healthcare/our-insights/how-price-transparency-could-affect-us-healthcare-markets" target="_blank" rel="noopener">Read the study →</a>
-        </article>
-      </div>
-    </section>
+<!-- Promise -->
+<section class="mt-12">
+  <div class="rounded-2xl border p-6 bg-brand-50/50 text-center">
+    <h2 class="text-2xl font-bold text-slate-900">Simple Promise</h2>
+    <p class="mt-2 text-base md:text-lg"><strong>Risk-free:</strong> Free demo in 3 days. No lock-in. Cancel anytime.</p>
+  </div>
+</section>
 
-    <!-- Promise -->
-    <section class="mt-12">
-      <div class="rounded-2xl border p-6 bg-brand-50/50 text-center">
-        <h2 class="text-2xl font-bold text-brand-800">Simple Promise</h2>
-        <p class="mt-2 text-base md:text-lg"><strong>Risk-free:</strong> Free demo in 3 days. No lock-in. Cancel anytime.</p>
-      </div>
-    </section>
+<!-- CTA -->
+<section id="cta" class="mt-12 text-center">
+  <h2 class="text-2xl font-bold text-slate-900">Ready to Start?</h2>
+  <p class="mt-2 text-slate-700">Click below or WhatsApp us to create your hospital price page.</p>
+  <a href="https://wa.me/919270343376" class="mt-5 inline-flex items-center justify-center rounded-full bg-brand-600 px-8 py-4 text-white text-lg font-semibold shadow hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-300">Get My Price Page</a>
+  <p class="mt-3 text-sm text-slate-600">Or call: +91 92703 43376</p>
+</section>
 
-    <!-- CTA -->
-    <section id="cta" class="mt-12 text-center">
-      <h2 class="text-2xl font-bold text-brand-800">Ready to Start?</h2>
-      <p class="mt-2 text-slate-700">Click below or WhatsApp us to create your hospital price page.</p>
-      <a href="https://wa.me/919270343376"
-         class="mt-5 inline-flex items-center justify-center rounded-full bg-brand-600 px-8 py-4 text-white text-lg font-semibold shadow hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-300">
-         Get My Price Page
-      </a>
-      <p class="mt-3 text-sm text-slate-600">Or call: +91 92703 43376</p>
-    </section>
+<!-- Footer -->
+<footer class="mt-14 border-t pt-6 text-center text-sm text-slate-600">
+  <p><strong>DoctorMRP</strong> — Online Price Page for Hospitals.</p>
+</footer>
 
-    <!-- Footer -->
-    <footer class="mt-14 border-t pt-6 text-center text-sm text-slate-600">
-      <p><strong>DoctorMRP</strong> — Online Price Page for Hospitals.</p>
-    </footer>
-  </main>
-
-  <!-- Floating Contact Widget -->
-  <div class="fixed right-4 bottom-4 z-50">
+  </main>  <!-- Floating Contact Widget -->  <div class="fixed right-4 bottom-4 z-50">
     <button id="contactToggle" class="rounded-full bg-red-600 text-white px-4 py-3 shadow-lg font-semibold">Chat now</button>
     <div id="contactPanel" class="hidden mt-2 w-72 rounded-2xl border bg-white p-4 shadow-xl">
       <h3 class="font-semibold text-slate-800">Chat now</h3>
@@ -165,18 +146,13 @@
         </a>
       </div>
     </div>
-  </div>
-
-  <!-- Sticky Learn More button -->
-  <a href="#research" class="fixed left-4 bottom-4 z-40 rounded-full bg-brand-600 px-4 py-2 text-white text-sm font-semibold shadow hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-300">Learn Why Transparency Works</a>
+  </div>  <!-- Sticky Learn More button --><a href="#research" class="fixed left-4 bottom-4 z-40 rounded-full bg-brand-600 px-4 py-2 text-white text-sm font-semibold shadow hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-300">Learn Why Transparency Works</a>
 
   <script>
     (function(){
-      // contact widget toggle
       var t = document.getElementById('contactToggle');
       var p = document.getElementById('contactPanel');
       if(t && p){ t.addEventListener('click', function(){ p.classList.toggle('hidden'); }); }
     })();
-  </script>
-</body>
+  </script></body>
 </html>
