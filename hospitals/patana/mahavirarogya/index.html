@@ -1,298 +1,120 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hospital Prices — DoctorMRP</title>
-  <meta name="description" content="Transparent hospital prices. Search, compare, and share. Built by DoctorMRP." />
+import React, { useMemo, useState } from "react";
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com?ver=turquoise"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            // Turquoise Health–like palette
-            tqs: {
-              50:'#e6fffb', 100:'#bffcf3', 200:'#93f7ea', 300:'#5ceee0',
-              400:'#2fded2', 500:'#14c7bd', 600:'#10a6a1', 700:'#0c8583',
-              800:'#0b6a69', 900:'#0a5555'
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    html{scroll-behavior:smooth}
-    .chip{ @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm;}
-    .pill{ @apply inline-flex items-center justify-center rounded-full px-2 py-0.5 text-xs font-medium;}
-  </style>
-</head>
-<body class="bg-white text-slate-900 antialiased">
+/**
 
-  <!-- Sticky header -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded bg-tqs-600 text-white font-bold">DM</span>
-        <span class="font-semibold tracking-wide">DoctorMRP</span>
-        <span class="text-lg">🇮🇳</span>
-      </div>
-      <nav class="flex items-center gap-6 text-sm">
-        <a href="#pricing" class="hover:text-tqs-700">Prices</a>
-        <a href="#faq" class="hover:text-tqs-700">FAQ</a>
-        <a href="tel:+919270343376" class="chip border-slate-300 hover:border-tqs-500 hover:text-tqs-700">Call: +91 92703 43376</a>
-        <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">WhatsApp</a>
-      </nav>
-    </div>
-  </header>
+DoctorMRP – Proper Lead‑Gen Page (React + Tailwind)
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-tqs-50 to-white">
-    <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-tqs-800">
-          Transparent Prices for Patients
-        </h1>
-        <p class="mt-4 text-lg text-slate-700">
-          Simple list. Clear numbers. No hidden fees. Search and share with family and doctors.
-        </p>
-      </div>
 
-      <!-- Search + Filters -->
-      <div class="mt-6 grid gap-3 md:grid-cols-[1fr,220px,220px]">
-        <div class="relative">
-          <input id="q" type="search" placeholder="Search procedure (e.g., MRI, CT, OPD)"
-                 class="w-full rounded-xl border px-4 py-3 pr-10 focus:outline-none focus:ring-4 focus:ring-tqs-200" />
-          <svg class="pointer-events-none absolute right-3 top-3.5 h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4a6 6 0 104.472 10.06l3.734 3.734 1.414-1.414-3.734-3.734A6 6 0 0010 4z"/></svg>
+---
+
+A clean, focused hospital pricing page to convert patients into leads.
+
+Features: Hero, lead form, search + filter, sticky CTA bar. */
+
+
+// ====== Hospital & Contact ====== const HOSPITAL = { name: "Mahavir Arogya Sansthan", tagline: "Transparent prices • Same‑day OPD • Insurance help", };
+
+const CONTACT = { phone: "+91 75883 43376", // replace with hospital desk whatsapp: "+91 75883 43376", // replace with hospital WhatsApp gmaps: "https://maps.google.com/?q=Mahavir+Arogya+Sansthan", // replace };
+
+// ====== High‑Intent Procedures ====== const PROCEDURES = [ { id: "opd", category: "OPD", name: "Doctor Consultation (General)", unit: "per visit", from: 400 }, { id: "ortho_opd", category: "OPD", name: "Orthopaedic Consultation", unit: "per visit", from: 500 }, { id: "xray", category: "Diagnostics", name: "X‑Ray (Limb)", unit: "per view", from: 400 }, { id: "usg_whole", category: "Diagnostics", name: "Ultrasound – Whole Abdomen", unit: "per study", from: 1200 }, { id: "ct_brain", category: "Diagnostics", name: "CT Brain – Plain", unit: "per study", from: 2500 }, { id: "mri_knee", category: "Diagnostics", name: "MRI Knee", unit: "per study", from: 5000 }, { id: "echo", category: "Cardiac", name: "2D Echo", unit: "per study", from: 2000 }, { id: "tmt", category: "Cardiac", name: "TMT (Stress Test)", unit: "per study", from: 2500 }, { id: "nvd", category: "Obstetrics", name: "Normal Delivery (NVD)", unit: "package", from: 25000 }, { id: "csec", category: "Obstetrics", name: "Caesarean Section (C‑section)", unit: "package", from: 45000 }, { id: "appendix", category: "General Surgery", name: "Appendectomy (Open)", unit: "package", from: 30000 }, { id: "chole", category: "General Surgery", name: "Laparoscopic Cholecystectomy", unit: "package", from: 60000 }, { id: "hernia_uni", category: "General Surgery", name: "Lap Inguinal Hernia – Unilateral", unit: "package", from: 55000 }, { id: "piles_laser", category: "Proctology", name: "Laser Piles Surgery", unit: "package", from: 45000 }, { id: "pop_short", category: "Orthopaedics", name: "POP Cast – Short Arm", unit: "procedure", from: 1500 }, { id: "cr_ru", category: "Orthopaedics", name: "Closed Reduction – Radius/Ulna", unit: "procedure", from: 7000 }, { id: "orif_ru", category: "Orthopaedics", name: "ORIF – Radius/Ulna (with implant)", unit: "package", from: 85000 }, { id: "acl", category: "Orthopaedics", name: "ACL Reconstruction (Arthroscopic)", unit: "package", from: 90000 }, { id: "tkr_uni", category: "Orthopaedics", name: "Total Knee Replacement – Unilateral", unit: "package", from: 180000 }, { id: "tonsils", category: "ENT", name: "Tonsillectomy", unit: "package", from: 35000 }, { id: "fess", category: "ENT", name: "FESS (Endoscopic Sinus Surgery)", unit: "package", from: 65000 }, { id: "cataract", category: "Ophthalmology", name: "Cataract Surgery (Monofocal IOL)", unit: "package", from: 18000 }, ];
+
+// ====== Utils ====== const inr = (n) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n); const telHref = (n) => tel:${(n||"").replace(/[^+\d]/g, "")}; const waHref = (n, text) => https://wa.me/${(n||"").replace(/[^+\d]/g, "").replace(/^\+/, "")}?text=${encodeURIComponent(text)};
+
+// ====== Component ====== export default function HospitalLeadPricing() { const [q, setQ] = useState(""); const [cat, setCat] = useState("All"); const cats = useMemo(() => ["All", ...Array.from(new Set(PROCEDURES.map(p => p.category)))], []);
+
+const list = useMemo(() => { const needle = q.trim().toLowerCase(); return PROCEDURES.filter(p => (cat === "All" || p.category === cat) && ( !needle || p.name.toLowerCase().includes(needle) || p.category.toLowerCase().includes(needle) )); }, [q, cat]);
+
+const waPreset = Hello, I want to book an appointment at ${HOSPITAL.name} for:;
+
+return ( <div className="min-h-screen bg-white text-gray-900"> {/* Header */} <header className="sticky top-0 z-30 backdrop-blur bg-white/80 border-b"> <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"> <div> <h1 className="text-xl sm:text-2xl font-bold">{HOSPITAL.name}</h1> <p className="text-sm text-gray-600">{HOSPITAL.tagline}</p> </div> <div className="hidden sm:flex gap-2"> <a href={telHref(CONTACT.phone)} className="px-4 py-2 rounded-xl bg-black text-white font-medium shadow">Call</a> <a href={waHref(CONTACT.whatsapp, waPreset)} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border font-medium">WhatsApp</a> </div> </div> </header>
+
+{/* Hero */}
+  <section className="max-w-6xl mx-auto px-4 py-6 sm:py-10">
+    <div className="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">Transparent prices that help you decide fast</h2>
+        <ul className="mt-4 text-gray-700 space-y-2 text-sm sm:text-base">
+          <li>• Same‑day OPD slots available</li>
+          <li>• From‑prices shown below — get exact estimate on WhatsApp</li>
+          <li>• Cashless/Insurance assistance</li>
+        </ul>
+        <div className="mt-4 flex gap-2">
+          <a href={telHref(CONTACT.phone)} className="px-4 py-2 rounded-xl bg-black text-white font-semibold shadow">Call Now</a>
+          <a href={waHref(CONTACT.whatsapp, waPreset)} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border font-semibold">WhatsApp Estimate</a>
+          <a href={CONTACT.gmaps} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border font-semibold">Directions</a>
         </div>
-        <select id="dept" class="rounded-xl border px-3 py-3 focus:ring-4 focus:ring-tqs-200">
-          <option value="">All Departments</option>
-          <option>OPD</option><option>Radiology</option><option>Pathology</option>
-          <option>Day Care</option><option>Packages</option>
-        </select>
-        <select id="type" class="rounded-xl border px-3 py-3 focus:ring-4 focus:ring-tqs-200">
-          <option value="">All Types</option>
-          <option>Consultation</option><option>Scan</option><option>Test</option>
-          <option>Procedure</option><option>Package</option>
+      </div>
+
+      <div className="p-4 sm:p-6 rounded-2xl border shadow-sm">
+        <h3 className="text-lg font-bold">Book an Appointment</h3>
+        <LeadForm />
+      </div>
+    </div>
+  </section>
+
+  {/* Filters */}
+  <section className="max-w-6xl mx-auto px-4 pb-2">
+    <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+      <div className="flex gap-2 items-center">
+        <input value={q} onChange={(e)=>setQ(e.target.value)} placeholder="Search procedures…" className="w-full sm:w-80 px-3 py-2 border rounded-xl" />
+        <select value={cat} onChange={(e)=>setCat(e.target.value)} className="px-3 py-2 border rounded-xl">
+          {cats.map(c => <option key={c}>{c}</option>)}
         </select>
       </div>
-
-      <!-- Legend -->
-      <div class="mt-3 text-sm text-slate-600 flex items-center gap-3">
-        <span class="pill bg-tqs-100 text-tqs-800">Cash</span>
-        <span class="pill bg-slate-100 text-slate-700">With Insurance</span>
-        <span class="pill bg-amber-100 text-amber-800">Package</span>
-        <span class="pill bg-emerald-100 text-emerald-800">Includes GST</span>
-      </div>
+      <p className="text-sm text-gray-600">Showing {list.length} procedures</p>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="mx-auto max-w-6xl px-4 pb-20">
-    <!-- Category blocks -->
-    <div class="space-y-10">
-
-      <!-- OPD -->
-      <div class="rounded-2xl border shadow-sm">
-        <div class="flex items-center justify-between px-5 py-4 bg-white rounded-t-2xl">
-          <h2 class="text-xl md:text-2xl font-bold text-tqs-800">OPD</h2>
-          <span class="pill bg-tqs-100 text-tqs-800">Walk-in friendly</span>
-        </div>
-        <div class="divide-y">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
-            <div>
-              <p class="font-semibold">General Physician Consultation</p>
-              <p class="text-sm text-slate-600">Includes 10-minute consult & e-prescription</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl font-bold text-tqs-800">₹500</div>
-                <div class="text-xs text-slate-500">Cash</div>
-              </div>
-              <div class="text-right">
-                <div class="text-lg font-semibold">₹0–₹500</div>
-                <div class="text-xs text-slate-500">With Insurance</div>
-              </div>
-              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
-            </div>
-          </div>
-
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
-            <div>
-              <p class="font-semibold">Specialist Consultation</p>
-              <p class="text-sm text-slate-600">Cardio / Ortho / Neuro OPD</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl font-bold text-tqs-800">₹800</div>
-                <div class="text-xs text-slate-500">Cash</div>
-              </div>
-              <div class="text-right">
-                <div class="text-lg font-semibold">₹0–₹800</div>
-                <div class="text-xs text-slate-500">With Insurance</div>
-              </div>
-              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Radiology -->
-      <div class="rounded-2xl border shadow-sm">
-        <div class="flex items-center justify-between px-5 py-4 bg-white rounded-t-2xl">
-          <h2 class="text-xl md:text-2xl font-bold text-tqs-800">Radiology</h2>
-          <span class="pill bg-emerald-100 text-emerald-800">GST included</span>
-        </div>
-        <div class="divide-y">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
-            <div>
-              <p class="font-semibold">X-Ray (Chest PA)</p>
-              <p class="text-sm text-slate-600">Digital image + report</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl font-bold text-tqs-800">₹350</div>
-                <div class="text-xs text-slate-500">Cash</div>
-              </div>
-              <div class="text-right">
-                <div class="text-lg font-semibold">₹0–₹350</div>
-                <div class="text-xs text-slate-500">With Insurance</div>
-              </div>
-              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
-            </div>
-          </div>
-
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
-            <div>
-              <p class="font-semibold">MRI Brain (Plain)</p>
-              <p class="text-sm text-slate-600">Price includes report & films</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl font-bold text-tqs-800">₹4,800</div>
-                <div class="text-xs text-slate-500">Cash</div>
-              </div>
-              <div class="text-right">
-                <div class="text-lg font-semibold">₹0–₹4,800</div>
-                <div class="text-xs text-slate-500">With Insurance</div>
-              </div>
-              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Day Care Package -->
-      <div class="rounded-2xl border shadow-sm">
-        <div class="flex items-center justify-between px-5 py-4 bg-white rounded-t-2xl">
-          <h2 class="text-xl md:text-2xl font-bold text-tqs-800">Day-Care Packages</h2>
-          <span class="pill bg-amber-100 text-amber-800">Package price</span>
-        </div>
-        <div class="divide-y">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
-            <div>
-              <p class="font-semibold">Cataract Surgery (Single Eye)</p>
-              <p class="text-sm text-slate-600">OT + Lens + Surgeon fee + 1-day stay</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl font-bold text-tqs-800">₹22,500</div>
-                <div class="text-xs text-slate-500">Cash Package</div>
-              </div>
-              <div class="text-right">
-                <div class="text-lg font-semibold">Per Policy</div>
-                <div class="text-xs text-slate-500">With Insurance</div>
-              </div>
-              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
-            </div>
-          </div>
-
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-5 py-4">
-            <div>
-              <p class="font-semibold">Lap. Appendectomy</p>
-              <p class="text-sm text-slate-600">OT + Surgeon/Anesthesia + 2-day stay</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl font-bold text-tqs-800">₹48,000</div>
-                <div class="text-xs text-slate-500">Cash Package</div>
-              </div>
-              <div class="text-right">
-                <div class="text-lg font-semibold">Per Policy</div>
-                <div class="text-xs text-slate-500">With Insurance</div>
-              </div>
-              <a href="https://wa.me/919270343376" class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100">Book</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
+  {/* Pricing Table */}
+  <section className="max-w-6xl mx-auto px-4 pb-16">
+    <div className="overflow-x-auto border rounded-2xl">
+      <table className="w-full text-sm">
+        <thead className="bg-gray-50">
+          <tr>
+            <th className="text-left px-4 py-3">Category</th>
+            <th className="text-left px-4 py-3">Procedure</th>
+            <th className="text-left px-4 py-3">Unit</th>
+            <th className="text-left px-4 py-3">From</th>
+            <th className="text-right px-4 py-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.map((p, i) => (
+            <tr key={p.id} className={i % 2 ? "bg-white" : "bg-gray-50/60"}>
+              <td className="px-4 py-3 whitespace-nowrap">{p.category}</td>
+              <td className="px-4 py-3">{p.name}</td>
+              <td className="px-4 py-3 whitespace-nowrap">{p.unit}</td>
+              <td className="px-4 py-3 whitespace-nowrap font-semibold">{typeof p.from === 'number' ? inr(p.from) : p.from}</td>
+              <td className="px-4 py-3 text-right">
+                <a className="inline-block px-3 py-2 rounded-lg bg-black text-white" href={waHref(CONTACT.whatsapp, `I want to book for ${p.name} at ${HOSPITAL.name}. Please share exact estimate.`)} target="_blank" rel="noreferrer">Get Exact Estimate</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-
-    <!-- Notes -->
-    <p class="mt-6 text-sm text-slate-500">
-      Prices include standard consumables and GST where shown. Final cost may vary for special lenses, implants, or extra stay.
-      Insurance coverage depends on your policy and TPA approval.
-    </p>
+    <p className="text-xs text-gray-500 mt-2">* Prices shown are indicative “from” prices. Final estimate depends on clinical evaluation, room type, implants, and insurance coverage.</p>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="bg-tqs-50 border-t">
-    <div class="mx-auto max-w-6xl px-4 py-12">
-      <h3 class="text-2xl md:text-3xl font-bold text-tqs-800">FAQ</h3>
-      <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
-          <summary class="font-semibold cursor-pointer">Will showing prices reduce our margins?</summary>
-          <p class="mt-2 text-slate-700">No. You choose what to list. Packages reduce surprises and improve conversion, which increases OPD and referrals.</p>
-        </details>
-        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
-          <summary class="font-semibold cursor-pointer">Can we change prices later?</summary>
-          <p class="mt-2 text-slate-700">Yes. Send your updated PDF and we’ll edit the page within 24–72 hours.</p>
-        </details>
-        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
-          <summary class="font-semibold cursor-pointer">What about insurance?</summary>
-          <p class="mt-2 text-slate-700">We show a simple “Cash” price and a “With Insurance” range. Final approvals depend on your policy.</p>
-        </details>
-        <details class="rounded-xl border bg-white p-4 open:shadow-sm">
-          <summary class="font-semibold cursor-pointer">How do we start?</summary>
-          <p class="mt-2 text-slate-700">WhatsApp your price list PDF to <a class="text-tqs-700 underline" href="https://wa.me/919270343376">+91 92703 43376</a>. We build your page in 3 days.</p>
-        </details>
-      </div>
+  {/* Sticky CTA for Mobile */}
+  <div className="fixed bottom-0 inset-x-0 z-40 sm:hidden bg-white border-t">
+    <div className="max-w-6xl mx-auto px-4 py-2 grid grid-cols-2 gap-2">
+      <a href={telHref(CONTACT.phone)} className="text-center py-3 rounded-xl bg-black text-white font-semibold">Call</a>
+      <a href={waHref(CONTACT.whatsapp, waPreset)} className="text-center py-3 rounded-xl border font-semibold">WhatsApp</a>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="border-t">
-    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
-      <p><strong>DoctorMRP</strong> — Simple online price page for hospitals.</p>
-      <div class="flex items-center gap-3">
-        <a class="chip border-slate-300 hover:border-tqs-500 hover:text-tqs-700" href="tel:+919270343376">Call Sales</a>
-        <a class="chip border-tqs-500 text-tqs-800 bg-tqs-50 hover:bg-tqs-100" href="https://wa.me/919270343376">WhatsApp</a>
-      </div>
+  {/* Footer */}
+  <footer className="max-w-6xl mx-auto px-4 pb-24 sm:pb-8 text-xs text-gray-500">
+    <div className="border-t pt-4">
+      <p>© {new Date().getFullYear()} {HOSPITAL.name}. Pricing content managed by DoctorMRP.</p>
     </div>
   </footer>
+</div>
 
-  <!-- Simple client-side filtering -->
-  <script>
-    (function(){
-      const rows = Array.from(document.querySelectorAll('#pricing .divide-y > div'));
-      function filter(){
-        const q = document.getElementById('q').value.toLowerCase();
-        const dept = document.getElementById('dept').value.toLowerCase();
-        const type = document.getElementById('type').value.toLowerCase();
-        rows.forEach(r=>{
-          const text = r.innerText.toLowerCase();
-          const inDept = dept ? r.closest('.rounded-2xl').querySelector('h2').innerText.toLowerCase().includes(dept) : true;
-          const inType = type ? text.includes(type) : true;
-          const inQuery = q ? text.includes(q) : true;
-          r.style.display = (inDept && inType && inQuery) ? '' : 'none';
-        });
-      }
-      ['q','dept','type'].forEach(id=>document.getElementById(id).addEventListener('input',filter));
-    })();
-  </script>
-</body>
-</html>
+); }
+
+function LeadForm() { const [name, setName] = useState(""); const [phone, setPhone] = useState(""); const [proc, setProc] = useState(""); const txt = Hello, I want to book an appointment.\nName: ${name}\nPhone: ${phone}\nProcedure: ${proc};
+
+return ( <form className="mt-3 space-y-3" onSubmit={(e)=>e.preventDefault()}> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> <input className="px-3 py-2 border rounded-xl" placeholder="Your name" value={name} onChange={(e)=>setName(e.target.value)} /> <input className="px-3 py-2 border rounded-xl" placeholder="Phone" value={phone} onChange={(e)=>setPhone(e.target.value)} /> </div> <input className="w-full px-3 py-2 border rounded-xl" placeholder="Procedure (e.g., CT Brain, Cataract)" value={proc} onChange={(e)=>setProc(e.target.value)} /> <div className="flex gap-2"> <button type="button" className="px-4 py-2 rounded-xl bg-black text-white font-semibold" onClick={()=>window.open(waHref(CONTACT.whatsapp, txt), '_blank')}>WhatsApp Booking</button> <a href={telHref(CONTACT.phone)} className="px-4 py-2 rounded-xl border font-semibold">Call</a> </div> </form> ); }
+
