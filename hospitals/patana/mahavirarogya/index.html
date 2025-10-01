@@ -1,489 +1,120 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Mahavir Arogya Sansthan — Prices, Doctors & OPD Timings | DoctorMRP</title>
-  <meta name="description" content="Transparent department-wise prices with doctors & OPD timings for Mahavir Arogya Sansthan (Kankarbagh, Patna). Simple, mobile-first, made for everyday people." />
-  <link rel="canonical" href="https://example.com/mahavir-prices" />
-  <meta property="og:title" content="Mahavir Arogya Sansthan — Prices, Doctors & Timings" />
-  <meta property="og:description" content="See all prices per department (no truncation), plus doctors & OPD timings. Book in one tap via WhatsApp or Call." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+import React, { useMemo, useState } from "react";
 
-  <!-- Fonts + Tailwind -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } } } };
-  </script>
-  <style>
-    ::selection { background:#000; color:#fff }
-    .tab-active { border-color:#000 !important; color:#111 !important }
-    .card { box-shadow: 0 10px 30px rgba(0,0,0,.06) }
-    .chip { font-size:11px; padding:.15rem .5rem; border-radius:999px; border:1px solid #e5e7eb; background:#f9fafb }
-    .doctor-pill { border:1px solid #e5e7eb; border-radius:999px; padding:.4rem .7rem; background:#fff }
-    .doc-time { font-size:12px; border-radius:8px; padding:.2rem .5rem; background:#111; color:#fff; white-space:nowrap }
-    .sticky-cta { position:fixed; right:16px; bottom:84px; z-index:60 }
-  </style>
+/**
 
-  <!-- JSON-LD: Hospital -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Hospital",
-    "name":"Mahavir Arogya Sansthan",
-    "image":"https://www.mahavirarogyasansthan.com/wp-content/uploads/2018/05/logo.png",
-    "address":{"@type":"PostalAddress","addressLocality":"Kankarbagh","addressRegion":"Bihar","addressCountry":"IN"},
-    "telephone":"+91-612-2384220",
-    "medicalSpecialty":["Neurology","Radiology","ICU","Orthopaedics","Gynaecology","Gastroenterology","Paediatrics","Ophthalmology","Dermatology","Cardiology","Urology","Pathology","Dental","Medicine"],
-    "contactPoint":[
-      {"@type":"ContactPoint","telephone":"+91-612-2384220","contactType":"customer service"},
-      {"@type":"ContactPoint","telephone":"+91-612-2384222","contactType":"emergency"},
-      {"@type":"ContactPoint","telephone":"+91-612-2384221","contactType":"ICU"}
-    ]
-  }
-  </script>
-</head>
-<body class="bg-white text-gray-900 font-sans">
+DoctorMRP – Proper Lead‑Gen Page (React + Tailwind)
 
-  <!-- NAV -->
-  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-3">
-        <img src="https://www.mahavirarogyasansthan.com/wp-content/uploads/2018/05/logo.png" alt="Mahavir Arogya Sansthan" class="h-8 w-8 object-contain" />
-        <span class="font-semibold tracking-tight">Mahavir Arogya Sansthan</span>
-      </a>
-      <div class="hidden sm:flex gap-2">
-        <a id="navCall" class="px-4 py-2 rounded-xl bg-black text-white font-medium shadow" href="#">Call</a>
-        <a id="navWa" class="px-4 py-2 rounded-xl border font-medium" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+
+---
+
+A clean, focused hospital pricing page to convert patients into leads.
+
+Features: Hero, lead form, search + filter, sticky CTA bar. */
+
+
+// ====== Hospital & Contact ====== const HOSPITAL = { name: "Mahavir Arogya Sansthan", tagline: "Transparent prices • Same‑day OPD • Insurance help", };
+
+const CONTACT = { phone: "+91 75883 43376", // replace with hospital desk whatsapp: "+91 75883 43376", // replace with hospital WhatsApp gmaps: "https://maps.google.com/?q=Mahavir+Arogya+Sansthan", // replace };
+
+// ====== High‑Intent Procedures ====== const PROCEDURES = [ { id: "opd", category: "OPD", name: "Doctor Consultation (General)", unit: "per visit", from: 400 }, { id: "ortho_opd", category: "OPD", name: "Orthopaedic Consultation", unit: "per visit", from: 500 }, { id: "xray", category: "Diagnostics", name: "X‑Ray (Limb)", unit: "per view", from: 400 }, { id: "usg_whole", category: "Diagnostics", name: "Ultrasound – Whole Abdomen", unit: "per study", from: 1200 }, { id: "ct_brain", category: "Diagnostics", name: "CT Brain – Plain", unit: "per study", from: 2500 }, { id: "mri_knee", category: "Diagnostics", name: "MRI Knee", unit: "per study", from: 5000 }, { id: "echo", category: "Cardiac", name: "2D Echo", unit: "per study", from: 2000 }, { id: "tmt", category: "Cardiac", name: "TMT (Stress Test)", unit: "per study", from: 2500 }, { id: "nvd", category: "Obstetrics", name: "Normal Delivery (NVD)", unit: "package", from: 25000 }, { id: "csec", category: "Obstetrics", name: "Caesarean Section (C‑section)", unit: "package", from: 45000 }, { id: "appendix", category: "General Surgery", name: "Appendectomy (Open)", unit: "package", from: 30000 }, { id: "chole", category: "General Surgery", name: "Laparoscopic Cholecystectomy", unit: "package", from: 60000 }, { id: "hernia_uni", category: "General Surgery", name: "Lap Inguinal Hernia – Unilateral", unit: "package", from: 55000 }, { id: "piles_laser", category: "Proctology", name: "Laser Piles Surgery", unit: "package", from: 45000 }, { id: "pop_short", category: "Orthopaedics", name: "POP Cast – Short Arm", unit: "procedure", from: 1500 }, { id: "cr_ru", category: "Orthopaedics", name: "Closed Reduction – Radius/Ulna", unit: "procedure", from: 7000 }, { id: "orif_ru", category: "Orthopaedics", name: "ORIF – Radius/Ulna (with implant)", unit: "package", from: 85000 }, { id: "acl", category: "Orthopaedics", name: "ACL Reconstruction (Arthroscopic)", unit: "package", from: 90000 }, { id: "tkr_uni", category: "Orthopaedics", name: "Total Knee Replacement – Unilateral", unit: "package", from: 180000 }, { id: "tonsils", category: "ENT", name: "Tonsillectomy", unit: "package", from: 35000 }, { id: "fess", category: "ENT", name: "FESS (Endoscopic Sinus Surgery)", unit: "package", from: 65000 }, { id: "cataract", category: "Ophthalmology", name: "Cataract Surgery (Monofocal IOL)", unit: "package", from: 18000 }, ];
+
+// ====== Utils ====== const inr = (n) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n); const telHref = (n) => tel:${(n||"").replace(/[^+\d]/g, "")}; const waHref = (n, text) => https://wa.me/${(n||"").replace(/[^+\d]/g, "").replace(/^\+/, "")}?text=${encodeURIComponent(text)};
+
+// ====== Component ====== export default function HospitalLeadPricing() { const [q, setQ] = useState(""); const [cat, setCat] = useState("All"); const cats = useMemo(() => ["All", ...Array.from(new Set(PROCEDURES.map(p => p.category)))], []);
+
+const list = useMemo(() => { const needle = q.trim().toLowerCase(); return PROCEDURES.filter(p => (cat === "All" || p.category === cat) && ( !needle || p.name.toLowerCase().includes(needle) || p.category.toLowerCase().includes(needle) )); }, [q, cat]);
+
+const waPreset = Hello, I want to book an appointment at ${HOSPITAL.name} for:;
+
+return ( <div className="min-h-screen bg-white text-gray-900"> {/* Header */} <header className="sticky top-0 z-30 backdrop-blur bg-white/80 border-b"> <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"> <div> <h1 className="text-xl sm:text-2xl font-bold">{HOSPITAL.name}</h1> <p className="text-sm text-gray-600">{HOSPITAL.tagline}</p> </div> <div className="hidden sm:flex gap-2"> <a href={telHref(CONTACT.phone)} className="px-4 py-2 rounded-xl bg-black text-white font-medium shadow">Call</a> <a href={waHref(CONTACT.whatsapp, waPreset)} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border font-medium">WhatsApp</a> </div> </div> </header>
+
+{/* Hero */}
+  <section className="max-w-6xl mx-auto px-4 py-6 sm:py-10">
+    <div className="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">Transparent prices that help you decide fast</h2>
+        <ul className="mt-4 text-gray-700 space-y-2 text-sm sm:text-base">
+          <li>• Same‑day OPD slots available</li>
+          <li>• From‑prices shown below — get exact estimate on WhatsApp</li>
+          <li>• Cashless/Insurance assistance</li>
+        </ul>
+        <div className="mt-4 flex gap-2">
+          <a href={telHref(CONTACT.phone)} className="px-4 py-2 rounded-xl bg-black text-white font-semibold shadow">Call Now</a>
+          <a href={waHref(CONTACT.whatsapp, waPreset)} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border font-semibold">WhatsApp Estimate</a>
+          <a href={CONTACT.gmaps} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border font-semibold">Directions</a>
+        </div>
+      </div>
+
+      <div className="p-4 sm:p-6 rounded-2xl border shadow-sm">
+        <h3 className="text-lg font-bold">Book an Appointment</h3>
+        <LeadForm />
       </div>
     </div>
-  </nav>
+  </section>
 
-  <main id="top">
-    <!-- HERO -->
-    <header class="relative">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.05),transparent_60%)]" aria-hidden="true"></div>
-      <div class="relative max-w-6xl mx-auto px-4 py-10 sm:py-16">
-        <div class="grid md:grid-cols-[1.2fr_.8fr] gap-8 items-center">
-          <div>
-            <h1 class="text-3xl sm:text-5xl font-extrabold leading-[1.1]">Simple Prices. Clear Doctors. One-tap Booking.</h1>
-            <p class="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">
-              Insurance assistance • <b>60+ beds</b> • Multi-specialty (Kankarbagh, Patna).
-            </p>
-            <div class="mt-6 flex flex-col sm:flex-row gap-2">
-              <a id="heroWa" class="px-5 py-3 rounded-2xl bg-black text-white font-semibold shadow" href="#" target="_blank" rel="noreferrer">Book on WhatsApp</a>
-              <a id="heroCall" class="px-5 py-3 rounded-2xl border font-semibold" href="#">Call Front Desk</a>
-              <a id="heroMap" class="px-5 py-3 rounded-2xl border font-semibold" href="https://maps.google.com/?q=Mahavir+Arogya+Sansthan+Kankarbagh+Patna" target="_blank" rel="noreferrer">Get Directions</a>
-            </div>
-          </div>
-
-          <!-- Lead card -->
-          <aside class="p-5 sm:p-6 rounded-3xl border card bg-white/90" aria-label="Book an appointment">
-            <h2 class="text-lg font-bold">Book an Appointment</h2>
-            <form class="mt-3 space-y-3" onsubmit="event.preventDefault();">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input id="lfName" class="px-4 py-2.5 border rounded-2xl" placeholder="Your name" />
-                <input id="lfPhone" class="px-4 py-2.5 border rounded-2xl" placeholder="Phone" inputmode="tel" />
-              </div>
-              <input id="lfProc" class="w-full px-4 py-2.5 border rounded-2xl" placeholder="Procedure (e.g., EEG, CT Brain, Cataract)" />
-              <div class="flex gap-2">
-                <button type="button" id="lfWaBtn" class="px-4 py-2.5 rounded-2xl bg-black text-white font-semibold">WhatsApp Booking</button>
-                <a id="lfCallBtn" class="px-4 py-2.5 rounded-2xl border font-semibold" href="#">Call</a>
-              </div>
-              <p class="text-xs text-gray-500">We’ll confirm slot & share an exact estimate on WhatsApp.</p>
-            </form>
-          </aside>
-        </div>
+  {/* Filters */}
+  <section className="max-w-6xl mx-auto px-4 pb-2">
+    <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+      <div className="flex gap-2 items-center">
+        <input value={q} onChange={(e)=>setQ(e.target.value)} placeholder="Search procedures…" className="w-full sm:w-80 px-3 py-2 border rounded-xl" />
+        <select value={cat} onChange={(e)=>setCat(e.target.value)} className="px-3 py-2 border rounded-xl">
+          {cats.map(c => <option key={c}>{c}</option>)}
+        </select>
       </div>
-    </header>
+      <p className="text-sm text-gray-600">Showing {list.length} procedures</p>
+    </div>
+  </section>
 
-    <!-- GLOBAL SEARCH -->
-    <section class="max-w-6xl mx-auto px-4" aria-label="Search all prices">
-      <div class="p-4 rounded-3xl border">
-        <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-          <div>
-            <h3 class="text-lg font-bold">Browse All Departments</h3>
-            <p class="text-sm text-gray-600">Search any service across departments or switch tabs below.</p>
-          </div>
-          <input id="globalQ" class="w-full sm:w-96 px-4 py-2.5 border rounded-2xl" placeholder="Search all prices (e.g., EEG, X-ray, Delivery)" />
-        </div>
-      </div>
-    </section>
+  {/* Pricing Table */}
+  <section className="max-w-6xl mx-auto px-4 pb-16">
+    <div className="overflow-x-auto border rounded-2xl">
+      <table className="w-full text-sm">
+        <thead className="bg-gray-50">
+          <tr>
+            <th className="text-left px-4 py-3">Category</th>
+            <th className="text-left px-4 py-3">Procedure</th>
+            <th className="text-left px-4 py-3">Unit</th>
+            <th className="text-left px-4 py-3">From</th>
+            <th className="text-right px-4 py-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.map((p, i) => (
+            <tr key={p.id} className={i % 2 ? "bg-white" : "bg-gray-50/60"}>
+              <td className="px-4 py-3 whitespace-nowrap">{p.category}</td>
+              <td className="px-4 py-3">{p.name}</td>
+              <td className="px-4 py-3 whitespace-nowrap">{p.unit}</td>
+              <td className="px-4 py-3 whitespace-nowrap font-semibold">{typeof p.from === 'number' ? inr(p.from) : p.from}</td>
+              <td className="px-4 py-3 text-right">
+                <a className="inline-block px-3 py-2 rounded-lg bg-black text-white" href={waHref(CONTACT.whatsapp, `I want to book for ${p.name} at ${HOSPITAL.name}. Please share exact estimate.`)} target="_blank" rel="noreferrer">Get Exact Estimate</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p className="text-xs text-gray-500 mt-2">* Prices shown are indicative “from” prices. Final estimate depends on clinical evaluation, room type, implants, and insurance coverage.</p>
+  </section>
 
-    <!-- TABS -->
-    <section class="max-w-6xl mx-auto px-4 py-8">
-      <div class="flex gap-3 overflow-auto border-b pb-2" role="tablist">
-        <!-- Keep keys aligned with data-tab & PRICES keys -->
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="neurology" role="tab">Neurology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="icu" role="tab">ICU</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="radiology" role="tab">Radiology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="ultrasonology" role="tab">Ultrasonology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="ct" role="tab">CT Scan</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="cardiology" role="tab">Cardiology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="orthopaedics" role="tab">Orthopaedics</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="surgery" role="tab">General Surgery</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="opd" role="tab">OPD</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="pathology" role="tab">Pathology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="dermatology" role="tab">Dermatology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="dental" role="tab">Dental</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="eye" role="tab">Eye</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="urology" role="tab">Urology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="medicine" role="tab">Medicine</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="gynaecology" role="tab">Gynaecology</button>
-        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="gastro" role="tab">Gastroenterology</button>
-        <span class="hidden sm:block ml-auto text-xs text-gray-500 self-center">Tap tabs →</span>
-      </div>
-
-      <!-- Per-tab search + Doctor bar -->
-      <div class="mt-4 space-y-4">
-        <!-- DOCTOR BAR (prominent) -->
-        <div class="p-3 sm:p-4 rounded-2xl border bg-white card" id="doctorBar">
-          <div class="flex items-center justify-between gap-3 flex-wrap">
-            <div class="text-sm sm:text-base font-semibold">Doctors & OPD Timings</div>
-            <div id="doctorPills" class="flex gap-2 flex-wrap"></div>
-            <a id="callDoc" class="ml-auto px-3 py-2 rounded-xl bg-black text-white text-sm" href="#">Call to Confirm</a>
-          </div>
-        </div>
-
-        <!-- Per-tab search -->
-        <div class="flex items-center gap-2">
-          <input id="tabQ" class="w-full sm:w-72 px-4 py-2.5 border rounded-2xl" placeholder="Search in current department…" />
-          <span id="tabCount" class="text-sm text-gray-600"></span>
-        </div>
-
-        <!-- Table -->
-        <div class="overflow-x-auto border rounded-3xl">
-          <table class="w-full text-sm">
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="text-left px-4 py-3">Department</th>
-                <th class="text-left px-4 py-3">Service</th>
-                <th class="text-left px-4 py-3">Unit</th>
-                <th class="text-left px-4 py-3">Price</th>
-                <th class="text-right px-4 py-3">Action</th>
-              </tr>
-            </thead>
-            <tbody id="rows"></tbody>
-          </table>
-        </div>
-        <p class="text-xs text-gray-500">All items shown exactly as added. Paste full lists from hospital site — nothing is hidden or capped.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT + MAP -->
-    <section class="max-w-6xl mx-auto px-4 pb-20">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-5 rounded-3xl border">
-          <h3 class="text-lg font-bold">Important Contacts</h3>
-          <ul class="mt-3 space-y-2 text-sm">
-            <li><b>Enquiry/Reception:</b> <a id="cEnquiry" class="underline" href="#">0612-2384220</a></li>
-            <li><b>Emergency:</b> <a id="cEmergency" class="underline" href="#">0612-2384222</a></li>
-            <li><b>IPD:</b> <a id="cIPD" class="underline" href="#">0612-2384222</a></li>
-            <li><b>ICU:</b> <a id="cICU" class="underline" href="#">0612-2384221</a></li>
-            <li><b>Mahavir Netralaya:</b> <a id="cNetralaya" class="underline" href="#">0612-2384223</a></li>
-            <li><b>Email:</b> <a class="underline" href="mailto:mahavirarogyasansthan.patna@gmail.com">mahavirarogyasansthan.patna@gmail.com</a>, <a class="underline" href="mailto:mahavirarogya@rediffmail.com">mahavirarogya@rediffmail.com</a></li>
-          </ul>
-        </div>
-        <div class="overflow-hidden rounded-3xl border">
-          <iframe title="Map" src="https://www.google.com/maps?q=Mahavir%20Arogya%20Sansthan%20Kankarbagh%20Patna&output=embed" class="w-full h-64 border-0" loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- MOBILE STICKY BARS -->
-  <div class="fixed bottom-0 inset-x-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t">
-    <div class="max-w-6xl mx-auto px-4 py-2 grid grid-cols-2 gap-2">
-      <a id="mCall" class="text-center py-3 rounded-2xl bg-black text-white font-semibold" href="#">Call</a>
-      <a id="mWa" class="text-center py-3 rounded-2xl border font-semibold" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+  {/* Sticky CTA for Mobile */}
+  <div className="fixed bottom-0 inset-x-0 z-40 sm:hidden bg-white border-t">
+    <div className="max-w-6xl mx-auto px-4 py-2 grid grid-cols-2 gap-2">
+      <a href={telHref(CONTACT.phone)} className="text-center py-3 rounded-xl bg-black text-white font-semibold">Call</a>
+      <a href={waHref(CONTACT.whatsapp, waPreset)} className="text-center py-3 rounded-xl border font-semibold">WhatsApp</a>
     </div>
   </div>
 
-  <!-- Floating “Find Doctor” button on mobile -->
-  <a href="#doctorBar" class="sticky-cta sm:hidden px-4 py-3 rounded-full bg-black text-white font-semibold shadow">Find a Doctor</a>
-
-  <footer class="max-w-6xl mx-auto px-4 pb-28 sm:pb-8 text-xs text-gray-500">
-    <div class="border-t pt-4">
-      <p>© <span id="year"></span> Mahavir Arogya Sansthan. Pricing content managed by DoctorMRP.</p>
+  {/* Footer */}
+  <footer className="max-w-6xl mx-auto px-4 pb-24 sm:pb-8 text-xs text-gray-500">
+    <div className="border-t pt-4">
+      <p>© {new Date().getFullYear()} {HOSPITAL.name}. Pricing content managed by DoctorMRP.</p>
     </div>
   </footer>
+</div>
 
-  <!-- DATA + LOGIC -->
-  <script>
-    // ===== CONTACTS =====
-    const CONTACT = {
-      enquiry: "0612-2384220",
-      emergency: "0612-2384222",
-      ipd: "0612-2384222",
-      icu: "0612-2384221",
-      netralaya: "0612-2384223",
-      whatsapp: "+91 75883 43376" // replace with official WhatsApp if provided
-    };
+); }
 
-    // ===== DOCTORS (highlighted first, “impossible to miss”) =====
-    // Paste as many as you have per dept; they all show.
-    const DOCTORS = {
-      neurology: [
-        { name: "Dr. Anjum Prawez", timing: "11:30 AM – 01:30 PM", days: "Mon–Sat" },
-        { name: "Dr. Sanjeev Kumar", timing: "10:30 AM – 11:30 AM", days: "Mon–Sat" },
-        { name: "Dr. Kunal Kumar (Neurosurgeon)", timing: "09:00 AM – As per schedule", days: "Mon–Sat" }
-      ],
-      orthopaedics: [
-        { name: "Dr. Sanjay Kumar", timing: "11:30 AM – 01:00 PM", days: "Mon–Sat" },
-        { name: "Dr. Balmiki Kumar", timing: "10:00 AM – 01:00 PM, 05:00 PM – 06:00 PM", days: "Mon–Sat" }
-      ],
-      eye: [
-        { name: "Eye OPD (Netralaya)", timing: "09:00 AM – 05:00 PM", days: "Mon–Sat" }
-      ],
-      gynaecology: [
-        { name: "Dr. Rachna Jain", timing: "09:00 AM – 01:00 PM, 03:30 – 05:30 PM", days: "Mon–Sat" }
-      ],
-      gastro: [
-        { name: "Dr. Rajeev Ranjan", timing: "02:00 PM", days: "Mon–Sat" }
-      ],
-      paediatrics: [
-        { name: "Dr. R. K. P. Sinha", timing: "10:30 AM – 12:00 PM", days: "Mon–Sat" }
-      ],
-      nephrology: [
-        { name: "Dr. Manibhushan", timing: "11:30 AM – 12:30 PM", days: "Mon–Fri" }
-      ],
-      psychiatry: [
-        { name: "Dr. Vivek Pratap Singh", timing: "04:00 PM – 05:00 PM", days: "Mon–Sat" }
-      ],
-      dental: [
-        { name: "Dr. Swapna Singh", timing: "10:00 AM – 02:00 PM", days: "Mon, Tue, Thu, Fri" }
-      ]
-      // Add departments & doctors as needed…
-    };
+function LeadForm() { const [name, setName] = useState(""); const [phone, setPhone] = useState(""); const [proc, setProc] = useState(""); const txt = Hello, I want to book an appointment.\nName: ${name}\nPhone: ${phone}\nProcedure: ${proc};
 
-    // ===== PRICES (ALL items: show everything, no limits) =====
-    // HOW TO: For each department key, paste the full array of items from the hospital site.
-    // Each item: { service, unit, price }
-    const PRICES = {
-      neurology: [
-        // Example: (paste full list from /neurology-charge/)
-        { service:"Craniotomy & Evaluation of Subacute SDH", unit:"procedure", price:40000 },
-        { service:"EEG", unit:"per study", price:800 },
-        { service:"EEG (Prolonged)", unit:"per study", price:1200 },
-        { service:"Lumbar Listhesis", unit:"procedure", price:35000 }
-      ],
-      icu: [
-        // Example: (paste full list from /icu-charge/ and /room-and-icu-charge/)
-        { service:"Consultation charge per visit", unit:"visit", price:500 },
-        { service:"Infusion Pump per Day", unit:"day", price:500 },
-        { service:"Intubation", unit:"procedure", price:800 },
-        { service:"Nebulizer", unit:"session", price:200 },
-        { service:"Oxygen (per hour)", unit:"hour", price:80 },
-        { service:"Oxygen Charge (per day)", unit:"day", price:600 },
-        { service:"ICU Bed (per day)", unit:"day", price:2500 }
-        // …paste every remaining line, they will ALL render.
-      ],
-      radiology: [
-        // Example: (paste full list from /radiology-charge/)
-        { service:"Dig Chest PA View", unit:"view", price:150 },
-        { service:"Dig Cervical Spine AP & Lateral", unit:"views", price:300 },
-        { service:"Ba Meal Follow Through", unit:"procedure", price:1200 }
-        // …add all others
-      ],
-      ultrasonology: [
-        // Example: (paste full list from /ultrasonology-charge/)
-        { service:"FWB (Only Report)", unit:"study", price:650 },
-        { service:"FWB (With Plate)", unit:"study", price:750 },
-        { service:"Follicular Study (With Plate)", unit:"study", price:1150 },
-        { service:"Hepatobiliary System", unit:"study", price:750 }
-      ],
-      ct: [
-        // Example: (paste full list from /ct-scan-charge/ or similar)
-        { service:"Abdomen Lower", unit:"scan", price:2400 },
-        { service:"Abdomen Lower with Contrast", unit:"scan", price:3200 },
-        { service:"Abdomen Angio", unit:"scan", price:7000 },
-        { service:"3D Reconstruction (add-on)", unit:"add-on", price:1500 }
-      ],
-      cardiology: [
-        // Example: (paste more as needed)
-        { service:"ECHO Test with Picture", unit:"study", price:900 },
-        { service:"Echo Test with Picture & CD", unit:"study", price:1100 }
-      ],
-      orthopaedics: [
-        // Example: (paste from their ortho charges page)
-        { service:"Arthroscopic ACL Reconstruction", unit:"procedure", price:25000 },
-        { service:"Total Hip Replacement", unit:"procedure", price:30000 }
-      ],
-      surgery: [
-        // Example: (paste LARGE list from /surgery-charge/)
-        { service:"Abdominal Tumour", unit:"procedure", price:14000 },
-        { service:"Abscess under G.A & Breast Abscess", unit:"procedure", price:4500 },
-        { service:"Acute Abdomen / Laparotomy", unit:"procedure", price:14000 },
-        { service:"Appendix (Laparoscopy)", unit:"procedure", price:18000 }
-      ],
-      opd: [
-        { service:"ECG", unit:"test", price:125 },
-        { service:"ABG Gas Analyser", unit:"test", price:600 },
-        { service:"Blood Sugar by Glucometer", unit:"test", price:30 }
-      ],
-      pathology: [
-        { service:"25(OH) Vitamin D Total", unit:"test", price:700 },
-        { service:"Alkaline Phosphatase", unit:"test", price:85 },
-        { service:"Amylase", unit:"test", price:160 },
-        { service:"ANA (Anti Nuclear Antibody)", unit:"test", price:500 }
-      ],
-      dermatology: [
-        { service:"Chemical Peeling", unit:"procedure", price:300 },
-        { service:"Cryotherapy", unit:"procedure", price:500 },
-        { service:"Derma Abrasion (Manual)", unit:"procedure", price:1600 },
-        { service:"Electrocautery (Lesion)", unit:"procedure", price:600 }
-      ],
-      dental: [
-        { service:"Dental Implant (Regular)", unit:"procedure", price:20000 },
-        { service:"Flap Surgery", unit:"procedure", price:5000 },
-        { service:"Fracture Wiring (Regular)", unit:"procedure", price:8000 }
-      ],
-      eye: [
-        // Add Netralaya procedures if published on their site
-      ],
-      urology: [
-        // Paste full list (if a page exists)
-      ],
-      medicine: [
-        // Paste OPD/Medicine items if listed
-      ],
-      gynaecology: [
-        // Add deliveries/OT charges if listed on site
-      ],
-      gastro: [
-        // Example: (paste from /gastroenterology-charge/)
-        { service:"Diagnostic ERCP", unit:"procedure", price:12000 },
-        { service:"Colonoscopy (HBsAg patient)", unit:"procedure", price:3000 },
-        { service:"Colonoscopy biopsy", unit:"procedure", price:360 }
-      ]
-    };
+return ( <form className="mt-3 space-y-3" onSubmit={(e)=>e.preventDefault()}> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> <input className="px-3 py-2 border rounded-xl" placeholder="Your name" value={name} onChange={(e)=>setName(e.target.value)} /> <input className="px-3 py-2 border rounded-xl" placeholder="Phone" value={phone} onChange={(e)=>setPhone(e.target.value)} /> </div> <input className="w-full px-3 py-2 border rounded-xl" placeholder="Procedure (e.g., CT Brain, Cataract)" value={proc} onChange={(e)=>setProc(e.target.value)} /> <div className="flex gap-2"> <button type="button" className="px-4 py-2 rounded-xl bg-black text-white font-semibold" onClick={()=>window.open(waHref(CONTACT.whatsapp, txt), '_blank')}>WhatsApp Booking</button> <a href={telHref(CONTACT.phone)} className="px-4 py-2 rounded-xl border font-semibold">Call</a> </div> </form> ); }
 
-    // ===== HELPERS =====
-    const fmtINR = n => Number(n).toLocaleString('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0});
-    const telHref = n => `tel:${String(n||'').replace(/[^+\\d]/g,'')}`;
-    const waHref  = (n,text) => `https://wa.me/${String(n||'').replace(/[^+\\d]/g,'').replace(/^\\+/, '')}?text=${encodeURIComponent(text)}`;
-
-    // ===== DOM HOOKS =====
-    const els = {
-      rows: document.getElementById('rows'),
-      tabs: Array.from(document.querySelectorAll('.tab-btn')),
-      tabQ: document.getElementById('tabQ'),
-      globalQ: document.getElementById('globalQ'),
-      tabCount: document.getElementById('tabCount'),
-      doctorPills: document.getElementById('doctorPills'),
-      callDoc: document.getElementById('callDoc'),
-      heroCall: document.getElementById('heroCall'),
-      heroWa:   document.getElementById('heroWa'),
-      navCall:  document.getElementById('navCall'),
-      navWa:    document.getElementById('navWa'),
-      mCall:    document.getElementById('mCall'),
-      mWa:      document.getElementById('mWa'),
-      year:     document.getElementById('year'),
-      cEnquiry: document.getElementById('cEnquiry'),
-      cEmergency:document.getElementById('cEmergency'),
-      cIPD:     document.getElementById('cIPD'),
-      cICU:     document.getElementById('cICU'),
-      cNetralaya:document.getElementById('cNetralaya'),
-      lfName:   document.getElementById('lfName'),
-      lfPhone:  document.getElementById('lfPhone'),
-      lfProc:   document.getElementById('lfProc'),
-      lfWaBtn:  document.getElementById('lfWaBtn'),
-      lfCallBtn:document.getElementById('lfCallBtn')
-    };
-
-    let currentDept = 'neurology';
-
-    function rowHTML(dept, item, i){
-      return `<tr class="${i%2?'bg-white':'bg-gray-50/60'}">
-        <td class="px-4 py-3 whitespace-nowrap capitalize">${dept.replace(/_/g,' ')}</td>
-        <td class="px-4 py-3">${item.service}</td>
-        <td class="px-4 py-3 whitespace-nowrap">${item.unit||'-'}</td>
-        <td class="px-4 py-3 whitespace-nowrap font-semibold">${fmtINR(item.price)}</td>
-        <td class="px-4 py-3 text-right">
-          <a class="inline-block px-3 py-2 rounded-xl bg-black text-white"
-             target="_blank" rel="noreferrer"
-             href="${waHref(CONTACT.whatsapp, `I want an exact estimate for ${item.service} (${dept}) at Mahavir Arogya Sansthan.`)}">
-             WhatsApp Estimate
-          </a>
-        </td>
-      </tr>`;
-    }
-
-    function renderDoctors(deptKey) {
-      const docs = DOCTORS[deptKey] || [];
-      els.doctorPills.innerHTML = docs.length
-        ? docs.map(d => `
-            <span class="doctor-pill">
-              <b>${d.name}</b>
-              <span class="mx-2 doc-time">${d.timing}</span>
-              <span class="chip">${d.days}</span>
-            </span>
-          `).join('')
-        : `<span class="text-sm text-gray-500">Doctor timings for this department will be updated soon.</span>`;
-    }
-
-    function render() {
-      const g=(els.globalQ.value||'').trim().toLowerCase();
-      const t=(els.tabQ.value||'').trim().toLowerCase();
-
-      const allItems = (PRICES[currentDept] || []);
-      const filtered = allItems
-        .filter(p => !t || (p.service?.toLowerCase().includes(t) || (p.unit||'').toLowerCase().includes(t)))
-        .filter(p => !g || (p.service?.toLowerCase().includes(g) || currentDept.toLowerCase().includes(g)));
-
-      els.rows.innerHTML = filtered.map((p,i)=>rowHTML(currentDept, p, i)).join('');
-      els.tabCount.textContent = `Showing ${filtered.length} of ${allItems.length} item${allItems.length===1?'':'s'}`;
-      renderDoctors(currentDept);
-    }
-
-    function setActiveTab(key){
-      currentDept = key;
-      els.tabs.forEach(b=>b.classList.toggle('tab-active', b.getAttribute('data-tab')===key));
-      els.tabQ.value = '';
-      render();
-    }
-
-    // Meta / wiring
-    function initMeta(){
-      const msg = `Hello, I want to book an appointment at Mahavir Arogya Sansthan.`;
-      els.heroCall.href=telHref(CONTACT.enquiry);
-      els.navCall.href =telHref(CONTACT.enquiry);
-      els.mCall?.setAttribute('href',telHref(CONTACT.enquiry));
-      els.heroWa.href  =waHref(CONTACT.whatsapp,msg);
-      els.navWa.href   =waHref(CONTACT.whatsapp,msg);
-      els.mWa?.setAttribute('href',waHref(CONTACT.whatsapp,msg));
-      document.getElementById('year').textContent = new Date().getFullYear();
-      // contact tel links
-      els.cEnquiry.href=telHref(CONTACT.enquiry);
-      els.cEmergency.href=telHref(CONTACT.emergency);
-      els.cIPD.href=telHref(CONTACT.ipd);
-      els.cICU.href=telHref(CONTACT.icu);
-      els.cNetralaya.href=telHref(CONTACT.netralaya);
-      els.callDoc.href=telHref(CONTACT.enquiry);
-    }
-
-    function initLead(){
-      els.lfWaBtn.addEventListener('click',()=>{
-        const msg=`Hello, I want to book an appointment.
-Name: ${els.lfName.value||'-'}
-Phone: ${els.lfPhone.value||'-'}
-Procedure: ${els.lfProc.value||'-'}`;
-        window.open(waHref(CONTACT.whatsapp,msg),'_blank');
-      });
-      els.lfCallBtn.href=telHref(CONTACT.enquiry);
-    }
-
-    document.addEventListener('DOMContentLoaded',()=>{
-      initMeta();
-      initLead();
-      els.tabs.forEach(btn=>btn.addEventListener('click',()=>setActiveTab(btn.getAttribute('data-tab'))));
-      setActiveTab(currentDept);
-      els.globalQ.addEventListener('input',render);
-      els.tabQ.addEventListener('input',render);
-    });
-  </script>
-</body>
-</html>
