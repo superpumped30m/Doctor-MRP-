@@ -2,110 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  />
-  <title>Mahavir Arogya Sansthan – Prices & Appointments | DoctorMRP</title>
-  <meta name="description" content="Transparent hospital prices with one-tap Call / WhatsApp booking. Same-day OPD, insurance assistance. Built by DoctorMRP." />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Mahavir Arogya Sansthan — Neurology Prices & Appointments | DoctorMRP</title>
+  <meta name="description" content="Neurology prices with one-tap Call/WhatsApp booking at Mahavir Arogya Sansthan. Same-day OPD, insurance help. Built by DoctorMRP." />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: { fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] } }
-      }
-    }
-  </script>
-  <style>
-    ::selection { background:#000; color:#fff; }
-  </style>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','ui-sans-serif','system-ui']}}}};</script>
+  <style>::selection{background:#000;color:#fff}.blur-card{box-shadow:0 10px 30px rgba(0,0,0,.06)}</style>
 </head>
-<body class="bg-white text-gray-900 font-sans">
-  <!-- ======= NAV ======= -->
-  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
+<body class="bg-white text-gray-900 font-sans selection:bg-black selection:text-white">
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="h-6 w-6 rounded-full bg-black" aria-hidden="true"></div>
-        <span class="font-semibold tracking-tight">DoctorMRP</span>
+      <div class="flex items-center gap-3">
+        <img src="https://www.mahavirarogyasansthan.com/wp-content/uploads/2018/05/logo.png" alt="Mahavir Arogya Sansthan logo" class="h-8 w-8 object-contain" />
+        <div class="font-semibold tracking-tight">Mahavir Arogya Sansthan</div>
       </div>
       <div class="hidden sm:flex gap-2">
         <a id="navCall" class="px-4 py-2 rounded-xl bg-black text-white font-medium shadow" href="#">Call</a>
-        <a id="navWa" class="px-4 py-2 rounded-xl border font-medium" target="_blank" rel="noreferrer" href="#">WhatsApp</a>
+        <a id="navWa" class="px-4 py-2 rounded-xl border font-medium" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
     </div>
   </nav>
 
-  <!-- ======= HERO ======= -->
-  <header class="relative overflow-hidden">
+  <!-- HERO -->
+  <header class="relative">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.05),transparent_60%)]" aria-hidden="true"></div>
-    <div class="relative max-w-6xl mx-auto px-4 py-10 sm:py-14">
-      <h1 id="hName" class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
-        Hospital Name
-      </h1>
-      <p id="hTag" class="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">
-        Transparent prices. Same-day OPD. Insurance help.
-      </p>
-      <div class="mt-6 flex flex-col sm:flex-row gap-2">
-        <a id="heroWa" class="px-5 py-3 rounded-2xl bg-black text-white font-semibold shadow" target="_blank" rel="noreferrer" href="#">Book on WhatsApp</a>
-        <a id="heroCall" class="px-5 py-3 rounded-2xl border font-semibold" href="#">Call Front Desk</a>
-        <a id="heroMap" class="px-5 py-3 rounded-2xl border font-semibold" target="_blank" rel="noreferrer" href="#">Get Directions</a>
-      </div>
-
-      <!-- Lead Card -->
-      <div class="mt-8 p-4 sm:p-6 rounded-3xl border shadow-sm max-w-2xl">
-        <h2 class="text-lg font-bold">Book an Appointment</h2>
-        <form class="mt-3 space-y-3" onsubmit="event.preventDefault();">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <input id="lfName" class="px-4 py-2.5 border rounded-2xl" placeholder="Your name" />
-            <input id="lfPhone" class="px-4 py-2.5 border rounded-2xl" placeholder="Phone" inputmode="tel" />
+    <div class="relative max-w-6xl mx-auto px-4 py-10 sm:py-16">
+      <div class="grid md:grid-cols-[1.2fr_.8fr] gap-8 items-center">
+        <div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-[1.1] tracking-tight">Transparent Neurology Prices. Same-day OPD.</h1>
+          <p class="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">Insurance assistance • 60 bedded indoor hospital • Multi-specialty under one roof.</p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-2">
+            <a id="heroWa" class="px-5 py-3 rounded-2xl bg-black text-white font-semibold shadow" href="#" target="_blank" rel="noreferrer">Book on WhatsApp</a>
+            <a id="heroCall" class="px-5 py-3 rounded-2xl border font-semibold" href="#">Call Front Desk</a>
+            <a id="heroMap" class="px-5 py-3 rounded-2xl border font-semibold" href="#" target="_blank" rel="noreferrer">Get Directions</a>
           </div>
-          <input id="lfProc" class="w-full px-4 py-2.5 border rounded-2xl" placeholder="Procedure (e.g., CT Brain, Cataract)" />
-          <div class="flex gap-2">
-            <button type="button" id="lfWaBtn" class="px-4 py-2.5 rounded-2xl bg-black text-white font-semibold">WhatsApp Booking</button>
-            <a id="lfCallBtn" class="px-4 py-2.5 rounded-2xl border font-semibold" href="#">Call</a>
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">60+</div><div class="text-xs text-gray-600">Beds</div></div>
+            <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">24×7</div><div class="text-xs text-gray-600">Emergency</div></div>
+            <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">Multi-</div><div class="text-xs text-gray-600">Specialty</div></div>
+            <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">Kankarbagh</div><div class="text-xs text-gray-600">Patna</div></div>
           </div>
-        </form>
+        </div>
+        <!-- lead card -->
+        <div class="p-5 sm:p-6 rounded-3xl border blur-card bg-white/90">
+          <h2 class="text-lg font-bold">Book an Appointment</h2>
+          <form class="mt-3 space-y-3" onsubmit="event.preventDefault();">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input id="lfName" class="px-4 py-2.5 border rounded-2xl" placeholder="Your name" />
+              <input id="lfPhone" class="px-4 py-2.5 border rounded-2xl" placeholder="Phone" inputmode="tel" />
+            </div>
+            <input id="lfProc" class="w-full px-4 py-2.5 border rounded-2xl" placeholder="Procedure (e.g., EEG, Craniotomy)" />
+            <div class="flex gap-2">
+              <button type="button" id="lfWaBtn" class="px-4 py-2.5 rounded-2xl bg-black text-white font-semibold">WhatsApp Booking</button>
+              <a id="lfCallBtn" class="px-4 py-2.5 rounded-2xl border font-semibold" href="#">Call</a>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ======= CONTROLS ======= -->
+  <!-- CONTACT + MAP -->
   <section class="max-w-6xl mx-auto px-4">
-    <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-      <div class="flex gap-2 items-center w-full">
-        <label for="q" class="sr-only">Search procedures</label>
-        <input id="q" class="w-full sm:w-80 px-4 py-2.5 border rounded-2xl" placeholder="Search procedures…" />
-        <label for="cat" class="sr-only">Filter category</label>
-        <select id="cat" class="px-4 py-2.5 border rounded-2xl"></select>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-5 rounded-3xl border">
+        <h3 class="text-lg font-bold">Important Contacts</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><span class="font-semibold">Enquiry/Reception:</span> <a id="cEnquiry" class="underline" href="#">0612-2384220</a></li>
+          <li><span class="font-semibold">Emergency:</span> <a id="cEmergency" class="underline" href="#">0612-2384222</a></li>
+          <li><span class="font-semibold">IPD:</span> <a id="cIPD" class="underline" href="#">0612-2384222</a></li>
+          <li><span class="font-semibold">ICU:</span> <a id="cICU" class="underline" href="#">0612-2384221</a></li>
+          <li><span class="font-semibold">Mahavir Netralaya:</span> <a id="cNetralaya" class="underline" href="#">0612-2384223</a></li>
+          <li><span class="font-semibold">Email:</span> <a class="underline" href="mailto:mahavirarogyasansthan.patna@gmail.com">mahavirarogyasansthan.patna@gmail.com</a>, <a class="underline" href="mailto:mahavirarogya@rediffmail.com">mahavirarogya@rediffmail.com</a></li>
+        </ul>
       </div>
-      <p id="count" class="text-sm text-gray-600">Showing 0 procedures</p>
+      <div class="overflow-hidden rounded-3xl border">
+        <iframe title="Mahavir Arogya Sansthan Map" src="https://www.google.com/maps?q=Mahavir%20Arogya%20Sansthan%20Kankarbagh%20Patna&output=embed" class="w-full h-64 border-0"></iframe>
+      </div>
     </div>
   </section>
 
-  <!-- ======= TABLE ======= -->
-  <section class="max-w-6xl mx-auto px-4 py-6 pb-24">
-    <div class="overflow-x-auto border rounded-3xl">
+  <!-- DEPARTMENTS -->
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <h3 class="text-2xl font-extrabold">Departments</h3>
+    <p class="text-gray-600 text-sm mt-1">Multi-specialty care under one roof.</p>
+    <div id="deptGrid" class="mt-5 grid sm:grid-cols-2 md:grid-cols-3 gap-3"></div>
+  </section>
+
+  <!-- PRICES (Neurology — exact from hospital page) -->
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="flex items-end justify-between gap-2">
+      <div>
+        <h3 class="text-2xl font-extrabold">Neurology Prices</h3>
+        <p class="text-gray-600 text-sm">Published “as-is” from hospital page • For a precise estimate, message us</p>
+      </div>
+      <div class="flex gap-2 items-center">
+        <label for="q" class="sr-only">Search</label>
+        <input id="q" class="w-56 px-4 py-2.5 border rounded-2xl" placeholder="Search (e.g., EEG)" />
+      </div>
+    </div>
+
+    <div class="overflow-x-auto border rounded-3xl mt-4">
       <table class="w-full text-sm">
         <thead class="bg-gray-50">
           <tr>
-            <th class="text-left px-4 py-3">Category</th>
-            <th class="text-left px-4 py-3">Procedure</th>
+            <th class="text-left px-4 py-3">Service</th>
             <th class="text-left px-4 py-3">Unit</th>
-            <th class="text-left px-4 py-3">From</th>
+            <th class="text-left px-4 py-3">Price</th>
             <th class="text-right px-4 py-3">Action</th>
           </tr>
         </thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
-    <p class="text-xs text-gray-500 mt-2">
-      * “From” prices are indicative. Final estimate depends on clinical evaluation, room type, implants, and insurance coverage.
-    </p>
+    <p class="text-xs text-gray-500 mt-2">* Prices shown are published by the hospital; final estimate may vary after clinical evaluation.</p>
   </section>
 
-  <!-- ======= MOBILE STICKY BAR ======= -->
+  <!-- LEADERSHIP / CREDITS -->
+  <section class="max-w-6xl mx-auto px-4 pb-24">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-5 rounded-3xl border">
+        <h3 class="text-lg font-bold">Leadership</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><span class="font-semibold">Additional Director-cum-Director In-Charge:</span> Dr. Abhoy Prasad (MBBS, MS ENT)</li>
+          <li><span class="font-semibold">Director (Mahavir Netralaya):</span> Dr. U. C. Mathur (MBBS, MS Eye, DO)</li>
+          <li><span class="font-semibold">From Director’s Desk:</span> Cdr. (Dr.) Vimal Vibhakar</li>
+        </ul>
+      </div>
+      <div class="p-5 rounded-3xl border">
+        <h3 class="text-lg font-bold">Credits & Vision</h3>
+        <p class="mt-2 text-sm text-gray-700">Mahavir Arogya Sansthan is a charitable, philanthropic, multi-specialty hospital sponsored by Mahavir Temple Trust, Patna.</p>
+        <p class="mt-2 text-xs text-gray-500">Page structured and maintained by <span class="font-semibold">DoctorMRP</span> to help patients compare transparent prices and book quickly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILE STICKY BAR -->
   <div class="fixed bottom-0 inset-x-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t">
     <div class="max-w-6xl mx-auto px-4 py-2 grid grid-cols-2 gap-2">
       <a id="mCall" class="text-center py-3 rounded-2xl bg-black text-white font-semibold" href="#">Call</a>
@@ -113,72 +148,47 @@
     </div>
   </div>
 
-  <!-- ======= FOOTER ======= -->
+  <!-- FOOTER -->
   <footer class="max-w-6xl mx-auto px-4 pb-28 sm:pb-8 text-xs text-gray-500">
     <div class="border-t pt-4">
-      <p>© <span id="year"></span> <span id="fName"></span>. Pricing content managed by DoctorMRP.</p>
+      <p>© <span id="year"></span> Mahavir Arogya Sansthan. Pricing content managed by DoctorMRP.</p>
     </div>
   </footer>
 
-  <!-- ======= DATA + LOGIC ======= -->
+  <!-- DATA + LOGIC -->
   <script>
-    // ---- EDIT THESE (or keep as-is for demo) ----
-    const HOSPITAL = {
-      name: "Mahavir Arogya Sansthan",
-      tagline: "Transparent prices • Same-day OPD • Insurance help",
-    };
+    // ---- Fixed data (contacts from official 'Contact' info) ----
     const CONTACT = {
-      phone: "+91 75883 43376",     // replace with hospital desk
-      whatsapp: "+91 75883 43376",  // replace with hospital WhatsApp
-      gmaps: "https://maps.google.com/?q=Mahavir+Arogya+Sansthan", // replace
+      enquiry: "0612-2384220",
+      emergency: "0612-2384222",
+      ipd: "0612-2384222",
+      icu: "0612-2384221",
+      netralaya: "0612-2384223",
+      whatsapp: "+91 75883 43376" // update to hospital WhatsApp if provided
     };
-    // High-intent procedures for lead-gen; replace amounts with verified rates
-    const PROCEDURES = [
-      // OPD & Diagnostics
-      { id: "opd",       category: "OPD",          name: "Doctor Consultation (General)", unit: "per visit",  from: 400 },
-      { id: "ortho_opd", category: "OPD",          name: "Orthopaedic Consultation",       unit: "per visit",  from: 500 },
-      { id: "xray",      category: "Diagnostics",  name: "X-Ray (Limb)",                   unit: "per view",   from: 400 },
-      { id: "usg_all",   category: "Diagnostics",  name: "Ultrasound – Whole Abdomen",     unit: "per study",  from: 1200 },
-      { id: "ct_brain",  category: "Diagnostics",  name: "CT Brain – Plain",               unit: "per study",  from: 2500 },
-      { id: "mri_knee",  category: "Diagnostics",  name: "MRI Knee",                        unit: "per study",  from: 5000 },
-      { id: "echo",      category: "Cardiac",      name: "2D Echo",                         unit: "per study",  from: 2000 },
-      { id: "tmt",       category: "Cardiac",      name: "TMT (Stress Test)",               unit: "per study",  from: 2500 },
 
-      // Obstetrics & Gyn
-      { id: "nvd",       category: "Obstetrics",   name: "Normal Delivery (NVD)",           unit: "package",    from: 25000 },
-      { id: "csec",      category: "Obstetrics",   name: "Caesarean Section (C-section)",   unit: "package",    from: 45000 },
+    // ---- Departments (abbreviated; expand if needed) ----
+    const DEPARTMENTS = [
+      "Neurology","Orthopaedic","General & Laparoscopic Surgery","ENT","Eye",
+      "Obstetrics & Gynaecology","Cardiology","Medicine","Paediatric","Radiology","ICU","Urology"
+    ];
 
-      // General Surgery
-      { id: "appendix",  category: "General Surgery", name: "Appendectomy (Open)",          unit: "package",    from: 30000 },
-      { id: "chole",     category: "General Surgery", name: "Laparoscopic Cholecystectomy", unit: "package",    from: 60000 },
-      { id: "hernia",    category: "General Surgery", name: "Lap Inguinal Hernia – Unilateral", unit: "package", from: 55000 },
-      { id: "piles",     category: "Proctology",   name: "Laser Piles Surgery",             unit: "package",    from: 45000 },
-
-      // Orthopaedics
-      { id: "pop_short", category: "Orthopaedics", name: "POP Cast – Short Arm",            unit: "procedure",  from: 1500 },
-      { id: "cr_ru",     category: "Orthopaedics", name: "Closed Reduction – Radius/Ulna",  unit: "procedure",  from: 7000 },
-      { id: "orif_ru",   category: "Orthopaedics", name: "ORIF – Radius/Ulna (with implant)", unit: "package",  from: 85000 },
-      { id: "acl",       category: "Orthopaedics", name: "ACL Reconstruction (Arthroscopic)", unit: "package",  from: 90000 },
-      { id: "tkr_uni",   category: "Orthopaedics", name: "Total Knee Replacement – Unilateral", unit: "package",from: 180000 },
-
-      // ENT & Eye
-      { id: "tonsils",   category: "ENT",          name: "Tonsillectomy",                   unit: "package",    from: 35000 },
-      { id: "fess",      category: "ENT",          name: "FESS (Endoscopic Sinus Surgery)", unit: "package",    from: 65000 },
-      { id: "cataract",  category: "Ophthalmology",name: "Cataract Surgery (Monofocal IOL)",unit: "package",    from: 18000 },
+    // ---- EXACT Neurology prices from hospital page ----
+    // Source: https://www.mahavirarogyasansthan.com/neurology-charge/
+    const NEUROLOGY = [
+      { name: "Craniotomy & Evaluation of Subacute SDH", unit: "procedure", price: 40000 },
+      { name: "EEG",                                      unit: "per study", price: 800 },
+      { name: "EEG (Prolonged)",                          unit: "per study", price: 1200 },
+      { name: "Lumbar Listhesis",                         unit: "procedure", price: 35000 }
     ];
 
     // ---- Helpers ----
     const fmtINR = (n) => Number(n).toLocaleString('en-IN', { style:'currency', currency:'INR', maximumFractionDigits:0 });
-    const telHref = (num) => `tel:${String(num||'').replace(/[^+\\d]/g,'')}`;
-    const waHref  = (num, text) => {
-      const clean = String(num||'').replace(/[^+\\d]/g,'').replace(/^\\+/, '');
-      return `https://wa.me/${clean}?text=${encodeURIComponent(text)}`;
-    };
+    const telHref = (n) => `tel:${String(n||'').replace(/[^+\\d]/g,'')}`;
+    const waHref  = (n, text) => `https://wa.me/${String(n||'').replace(/[^+\\d]/g,'').replace(/^\\+/, '')}?text=${encodeURIComponent(text)}`;
 
-    // ---- UI Wiring ----
+    // ---- Wire up static pieces ----
     const els = {
-      hName: document.getElementById('hName'),
-      hTag:  document.getElementById('hTag'),
       heroCall: document.getElementById('heroCall'),
       heroWa:   document.getElementById('heroWa'),
       heroMap:  document.getElementById('heroMap'),
@@ -187,11 +197,14 @@
       mCall:    document.getElementById('mCall'),
       mWa:      document.getElementById('mWa'),
       year:     document.getElementById('year'),
-      fName:    document.getElementById('fName'),
-      q:        document.getElementById('q'),
-      cat:      document.getElementById('cat'),
-      rows:     document.getElementById('rows'),
-      count:    document.getElementById('count'),
+      cEnquiry: document.getElementById('cEnquiry'),
+      cEmergency:document.getElementById('cEmergency'),
+      cIPD:     document.getElementById('cIPD'),
+      cICU:     document.getElementById('cICU'),
+      cNetralaya:document.getElementById('cNetralaya'),
+      deptGrid: document.getElementById('deptGrid'),
+      q: document.getElementById('q'),
+      rows: document.getElementById('rows'),
       lfName:   document.getElementById('lfName'),
       lfPhone:  document.getElementById('lfPhone'),
       lfProc:   document.getElementById('lfProc'),
@@ -200,18 +213,51 @@
     };
 
     function initMeta() {
-      els.hName.textContent = HOSPITAL.name;
-      els.hTag.textContent  = HOSPITAL.tagline;
-      els.heroCall.href = telHref(CONTACT.phone);
-      els.heroWa.href   = waHref(CONTACT.whatsapp, `Hello, I want to book an appointment at ${HOSPITAL.name}.`);
-      els.heroMap.href  = CONTACT.gmaps;
-      els.navCall.href  = telHref(CONTACT.phone);
-      els.navWa.href    = waHref(CONTACT.whatsapp, `Hello, I want to book an appointment at ${HOSPITAL.name}.`);
-      els.mCall.href    = telHref(CONTACT.phone);
-      els.mWa.href      = waHref(CONTACT.whatsapp, `Hello, I want to book an appointment at ${HOSPITAL.name}.`);
-      els.year.textContent = new Date().getFullYear();
-      els.fName.textContent = HOSPITAL.name;
-      els.lfCallBtn.href = telHref(CONTACT.phone);
+      const waMsg = `Hello, I want to book an appointment at Mahavir Arogya Sansthan.`;
+      document.getElementById('year').textContent = new Date().getFullYear();
+      els.heroCall.href = telHref(CONTACT.enquiry);
+      els.navCall.href  = telHref(CONTACT.enquiry);
+      els.mCall.href    = telHref(CONTACT.enquiry);
+      els.heroWa.href   = waHref(CONTACT.whatsapp, waMsg);
+      els.navWa.href    = waHref(CONTACT.whatsapp, waMsg);
+      els.mWa.href      = waHref(CONTACT.whatsapp, waMsg);
+      els.heroMap.href  = "https://maps.google.com/?q=Mahavir+Arogya+Sansthan+Kankarbagh+Patna";
+      // contact links
+      els.cEnquiry.href   = telHref(CONTACT.enquiry);
+      els.cEmergency.href = telHref(CONTACT.emergency);
+      els.cIPD.href       = telHref(CONTACT.ipd);
+      els.cICU.href       = telHref(CONTACT.icu);
+      els.cNetralaya.href = telHref(CONTACT.netralaya);
+    }
+
+    function renderDepartments() {
+      els.deptGrid.innerHTML = DEPARTMENTS.map(d => `<div class="px-4 py-3 rounded-2xl border">${d}</div>`).join('');
+    }
+
+    // Render Neurology table with quick search
+    function renderNeurology() {
+      const needle = (els.q.value || '').trim().toLowerCase();
+      const list = NEUROLOGY.filter(p =>
+        !needle || p.name.toLowerCase().includes(needle)
+      );
+      els.rows.innerHTML = list.map((p, i) => `
+        <tr class="${i % 2 ? 'bg-white' : 'bg-gray-50/60'}">
+          <td class="px-4 py-3">${p.name}</td>
+          <td class="px-4 py-3 whitespace-nowrap">${p.unit}</td>
+          <td class="px-4 py-3 whitespace-nowrap font-semibold">${fmtINR(p.price)}</td>
+          <td class="px-4 py-3 text-right">
+            <a class="inline-block px-3 py-2 rounded-xl bg-black text-white"
+               target="_blank" rel="noreferrer"
+               href="${waHref(CONTACT.whatsapp, `I want to book for ${p.name} at Mahavir Arogya Sansthan. Please share exact estimate.`)}">
+               Get Exact Estimate
+            </a>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Lead form WhatsApp
+    function initLeadForm() {
       els.lfWaBtn.addEventListener('click', () => {
         const msg = `Hello, I want to book an appointment.
 Name: ${els.lfName.value || '-'}
@@ -219,48 +265,15 @@ Phone: ${els.lfPhone.value || '-'}
 Procedure: ${els.lfProc.value || '-'}`;
         window.open(waHref(CONTACT.whatsapp, msg), '_blank');
       });
-    }
-
-    function populateCategories() {
-      const cats = Array.from(new Set(PROCEDURES.map(p => p.category))).sort();
-      els.cat.innerHTML = `<option value="All">All</option>` + cats.map(c => `<option value="${c}">${c}</option>`).join('');
-    }
-
-    function renderTable() {
-      const needle = (els.q.value || '').trim().toLowerCase();
-      const cat = els.cat.value || 'All';
-
-      const list = PROCEDURES.filter(p => {
-        const matchC = (cat === 'All' || p.category === cat);
-        const matchQ = !needle || p.name.toLowerCase().includes(needle) || p.category.toLowerCase().includes(needle);
-        return matchC && matchQ;
-      });
-
-      els.rows.innerHTML = list.map((p, i) => `
-        <tr class="${i % 2 ? 'bg-white' : 'bg-gray-50/60'}">
-          <td class="px-4 py-3 whitespace-nowrap">${p.category}</td>
-          <td class="px-4 py-3">${p.name}</td>
-          <td class="px-4 py-3 whitespace-nowrap">${p.unit}</td>
-          <td class="px-4 py-3 whitespace-nowrap font-semibold">${typeof p.from === 'number' ? fmtINR(p.from) : p.from}</td>
-          <td class="px-4 py-3 text-right">
-            <a class="inline-block px-3 py-2 rounded-xl bg-black text-white"
-               target="_blank" rel="noreferrer"
-               href="${waHref(CONTACT.whatsapp, `I want to book for ${p.name} at ${HOSPITAL.name}. Please share exact estimate.`)}">
-               Get Exact Estimate
-            </a>
-          </td>
-        </tr>
-      `).join('');
-
-      els.count.textContent = `Showing ${list.length} procedures`;
+      els.lfCallBtn.href = telHref(CONTACT.enquiry);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       initMeta();
-      populateCategories();
-      renderTable();
-      els.q.addEventListener('input', renderTable);
-      els.cat.addEventListener('change', renderTable);
+      renderDepartments();
+      renderNeurology();
+      initLeadForm();
+      els.q.addEventListener('input', renderNeurology);
     });
   </script>
 </body>
