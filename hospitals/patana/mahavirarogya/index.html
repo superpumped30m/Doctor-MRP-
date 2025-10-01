@@ -2,31 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Mahavir Arogya Sansthan — Transparent Hospital Prices & Booking | DoctorMRP</title>
-  <meta name="description" content="See department-wise prices and book quickly at Mahavir Arogya Sansthan. Same-day OPD. Insurance assistance. Built by DoctorMRP." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Mahavir Arogya Sansthan — Hospital Prices, Doctors & OPD Timings | DoctorMRP</title>
+  <meta name="description" content="Official-like hospital pricing with doctors & OPD timings for Mahavir Arogya Sansthan (Kankarbagh, Patna). Mobile-first, transparent charges, and one-tap WhatsApp/Call booking." />
+  <link rel="canonical" href="https://example.com/mahavir-prices" />
+  <meta property="og:title" content="Mahavir Arogya Sansthan — Prices, Doctors & Timings" />
+  <meta property="og:description" content="Transparent department-wise charges with doctors and OPD timings. Book via WhatsApp or Call." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } } }
-    };
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } } } };
   </script>
   <style>
     ::selection { background:#000; color:#fff }
-    .blur-card { box-shadow: 0 10px 30px rgba(0,0,0,.06) }
     .tab-active { border-color:#000 !important; color:#111 !important }
+    .card { box-shadow: 0 10px 30px rgba(0,0,0,.06) }
+    .chip { font-size:11px; padding:.15rem .5rem; border-radius:999px; border:1px solid #e5e7eb; background:#f9fafb }
   </style>
+
+  <!-- JSON-LD: Hospital + ContactPoints -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Hospital",
+    "name":"Mahavir Arogya Sansthan",
+    "image":"https://www.mahavirarogyasansthan.com/wp-content/uploads/2018/05/logo.png",
+    "address":{"@type":"PostalAddress","addressLocality":"Kankarbagh","addressRegion":"Bihar","addressCountry":"IN"},
+    "telephone":"+91-612-2384220",
+    "department":[
+      {"@type":"MedicalBusiness","name":"Neurology"},
+      {"@type":"MedicalBusiness","name":"ICU"},
+      {"@type":"MedicalBusiness","name":"Radiology"},
+      {"@type":"MedicalBusiness","name":"Orthopaedics"},
+      {"@type":"MedicalBusiness","name":"Gynaecology"},
+      {"@type":"MedicalBusiness","name":"Gastroenterology"}
+    ],
+    "contactPoint":[
+      {"@type":"ContactPoint","telephone":"+91-612-2384220","contactType":"customer service"},
+      {"@type":"ContactPoint","telephone":"+91-612-2384222","contactType":"emergency"},
+      {"@type":"ContactPoint","telephone":"+91-612-2384221","contactType":"ICU"},
+      {"@type":"ContactPoint","telephone":"+91-612-2384223","contactType":"Eye/Netralaya"}
+    ]
+  }
+  </script>
 </head>
-<body class="bg-white text-gray-900 font-sans selection:bg-black selection:text-white">
+<body class="bg-white text-gray-900 font-sans">
+
   <!-- NAV -->
   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="https://www.mahavirarogyasansthan.com/wp-content/uploads/2018/05/logo.png" alt="Mahavir Arogya Sansthan logo" class="h-8 w-8 object-contain" />
-        <div class="font-semibold tracking-tight">Mahavir Arogya Sansthan</div>
-      </div>
+      <a href="#top" class="flex items-center gap-3">
+        <img loading="lazy" src="https://www.mahavirarogyasansthan.com/wp-content/uploads/2018/05/logo.png" alt="Mahavir Arogya Sansthan logo" class="h-8 w-8 object-contain" />
+        <span class="font-semibold tracking-tight">Mahavir Arogya Sansthan</span>
+      </a>
       <div class="hidden sm:flex gap-2">
         <a id="navCall" class="px-4 py-2 rounded-xl bg-black text-white font-medium shadow" href="#">Call</a>
         <a id="navWa" class="px-4 py-2 rounded-xl border font-medium" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
@@ -34,137 +65,149 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="relative">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.05),transparent_60%)]" aria-hidden="true"></div>
-    <div class="relative max-w-6xl mx-auto px-4 py-10 sm:py-16">
-      <div class="grid md:grid-cols-[1.2fr_.8fr] gap-8 items-center">
-        <div>
-          <h1 class="text-3xl sm:text-5xl font-extrabold leading-[1.1] tracking-tight">Transparent Hospital Prices. Same-day OPD.</h1>
-          <p class="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">
-            Insurance assistance • <span class="font-semibold">60 bedded indoor hospital</span> • Multi-specialty under one roof (Kankarbagh, Patna).
-          </p>
-          <div class="mt-6 flex flex-col sm:flex-row gap-2">
-            <a id="heroWa" class="px-5 py-3 rounded-2xl bg-black text-white font-semibold shadow" href="#" target="_blank" rel="noreferrer">Book on WhatsApp</a>
-            <a id="heroCall" class="px-5 py-3 rounded-2xl border font-semibold" href="#">Call Front Desk</a>
-            <a id="heroMap" class="px-5 py-3 rounded-2xl border font-semibold" href="#" target="_blank" rel="noreferrer">Get Directions</a>
-          </div>
+  <main id="top">
+    <!-- HERO -->
+    <header class="relative">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.05),transparent_60%)]" aria-hidden="true"></div>
+      <div class="relative max-w-6xl mx-auto px-4 py-10 sm:py-16">
+        <div class="grid md:grid-cols-[1.2fr_.8fr] gap-8 items-center">
+          <div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold leading-[1.1]">Transparent Prices. Same-day OPD.</h1>
+            <p class="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">
+              Insurance assistance • <b>60+ beds</b> • Multi-specialty under one roof (Kankarbagh, Patna).
+            </p>
+            <div class="mt-6 flex flex-col sm:flex-row gap-2">
+              <a id="heroWa" class="px-5 py-3 rounded-2xl bg-black text-white font-semibold shadow" href="#" target="_blank" rel="noreferrer">Book on WhatsApp</a>
+              <a id="heroCall" class="px-5 py-3 rounded-2xl border font-semibold" href="#">Call Front Desk</a>
+              <a id="heroMap" class="px-5 py-3 rounded-2xl border font-semibold" href="https://maps.google.com/?q=Mahavir+Arogya+Sansthan+Kankarbagh+Patna" target="_blank" rel="noreferrer">Get Directions</a>
+            </div>
 
-          <!-- key stats -->
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="p-4 rounded-2xl border text-center">
-              <div class="text-2xl font-extrabold">60+</div><div class="text-xs text-gray-600">Beds</div>
-            </div>
-            <div class="p-4 rounded-2xl border text-center">
-              <div class="text-2xl font-extrabold">24×7</div><div class="text-xs text-gray-600">Emergency</div>
-            </div>
-            <div class="p-4 rounded-2xl border text-center">
-              <div class="text-2xl font-extrabold">Multi-</div><div class="text-xs text-gray-600">Specialty</div>
-            </div>
-            <div class="p-4 rounded-2xl border text-center">
-              <div class="text-2xl font-extrabold">Kankarbagh</div><div class="text-xs text-gray-600">Patna</div>
+            <!-- key stats -->
+            <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">60+</div><div class="text-xs text-gray-600">Beds</div></div>
+              <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">24×7</div><div class="text-xs text-gray-600">Emergency</div></div>
+              <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">Multi-</div><div class="text-xs text-gray-600">Specialty</div></div>
+              <div class="p-4 rounded-2xl border text-center"><div class="text-2xl font-extrabold">Patna</div><div class="text-xs text-gray-600">Kankarbagh</div></div>
             </div>
           </div>
-        </div>
 
-        <!-- lead card -->
-        <div class="p-5 sm:p-6 rounded-3xl border blur-card bg-white/90">
-          <h2 class="text-lg font-bold">Book an Appointment</h2>
-          <form class="mt-3 space-y-3" onsubmit="event.preventDefault();">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <input id="lfName" class="px-4 py-2.5 border rounded-2xl" placeholder="Your name" />
-              <input id="lfPhone" class="px-4 py-2.5 border rounded-2xl" placeholder="Phone" inputmode="tel" />
-            </div>
-            <input id="lfProc" class="w-full px-4 py-2.5 border rounded-2xl" placeholder="Procedure (e.g., EEG, CT Brain, Cataract)" />
-            <div class="flex gap-2">
-              <button type="button" id="lfWaBtn" class="px-4 py-2.5 rounded-2xl bg-black text-white font-semibold">WhatsApp Booking</button>
-              <a id="lfCallBtn" class="px-4 py-2.5 rounded-2xl border font-semibold" href="#">Call</a>
-            </div>
-          </form>
+          <!-- lead card -->
+          <aside class="p-5 sm:p-6 rounded-3xl border card bg-white/90" aria-label="Book an appointment form">
+            <h2 class="text-lg font-bold">Book an Appointment</h2>
+            <form class="mt-3 space-y-3" onsubmit="event.preventDefault();">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input id="lfName" class="px-4 py-2.5 border rounded-2xl" placeholder="Your name" aria-label="Your name" />
+                <input id="lfPhone" class="px-4 py-2.5 border rounded-2xl" placeholder="Phone" inputmode="tel" aria-label="Phone number" />
+              </div>
+              <input id="lfProc" class="w-full px-4 py-2.5 border rounded-2xl" placeholder="Procedure (e.g., EEG, CT Brain, Cataract)" aria-label="Procedure you want" />
+              <div class="flex gap-2">
+                <button type="button" id="lfWaBtn" class="px-4 py-2.5 rounded-2xl bg-black text-white font-semibold">WhatsApp Booking</button>
+                <a id="lfCallBtn" class="px-4 py-2.5 rounded-2xl border font-semibold" href="#">Call</a>
+              </div>
+              <p class="text-xs text-gray-500">We’ll confirm slot and share an exact estimate on WhatsApp.</p>
+            </form>
+          </aside>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- GLOBAL SEARCH -->
-  <section class="max-w-6xl mx-auto px-4">
-    <div class="p-4 rounded-3xl border">
-      <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+    <!-- GLOBAL SEARCH -->
+    <section class="max-w-6xl mx-auto px-4" aria-label="Search all prices">
+      <div class="p-4 rounded-3xl border">
+        <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+          <div>
+            <h3 class="text-lg font-bold">Browse All Departments</h3>
+            <p class="text-sm text-gray-600">Search any service across departments or switch tabs below.</p>
+          </div>
+          <input id="globalQ" class="w-full sm:w-96 px-4 py-2.5 border rounded-2xl" placeholder="Search all prices (e.g., EEG, X-ray, Delivery)" />
+        </div>
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+      <div class="flex gap-3 overflow-auto border-b pb-2" role="tablist" aria-label="Departments">
+        <!-- Keep keys aligned with data-tab & PRICES.dept -->
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="neurology" role="tab">Neurology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="icu" role="tab">ICU</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="radiology" role="tab">Radiology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="ultrasonology" role="tab">Ultrasonology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="ct" role="tab">CT Scan</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="cardiology" role="tab">Cardiology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="orthopaedics" role="tab">Orthopaedics</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="surgery" role="tab">General Surgery</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="opd" role="tab">OPD</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="pathology" role="tab">Pathology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="dermatology" role="tab">Dermatology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="dental" role="tab">Dental</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="eye" role="tab">Eye</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="urology" role="tab">Urology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="medicine" role="tab">Medicine</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="psychiatry" role="tab">Psychiatry</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="physiotherapy" role="tab">Physiotherapy</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="sonology" role="tab">Sonology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="homeopathy" role="tab">Homeopathy</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="gynaecology" role="tab">Gynaecology</button>
+        <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="gastro" role="tab">Gastroenterology</button>
+        <span class="hidden sm:block ml-auto text-xs text-gray-500 self-center">Tap tabs →</span>
+      </div>
+
+      <!-- Per-tab search + doctor strip -->
+      <div class="mt-4 grid md:grid-cols-[1fr_.80fr] gap-4">
         <div>
-          <h3 class="text-lg font-bold">Browse All Departments</h3>
-          <p class="text-sm text-gray-600">Search any service across departments or switch tabs below.</p>
+          <div class="flex items-center gap-2">
+            <input id="tabQ" class="w-full sm:w-72 px-4 py-2.5 border rounded-2xl" placeholder="Search in current department…" />
+            <span id="tabCount" class="text-sm text-gray-600"></span>
+          </div>
+
+          <!-- Table -->
+          <div class="overflow-x-auto border rounded-3xl mt-4">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="text-left px-4 py-3">Department</th>
+                  <th class="text-left px-4 py-3">Service</th>
+                  <th class="text-left px-4 py-3">Unit</th>
+                  <th class="text-left px-4 py-3">Price</th>
+                  <th class="text-right px-4 py-3">Action</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">* Items quoted from hospital pages; final estimates depend on clinical evaluation, room type, implants, and insurance coverage.</p>
         </div>
-        <input id="globalQ" class="w-full sm:w-96 px-4 py-2.5 border rounded-2xl" placeholder="Search all prices (e.g., EEG, X-ray, Delivery)" />
+
+        <!-- Doctor times -->
+        <aside class="p-4 rounded-3xl border card h-fit">
+          <h3 class="text-lg font-bold">Doctors & OPD Timings</h3>
+          <div id="docList" class="mt-3 space-y-2 text-sm"></div>
+          <p class="text-xs text-gray-500 mt-2">Timings are as published on respective department pages. Please call to reconfirm.</p>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TABS -->
-  <section class="max-w-6xl mx-auto px-4 py-8">
-    <div class="flex gap-3 overflow-auto border-b pb-2">
-      <!-- add/remove tabs just by editing this list -->
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="neurology">Neurology</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="icu">ICU</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="radiology">Radiology</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="orthopaedics">Orthopaedics</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="obgyn">Obstetrics & Gynae</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="surgery">General Surgery</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="ent">ENT</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="eye">Eye</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="cardiac">Cardiac</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="paediatrics">Paediatric</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="urology">Urology</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="dermatology">Dermatology</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="medicine">Medicine</button>
-      <button class="tab-btn pb-2 border-b-2 border-transparent text-gray-700 font-semibold" data-tab="pathology">Pathology</button>
-    </div>
-
-    <!-- Per-tab search -->
-    <div class="mt-4 flex items-center gap-2">
-      <input id="tabQ" class="w-full sm:w-72 px-4 py-2.5 border rounded-2xl" placeholder="Search in current department…" />
-      <span id="tabCount" class="text-sm text-gray-600"></span>
-    </div>
-
-    <!-- Table -->
-    <div class="overflow-x-auto border rounded-3xl mt-4">
-      <table class="w-full text-sm">
-        <thead class="bg-gray-50">
-          <tr>
-            <th class="text-left px-4 py-3">Department</th>
-            <th class="text-left px-4 py-3">Service</th>
-            <th class="text-left px-4 py-3">Unit</th>
-            <th class="text-left px-4 py-3">Price</th>
-            <th class="text-right px-4 py-3">Action</th>
-          </tr>
-        </thead>
-        <tbody id="rows"></tbody>
-      </table>
-    </div>
-
-    <p class="text-xs text-gray-500 mt-2">
-      * Prices marked <span class="inline-block px-2 py-0.5 text-[11px] rounded-full bg-gray-100 border">PENDING</span> are placeholders — replace with the hospital’s published values when available. Neurology items are published “as-is”.
-    </p>
-  </section>
-
-  <!-- CONTACT + MAP -->
-  <section class="max-w-6xl mx-auto px-4 pb-20">
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="p-5 rounded-3xl border">
-        <h3 class="text-lg font-bold">Important Contacts</h3>
-        <ul class="mt-3 space-y-2 text-sm">
-          <li><span class="font-semibold">Enquiry/Reception:</span> <a id="cEnquiry" class="underline" href="#">0612-2384220</a></li>
-          <li><span class="font-semibold">Emergency:</span> <a id="cEmergency" class="underline" href="#">0612-2384222</a></li>
-          <li><span class="font-semibold">IPD:</span> <a id="cIPD" class="underline" href="#">0612-2384222</a></li>
-          <li><span class="font-semibold">ICU:</span> <a id="cICU" class="underline" href="#">0612-2384221</a></li>
-          <li><span class="font-semibold">Mahavir Netralaya:</span> <a id="cNetralaya" class="underline" href="#">0612-2384223</a></li>
-          <li><span class="font-semibold">Email:</span> <a class="underline" href="mailto:mahavirarogyasansthan.patna@gmail.com">mahavirarogyasansthan.patna@gmail.com</a>, <a class="underline" href="mailto:mahavirarogya@rediffmail.com">mahavirarogya@rediffmail.com</a></li>
-        </ul>
+    <!-- CONTACT + MAP -->
+    <section class="max-w-6xl mx-auto px-4 pb-20">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-5 rounded-3xl border">
+          <h3 class="text-lg font-bold">Important Contacts</h3>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><b>Enquiry/Reception:</b> <a id="cEnquiry" class="underline" href="#">0612-2384220</a></li>
+            <li><b>Emergency:</b> <a id="cEmergency" class="underline" href="#">0612-2384222</a></li>
+            <li><b>IPD:</b> <a id="cIPD" class="underline" href="#">0612-2384222</a></li>
+            <li><b>ICU:</b> <a id="cICU" class="underline" href="#">0612-2384221</a></li>
+            <li><b>Mahavir Netralaya:</b> <a id="cNetralaya" class="underline" href="#">0612-2384223</a></li>
+            <li><b>Email:</b> <a class="underline" href="mailto:mahavirarogyasansthan.patna@gmail.com">mahavirarogyasansthan.patna@gmail.com</a>,
+              <a class="underline" href="mailto:mahavirarogya@rediffmail.com">mahavirarogya@rediffmail.com</a></li>
+          </ul>
+        </div>
+        <div class="overflow-hidden rounded-3xl border">
+          <iframe title="Map" src="https://www.google.com/maps?q=Mahavir%20Arogya%20Sansthan%20Kankarbagh%20Patna&output=embed" class="w-full h-64 border-0" loading="lazy"></iframe>
+        </div>
       </div>
-      <div class="overflow-hidden rounded-3xl border">
-        <iframe title="Mahavir Arogya Sansthan Map" src="https://www.google.com/maps?q=Mahavir%20Arogya%20Sansthan%20Kankarbagh%20Patna&output=embed" class="w-full h-64 border-0"></iframe>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- MOBILE STICKY BAR -->
   <div class="fixed bottom-0 inset-x-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t">
@@ -174,7 +217,6 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="max-w-6xl mx-auto px-4 pb-28 sm:pb-8 text-xs text-gray-500">
     <div class="border-t pt-4">
       <p>© <span id="year"></span> Mahavir Arogya Sansthan. Pricing content managed by DoctorMRP.</p>
@@ -183,164 +225,100 @@
 
   <!-- DATA + LOGIC -->
   <script>
-    // ====== CONTACTS / CONSTANTS ======
+    // ===== CONTACTS =====
     const CONTACT = {
       enquiry: "0612-2384220",
       emergency: "0612-2384222",
       ipd: "0612-2384222",
       icu: "0612-2384221",
       netralaya: "0612-2384223",
-      whatsapp: "+91 75883 43376" // replace with hospital official WhatsApp if provided
+      whatsapp: "+91 75883 43376" // replace if hospital shares official WhatsApp
     };
 
-    // ====== PRICES ======
-    // IMPORTANT:
-    // - Keep department keys aligned with the tab data-tab attributes above.
-    // - Each item: { dept, service, unit, price, verified }
-    // - 'verified: true' = published by hospital; false = placeholder until you paste official values.
+    // ===== DOCTORS & TIMINGS (department keyed) =====
+    // Sources: Neurology, Orthopaedic, Eye, Gynae, Gastroenterology, Paediatric, Nephrology, Psychiatry, Physiotherapy, Sonology, Homeopathy, Dental pages on hospital site.
+    const DOCTORS = {
+      neurology: [
+        { name: "Dr. Anjum Prawez", timing: "11:30 AM – 01:30 PM", days: "Mon–Sat" },
+        { name: "Dr. Sanjeev Kumar", timing: "10:30 AM – 11:30 AM", days: "Mon–Sat" },
+        { name: "Dr. Kunal Kumar (Neurosurgeon)", timing: "09:00 AM – (as per schedule)", days: "Mon–Sat" }
+      ],
+      orthopaedics: [
+        { name: "Dr. Sanjay Kumar", timing: "11:30 AM – 01:00 PM", days: "Mon–Sat" },
+        { name: "Dr. Balmiki Kumar", timing: "10:00 AM – 01:00 PM, 05:00 PM – 06:00 PM", days: "Mon–Sat" },
+        { name: "Dr. Vinod Pd.", timing: "03:00 PM – (as per schedule)", days: "Mon–Sat" }
+      ],
+      eye: [
+        { name: "Eye OPD (Netralaya)", timing: "09:00 AM – 05:00 PM", days: "Mon–Sat" },
+        { name: "Sub-clinics (Retina, Paediatric Ophthalmology, Squint, Oculoplasty)", timing: "Within OPD hours", days: "Mon–Sat" }
+      ],
+      gynaecology: [
+        { name: "Dr. Usha Didwania", timing: "04:00 PM – 05:30 PM", days: "Tue" },
+        { name: "Dr. Rachna Jain", timing: "09:00 AM – 01:00 PM, 03:30 PM – 05:30 PM", days: "Mon–Sat" },
+        { name: "Dr. Jyoti Kumari", timing: "10:00 AM – 01:00 PM, 04:00 PM – 05:30 PM", days: "Wed, Thu, Sat" },
+        { name: "Dr. Khushboo Kumari", timing: "10:00 AM – 01:00 PM, 03:30 PM – 05:30 PM", days: "Mon, Tue, Fri" }
+      ],
+      gastro: [
+        { name: "Dr. Rajeev Ranjan", timing: "02:00 PM", days: "Mon–Sat" },
+        { name: "Dr. Deepak Kumar", timing: "12:00 PM (Mon–Fri), 09:00 AM – 01:00 PM (Sat)", days: "Mon–Sat" },
+        { name: "Dr. Avinash Kumar", timing: "01:00 PM", days: "Mon–Sat" }
+      ],
+      paediatric: [
+        { name: "Dr. R. K. P. Sinha", timing: "10:30 AM – 12:00 PM", days: "Mon–Sat" },
+        { name: "Dr. Varun Kumar", timing: "12:00 PM – 02:00 PM", days: "Mon–Sat" },
+        { name: "Dr. Wakil Anand", timing: "04:00 PM – 05:30 PM", days: "Mon, Wed, Thu, Fri, Sat" },
+        { name: "Dr. Ashokanand Thakur (Paediatric Surgeon)", timing: "04:00 PM – 05:00 PM", days: "Sat" }
+      ],
+      nephrology: [
+        { name: "Dr. Manibhushan", timing: "11:30 AM – 12:30 PM", days: "Mon–Fri" }
+      ],
+      psychiatry: [
+        { name: "Dr. Vivek Pratap Singh", timing: "04:00 PM – 05:00 PM", days: "Mon–Sat" }
+      ],
+      physiotherapy: [
+        { name: "Dr. Narendra Kr. Sinha", timing: "03:00 PM", days: "Tue" }
+      ],
+      sonology: [
+        { name: "Dr. Nupur Rani", timing: "11:30 AM", days: "Mon–Sat" }
+      ],
+      homeopathy: [
+        { name: "Dr. M. K. Sahni", timing: "09:00 AM – 11:00 PM", days: "Tue" },
+        { name: "Dr. Sudhakar Kumar", timing: "09:00 AM – 11:00 PM", days: "Tue" }
+      ],
+      dental: [
+        { name: "Dr. Swapna Singh", timing: "10:00 AM – 02:00 PM", days: "Mon, Tue, Thu, Fri" },
+        { name: "Dr. Sri Ram Sah", timing: "02:00 PM – 05:00 PM", days: "Wed, Sat" },
+        { name: "Dr. Anil Kumar", timing: "10:00 AM – 02:00 PM", days: "Mon–Sat" }
+      ]
+    };
+
+    // ===== PRICES (department-wise). Paste/extend freely. =====
+    // Each row: { dept, service, unit, price }
     const PRICES = [
-      // ------- Neurology (verified: TRUE; from hospital neurology charges page) -------
-      { dept: "neurology", service: "Craniotomy & Evaluation of Subacute SDH", unit: "procedure", price: 40000, verified: true },
-      { dept: "neurology", service: "EEG", unit: "per study", price: 800, verified: true },
-      { dept: "neurology", service: "EEG (Prolonged)", unit: "per study", price: 1200, verified: true },
-      { dept: "neurology", service: "Lumbar Listhesis", unit: "procedure", price: 35000, verified: true },
+      // --- Neurology (published) ---
+      {dept:"neurology",service:"Craniotomy & Evaluation of Subacute SDH",unit:"procedure",price:40000},
+      {dept:"neurology",service:"EEG",unit:"per study",price:800},
+      {dept:"neurology",service:"EEG (Prolonged)",unit:"per study",price:1200},
+      {dept:"neurology",service:"Lumbar Listhesis",unit:"procedure",price:35000},
 
-      // ------- ICU (PENDING — paste official items when available) -------
-      { dept: "icu", service: "Ventilator (per day)", unit: "day", price: 3000, verified: false },
-      { dept: "icu", service: "Consultation (ICU) per visit", unit: "visit", price: 500, verified: false },
-      { dept: "icu", service: "ABG", unit: "test", price: 800, verified: false },
-      { dept: "icu", service: "Air Bed", unit: "per day", price: 250, verified: false },
+      // --- ICU (published) ---
+      {dept:"icu",service:"Consultation charge per visit",unit:"visit",price:500},
+      {dept:"icu",service:"C.V.P. Line",unit:"procedure",price:1200},
+      {dept:"icu",service:"Infusion Pump per Day",unit:"day",price:500},
+      {dept:"icu",service:"Intubation",unit:"procedure",price:800},
+      {dept:"icu",service:"Nebulizer",unit:"session",price:200},
+      {dept:"icu",service:"Oxygen (per hour)",unit:"hour",price:80},
+      {dept:"icu",service:"Oxygen Charge (per day)",unit:"day",price:600},
+      {dept:"icu",service:"RBS by Glucometer",unit:"test",price:80},
+      // Room & ICU beds
+      {dept:"icu",service:"ICU Bed (per day)",unit:"day",price:2500},
+      {dept:"icu",service:"Single Room (per day)",unit:"day",price:500},
+      {dept:"icu",service:"Double Bed (per day)",unit:"day",price:250},
+      {dept:"icu",service:"Multi Bed (per day)",unit:"day",price:200},
 
-      // ------- Radiology (PENDING — paste official) -------
-      { dept: "radiology", service: "CT Brain – Plain", unit: "scan", price: 2500, verified: false },
-      { dept: "radiology", service: "X-Ray (Limb)", unit: "per view", price: 400, verified: false },
-      { dept: "radiology", service: "Ultrasound – Whole Abdomen", unit: "study", price: 1200, verified: false },
-
-      // ------- Orthopaedics (PENDING — paste official) -------
-      { dept: "orthopaedics", service: "POP Cast – Short Arm", unit: "procedure", price: 1500, verified: false },
-      { dept: "orthopaedics", service: "Closed Reduction – Radius/Ulna", unit: "procedure", price: 7000, verified: false },
-      { dept: "orthopaedics", service: "ORIF – Radius/Ulna (with implant)", unit: "package", price: 85000, verified: false },
-      { dept: "orthopaedics", service: "ACL Reconstruction (Arthroscopic)", unit: "package", price: 90000, verified: false },
-      { dept: "orthopaedics", service: "Total Knee Replacement – Unilateral", unit: "package", price: 180000, verified: false },
-
-      // ------- Obstetrics & Gynae (PENDING — paste official) -------
-      { dept: "obgyn", service: "Normal Delivery (NVD)", unit: "package", price: 25000, verified: false },
-      { dept: "obgyn", service: "Caesarean Section (C-section)", unit: "package", price: 45000, verified: false },
-
-      // ------- General Surgery (PENDING — paste official) -------
-      { dept: "surgery", service: "Appendectomy (Open)", unit: "package", price: 30000, verified: false },
-      { dept: "surgery", service: "Laparoscopic Cholecystectomy", unit: "package", price: 60000, verified: false },
-      { dept: "surgery", service: "Lap Inguinal Hernia – Unilateral", unit: "package", price: 55000, verified: false },
-
-      // ------- ENT (PENDING — paste official) -------
-      { dept: "ent", service: "Tonsillectomy", unit: "package", price: 35000, verified: false },
-      { dept: "ent", service: "FESS (Endoscopic Sinus Surgery)", unit: "package", price: 65000, verified: false },
-
-      // ------- Eye (PENDING — paste official) -------
-      { dept: "eye", service: "Cataract Surgery (Monofocal IOL)", unit: "package", price: 18000, verified: false },
-
-      // ------- Cardiac (PENDING — paste official) -------
-      { dept: "cardiac", service: "2D Echo", unit: "study", price: 2000, verified: false },
-      { dept: "cardiac", service: "TMT (Stress Test)", unit: "study", price: 2500, verified: false },
-
-      // ------- Paediatric (PENDING — paste official) -------
-      { dept: "paediatrics", service: "Paediatric Consultation", unit: "visit", price: 400, verified: false },
-
-      // ------- Urology (PENDING — paste official) -------
-      { dept: "urology", service: "PCNL (example)", unit: "package", price: 65000, verified: false },
-
-      // ------- Dermatology (PENDING — paste official) -------
-      { dept: "dermatology", service: "Chemical Peeling", unit: "procedure", price: 300, verified: false },
-      { dept: "dermatology", service: "CO2 Laser", unit: "procedure", price: 1600, verified: false },
-
-      // ------- Medicine / Pathology (PENDING — paste official) -------
-      { dept: "medicine", service: "General Physician Consultation", unit: "visit", price: 400, verified: false },
-      { dept: "pathology", service: "CBC", unit: "test", price: 300, verified: false },
-    ];
-
-    // ====== HELPERS ======
-    const fmtINR = (n) => Number(n).toLocaleString('en-IN', { style:'currency', currency:'INR', maximumFractionDigits:0 });
-    const telHref = (n) => `tel:${String(n||'').replace(/[^+\\d]/g,'')}`;
-    const waHref  = (n, text) => `https://wa.me/${String(n||'').replace(/[^+\\d]/g,'').replace(/^\\+/, '')}?text=${encodeURIComponent(text)}`;
-
-    // ====== DOM ======
-    const els = {
-      rows: document.getElementById('rows'),
-      tabQ: document.getElementById('tabQ'),
-      globalQ: document.getElementById('globalQ'),
-      tabCount: document.getElementById('tabCount'),
-      tabs: Array.from(document.querySelectorAll('.tab-btn')),
-      heroCall: document.getElementById('heroCall'),
-      heroWa:   document.getElementById('heroWa'),
-      heroMap:  document.getElementById('heroMap'),
-      navCall:  document.getElementById('navCall'),
-      navWa:    document.getElementById('navWa'),
-      mCall:    document.getElementById('mCall'),
-      mWa:      document.getElementById('mWa'),
-      year:     document.getElementById('year'),
-      cEnquiry: document.getElementById('cEnquiry'),
-      cEmergency:document.getElementById('cEmergency'),
-      cIPD:     document.getElementById('cIPD'),
-      cICU:     document.getElementById('cICU'),
-      cNetralaya:document.getElementById('cNetralaya'),
-      lfName:   document.getElementById('lfName'),
-      lfPhone:  document.getElementById('lfPhone'),
-      lfProc:   document.getElementById('lfProc'),
-      lfWaBtn:  document.getElementById('lfWaBtn'),
-      lfCallBtn:document.getElementById('lfCallBtn'),
-    };
-
-    let currentDept = 'neurology';
-
-    function initMeta() {
-      const waMsg = `Hello, I want to book an appointment at Mahavir Arogya Sansthan.`;
-      els.heroCall.href = telHref(CONTACT.enquiry);
-      els.navCall.href  = telHref(CONTACT.enquiry);
-      els.mCall.href    = telHref(CONTACT.enquiry);
-      els.heroWa.href   = waHref(CONTACT.whatsapp, waMsg);
-      els.navWa.href    = waHref(CONTACT.whatsapp, waMsg);
-      els.mWa.href      = waHref(CONTACT.whatsapp, waMsg);
-      els.heroMap.href  = "https://maps.google.com/?q=Mahavir+Arogya+Sansthan+Kankarbagh+Patna";
-
-      // contact tel: links
-      els.cEnquiry.href   = telHref(CONTACT.enquiry);
-      els.cEmergency.href = telHref(CONTACT.emergency);
-      els.cIPD.href       = telHref(CONTACT.ipd);
-      els.cICU.href       = telHref(CONTACT.icu);
-      els.cNetralaya.href = telHref(CONTACT.netralaya);
-    }
-
-    function rowHTML(item, i) {
-      const tag = item.verified ? '' : '<span class="ml-2 inline-block px-2 py-0.5 text-[11px] rounded-full bg-gray-100 border">PENDING</span>';
-      return `
-        <tr class="${i % 2 ? 'bg-white' : 'bg-gray-50/60'}">
-          <td class="px-4 py-3 whitespace-nowrap capitalize">${item.dept.replace(/_/g,' ')}</td>
-          <td class="px-4 py-3">${item.service}${tag}</td>
-          <td class="px-4 py-3 whitespace-nowrap">${item.unit}</td>
-          <td class="px-4 py-3 whitespace-nowrap font-semibold">${fmtINR(item.price)}</td>
-          <td class="px-4 py-3 text-right">
-            <a class="inline-block px-3 py-2 rounded-xl bg-black text-white"
-               target="_blank" rel="noreferrer"
-               href="${waHref(CONTACT.whatsapp, `I want an exact estimate for ${item.service} (${item.dept}) at Mahavir Arogya Sansthan.`)}">
-               WhatsApp Estimate
-            </a>
-          </td>
-        </tr>
-      `;
-    }
-
-    function render() {
-      const g = (els.globalQ.value || '').trim().toLowerCase();
-      const t = (els.tabQ.value || '').trim().toLowerCase();
-
-      const list = PRICES
-        .filter(p => p.dept === currentDept)
-        .filter(p => !t || p.service.toLowerCase().includes(t) || p.unit.toLowerCase().includes(t))
-        .filter(p => !g || p.service.toLowerCase().includes(g) || p.dept.toLowerCase().includes(g));
-
-      els.rows.innerHTML = list.map((p,i) => rowHTML(p, i)).join('');
-      els.tabCount.textContent = `Showing ${list.length} item${list.length===1?'':'s'}`;
-    }
-
-    function setActiveTab(key) {
-      
+      // --- Radiology (long list excerpt) ---
+      {dept:"radiology",service:"Dig Chest PA View",unit:"view",price:150},
+      {dept:"radiology",service:"Dig Cervical Spine AP & Lateral",unit:"views",price:300},
+      {dept:"radiology",service:"Dig Dorsolumbar Spine AP & Lateral",unit:"views",price:300},
+      {dept:"radiology",service:"Dig Wrist AP & Lateral",unit:"views",price:300},
+      {dept:"radiology",se
