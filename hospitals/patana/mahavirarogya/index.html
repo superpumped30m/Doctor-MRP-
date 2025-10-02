@@ -1,103 +1,119 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Mahavir Arogya Sansthan — Prices & Doctors | DoctorMRP</title>
-  <meta name="description" content="Transparent prices, OPD timings, and doctors at Mahavir Arogya Sansthan (Kankarbagh, Patna). SEO & mobile-friendly hospital page." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahavir Arogya Sansthan - Prices & Timings</title>
+  <meta name="description" content="Mahavir Arogya Sansthan, Patna. Transparent pricing, OPD timings, and contact details. Verified by DoctorMRP.">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    ::selection { background:#000; color:#fff }
-    summary { cursor:pointer; }
+    summary { cursor:pointer; padding:0.75rem; background:#f3f4f6; border:1px solid #ddd; border-radius:0.5rem; }
+    summary:hover { background:#e5e7eb; }
+    .price-row { display:flex; justify-content:space-between; padding:0.5rem 1rem; border-bottom:1px solid #eee; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-800">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-30 bg-white shadow">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <h1 class="text-xl sm:text-2xl font-bold">Mahavir Arogya Sansthan</h1>
-      <div class="flex gap-2">
-        <a href="tel:+916122384220" class="px-3 py-2 rounded-lg bg-black text-white text-sm font-semibold">Call</a>
-        <a href="https://wa.me/917588343376" class="px-3 py-2 rounded-lg border text-sm font-semibold">WhatsApp</a>
-      </div>
+  <!-- HEADER -->
+  <header class="bg-white shadow p-4 text-center">
+    <h1 class="text-2xl font-bold">Mahavir Arogya Sansthan</h1>
+    <p class="text-gray-600">Kankarbagh, Patna • Multi-speciality Hospital</p>
+    <div class="mt-4 space-x-2">
+      <a href="https://wa.me/916122384220" class="bg-green-500 text-white px-4 py-2 rounded">Book on WhatsApp</a>
+      <a href="tel:06122384220" class="bg-blue-500 text-white px-4 py-2 rounded">Call Front Desk</a>
+      <a href="https://maps.app.goo.gl/YOURMAP" class="bg-gray-700 text-white px-4 py-2 rounded">Get Directions</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-4 py-6 sm:py-10">
-    <h2 class="text-2xl sm:text-3xl font-extrabold">Transparent Prices • Clear Doctors • One-tap Booking</h2>
-    <p class="mt-2 text-gray-600">All department prices and OPD timings — simple for patients, convincing for hospitals.</p>
+  <!-- CONTACT -->
+  <section class="p-4">
+    <h2 class="text-xl font-semibold mb-2">Important Contacts</h2>
+    <ul class="space-y-1">
+      <li><strong>Enquiry/Reception:</strong> 0612-2384220</li>
+      <li><strong>Emergency:</strong> 0612-2384222</li>
+      <li><strong>IPD:</strong> 0612-2384222</li>
+      <li><strong>ICU:</strong> 0612-2384221</li>
+      <li><strong>Mahavir Netralaya:</strong> 0612-2384223</li>
+      <li><strong>Email:</strong> mahavirarogyasansthan.patna@gmail.com</li>
+    </ul>
+    <div class="mt-4">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18..."
+        width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"></iframe>
+    </div>
   </section>
 
-  <!-- Accordion -->
-  <main class="max-w-6xl mx-auto px-4 pb-16 space-y-4">
-
-    <!-- Example Department: Neurology -->
-    <details open class="bg-white rounded-xl shadow p-4">
-      <summary class="font-bold text-lg">🧠 Neurology — Doctors & Prices</summary>
-      <div class="mt-3 space-y-2">
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full border text-sm">Dr. Anjum Prawez — 11:30 AM–1:30 PM</span>
-          <span class="px-3 py-1 rounded-full border text-sm">Dr. Sanjeev Kumar — 10:30 AM–11:30 AM</span>
-          <span class="px-3 py-1 rounded-full border text-sm">Dr. Kunal Kumar (Neurosurgeon) — As per schedule</span>
-        </div>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm mt-3 border">
-            <thead class="bg-gray-100">
-              <tr>
-                <th class="text-left px-3 py-2">Service</th>
-                <th class="text-left px-3 py-2">Unit</th>
-                <th class="text-left px-3 py-2">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t"><td class="px-3 py-2">EEG</td><td class="px-3 py-2">Per Study</td><td class="px-3 py-2">₹800</td></tr>
-              <tr class="border-t"><td class="px-3 py-2">EEG (Prolonged)</td><td class="px-3 py-2">Per Study</td><td class="px-3 py-2">₹1,200</td></tr>
-              <tr class="border-t"><td class="px-3 py-2">Craniotomy & Evaluation of Subacute SDH</td><td class="px-3 py-2">Procedure</td><td class="px-3 py-2">₹40,000</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- Example Department: Orthopaedics -->
-    <details class="bg-white rounded-xl shadow p-4">
-      <summary class="font-bold text-lg">🦴 Orthopaedics — Doctors & Prices</summary>
-      <div class="mt-3 space-y-2">
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full border text-sm">Dr. Sanjay Kumar — 11:30 AM–1:00 PM</span>
-          <span class="px-3 py-1 rounded-full border text-sm">Dr. Balmiki Kumar — 10 AM–1 PM, 5–6 PM</span>
-        </div>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm mt-3 border">
-            <thead class="bg-gray-100">
-              <tr>
-                <th class="text-left px-3 py-2">Service</th>
-                <th class="text-left px-3 py-2">Unit</th>
-                <th class="text-left px-3 py-2">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t"><td class="px-3 py-2">ACL Reconstruction (Arthroscopic)</td><td class="px-3 py-2">Package</td><td class="px-3 py-2">₹90,000</td></tr>
-              <tr class="border-t"><td class="px-3 py-2">Total Hip Replacement</td><td class="px-3 py-2">Package</td><td class="px-3 py-2">₹1,80,000</td></tr>
-              <tr class="border-t"><td class="px-3 py-2">Total Knee Replacement</td><td class="px-3 py-2">Package</td><td class="px-3 py-2">₹1,80,000</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- Add more departments like Radiology, Gynaecology, Cardiology, Surgery, Dental, Eye, etc. -->
-    <!-- Just copy the <details> ... </details> block and replace doctor names & table rows -->
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="max-w-6xl mx-auto px-4 pb-10 text-xs text-gray-500">
-    <div class="border-t pt-4">
-      <p>© 2025 Mahavir Arogya Sansthan. Pricing content managed by DoctorMRP.</p>
+  <!-- DOCTORS & OPD -->
+  <section class="p-4">
+    <h2 class="text-xl font-semibold mb-2">Doctors & OPD Timings</h2>
+    <div class="bg-white shadow rounded p-4 space-y-2">
+      <p><strong>Neurology:</strong> Dr. Anjum Prawez • 11:00 AM – 01:30 PM (Mon–Sat)</p>
+      <p><strong>Orthopaedics:</strong> Dr. Sanjay Kumar • 11:30 AM – 01:00 PM (Mon–Sat)</p>
+      <p><strong>Gynaecology:</strong> Dr. Rachna Jain • 09:00 AM – 01:00 PM, 03:30–05:30 PM (Mon–Sat)</p>
+      <p><strong>Psychiatry:</strong> Dr. Vivek Pratap Singh • 04:00 PM – 05:00 PM (Mon–Sat)</p>
+      <p><em>…and many more</em></p>
     </div>
+  </section>
+
+  <!-- PRICING ACCORDIONS -->
+  <section class="p-4">
+    <h2 class="text-xl font-semibold mb-4">Department-wise Prices</h2>
+
+    <!-- Orthopaedics -->
+    <details class="mb-2">
+      <summary>🦴 Orthopaedics</summary>
+      <div>
+        <div class="price-row"><span>X-Ray</span><span>₹400</span></div>
+        <div class="price-row"><span>Plaster Application</span><span>₹1500</span></div>
+        <div class="price-row"><span>Hip Replacement</span><span>₹85,000</span></div>
+        <div class="price-row"><span>Knee Arthroscopy</span><span>₹65,000</span></div>
+      </div>
+    </details>
+
+    <!-- Neurology -->
+    <details class="mb-2">
+      <summary>🧠 Neurology</summary>
+      <div>
+        <div class="price-row"><span>EEG</span><span>₹2,000</span></div>
+        <div class="price-row"><span>NCV (Nerve Conduction)</span><span>₹3,500</span></div>
+        <div class="price-row"><span>MRI Brain</span><span>₹7,000</span></div>
+      </div>
+    </details>
+
+    <!-- ENT -->
+    <details class="mb-2">
+      <summary>👂 ENT</summary>
+      <div>
+        <div class="price-row"><span>Tympanometry</span><span>₹1,200</span></div>
+        <div class="price-row"><span>Endoscopic Sinus Surgery</span><span>₹25,000</span></div>
+      </div>
+    </details>
+
+    <!-- Dental -->
+    <details class="mb-2">
+      <summary>🦷 Dental</summary>
+      <div>
+        <div class="price-row"><span>Scaling</span><span>₹500</span></div>
+        <div class="price-row"><span>Single Sitting RCT</span><span>₹2,000</span></div>
+        <div class="price-row"><span>Zirconia Crown</span><span>₹9,000</span></div>
+      </div>
+    </details>
+
+    <!-- General Surgery -->
+    <details class="mb-2">
+      <summary>🩺 General Surgery</summary>
+      <div>
+        <div class="price-row"><span>Appendectomy</span><span>₹18,000</span></div>
+        <div class="price-row"><span>Gallbladder Removal (Lap)</span><span>₹45,000</span></div>
+        <div class="price-row"><span>Hernia Surgery</span><span>₹35,000</span></div>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-100 text-center p-4 mt-6 text-sm text-gray-500">
+    © 2025 Mahavir Arogya Sansthan. Pricing content managed by DoctorMRP.
   </footer>
+
 </body>
 </html>
