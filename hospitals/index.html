@@ -1,83 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Browse Hospitals | DoctorMRP</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Hospitals — DoctorMRP</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    .active-page { background:#facc15; color:#000; }
+    .card-img { height: 160px; object-fit: cover; width: 100%; border-top-left-radius: .5rem; border-top-right-radius: .5rem; }
+    .card { border-radius:.5rem; overflow:hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.08); background:#05203A; color:#fff; }
+    .card .body { padding:1rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); }
+    .pill { display:inline-block; padding:.2rem .5rem; font-size:.8rem; border-radius:999px; background:rgba(255,255,255,0.07); margin-right:.35rem; }
+    .cta { background:#FACC15; color:#000; padding:.6rem 1rem; border-radius:.5rem; font-weight:700; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50">
 
-  <!-- HEADER -->
-  <section class="py-12 bg-black text-white text-center">
-    <h1 class="text-3xl font-bold mb-2">Browse All Hospitals</h1>
-    <p class="text-gray-400">Find verified hospitals listed on DoctorMRP</p>
-  </section>
+  <header class="bg-black text-white text-center py-10">
+    <h1 class="text-3xl md:text-4xl font-bold">Trusted Hospitals — Verified Listings</h1>
+    <p class="text-gray-300 mt-2">Click a hospital to view prices or call directly — real leads, real patients.</p>
+  </header>
 
-  <!-- SEARCH -->
-  <div class="max-w-5xl mx-auto px-4 py-8">
-    <input id="search" type="text" placeholder="Search hospital or city..."
-      class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-6">
-    
-    <!-- HOSPITAL LIST -->
-    <div id="hospital-list" class="grid md:grid-cols-3 sm:grid-cols-2 gap-4 text-sm">
-      <!-- 🏥 Example items -->
-      <a href="/hospitals/isha-netralaya.html" class="block p-3 bg-white rounded hover:shadow">Isha Netralaya — Thane</a>
-      <a href="/hospitals/deshmukh-hospital.html" class="block p-3 bg-white rounded hover:shadow">Deshmukh Hospital — Amravati</a>
-      <a href="/hospitals/mahavir-arogya.html" class="block p-3 bg-white rounded hover:shadow">Mahavir Arogya — Pune</a>
-      <a href="/hospitals/aaihms-hospital.html" class="block p-3 bg-white rounded hover:shadow">AAIHMS Hospital — Surat</a>
-      <a href="/hospitals/life-care-hospital.html" class="block p-3 bg-white rounded hover:shadow">Life Care Hospital — Patna</a>
-      <a href="/hospitals/mediplus-clinic.html" class="block p-3 bg-white rounded hover:shadow">MediPlus Clinic — Mumbai</a>
-      <a href="/hospitals/vision-eye-center.html" class="block p-3 bg-white rounded hover:shadow">Vision Eye Center — Nagpur</a>
-      <a href="/hospitals/sunrise-multispeciality.html" class="block p-3 bg-white rounded hover:shadow">Sunrise Multispeciality — Nashik</a>
-      <a href="/hospitals/grace-hospital.html" class="block p-3 bg-white rounded hover:shadow">Grace Hospital — Ahmedabad</a>
-      <a href="/hospitals/smile-dental.html" class="block p-3 bg-white rounded hover:shadow">Smile Dental Care — Pune</a>
-      <!-- 🔁 Add more hospitals here (copy + edit lines) -->
+  <main class="max-w-6xl mx-auto p-6">
+    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+
+      <!-- Card 1 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1582719478171-7a7f1b7d5b6e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=8b8f5b0c98f0de1dfd9b7b2b9b5c2d7b" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">Lifecare Eye Institute</h3>
+          <p class="text-sm text-gray-200 mb-2">Thane • Ophthalmology • Cataract, Retina</p>
+          <div class="mb-3">
+            <span class="pill">24/7</span><span class="pill">Verified Prices</span><span class="pill">Cashless</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <a href="https://example-hospital1.com" target="_blank" class="text-sm underline text-white">Website</a>
+            </div>
+            <div class="flex gap-2">
+              <a class="cta" href="tel:+911234567890">Call</a>
+              <a class="cta" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1582719508461-9055e7a0d9c4?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=4d8e9d5f1c8e0a3b6b2c6b5f7d8a9b1c" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">CureWell Medical Center</h3>
+          <p class="text-sm text-gray-200 mb-2">Pune • Multispeciality • Surgery & OPD</p>
+          <div class="mb-3">
+            <span class="pill">Emergency</span><span class="pill">Verified</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <a href="https://example-hospital2.com" target="_blank" class="text-sm underline text-white">Website</a>
+            </div>
+            <div class="flex gap-2">
+              <a class="cta" href="tel:+919876543210">Call</a>
+              <a class="cta" href="https://wa.me/91YYYYYYYYYY" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1580281657521-2d3a4f1e7f2a?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=0a6df7b1b9f7c1a2d8e4e5f6a7b8c9d0" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">Grace Multispeciality Hospital</h3>
+          <p class="text-sm text-gray-200 mb-2">Ahmedabad • Cardiology • Orthopedics</p>
+          <div class="mb-3">
+            <span class="pill">ICU</span><span class="pill">Payment Plans</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital3.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+911112223334">Call</a><a class="cta" href="https://wa.me/91ZZZZZZZZZZ">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1542317894-5f0d9f2b1ced?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7f4d9b2e5b6c7a8d9e0f1b2c3d4e5f6a" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">HopeBridge Hospital</h3>
+          <p class="text-sm text-gray-200 mb-2">Nashik • General Medicine • Diagnostics</p>
+          <div class="mb-3">
+            <span class="pill">24/7 Labs</span><span class="pill">Verified</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital4.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919998887776">Call</a><a class="cta" href="https://wa.me/91XXXXXXXXX">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1580894894513-1e7b9f3f1a2b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">TrueHealth Medical Centre</h3>
+          <p class="text-sm text-gray-200 mb-2">Chennai • Orthopedics • Neuro</p>
+          <div class="mb-3">
+            <span class="pill">Specialists</span><span class="pill">OPD</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital5.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919977665544">Call</a><a class="cta" href="https://wa.me/91AAAAAAAAAA">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1562502877-c8c7b8f7f2d1?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcd1234efgh5678ijkl9012mnop3456" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">Hope Wellness Institute</h3>
+          <p class="text-sm text-gray-200 mb-2">Patna • Women’s Health • IVF</p>
+          <div class="mb-3">
+            <span class="pill">Maternity</span><span class="pill">IVF</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital6.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919966554433">Call</a><a class="cta" href="https://wa.me/91BBBBBBBBBB">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1580281657521-2d3a4f1e7f2a?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=0a6df7b1b9f7c1a2d8e4e5f6a7b8c9d0" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">CityCare General Hospital</h3>
+          <p class="text-sm text-gray-200 mb-2">Mumbai • Emergency • Trauma</p>
+          <div class="mb-3">
+            <span class="pill">Trauma</span><span class="pill">24/7</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital7.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919955443322">Call</a><a class="cta" href="https://wa.me/91CCCCCCCCCC">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1582719478171-7a7f1b7d5b6e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=8b8f5b0c98f0de1dfd9b7b2b9b5c2d7b" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">Sunrise Critical Care</h3>
+          <p class="text-sm text-gray-200 mb-2">Kolkata • Critical Care • ICU</p>
+          <div class="mb-3">
+            <span class="pill">ICU</span><span class="pill">Ventilator</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital8.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919944332211">Call</a><a class="cta" href="https://wa.me/91DDDDDDDDDD">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 9 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1542317894-5f0d9f2b1ced?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7f4d9b2e5b6c7a8d9e0f1b2c3d4e5f6a" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">HealPoint Specialty Clinic</h3>
+          <p class="text-sm text-gray-200 mb-2">Bengaluru • Diabetes • Endocrine</p>
+          <div class="mb-3">
+            <span class="pill">Specialty</span><span class="pill">Clinics</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital9.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919933221100">Call</a><a class="cta" href="https://wa.me/91EEEEEEEEEE">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 10 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1580894894513-1e7b9f3f1a2b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">MediPlus Health Centre</h3>
+          <p class="text-sm text-gray-200 mb-2">Hyderabad • Outpatient • Imaging</p>
+          <div class="mb-3">
+            <span class="pill">Imaging</span><span class="pill">OPD</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital10.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919922110099">Call</a><a class="cta" href="https://wa.me/91FFFFFFFFFF">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 11 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1562502877-c8c7b8f7f2d1?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcd1234efgh5678ijkl9012mnop3456" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">VistaCare Specialty Hospital</h3>
+          <p class="text-sm text-gray-200 mb-2">Jaipur • ENT • Head & Neck</p>
+          <div class="mb-3">
+            <span class="pill">ENT</span><span class="pill">Surgery</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital11.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919911009988">Call</a><a class="cta" href="https://wa.me/91GGGGGGGGGG">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 12 -->
+      <article class="card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1582719508461-9055e7a0d9c4?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=4d8e9d5f1c8e0a3b6b2c6b5f7d8a9b1c" alt="Hospital building">
+        <div class="body">
+          <h3 class="text-lg font-bold mb-1">City General & Trauma Centre</h3>
+          <p class="text-sm text-gray-200 mb-2">Lucknow • Trauma • Orthopedics</p>
+          <div class="mb-3">
+            <span class="pill">Trauma</span><span class="pill">Emergency</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div><a href="https://example-hospital12.com" target="_blank" class="text-sm underline text-white">Website</a></div>
+            <div class="flex gap-2"><a class="cta" href="tel:+919900887766">Call</a><a class="cta" href="https://wa.me/91HHHHHHHHHH">WhatsApp</a></div>
+          </div>
+        </div>
+      </article>
+
     </div>
+  </main>
 
-    <!-- PAGINATION -->
-    <div id="pagination" class="flex justify-center mt-10 space-x-2"></div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="bg-black text-white py-8 text-center text-sm">
-    <p>© 2025 DoctorMRP – Built by Doctors for Doctors</p>
+  <footer class="text-center py-8 text-sm text-gray-600">
+    © 2025 DoctorMRP — Built by Doctors, for Doctors
   </footer>
 
-  <!-- JS SEARCH + PAGINATION -->
-  <script>
-    const itemsPerPage = 30;
-    const list = document.querySelectorAll('#hospital-list a');
-    const pagination = document.getElementById('pagination');
-    const search = document.getElementById('search');
-    let currentPage = 1;
-
-    function renderList() {
-      const term = search.value.toLowerCase();
-      const filtered = Array.from(list).filter(i => i.innerText.toLowerCase().includes(term));
-      const totalPages = Math.ceil(filtered.length / itemsPerPage);
-
-      filtered.forEach((el, idx) => {
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = currentPage * itemsPerPage;
-        el.style.display = idx >= start && idx < end ? 'block' : 'none';
-      });
-
-      pagination.innerHTML = '';
-      for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = i;
-        btn.className = `px-3 py-1 border rounded ${i===currentPage?'active-page':''}`;
-        btn.onclick = () => { currentPage = i; renderList(); };
-        pagination.appendChild(btn);
-      }
-    }
-
-    search.addEventListener('input', () => { currentPage = 1; renderList(); });
-    renderList();
-  </script>
 </body>
 </html>
