@@ -1,151 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ✅ BASIC META -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verified Hospitals in India | Transparent Prices – DoctorMRP</title>
-  <meta name="description" content="Discover verified hospitals in India with real doctor prices and transparent OPD packages. Compare Ashirwad Hospital, Mahavir Arogya Sansthan, and Deshmukh Eye Hospital — trusted listings verified by DoctorMRP." />
-  <meta name="keywords" content="hospital prices India, verified hospitals, Ashirwad Hospital Buldhana, Mahavir Arogya Sansthan Patna, Deshmukh Eye Hospital Amravati, doctor price transparency, DoctorMRP" />
-  <meta name="author" content="DoctorMRP" />
-  <link rel="canonical" href="https://doctormrp.com/hospitals" />
-
-  <!-- ✅ SOCIAL META (OG + Twitter) -->
-  <meta property="og:title" content="Trusted & Verified Hospitals — DoctorMRP" />
-  <meta property="og:description" content="Hospitals you can trust. Real doctors. Real prices. Real patients. Explore verified hospitals across India." />
-  <meta property="og:image" content="https://doctormrp.com/images/doctor-mrp-cover.jpg" />
-  <meta property="og:url" content="https://doctormrp.com/hospitals" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DoctorMRP — Verified Hospitals with Transparent Prices" />
-  <meta name="twitter:description" content="Compare verified hospitals in India. Transparent prices. Real leads. Real patients." />
-  <meta name="twitter:image" content="https://doctormrp.com/images/doctor-mrp-cover.jpg" />
-
-  <!-- ✅ SCHEMA.ORG JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "DoctorMRP",
-    "url": "https://doctormrp.com/hospitals",
-    "description": "Verified hospitals and clinics in India offering transparent procedure prices.",
-    "sameAs": ["https://www.instagram.com/doctormrp","https://www.facebook.com/doctormrp"],
-    "department": [
-      {
-        "@type": "Hospital",
-        "name": "Ashirwad Multispeciality Hospital",
-        "address": {"@type": "PostalAddress", "addressLocality": "Buldhana, Maharashtra", "addressCountry": "IN"},
-        "telephone": "+917620400686",
-        "url": "https://doctormrp.com/hospitals/ashirwad-buldhana.html"
-      },
-      {
-        "@type": "Hospital",
-        "name": "Mahavir Arogya Sansthan",
-        "address": {"@type": "PostalAddress", "addressLocality": "Patna, Bihar", "addressCountry": "IN"},
-        "telephone": "+916122220257",
-        "url": "https://doctormrp.com/hospitals/mahavir-patna.html"
-      },
-      {
-        "@type": "Hospital",
-        "name": "Deshmukh Eye Hospital",
-        "address": {"@type": "PostalAddress", "addressLocality": "Amravati, Maharashtra", "addressCountry": "IN"},
-        "telephone": "+917620522888",
-        "url": "https://doctormrp.com/hospitals/deshmukh-amravati.html"
-      }
-    ]
-  }
-  </script>
-
-  <!-- ✅ PERFORMANCE -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <title>Browse Hospitals | DoctorMRP</title>
+  <meta name="description" content="Find verified hospitals with transparent prices for cataract, MRI, delivery, and more across India. Compare costs and book instantly on DoctorMRP." />
+  <meta name="robots" content="index, follow" />
   <style>
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color:#fafafa; color:#111; }
-    .card { transition: all .3s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,0.08); }
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      background-color: #f9fafb;
+      color: #111;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+      color: #0b0b0b;
+    }
+    header p {
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .hospital-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hospital-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .hospital-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+    .hospital-header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .hospital-header img.logo {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-right: 1rem;
+    }
+    .hospital-header h2 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    .hospital-header span.city {
+      color: #888;
+      font-size: 0.9rem;
+      display: block;
+    }
+    .hospital-body {
+      padding: 1rem 1.5rem;
+    }
+    .tags {
+      margin-bottom: 0.8rem;
+    }
+    .tag {
+      display: inline-block;
+      background: #eef2f6;
+      color: #333;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      margin: 2px;
+    }
+    .popular-procedures {
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .metrics {
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1.5rem 1rem;
+    }
+    .cta-buttons a {
+      flex: 1;
+      margin: 0 0.2rem;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+    }
+    .view { background-color: #ffc107; color: #111; }
+    .call { background-color: #000; }
+    .whatsapp { background-color: #25D366; }
   </style>
 </head>
-
 <body>
-
-  <!-- HEADER -->
-  <header class="bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-      <h1 class="text-2xl font-semibold">DoctorMRP</h1>
-      <a href="https://doctormrp.com" class="text-gray-600 hover:text-black">← Back to Home</a>
-    </div>
+  <header>
+    <h1>🏥 Browse Verified Hospitals</h1>
+    <p>Compare real procedure prices — Transparent. Trusted. Verified by DoctorMRP.</p>
   </header>
 
-  <!-- HERO -->
-  <section class="text-center py-16 bg-white">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">Trusted Hospitals — Verified Listings</h2>
-    <p class="text-lg text-gray-600 mb-10">Hospitals you can trust. Real doctors. Real prices. Real patients.</p>
+  <section class="hospital-grid">
+    <!-- Deshmukh Eye Hospital -->
+    <div class="hospital-card">
+      <div class="hospital-header">
+        <img src="deshmukh-logo.png" alt="Deshmukh Eye Hospital" class="logo" />
+        <div>
+          <h2>Deshmukh Eye Hospital</h2>
+          <span class="city">Amravati</span>
+        </div>
+      </div>
+      <div class="hospital-body">
+        <div class="tags">
+          <span class="tag">Retina</span>
+          <span class="tag">Cataract</span>
+          <span class="tag">Laser Eye Surgery</span>
+        </div>
+        <div class="popular-procedures">
+          👁 Cataract Surgery – ₹18,000+<br>
+          🔬 Retina Laser – ₹12,000+<br>
+          💡 LASIK – ₹25,000+
+        </div>
+        <div class="metrics">⭐ 4.9 Rating • Verified by DoctorMRP • 4,200 views this month</div>
+      </div>
+      <div class="cta-buttons">
+        <a href="https://doctormrp.com/deshmukh" class="view">View Prices</a>
+        <a href="tel:+91XXXXXXXXXX" class="call">Call</a>
+        <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20I%20saw%20your%20page%20on%20DoctorMRP" class="whatsapp">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- You can duplicate below divs for more hospitals -->
   </section>
-
-  <!-- HOSPITAL GRID -->
-  <section class="max-w-6xl mx-auto px-6 pb-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-    <!-- 1️⃣ Ashirwad Hospital -->
-    <article class="card bg-white rounded-2xl border border-gray-200 overflow-hidden" itemscope itemtype="https://schema.org/Hospital">
-      <img src="https://content.jdmagicbox.com/comp/buldhana/z5/9999p7262.7262.171222120745.v5z5/catalogue/ashirwad-multispeciality-hospital-buldhana-buldhana-hospitals-vrw77wp4kg.jpg" alt="Ashirwad Hospital Buldhana" class="w-full h-48 object-cover" itemprop="image">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2" itemprop="name">Ashirwad Multispeciality Hospital — Buldhana</h3>
-        <p class="text-gray-600 mb-3" itemprop="medicalSpecialty">General Medicine • Orthopedics • Surgery</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">24/7 Emergency</span>
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Cashless</span>
-        </div>
-        <div class="flex gap-2 justify-between">
-          <a href="/hospitals/ashirwad-buldhana.html" class="bg-yellow-400 text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-300">View Prices</a>
-          <a href="tel:+917620400686" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800">Call</a>
-          <a href="https://wa.me/917620400686?text=Hello%20Ashirwad%20Hospital%2C%20please%20share%20your%20OPD%20packages." class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600">WhatsApp</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 2️⃣ Mahavir Arogya Sansthan -->
-    <article class="card bg-white rounded-2xl border border-gray-200 overflow-hidden" itemscope itemtype="https://schema.org/Hospital">
-      <img src="https://www.mahavirarogyasansthan.com/images/mahavir-hospital-patna.jpg" alt="Mahavir Arogya Sansthan Patna" class="w-full h-48 object-cover" itemprop="image">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2" itemprop="name">Mahavir Arogya Sansthan — Patna</h3>
-        <p class="text-gray-600 mb-3" itemprop="medicalSpecialty">Gastroenterology • Nephrology • Emergency</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Dialysis Centre</span>
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Affordable Care</span>
-        </div>
-        <div class="flex gap-2 justify-between">
-          <a href="/hospitals/mahavir-patna.html" class="bg-yellow-400 text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-300">View Prices</a>
-          <a href="tel:+916122220257" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800">Call</a>
-          <a href="https://wa.me/919999999999?text=Hello%20Mahavir%20Arogya%20Sansthan%2C%20please%20share%20your%20service%20details." class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600">WhatsApp</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 3️⃣ Deshmukh Eye Hospital -->
-    <article class="card bg-white rounded-2xl border border-gray-200 overflow-hidden" itemscope itemtype="https://schema.org/Hospital">
-      <img src="https://content3.jdmagicbox.com/comp/amravati/y8/9999px721.x721.210415123207.v8y8/catalogue/dr-himanshu-deshmukh-eye-hospital-amravati-doctors-1unwbp4p1u.jpg" alt="Deshmukh Eye Hospital Amravati" class="w-full h-48 object-cover" itemprop="image">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2" itemprop="name">Deshmukh Eye Hospital — Amravati</h3>
-        <p class="text-gray-600 mb-3" itemprop="medicalSpecialty">Retina • Cataract • Laser Eye Surgery</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Retina Specialist</span>
-          <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Advanced Equipment</span>
-        </div>
-        <div class="flex gap-2 justify-between">
-          <a href="/hospitals/deshmukh-amravati.html" class="bg-yellow-400 text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-300">View Prices</a>
-          <a href="tel:+917620522888" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800">Call</a>
-          <a href="https://wa.me/917620522888?text=Hello%20Deshmukh%20Eye%20Hospital%2C%20I%20want%20to%20book%20an%20eye%20checkup." class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600">WhatsApp</a>
-        </div>
-      </div>
-    </article>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-white border-t text-center py-10 text-gray-500 text-sm">
-    © 2025 DoctorMRP — Verified Transparency. Built for Doctors, Trusted by Patients.
-  </footer>
-
 </body>
 </html>
