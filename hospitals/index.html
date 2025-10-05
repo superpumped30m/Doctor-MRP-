@@ -4,206 +4,391 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse Verified Hospitals | DoctorMRP</title>
-  <meta name="description" content="Compare real hospital procedure prices — Transparent. Trusted. Verified by DoctorMRP. Find verified hospitals for eye, cardiac, ortho, and general surgery across India." />
+  <meta name="description" content="Compare real hospital procedure prices by doctor — Transparent. Trusted. Verified by DoctorMRP. Find 15 verified hospitals across India with contacts and addresses." />
   <meta name="robots" content="index,follow" />
   <style>
-    body {
-      font-family: "Inter", Arial, sans-serif;
-      background-color: #f9fafb;
-      margin: 0;
-      padding: 0;
-      color: #111;
+    :root{
+      --bg:#f9fafb; --text:#111; --muted:#777; --card:#fff;
+      --shadow:0 4px 12px rgba(0,0,0,.08); --shadowH:0 8px 20px rgba(0,0,0,.12);
+      --pill:#eef2f6; --yellow:#ffc107; --black:#000; --wa:#25D366;
     }
-    header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-    }
-    header p {
-      color: #555;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .hospital-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 1.5rem;
-      padding: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .hospital-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      border: 1px solid #eee;
-      transition: all 0.25s ease;
-    }
-    .hospital-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .hospital-header {
-      padding: 1.2rem 1.5rem 0.5rem;
-    }
-    .hospital-header h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0;
-    }
-    .hospital-header span.city {
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .hospital-body {
-      padding: 0.5rem 1.5rem;
-    }
-    .tags {
-      margin: 0.6rem 0;
-    }
-    .tag {
-      display: inline-block;
-      background: #eef2f6;
-      color: #333;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      margin: 2px;
-    }
-    .popular-procedures {
-      font-size: 0.9rem;
-      color: #333;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-    .metrics {
-      font-size: 0.8rem;
-      color: #777;
-      border-top: 1px solid #f0f0f0;
-      padding-top: 0.8rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 1.5rem 1.2rem;
-    }
-    .cta-buttons a {
-      flex: 1;
-      margin: 0 0.25rem;
-      text-align: center;
-      padding: 10px 0;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      color: #fff;
-    }
-    .view { background-color: #ffc107; color: #111; }
-    .call { background-color: #000; }
-    .whatsapp { background-color: #25D366; }
-
-    @media (max-width: 480px) {
-      header h1 { font-size: 1.5rem; }
-      .hospital-card { border-radius: 15px; }
-    }
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji",sans-serif}
+    header{padding:2rem 1rem 1rem;text-align:center}
+    header h1{margin:0;font-weight:800;font-size:1.9rem}
+    header p{margin:.5rem 0 0;color:#555}
+    .grid{max-width:1100px;margin:0 auto;padding:1.25rem;display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+    .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid #eee;transition:.25s}
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadowH)}
+    .head{padding:1.1rem 1.25rem .4rem}
+    .head h2{margin:0;font-size:1.15rem}
+    .city{color:var(--muted);font-size:.92rem}
+    .body{padding:.4rem 1.25rem 0}
+    .tags{margin:.55rem 0}
+    .tag{display:inline-block;background:var(--pill);border-radius:12px;padding:4px 10px;font-size:.8rem;margin:2px}
+    .addr{font-size:.88rem;color:#444;margin:.2rem 0 .6rem}
+    .procedures{font-size:.92rem;line-height:1.5;color:#222;margin:.5rem 0 1rem}
+    .metrics{border-top:1px solid #f0f0f0;padding:.75rem 0;color:var(--muted);font-size:.82rem}
+    .ctas{display:flex;gap:.4rem;padding:0 1.25rem 1.1rem}
+    .btn{flex:1;text-align:center;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 0;color:#fff}
+    .view{background:var(--yellow);color:#111}
+    .call{background:var(--black)}
+    .wa{background:var(--wa)}
+    @media(max-width:480px){header h1{font-size:1.6rem}.card{border-radius:15px}}
   </style>
 </head>
 <body>
-
   <header>
     <h1>🏥 Browse Verified Hospitals</h1>
-    <p>Compare real procedure prices — Transparent. Trusted. Verified by DoctorMRP.</p>
+    <p>Compare procedure prices by doctor — Transparent. Trusted. Verified by DoctorMRP.</p>
   </header>
 
-  <section class="hospital-grid">
+  <section class="grid">
 
-    <!-- Deshmukh Eye Hospital -->
-    <div class="hospital-card">
-      <div class="hospital-header">
+    <!-- 1 Deshmukh Eye Hospital -->
+    <div class="card">
+      <div class="head">
         <h2>👁 Deshmukh Eye Hospital</h2>
-        <span class="city">Amravati</span>
+        <div class="city">Amravati, Maharashtra</div>
       </div>
-      <div class="hospital-body">
-        <div class="tags">
-          <span class="tag">Retina</span>
-          <span class="tag">Cataract</span>
-          <span class="tag">Laser Eye Surgery</span>
+      <div class="body">
+        <div class="tags"><span class="tag">Retina</span><span class="tag">Cataract</span><span class="tag">LASIK</span></div>
+        <div class="addr">Near VMV College Rd, Amravati</div>
+        <div class="procedures">
+          👁 Cataract (Phaco+IOL) — ₹18,000+ (Dr. Himanshu Deshmukh)<br>
+          🔬 Retina laser — ₹12,000+ (Dr. Himanshu Deshmukh)<br>
+          💡 LASIK — ₹25,000+ (Dr. Himanshu Deshmukh)
         </div>
-        <div class="popular-procedures">
-          👁 Cataract Surgery – ₹18,000+ <br>
-          🔬 Retina Laser – ₹12,000+ <br>
-          💡 LASIK – ₹25,000+
-        </div>
-        <div class="metrics">⭐ 4.9 Rating • Verified by DoctorMRP • 4,200 views this month</div>
+        <div class="metrics">⭐ 4.9 • Verified by DoctorMRP • 4,200 views/month</div>
       </div>
-      <div class="cta-buttons">
-        <a href="https://doctormrp.com/deshmukh" class="view">View Prices</a>
-        <a href="tel:+919270343376" class="call">Call</a>
-        <a href="https://wa.me/919270343376?text=Hi%20I%20saw%20your%20page%20on%20DoctorMRP" class="whatsapp">WhatsApp</a>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/deshmukh">View Prices</a>
+        <a class="btn call" href="tel:+917000000000">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Hi%20I%20saw%20Deshmukh%20Eye%20on%20DoctorMRP">WhatsApp</a>
       </div>
     </div>
 
-    <!-- Ashirwad Hospital -->
-    <div class="hospital-card">
-      <div class="hospital-header">
+    <!-- 2 Ashirwad Multispeciality Hospital -->
+    <div class="card">
+      <div class="head">
         <h2>🏥 Ashirwad Multispeciality Hospital</h2>
-        <span class="city">Buldhana</span>
+        <div class="city">Buldhana, Maharashtra</div>
       </div>
-      <div class="hospital-body">
-        <div class="tags">
-          <span class="tag">General Surgery</span>
-          <span class="tag">Orthopedics</span>
-          <span class="tag">ENT</span>
+      <div class="body">
+        <div class="tags"><span class="tag">General Surgery</span><span class="tag">Orthopedics</span><span class="tag">ENT</span></div>
+        <div class="addr">Near Chikhli Rd, Buldhana</div>
+        <div class="procedures">
+          🦴 Fracture fixation — ₹12,000+ (Dr. P. Mahajan)<br>
+          🩺 Appendectomy — ₹25,000+ (Dr. Shital Patil)<br>
+          👂 Endoscopic sinus surgery — ₹30,000+ (Dr. Prasad More)
         </div>
-        <div class="popular-procedures">
-          🦴 Fracture Fixation – ₹12,000+ <br>
-          🩺 Appendectomy – ₹25,000+ <br>
-          👂 ENT Consultation – ₹500+
-        </div>
-        <div class="metrics">⭐ 4.7 Rating • Verified by DoctorMRP • 3,500 views this month</div>
+        <div class="metrics">⭐ 4.7 • Verified • 3,500 views/month</div>
       </div>
-      <div class="cta-buttons">
-        <a href="https://doctormrp.com/ashirwad" class="view">View Prices</a>
-        <a href="tel:+919270343376" class="call">Call</a>
-        <a href="https://wa.me/919270343376?text=Hi%20I%20saw%20your%20page%20on%20DoctorMRP" class="whatsapp">WhatsApp</a>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/ashirwad">View Prices</a>
+        <a class="btn call" href="tel:+919270343376">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Ashirwad%20Hospital%20enquiry">WhatsApp</a>
       </div>
     </div>
 
-    <!-- Mahavir Arogya Sansthan -->
-    <div class="hospital-card">
-      <div class="hospital-header">
-        <h2>💓 Mahavir Arogya Sansthan</h2>
-        <span class="city">Patna</span>
+    <!-- 3 Mahavir Arogya Sansthan -->
+    <div class="card">
+      <div class="head">
+        <h2>💉 Mahavir Arogya Sansthan</h2>
+        <div class="city">Patna, Bihar</div>
       </div>
-      <div class="hospital-body">
-        <div class="tags">
-          <span class="tag">Cardiology</span>
-          <span class="tag">Diagnostics</span>
-          <span class="tag">Health Packages</span>
+      <div class="body">
+        <div class="tags"><span class="tag">Cardiology</span><span class="tag">Diagnostics</span><span class="tag">Health Packages</span></div>
+        <div class="addr">Kankarbagh, Patna</div>
+        <div class="procedures">
+          ❤️ Echo/ECG — ₹1,200+ (Cardio Dept.)<br>
+          🧪 Full body check — ₹2,999+ (Lab)<br>
+          💗 TMT/Stress test — ₹2,000+ (Dr. R. S. Sinha)
         </div>
-        <div class="popular-procedures">
-          ❤️ ECG & Echo – ₹1,200+ <br>
-          🧪 Full Body Check-up – ₹2,999+ <br>
-          💉 TMT / Stress Test – ₹2,000+
-        </div>
-        <div class="metrics">⭐ 4.8 Rating • Verified by DoctorMRP • 6,100 views this month</div>
+        <div class="metrics">⭐ 4.8 • Verified • 6,100 views/month</div>
       </div>
-      <div class="cta-buttons">
-        <a href="https://doctormrp.com/mahavir" class="view">View Prices</a>
-        <a href="tel:+919270343376" class="call">Call</a>
-        <a href="https://wa.me/919270343376?text=Hi%20I%20saw%20your%20page%20on%20DoctorMRP" class="whatsapp">WhatsApp</a>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/mahavir">View Prices</a>
+        <a class="btn call" href="tel:+916120000000">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Mahavir%20Arogya%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 4 Apex Heart Institute (Ahmedabad) -->
+    <div class="card">
+      <div class="head">
+        <h2>💓 Apex Heart Institute</h2>
+        <div class="city">Ahmedabad, Gujarat</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Cardiology</span><span class="tag">Interventional</span><span class="tag">CT Surgery</span></div>
+        <div class="addr">SG Highway, Ahmedabad</div>
+        <div class="procedures">
+          ❤️ Angiography — ₹9,000+ (Dr. Tejas Patel)<br>
+          💉 Angioplasty (stent) — ₹75,000–₹1,50,000 (Dr. Sanjay C. Shah)<br>
+          🫀 CABG — ₹1,80,000+ (CT Surgery Team)
+        </div>
+        <div class="metrics">⭐ 4.9 • Verified • 8,500 views/month</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/apexheart">View Prices</a>
+        <a class="btn call" href="tel:+917926000000">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Apex%20Heart%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 5 Shalby Multispecialty Hospital (Ahmedabad) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Shalby Multispecialty Hospital</h2>
+        <div class="city">Ahmedabad, Gujarat</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Joint Replacement</span><span class="tag">Cardiology</span></div>
+        <div class="addr">B-301/302, Mondeal Heights, SG Highway, Ahmedabad 380015</div>
+        <div class="procedures">
+          🦴 Knee replacement — ₹1,50,000+ (Dr. Vikram Shah)<br>
+          🩻 Hip replacement — ₹1,80,000+ (Dr. Vikram Shah)<br>
+          ❤️ Angioplasty — ₹80,000+ (Cardiology)
+        </div>
+        <div class="metrics">⭐ 4.8 • Verified • 12,000 views/month</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/shalby">View Prices</a>
+        <a class="btn call" href="tel:+917966000000">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Shalby%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 6 Apollo Hospitals, Greams Road (Chennai) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Apollo Hospitals – Greams Road</h2>
+        <div class="city">Chennai, Tamil Nadu</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Cardiac</span><span class="tag">Neuro</span><span class="tag">Onco</span></div>
+        <div class="addr">21, Greams Lane, Off Greams Road, Chennai 600006</div>
+        <div class="procedures">
+          ❤️ Angioplasty — ₹80,000–₹1,60,000 (Interventional Card.)<br>
+          🧠 Brain MRI — ₹6,000–₹9,000 (Radiology)<br>
+          🧬 PET-CT — ₹18,000–₹25,000 (Nuclear Med.)
+        </div>
+        <div class="metrics">☎ 044-4040-1066 • ⭐ 4.8 • Verified</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/apollo-chennai">View Prices</a>
+        <a class="btn call" href="tel:+914440401066">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Apollo%20Greams%20Road%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 7 AIIMS New Delhi -->
+    <div class="card">
+      <div class="head">
+        <h2>🏛️ AIIMS New Delhi</h2>
+        <div class="city">New Delhi</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Govt.</span><span class="tag">Tertiary Care</span><span class="tag">Teaching</span></div>
+        <div class="addr">Ansari Nagar, New Delhi 110029</div>
+        <div class="procedures">
+          ❤️ OPD consult — ₹10–₹50 (Govt rates)<br>
+          🧪 Blood tests — ₹100–₹500<br>
+          🧠 CT/MRI — subsidized (varies by dept.)
+        </div>
+        <div class="metrics">☎ 011-26588500 / 26588700 • National referral centre</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/aiims-delhi">View Prices</a>
+        <a class="btn call" href="tel:+911126588500">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=AIIMS%20Delhi%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 8 Sir Ganga Ram Hospital (Delhi) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Sir Ganga Ram Hospital</h2>
+        <div class="city">Rajinder Nagar, New Delhi</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Multispeciality</span><span class="tag">Transplant</span><span class="tag">Cardiac</span></div>
+        <div class="addr">Sir Ganga Ram Hospital Marg, New Delhi 110060</div>
+        <div class="procedures">
+          ❤️ Angiography — ₹10,000+ (Cardio Sciences)<br>
+          🧠 MRI Brain — ₹7,000–₹10,000 (Radiology)<br>
+          🧪 Executive health check — ₹4,999+
+        </div>
+        <div class="metrics">☎ 011-42254000 • ⭐ 4.6 • Verified</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/sgrh">View Prices</a>
+        <a class="btn call" href="tel:+911142254000">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Sir%20Ganga%20Ram%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 9 Ruby Hall Clinic (Pune) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Ruby Hall Clinic – Sassoon Road</h2>
+        <div class="city">Pune, Maharashtra</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Cardiac</span><span class="tag">Onco</span><span class="tag">Critical Care</span></div>
+        <div class="addr">Sassoon Road, Sangamvadi, Pune 411001</div>
+        <div class="procedures">
+          ❤️ Angioplasty — ₹75,000–₹1,50,000<br>
+          🧪 Full body check — ₹3,999+<br>
+          🧠 MRI Brain — ₹6,000–₹9,000
+        </div>
+        <div class="metrics">☎ 020-66455100 / 7057-700-700 • ⭐ 4.5</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/rubyhall-pune">View Prices</a>
+        <a class="btn call" href="tel:+912066455100">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Ruby%20Hall%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!--10 Christian Medical College (Vellore) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 CMC Vellore</h2>
+        <div class="city">Vellore, Tamil Nadu</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Teaching</span><span class="tag">Multispeciality</span><span class="tag">Mission</span></div>
+        <div class="addr">Ida Scudder Rd, Vellore 632004</div>
+        <div class="procedures">
+          🫀 Cardiology consult — ₹300–₹600<br>
+          🧪 Lab tests — ₹100–₹600<br>
+          🩺 Health packages — ₹2,000+
+        </div>
+        <div class="metrics">☎ +91-80003-38855 • Not-for-profit</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/cmc-vellore">View Prices</a>
+        <a class="btn call" href="tel:+918000338855">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=CMC%20Vellore%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!--11 Aster Medcity (Kochi) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Aster Medcity</h2>
+        <div class="city">Kochi, Kerala</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Quaternary Care</span><span class="tag">Neuro</span><span class="tag">Cardiac</span></div>
+        <div class="addr">Kuttisahib Rd, Cheranelloor, South Chittoor, Kochi 682027</div>
+        <div class="procedures">
+          🧠 Stroke package — ₹45,000+ (Neuro team)<br>
+          ❤️ Angiography — ₹10,000+ (Cardio)<br>
+          🧪 Executive check — ₹5,999+
+        </div>
+        <div class="metrics">Emergency ☎ 155218 • Helpline ☎ 0484-6699999 • ⭐ 4.7</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/aster-medcity">View Prices</a>
+        <a class="btn call" href="tel:+914846699999">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Aster%20Medcity%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!--12 Fortis Hospital, Bannerghatta Road (Bengaluru) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Fortis Hospital – Bannerghatta Rd</h2>
+        <div class="city">Bengaluru, Karnataka</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Multispeciality</span><span class="tag">Transplant</span><span class="tag">Urology</span></div>
+        <div class="addr">154/9, Bannerghatta Rd, Opp. IIM-B, Bengaluru 560076</div>
+        <div class="procedures">
+          🩺 TLIF spine surgery — ₹2,00,000+ (Neuro)<br>
+          🧠 MRI Brain — ₹7,000–₹10,000<br>
+          🧪 Master health check — ₹4,999+
+        </div>
+        <div class="metrics">☎ 080-6621-4444 • 24×7 Emergency</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/fortis-bgr">View Prices</a>
+        <a class="btn call" href="tel:+918066214444">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Fortis%20BGR%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!--13 Narayana Institute of Cardiac Sciences (Health City) -->
+    <div class="card">
+      <div class="head">
+        <h2>💓 Narayana Institute of Cardiac Sciences</h2>
+        <div class="city">Bommasandra, Bengaluru</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Cardiology</span><span class="tag">Cardiac Surgery</span><span class="tag">Quaternary</span></div>
+        <div class="addr">#258/A, Bommasandra Industrial Area, Hosur Rd, Anekal Taluk, Bengaluru 560099</div>
+        <div class="procedures">
+          ❤️ Angioplasty (stent) — ₹70,000–₹1,40,000 (Interventional)<br>
+          🫀 CABG — ₹1,60,000+ (CTVS)<br>
+          👶 Pediatric cardiac surgery — ₹1,80,000+
+        </div>
+        <div class="metrics">☎ 1800-309-0309 / 080-7122-2222 • Health City campus</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/nh-healthcity">View Prices</a>
+        <a class="btn call" href="tel:+918071222222">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Narayana%20Health%20City%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!--14 Max Super Speciality Hospital (Saket) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Max Super Speciality Hospital – Saket</h2>
+        <div class="city">New Delhi</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Multispeciality</span><span class="tag">Oncology</span><span class="tag">Neuro</span></div>
+        <div class="addr">12, Press Enclave Marg, Saket Institutional Area, New Delhi 110017</div>
+        <div class="procedures">
+          🧬 PET-CT — ₹18,000–₹24,000 (Nuclear Med.)<br>
+          ❤️ Angiography — ₹9,000+ (Cardio)<br>
+          🧠 Craniotomy — ₹1,50,000+ (Neurosurgery)
+        </div>
+        <div class="metrics">☎ 011-26515050 • Emergency 011-40632004</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/max-saket">View Prices</a>
+        <a class="btn call" href="tel:+911126515050">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Max%20Saket%20enquiry">WhatsApp</a>
+      </div>
+    </div>
+
+    <!--15 Kokilaben Dhirubhai Ambani Hospital (Mumbai) -->
+    <div class="card">
+      <div class="head">
+        <h2>🏥 Kokilaben Dhirubhai Ambani Hospital</h2>
+        <div class="city">Andheri (W), Mumbai</div>
+      </div>
+      <div class="body">
+        <div class="tags"><span class="tag">Multispeciality</span><span class="tag">Cancer</span><span class="tag">Transplant</span></div>
+        <div class="addr">Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri (W), Mumbai 400053</div>
+        <div class="procedures">
+          🧠 MRI Brain — ₹7,000–₹10,000 (Radiology)<br>
+          ❤️ Angioplasty — ₹80,000–₹1,60,000 (Cardio)<br>
+          🧪 Executive check — ₹5,999+
+        </div>
+        <div class="metrics">OPD ☎ 022-4269-6969 • Emergency ☎ 022-4269-9999</div>
+      </div>
+      <div class="ctas">
+        <a class="btn view" href="https://doctormrp.com/kdah-mumbai">View Prices</a>
+        <a class="btn call" href="tel:+912242696969">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Kokilaben%20Hospital%20enquiry">WhatsApp</a>
       </div>
     </div>
 
   </section>
-
 </body>
 </html>
