@@ -3,21 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DoctorMRP – Turn Transparency Into Profit</title>
+  <title>DoctorMRP – Transparent Prices, More Patients</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-900">
+
+  <!-- NAVBAR -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="/" class="text-2xl font-bold text-black">DoctorMRP</a>
+      <nav class="space-x-6 font-semibold">
+        <a href="/hospitals" class="hover:text-yellow-500">Hospitals</a>
+        <a href="/pricing" class="hover:text-yellow-500">Pricing</a>
+        <a href="https://wa.me/917588343376" class="bg-yellow-400 text-black px-4 py-2 rounded-lg hover:bg-yellow-300">
+          WhatsApp Us →
+        </a>
+      </nav>
+    </div>
+  </header>
+
   <!-- HERO -->
   <section class="text-center py-20 bg-black text-white">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">Every Hospital Deserves a Waiting Line</h1>
-    <p class="text-lg md:text-xl mb-6">Show your real prices. Build instant trust. Get more OPD in 7 days — Guaranteed.</p>
-    <a href="#pricing" class="bg-yellow-400 text-black px-8 py-3 font-bold rounded-lg hover:bg-yellow-300">List My Hospital →</a>
+    <p class="text-lg md:text-xl mb-6">
+      Show your real prices. Build instant trust. Get more OPD in 7 days — Guaranteed.
+    </p>
+    <div class="flex flex-col md:flex-row gap-4 justify-center">
+      <a href="/pricing" class="bg-yellow-400 text-black px-8 py-3 font-bold rounded-lg hover:bg-yellow-300">
+        View Pricing →
+      </a>
+      <a href="/hospitals" class="border border-yellow-400 px-8 py-3 font-bold rounded-lg hover:bg-yellow-400 hover:text-black">
+        View Hospitals →
+      </a>
+    </div>
+  </section>
+
+  <!-- TRUSTED HOSPITALS -->
+  <section class="py-16 bg-white text-center">
+    <h2 class="text-3xl font-extrabold mb-3">Trusted by 100+ Hospitals</h2>
+    <p class="text-gray-600 mb-8">
+      We verify real procedure prices and help hospitals increase patient flow.
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+      <a href="/hospitals/maharashtra/thane/isha-netralaya" class="p-4 border rounded-lg hover:shadow">
+        Isha Netralaya — Thane
+      </a>
+      <a href="/hospitals/maharashtra/amaravati/deshmukh-hospital" class="p-4 border rounded-lg hover:shadow">
+        Deshmukh Hospital — Amravati
+      </a>
+      <a href="/hospitals/maharashtra/pune/mahavir-arogya" class="p-4 border rounded-lg hover:shadow">
+        Mahavir Arogya — Pune
+      </a>
+      <a href="/hospitals/gujarat/surat/aaihms-hospital" class="p-4 border rounded-lg hover:shadow">
+        AAIHMS — Surat
+      </a>
+    </div>
+    <div class="mt-8">
+      <a href="/hospitals" class="underline font-semibold text-yellow-600">Browse all hospitals →</a>
+    </div>
   </section>
 
   <!-- VALUE STACK -->
-  <section class="py-16 px-6 md:px-20 bg-white">
+  <section class="py-16 px-6 md:px-20 bg-gray-50">
     <h2 class="text-3xl font-extrabold mb-8 text-center">₹25,000/month — what you get</h2>
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
       <div class="space-y-4">
         <p>✅ Verified DoctorMRP Page with SEO & local search visibility</p>
         <p>✅ “Price Transparency” badge & hosting handled for you</p>
@@ -25,56 +74,21 @@
         <p>✅ WhatsApp + Call tracking (we show real inquiries)</p>
         <p>✅ Monthly report of views, leads, conversions</p>
       </div>
-      <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+      <div class="bg-white p-6 rounded-lg shadow-lg">
         <h3 class="text-xl font-semibold mb-3">Why ₹25 000 is a steal:</h3>
         <ul class="list-disc list-inside space-y-2 text-gray-800">
-          <li>One cataract surgery = ₹10 000 profit</li>
+          <li>One cataract surgery ≈ ₹10 000 profit</li>
           <li>3 extra surgeries/month → ₹30 000+</li>
-          <li>DoctorMRP cost = ₹25 000 → You’re ROI-positive in 7 days</li>
+          <li>DoctorMRP cost = ₹25 000 → ROI positive in 7 days</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- PAY-PER-LEAD -->
-  <section class="py-16 px-6 md:px-20 bg-yellow-50">
-    <h2 class="text-3xl font-extrabold mb-6 text-center">Want More Leads? Pay Only When You Get Them.</h2>
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-lg mb-6">After your ₹25 000 plan, pay only for verified patient inquiries.</p>
-      <table class="w-full bg-white shadow-lg rounded-lg text-left overflow-hidden">
-        <thead class="bg-yellow-400 text-black">
-          <tr>
-            <th class="p-4">Lead Type</th>
-            <th class="p-4">Description</th>
-            <th class="p-4 text-right">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b">
-            <td class="p-4 font-semibold">Qualified Lead</td>
-            <td class="p-4">WhatsApp / Call inquiry</td>
-            <td class="p-4 text-right">₹500 per lead</td>
-          </tr>
-          <tr class="border-b bg-gray-50">
-            <td class="p-4 font-semibold">Booked OPD</td>
-            <td class="p-4">Visited for consultation</td>
-            <td class="p-4 text-right">₹1 000 per patient</td>
-          </tr>
-          <tr>
-            <td class="p-4 font-semibold">Procedure Conversion</td>
-            <td class="p-4">Patient scheduled for surgery</td>
-            <td class="p-4 text-right">₹2 000 per conversion</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="mt-6 text-gray-700 italic">No fake clicks. No fluff. You pay only when real patients contact you.</p>
     </div>
   </section>
 
   <!-- COMPARISON -->
   <section class="py-16 px-6 md:px-20 bg-white">
     <h2 class="text-3xl font-extrabold mb-8 text-center">DoctorMRP vs Traditional Marketing</h2>
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
       <div class="p-6 border rounded-lg">
         <h3 class="font-bold mb-4 text-xl">Traditional Agencies</h3>
         <ul class="space-y-2 text-gray-700">
@@ -97,13 +111,46 @@
   </section>
 
   <!-- CTA -->
-  <section id="pricing" class="py-20 bg-black text-white text-center">
+  <section class="py-20 bg-black text-white text-center">
     <h2 class="text-4xl font-bold mb-4">Become a Verified DoctorMRP Hospital Today</h2>
     <p class="text-lg mb-6">We’ll build your page, run your ads, and start sending patients within 7 days.</p>
-    <a href="https://wa.me/917588343376" class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300">
+    <a href="https://wa.me/917588343376"
+       class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300">
       Talk to DoctorMRP →
     </a>
     <p class="mt-6 text-sm text-gray-400">No contracts. Cancel anytime. You’ll stay because it works.</p>
   </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-6">
+      <div>
+        <h4 class="font-bold mb-3">Hospitals by City</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="/hospitals/maharashtra/thane" class="hover:underline">Thane</a></li>
+          <li><a href="/hospitals/maharashtra/mumbai" class="hover:underline">Mumbai</a></li>
+          <li><a href="/hospitals/maharashtra/pune" class="hover:underline">Pune</a></li>
+          <li><a href="/hospitals/gujarat/surat" class="hover:underline">Surat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Popular Specialties</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="/specialty/ophthalmology" class="hover:underline">Ophthalmology</a></li>
+          <li><a href="/specialty/orthopedics" class="hover:underline">Orthopedics</a></li>
+          <li><a href="/specialty/ivf" class="hover:underline">IVF</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Get Listed</h4>
+        <a href="https://wa.me/917588343376"
+           class="inline-block bg-yellow-400 text-black px-4 py-2 font-bold rounded-lg hover:bg-yellow-300">
+          List My Hospital →
+        </a>
+      </div>
+    </div>
+    <p class="text-center text-gray-500 text-sm mt-8">© 2025 DoctorMRP — Built by Doctors, for Doctors.</p>
+  </footer>
+
 </body>
 </html>
