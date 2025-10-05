@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Hospitals | DoctorMRP</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .active-page { background:#facc15; color:#000; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- HEADER -->
+  <section class="py-12 bg-black text-white text-center">
+    <h1 class="text-3xl font-bold mb-2">Browse All Hospitals</h1>
+    <p class="text-gray-400">Find verified hospitals listed on DoctorMRP</p>
+  </section>
+
+  <!-- SEARCH -->
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <input id="search" type="text" placeholder="Search hospital or city..."
+      class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-6">
+    
+    <!-- HOSPITAL LIST -->
+    <div id="hospital-list" class="grid md:grid-cols-3 sm:grid-cols-2 gap-4 text-sm">
+      <!-- 🏥 Example items -->
+      <a href="/hospitals/isha-netralaya.html" class="block p-3 bg-white rounded hover:shadow">Isha Netralaya — Thane</a>
+      <a href="/hospitals/deshmukh-hospital.html" class="block p-3 bg-white rounded hover:shadow">Deshmukh Hospital — Amravati</a>
+      <a href="/hospitals/mahavir-arogya.html" class="block p-3 bg-white rounded hover:shadow">Mahavir Arogya — Pune</a>
+      <a href="/hospitals/aaihms-hospital.html" class="block p-3 bg-white rounded hover:shadow">AAIHMS Hospital — Surat</a>
+      <a href="/hospitals/life-care-hospital.html" class="block p-3 bg-white rounded hover:shadow">Life Care Hospital — Patna</a>
+      <a href="/hospitals/mediplus-clinic.html" class="block p-3 bg-white rounded hover:shadow">MediPlus Clinic — Mumbai</a>
+      <a href="/hospitals/vision-eye-center.html" class="block p-3 bg-white rounded hover:shadow">Vision Eye Center — Nagpur</a>
+      <a href="/hospitals/sunrise-multispeciality.html" class="block p-3 bg-white rounded hover:shadow">Sunrise Multispeciality — Nashik</a>
+      <a href="/hospitals/grace-hospital.html" class="block p-3 bg-white rounded hover:shadow">Grace Hospital — Ahmedabad</a>
+      <a href="/hospitals/smile-dental.html" class="block p-3 bg-white rounded hover:shadow">Smile Dental Care — Pune</a>
+      <!-- 🔁 Add more hospitals here (copy + edit lines) -->
+    </div>
+
+    <!-- PAGINATION -->
+    <div id="pagination" class="flex justify-center mt-10 space-x-2"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white py-8 text-center text-sm">
+    <p>© 2025 DoctorMRP – Built by Doctors for Doctors</p>
+  </footer>
+
+  <!-- JS SEARCH + PAGINATION -->
+  <script>
+    const itemsPerPage = 30;
+    const list = document.querySelectorAll('#hospital-list a');
+    const pagination = document.getElementById('pagination');
+    const search = document.getElementById('search');
+    let currentPage = 1;
+
+    function renderList() {
+      const term = search.value.toLowerCase();
+      const filtered = Array.from(list).filter(i => i.innerText.toLowerCase().includes(term));
+      const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
+      filtered.forEach((el, idx) => {
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = currentPage * itemsPerPage;
+        el.style.display = idx >= start && idx < end ? 'block' : 'none';
+      });
+
+      pagination.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = `px-3 py-1 border rounded ${i===currentPage?'active-page':''}`;
+        btn.onclick = () => { currentPage = i; renderList(); };
+        pagination.appendChild(btn);
+      }
+    }
+
+    search.addEventListener('input', () => { currentPage = 1; renderList(); });
+    renderList();
+  </script>
+</body>
+</html>
