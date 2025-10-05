@@ -1,350 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Primary SEO -->
-  <title>DoctorMRP (Doctor MRP) – Online Hospital Price Pages | Transparent Prices, More OPD</title>
-  <meta name="description" content="DoctorMRP (Doctor MRP) builds online price pages for hospitals in India. Show real procedure prices, build trust, and grow OPD in 3 days at hospital.city.doctormrp.com." />
-  <link rel="canonical" href="https://doctormrp.com/" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large" />
-  <meta name="theme-color" content="#000000" />
-
-  <!-- ✅ Google Analytics 4 tracking code -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SLX92EYG7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1SLX92EYG7');
-  </script>
-  <!-- ✅ End Google Analytics 4 tracking code -->
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com?ver=black"></script>
-
-  <style>
-    html{scroll-behavior:smooth}
-    /* smooth slide drawer */
-    .drawer{transform:translateX(-100%);transition:transform .28s ease}
-    .drawer.open{transform:translateX(0)}
-    .no-scroll{overflow:hidden}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DoctorMRP – Turn Transparency Into Profit</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- HERO -->
+  <section class="text-center py-20 bg-black text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Every Hospital Deserves a Waiting Line</h1>
+    <p class="text-lg md:text-xl mb-6">Show your real prices. Build instant trust. Get more OPD in 7 days — Guaranteed.</p>
+    <a href="#pricing" class="bg-yellow-400 text-black px-8 py-3 font-bold rounded-lg hover:bg-yellow-300">List My Hospital →</a>
+  </section>
 
-<body class="bg-white text-slate-900">
-
-  <!-- ===== Mobile Sidebar (MDsave-style, minimal) ===== -->
-  <aside id="sidebar"
-         class="drawer fixed left-0 top-0 z-[100] h-full w-80 max-w-[88vw] bg-white shadow-2xl">
-    <!-- Header inside drawer -->
-    <div class="flex items-center gap-3 px-4 pt-5 pb-4 border-b">
-      <button id="closeSidebar" aria-label="Close menu" class="rounded p-2 text-slate-500 hover:bg-slate-100">✕</button>
-      <div class="h-8 w-8 rounded bg-black text-white flex items-center justify-center font-bold">DM</div>
-      <div class="font-semibold tracking-wide">DoctorMRP</div>
-      <span class="ml-auto text-xl">🇮🇳</span>
-    </div>
-
-    <!-- Menu groups using <details> for native dropdowns -->
-    <nav class="px-2 py-2 text-[17px] leading-6">
-      <details class="group">
-        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-3 hover:bg-slate-50">
-          <span>For Providers</span><span class="text-slate-500">▾</span>
-        </summary>
-        <div class="pl-5 pb-3 space-y-2">
-          <a class="block hover:underline" href="#cta">Get a Price Page</a>
-          <a class="block hover:underline" href="https://wa.me/919270343376">Upload Price List</a>
-          <a class="block hover:underline" href="#research">Why Transparency</a>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-3 hover:bg-slate-50">
-          <span>For Employers</span><span class="text-slate-500">▾</span>
-        </summary>
-        <div class="pl-5 pb-3 space-y-2">
-          <a class="block hover:underline" href="#cta">Corporate Plans</a>
-          <a class="block hover:underline" href="#research">Case for Price Transparency</a>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-3 hover:bg-slate-50">
-          <span>For Patients</span><span class="text-slate-500">▾</span>
-        </summary>
-        <div class="pl-5 pb-3 space-y-2">
-          <a class="block hover:underline" href="#cta">Request Your Hospital Page</a>
-          <a class="block hover:underline" href="#research">How It Helps Patients</a>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-3 hover:bg-slate-50">
-          <span>All Procedures</span><span class="text-slate-500">▾</span>
-        </summary>
-        <div class="pl-5 pb-3 space-y-2">
-          <a class="block hover:underline" href="#cta">Diagnostics</a>
-          <a class="block hover:underline" href="#cta">Surgeries</a>
-          <a class="block hover:underline" href="#cta">OPD Services</a>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-3 hover:bg-slate-50">
-          <span>Featured Specialties</span><span class="text-slate-500">▾</span>
-        </summary>
-        <div class="pl-5 pb-3 space-y-2">
-          <a class="block hover:underline" href="#cta">Cardiology</a>
-          <a class="block hover:underline" href="#cta">Orthopedics</a>
-          <a class="block hover:underline" href="#cta">OB-GYN</a>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-3 hover:bg-slate-50">
-          <span>Locations</span><span class="text-slate-500">▾</span>
-        </summary>
-        <div class="pl-5 pb-3 space-y-2">
-          <a class="block hover:underline" href="#cta">Pune</a>
-          <a class="block hover:underline" href="#cta">Mumbai</a>
-          <a class="block hover:underline" href="#cta">Bengaluru</a>
-        </div>
-      </details>
-
-      <details class="group">
-        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-3 hover:bg-slate-50">
-          <span>Resources</span><span class="text-slate-500">▾</span>
-        </summary>
-        <div class="pl-5 pb-3 space-y-2">
-          <a class="block hover:underline" href="#about">About Us</a>
-          <a class="block hover:underline" href="#research">Case Studies</a>
-          <a class="block hover:underline" href="#research">Whitepapers</a>
-          <a class="block hover:underline" href="#research">Blog</a>
-          <a class="block hover:underline" href="#research">Videos</a>
-        </div>
-      </details>
-
-      <a class="block px-3 py-3 hover:bg-slate-50" href="#cta">Financing</a>
-
-      <div class="my-3 h-px bg-slate-200"></div>
-
-      <a class="block px-3 py-3 hover:bg-slate-50" href="https://doctormrp.com/signin">Sign In</a>
-      <a class="block px-3 py-3 hover:bg-slate-50" href="https://doctormrp.com/cart">Shopping Cart</a>
-
-      <div class="my-3 h-px bg-slate-200"></div>
-
-      <div class="px-3 py-3 text-sm">
-        <div class="font-semibold">Contact Us</div>
-        <a class="mt-1 block text-black underline" href="tel:+919270343376">+91 92703 43376</a>
-        <div class="text-slate-500 mt-1">Mon–Fri, 9am–6pm IST</div>
+  <!-- VALUE STACK -->
+  <section class="py-16 px-6 md:px-20 bg-white">
+    <h2 class="text-3xl font-extrabold mb-8 text-center">₹25,000/month — what you get</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <p>✅ Verified DoctorMRP Page with SEO & local search visibility</p>
+        <p>✅ “Price Transparency” badge & hosting handled for you</p>
+        <p>✅ Monthly Google + Meta Ads managed within your budget</p>
+        <p>✅ WhatsApp + Call tracking (we show real inquiries)</p>
+        <p>✅ Monthly report of views, leads, conversions</p>
       </div>
-    </nav>
-  </aside>
-
-  <!-- Backdrop -->
-  <div id="backdrop" class="fixed inset-0 z-[90] hidden bg-black/30"></div>
-
-  <!-- ===== Top Bar ===== -->
-  <div class="w-full bg-slate-900 text-white">
-    <div class="mx-auto max-w-6xl flex items-center justify-between px-4 py-2 text-sm">
-      <div class="flex items-center gap-3">
-        <button id="openSidebar" aria-label="Open menu"
-                class="rounded p-2 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30">☰</button>
-        <span class="inline-flex h-6 w-6 items-center justify-center rounded bg-black font-bold">DM</span>
-        <span class="font-semibold tracking-wide">DoctorMRP</span>
-        <span class="text-lg">🇮🇳</span>
-      </div>
-      <div class="flex items-center gap-5">
-        <a href="#research" class="hover:underline">Research</a>
-        <a href="tel:+919270343376" class="hover:underline">Call Sales</a>
-        <a href="https://wa.me/919270343376" class="hover:underline">Chat</a>
+      <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-semibold mb-3">Why ₹25 000 is a steal:</h3>
+        <ul class="list-disc list-inside space-y-2 text-gray-800">
+          <li>One cataract surgery = ₹10 000 profit</li>
+          <li>3 extra surgeries/month → ₹30 000+</li>
+          <li>DoctorMRP cost = ₹25 000 → You’re ROI-positive in 7 days</li>
+        </ul>
       </div>
     </div>
-  </div>
+  </section>
 
-  <main class="mx-auto max-w-5xl px-4 pb-28">
-    <!-- Hero -->
-    <section class="pt-16 md:pt-24 text-center">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-        Show Your Prices. Build Trust. Grow OPD.
-      </h1>
-      <p class="mt-4 text-lg md:text-xl text-slate-700">
-        Build patient confidence and increase revenue with transparent pricing.
-      </p>
-      <div class="mt-6 flex items-center justify-center">
-        <a href="#cta"
-           class="inline-flex items-center justify-center rounded-full bg-black px-8 py-4 text-white text-lg font-semibold shadow hover:bg-slate-900 focus:outline-none focus:ring-4 focus:ring-slate-300">
-          Get My Price Page
-        </a>
+  <!-- PAY-PER-LEAD -->
+  <section class="py-16 px-6 md:px-20 bg-yellow-50">
+    <h2 class="text-3xl font-extrabold mb-6 text-center">Want More Leads? Pay Only When You Get Them.</h2>
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-lg mb-6">After your ₹25 000 plan, pay only for verified patient inquiries.</p>
+      <table class="w-full bg-white shadow-lg rounded-lg text-left overflow-hidden">
+        <thead class="bg-yellow-400 text-black">
+          <tr>
+            <th class="p-4">Lead Type</th>
+            <th class="p-4">Description</th>
+            <th class="p-4 text-right">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="p-4 font-semibold">Qualified Lead</td>
+            <td class="p-4">WhatsApp / Call inquiry</td>
+            <td class="p-4 text-right">₹500 per lead</td>
+          </tr>
+          <tr class="border-b bg-gray-50">
+            <td class="p-4 font-semibold">Booked OPD</td>
+            <td class="p-4">Visited for consultation</td>
+            <td class="p-4 text-right">₹1 000 per patient</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-semibold">Procedure Conversion</td>
+            <td class="p-4">Patient scheduled for surgery</td>
+            <td class="p-4 text-right">₹2 000 per conversion</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="mt-6 text-gray-700 italic">No fake clicks. No fluff. You pay only when real patients contact you.</p>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="py-16 px-6 md:px-20 bg-white">
+    <h2 class="text-3xl font-extrabold mb-8 text-center">DoctorMRP vs Traditional Marketing</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-6 border rounded-lg">
+        <h3 class="font-bold mb-4 text-xl">Traditional Agencies</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li>❌ Charge ₹50 000+ with no results</li>
+          <li>❌ No patient transparency</li>
+          <li>❌ Fake reports, vanity metrics</li>
+          <li>❌ No doctor credibility</li>
+        </ul>
       </div>
-    </section>
-
-    <div class="my-12 h-px w-full bg-slate-200"></div>
-
-    <!-- Why Price Transparency Matters -->
-    <section class="grid gap-6">
-      <h2 class="text-2xl font-bold text-center">Why Price Transparency Matters</h2>
-      <ul class="list-disc pl-5 space-y-2 text-slate-700">
-        <li>Grow OPD and revenue with more walk-ins.</li>
-        <li>Build referral network with local doctors.</li>
-        <li>Earn lasting trust and become the go-to hospital in your city.</li>
-        <li>Patients appreciate clear pricing—no surprises means confidence.</li>
-      </ul>
-    </section>
-
-    <!-- How It Works -->
-    <section class="mt-12">
-      <h2 class="text-2xl font-bold text-center">How It Works</h2>
-      <ol class="mt-6 grid gap-4 md:grid-cols-3">
-        <li class="rounded-2xl border p-6 shadow-sm">
-          <p class="text-lg font-semibold">1) Send Your Price List</p>
-          <p class="mt-1 text-slate-700 text-sm">Provide a PDF of the prices you want to share.</p>
-        </li>
-        <li class="rounded-2xl border p-6 shadow-sm">
-          <p class="text-lg font-semibold">2) Turn Transparency Into Cash in 3 Days</p>
-          <p class="mt-1 text-slate-700 text-sm">
-            In just <strong>72 hours</strong> you’ll have a price page that pulls in more OPD visits and referral revenue—without hiring staff or spending on ads.
-          </p>
-        </li>
-        <li class="rounded-2xl border p-6 shadow-sm">
-          <p class="text-lg font-semibold">3) Share With Everyone</p>
-          <p class="mt-1 text-slate-700 text-sm">Staff can show this page to every patient for transparency.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- Testimonial -->
-    <section class="mt-12 max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-bold">What Hospitals Are Saying</h2>
-      <div class="mt-6 rounded-2xl border p-6 shadow-sm bg-white">
-        <blockquote class="text-2xl font-semibold leading-snug">
-          “OPD visits increased <span class="font-bold">22% in 3 months</span> after we listed our prices.”
-        </blockquote>
-        <p class="mt-2 text-slate-700 text-sm">
-          Result: More walk-ins and smoother billing conversations.
-        </p>
-        <div class="flex items-center justify-center mt-4 gap-3">
-          <img src="citycare-logo.png" alt="Pioneer Hospital logo" class="w-10 h-10 rounded-full" />
-          <p class="text-slate-800">Pioneer Hospital, Pune</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research -->
-    <section id="research" class="mt-12 max-w-5xl mx-auto">
-      <h2 class="text-3xl font-extrabold text-center">Research & Industry Insights</h2>
-      <p class="mt-3 text-slate-700 text-center max-w-3xl mx-auto">
-        Independent research supports transparent pricing to build patient trust and informed choice.
-      </p>
-
-      <div class="mt-8 grid gap-6">
-        <article class="rounded-2xl border p-6 shadow-sm bg-white">
-          <h3 class="text-xl font-semibold">Accenture — The Power of Trust</h3>
-          <p class="mt-2 text-slate-700">
-            Trust and clear information drive loyalty and business outcomes.
-          </p>
-          <a class="mt-2 inline-block text-black underline"
-             href="https://www.accenture.com/us-en/insights/health/difference-between-loyalty-leaving"
-             target="_blank" rel="noopener">Read the study →</a>
-        </article>
-
-        <article class="rounded-2xl border p-6 shadow-sm bg-white">
-          <h3 class="text-xl font-semibold">McKinsey — Price Transparency Impact</h3>
-          <p class="mt-2 text-slate-700">
-            Price transparency increases consumerism and influences provider choice.
-          </p>
-          <a class="mt-2 inline-block text-black underline"
-             href="https://www.mckinsey.com/industries/healthcare/our-insights/how-price-transparency-could-affect-us-healthcare-markets"
-             target="_blank" rel="noopener">Read the study →</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Promise -->
-    <section class="mt-12">
-      <div class="rounded-2xl border p-6 bg-gray-50 text-center">
-        <h2 class="text-2xl font-bold">Simple Promise</h2>
-        <p class="mt-2 text-base md:text-lg">
-          <strong>Risk-free:</strong> Free demo in 3 days. No lock-in. Cancel anytime.
-        </p>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="cta" class="mt-12 text-center">
-      <h2 class="text-2xl font-bold">Ready to Start?</h2>
-      <p class="mt-2 text-slate-700">
-        Click below or WhatsApp us to create your hospital price page.
-      </p>
-      <a href="https://wa.me/919270343376"
-         class="mt-5 inline-flex items-center justify-center rounded-full bg-black px-8 py-4 text-white text-lg font-semibold shadow hover:bg-slate-900 focus:outline-none focus:ring-4 focus:ring-slate-300">
-         Get My Price Page
-      </a>
-      <p class="mt-3 text-sm text-slate-600">Or call: +91 92703 43376</p>
-    </section>
-
-    <!-- Footer -->
-    <footer id="about" class="mt-14 border-t pt-6 text-center text-sm text-slate-600">
-      <p><strong>DoctorMRP</strong> — Online Price Page for Hospitals.</p>
-    </footer>
-  </main>
-
-  <!-- Floating Contact Widget -->
-  <div class="fixed right-4 bottom-4 z-50">
-    <button id="contactToggle" class="rounded-full bg-red-600 text-white px-4 py-3 shadow-lg font-semibold">Chat now</button>
-    <div id="contactPanel" class="hidden mt-2 w-72 rounded-2xl border bg-white p-4 shadow-xl">
-      <h3 class="font-semibold text-slate-800">Chat now</h3>
-      <div class="mt-3 space-y-3 text-slate-700">
-        <a href="tel:+919270343376" class="flex items-center justify-between rounded-lg border px-3 py-2 hover:bg-slate-50">
-          <span>Call Sales</span><span class="font-semibold">+91 92703 43376</span>
-        </a>
-        <a href="https://wa.me/919270343376" class="flex items-center justify-between rounded-lg border px-3 py-2 hover:bg-slate-50">
-          <span>WhatsApp</span><span class="font-semibold">Open chat</span>
-        </a>
-        <a href="#research" class="flex items-center justify-between rounded-lg border px-3 py-2 hover:bg-slate-50">
-          <span>See Research</span><span class="font-semibold">Learn more</span>
-        </a>
+      <div class="p-6 border-2 border-yellow-400 rounded-lg bg-yellow-50">
+        <h3 class="font-bold mb-4 text-xl">DoctorMRP</h3>
+        <ul class="space-y-2 text-gray-900 font-medium">
+          <li>✅ Verified hospital price page</li>
+          <li>✅ Real leads from Google + Meta</li>
+          <li>✅ Pay only for conversions</li>
+          <li>✅ Built by Doctors, for Doctors</li>
+        </ul>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Sticky Learn More Button -->
-  <a href="#research"
-     class="fixed left-4 bottom-4 z-40 rounded-full bg-black px-4 py-2 text-white text-sm font-semibold shadow hover:bg-slate-900 focus:outline-none focus:ring-4 focus:ring-slate-300">
-     Learn Why Transparency Works
-  </a>
-
-  <!-- ===== Minimal JS (Jobs-style: simple, reliable) ===== -->
-  <script>
-    // Drawer open/close
-    const body      = document.body;
-    const sidebar   = document.getElementById('sidebar');
-    const backdrop  = document.getElementById('backdrop');
-    const openBtn   = document.getElementById('openSidebar');
-    const closeBtn  = document.getElementById('closeSidebar');
-
-    function openDrawer(){
-      sidebar.classList.add('open');
-      backdrop.classList.remove('hidden');
-      body.classList.add('no-scroll');
-    }
-    function closeDrawer(){
-      sidebar.classList.remove('open');
-      backdrop.classList.add('hidden');
-      body.classList.remove('no-scroll');
-    }
-    openBtn.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    backdrop.addEventListener('click', closeDrawer);
-    document.addEventListener('keydown', e => { if(e.key==='Escape') closeDrawer(); });
-
-    // Contact popover
-    (function(){
-      var t=document.getElementById('contactToggle');
-      var p=document.getElementById('contactPanel');
-      if(t && p){ t.addEventListener('click', function(){ p.classList.toggle('hidden'); }); }
-    })();
-  </script>
+  <!-- CTA -->
+  <section id="pricing" class="py-20 bg-black text-white text-center">
+    <h2 class="text-4xl font-bold mb-4">Become a Verified DoctorMRP Hospital Today</h2>
+    <p class="text-lg mb-6">We’ll build your page, run your ads, and start sending patients within 7 days.</p>
+    <a href="https://wa.me/917588343376" class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300">
+      Talk to DoctorMRP →
+    </a>
+    <p class="mt-6 text-sm text-gray-400">No contracts. Cancel anytime. You’ll stay because it works.</p>
+  </section>
 </body>
 </html>
