@@ -5,73 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DoctorMRP – Built by Doctors, for Trust</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Fade-in animation */
+    @keyframes fadeUp {
+      from {opacity:0; transform:translateY(30px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+    .fade-up {opacity:0; animation:fadeUp 1s ease-out forwards;}
+    .delay-1 {animation-delay:0.2s;}
+    .delay-2 {animation-delay:0.4s;}
+    .delay-3 {animation-delay:0.6s;}
+  </style>
 </head>
 
-<body class="bg-white text-gray-900 font-sans">
+<body class="bg-white text-gray-900 font-sans antialiased">
 
   <!-- HERO -->
   <section class="bg-black text-white text-center py-24 px-6">
-    <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Transparency Builds Trust.<br>Trust Builds Patients.</h1>
-    <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-      DoctorMRP helps hospitals become the most trusted in their city — by showing real procedure prices, verified by doctors.
-    </p>
-    <div class="space-x-4">
-      <a href="#pricing" class="bg-yellow-400 text-black px-8 py-3 font-bold rounded-lg hover:bg-yellow-300 transition">List My Hospital →</a>
-      <a href="https://doctormrp.com/hospitals" class="border border-gray-400 px-8 py-3 font-bold rounded-lg hover:bg-gray-100 transition">Browse Hospitals</a>
+    <div class="max-w-3xl mx-auto fade-up">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+        Transparency Builds Trust.<br class="hidden sm:block">Trust Builds Patients.
+      </h1>
+      <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-10">
+        DoctorMRP helps hospitals become the most trusted in their city — by showing real procedure prices, verified by doctors.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+        <a href="#pricing"
+           class="bg-yellow-400 text-black w-full sm:w-auto px-8 py-3 font-bold rounded-lg hover:bg-yellow-300 transition text-center">
+          List My Hospital →
+        </a>
+        <a href="https://doctormrp.com/hospitals"
+           class="border border-gray-400 w-full sm:w-auto px-8 py-3 font-bold rounded-lg hover:bg-gray-100 transition text-center">
+          Browse Hospitals
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- MINI PROOF BAR -->
-  <section class="py-8 bg-gray-50 text-center text-gray-700 text-sm">
-    <p>40+ Hospitals Verified • 25K+ Monthly Patient Views • 4.8★ Average Trust Score</p>
+  <section class="py-4 bg-gray-50 text-center text-gray-700 text-sm">
+    <p class="fade-up delay-1">40+ Hospitals Verified • 25K+ Monthly Patient Views • 4.8★ Trust Score</p>
   </section>
 
-  <!-- FEAR / NEED SECTION -->
-  <section class="py-20 px-6 md:px-20 bg-white text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">Patients Compare Hospitals Every Day.</h2>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+  <!-- FEAR / NEED -->
+  <section class="py-20 px-6 md:px-20 text-center bg-white">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-up">Patients Compare Hospitals Every Day.</h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-up delay-1">
       The only question is — are they seeing your prices, or someone else’s?  
       In a world full of ads, the hospitals that open up about their prices become trusted first.
     </p>
   </section>
 
-  <!-- SOLUTION SECTION -->
-  <section class="py-16 bg-black text-white text-center px-6 md:px-20">
-    <h2 class="text-4xl font-extrabold mb-6">We Make Your Hospital Transparent in 72 Hours.</h2>
-    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-      Your verified page appears in Google search, complete with your procedures, doctor names, and contact details — ready to convert visitors into real OPD patients.
-    </p>
-    <a href="#pricing" class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition">Get Verified Now</a>
+  <!-- SOLUTION -->
+  <section class="py-20 bg-black text-white text-center px-6 md:px-20">
+    <div class="fade-up">
+      <h2 class="text-4xl font-extrabold mb-6">We Make Your Hospital Transparent in 72 Hours.</h2>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+        Your verified page appears in Google search, complete with your procedures, doctor names, and contact details — ready to convert visitors into real OPD patients.
+      </p>
+      <a href="#pricing"
+         class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition">Get Verified Now</a>
+    </div>
   </section>
 
-  <!-- NETWORK / SOCIAL PROOF -->
+  <!-- NETWORK -->
   <section class="py-20 px-6 md:px-20 bg-white text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">India’s Trusted Transparency Network</h2>
-    <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">India’s Trusted Transparency Network</h2>
+    <p class="text-gray-600 mb-10 max-w-2xl mx-auto fade-up delay-1">
       From Maharashtra to Gujarat, hospitals are joining DoctorMRP to lead with honesty and win patient trust.
     </p>
-    <div class="flex flex-wrap justify-center gap-6">
+    <div class="flex flex-wrap justify-center gap-6 fade-up delay-2">
       <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Hospital_sign.svg" class="h-12" alt="">
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Medical_cross_icon.svg" class="h-12" alt="">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Health_symbol.svg" class="h-12" alt="">
       <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Red_Cross.svg" class="h-12" alt="">
     </div>
-    <div class="mt-8">
-      <a href="https://doctormrp.com/hospitals" class="underline text-yellow-500 font-semibold hover:text-yellow-400">→ Browse Verified Hospitals</a>
+    <div class="mt-8 fade-up delay-3">
+      <a href="https://doctormrp.com/hospitals" class="underline text-yellow-500 font-semibold hover:text-yellow-400">
+        → Browse Verified Hospitals
+      </a>
     </div>
   </section>
 
-  <!-- VALUE & ROI SECTION -->
+  <!-- VALUE / ROI -->
   <section class="py-20 bg-gray-50 px-6 md:px-20">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 fade-up">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">₹25,000 / month — A 7-Day ROI Guarantee</h2>
       <p class="text-gray-600 max-w-2xl mx-auto">
-        One cataract surgery ≈ ₹10,000 profit. Three extra surgeries a month cover your entire DoctorMRP plan.
+        One cataract surgery ≈ ₹10,000 profit. Three extra surgeries a month cover your DoctorMRP plan entirely.
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="bg-white p-8 rounded-xl shadow text-gray-800">
+      <div class="bg-white p-8 rounded-xl shadow text-gray-800 fade-up delay-1">
         <h3 class="text-xl font-semibold mb-3">You Get:</h3>
         <ul class="space-y-2">
           <li>✅ Verified DoctorMRP Page (SEO optimized)</li>
@@ -81,40 +108,41 @@
           <li>✅ Monthly Report of Views, Leads, Conversions</li>
         </ul>
       </div>
-      <div class="bg-black text-white p-8 rounded-xl shadow">
+      <div class="bg-black text-white p-8 rounded-xl shadow fade-up delay-2">
         <h3 class="text-xl font-semibold mb-3">You Risk Nothing:</h3>
         <ul class="space-y-2">
-          <li>💰 <strong>Money-Back Guarantee:</strong> No lead in 7 days → Full refund.</li>
+          <li>💰 Money-Back Guarantee: No lead in 7 days → Full refund.</li>
           <li>🚀 Go live within 72 hours.</li>
-          <li>🔒 Secure payments via Razorpay or UPI.</li>
-          <li>🧾 Cancel anytime. You’ll stay because it works.</li>
+          <li>🔒 Secure payments via Razorpay / UPI.</li>
+          <li>🧾 Cancel anytime — you’ll stay because it works.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- FOMO SECTION -->
+  <!-- FOMO -->
   <section class="py-16 text-center bg-yellow-50">
-    <h2 class="text-3xl font-bold mb-3">We Only Onboard 3 New Hospitals Per City</h2>
-    <p class="text-gray-700 mb-6">Maintain exclusivity. Stay the only verified hospital in your area.</p>
-    <a href="#pricing" class="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Apply for Verification →</a>
+    <h2 class="text-3xl font-bold mb-3 fade-up">We Only Onboard 3 New Hospitals Per City</h2>
+    <p class="text-gray-700 mb-6 fade-up delay-1">Maintain exclusivity. Stay the only verified hospital in your area.</p>
+    <a href="#pricing"
+       class="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition fade-up delay-2">Apply for Verification →</a>
   </section>
 
   <!-- TESTIMONIALS -->
   <section class="py-20 px-6 md:px-20 bg-white text-center">
-    <h2 class="text-3xl font-bold mb-10">Hospitals That Joined — Results That Speak</h2>
+    <h2 class="text-3xl font-bold mb-10 fade-up">Hospitals That Joined — Results That Speak</h2>
     <div class="grid md:grid-cols-3 gap-8 text-gray-800">
-      <div class="bg-gray-50 p-6 rounded-lg shadow">
+      <div class="bg-gray-50 p-6 rounded-lg shadow fade-up delay-1">
         <p class="italic mb-3">“Patients started calling within 3 days of listing.”</p>
         <p class="font-semibold">Deshmukh Eye Hospital</p>
         <p class="text-sm text-gray-500">2.8K patient views • Verified</p>
       </div>
-      <div class="bg-gray-50 p-6 rounded-lg shadow">
-        <p class="italic mb-3">“Transparency increased trust — OPD up by 20%.”</p>
+      <div class="bg-gray-50 p-6 rounded-lg shadow fade-up delay-2">
+        <p class="italic mb-3">“Transparency increased trust — OPD up 20%.”</p>
         <p class="font-semibold">Sanjivani Heart & General</p>
         <p class="text-sm text-gray-500">3.1K monthly views • Verified</p>
       </div>
-      <div class="bg-gray-50 p-6 rounded-lg shadow">
+      <div class="bg-gray-50 p-6 rounded-lg shadow fade-up delay-3">
         <p class="italic mb-3">“More calls. More patients. More reputation.”</p>
         <p class="font-semibold">Insight Eye Hospital</p>
         <p class="text-sm text-gray-500">4.2K monthly views • Verified</p>
@@ -122,15 +150,23 @@
     </div>
   </section>
 
-  <!-- CTA / PAYMENT -->
+  <!-- CTA -->
   <section id="pricing" class="py-24 bg-black text-white text-center">
-    <h2 class="text-4xl font-bold mb-4">Start Your DoctorMRP Journey Today</h2>
-    <p class="text-gray-400 mb-10">We’ll build your verified hospital page, run your ads, and send you your first patient inquiry — or your money back.</p>
-    <div class="space-x-4">
-      <a href="https://wa.me/917588343376" class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition">Talk to DoctorMRP →</a>
-      <a href="https://doctormrp.com/hospitals" class="border border-gray-400 px-10 py-4 font-bold rounded-lg hover:bg-gray-900 transition">Browse Hospitals</a>
+    <h2 class="text-4xl font-bold mb-4 fade-up">Start Your DoctorMRP Journey Today</h2>
+    <p class="text-gray-400 mb-10 fade-up delay-1">
+      We’ll build your verified hospital page, run your ads, and send your first patient inquiry — or your money back.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-up delay-2">
+      <a href="https://wa.me/917588343376"
+         class="bg-yellow-400 text-black w-full sm:w-auto px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition text-center">
+        Talk to DoctorMRP →
+      </a>
+      <a href="https://doctormrp.com/hospitals"
+         class="border border-gray-400 w-full sm:w-auto px-10 py-4 font-bold rounded-lg hover:bg-gray-900 transition text-center">
+        Browse Hospitals
+      </a>
     </div>
-    <p class="mt-6 text-gray-500 text-sm">Built by Doctors. Trusted by Patients. Protected by Transparency.</p>
+    <p class="mt-6 text-gray-500 text-sm fade-up delay-3">Built by Doctors. Trusted by Patients. Protected by Transparency.</p>
   </section>
 
   <!-- FOOTER -->
@@ -138,6 +174,19 @@
     <p>© 2025 DoctorMRP. All rights reserved.</p>
     <p class="mt-2">DoctorMRP is a verified healthcare transparency platform — empowering hospitals to grow through trust.</p>
   </footer>
+
+  <!-- Simple fade-in trigger -->
+  <script>
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.style.animationPlayState='running';}
+      });
+    },{threshold:0.2});
+    document.querySelectorAll('.fade-up').forEach(el=>{
+      el.style.animationPlayState='paused';
+      observer.observe(el);
+    });
+  </script>
 
 </body>
 </html>
