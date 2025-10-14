@@ -1,1225 +1,397 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse Verified Hospitals | DoctorMRP</title>
-  <meta name="description" content="Compare verified 30–100 bed hospitals across Maharashtra & Gujarat. View transparent procedure prices, doctor names, and contact details — Verified by DoctorMRP." />
+  <meta name="description" content="Compare verified 30–100 bed hospitals across Maharashtra, Gujarat & MP. View transparent procedure prices, doctor names, and contact details — Verified by DoctorMRP." />
   <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f9fafb;--text:#111;--muted:#777;--card:#fff;
-      --shadow:0 4px 12px rgba(0,0,0,.08);--shadowH:0 8px 20px rgba(0,0,0,.12);
-      --pill:#eef2f6;--yellow:#ffc107;--black:#000;--wa:#25D366;
+      --bg1:#f9fafb;--bg2:#eef2f6;--text:#0f172a;--muted:#6b7280;--card:#fff;
+      --shadow:0 4px 12px rgba(0,0,0,.08);--shadowH:0 10px 24px rgba(0,0,0,.14);
+      --pill:#eef2f6;--yellow:#ffc107;--black:#000;--wa:#25D366;--primary:#00BFA6;--primaryH:#00a78e;
+      --accent:#0ea5e9;--border:#e5e7eb;--success:#16a34a;--warning:#f59e0b;
     }
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
-    header{text-align:center;padding:2rem 1rem 1rem}
-    header h1{margin:0;font-weight:800;font-size:1.9rem}
-    header p{margin:.4rem 0 1rem;color:#555}
-    select{padding:.5rem 1rem;border-radius:10px;border:1px solid #ccc;font-size:.95rem;margin-bottom:1rem}
-    .grid{max-width:1100px;margin:0 auto;padding:1.25rem;display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
-    .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid #eee;transition:.25s}
-    .card:hover{transform:translateY(-5px);box-shadow:var(--shadowH)}
-    .head{padding:1.1rem 1.25rem .4rem}
-    .head h2{margin:0;font-size:1.15rem}
-    .city{color:var(--muted);font-size:.92rem}
-    .meta{color:#777;font-size:.85rem;margin-top:2px;}
-    .body{padding:.4rem 1.25rem 0}
-    .tags{margin:.55rem 0}
-    .tag{display:inline-block;background:var(--pill);border-radius:12px;padding:4px 10px;font-size:.8rem;margin:2px}
-    .addr{font-size:.88rem;color:#444;margin:.2rem 0 .6rem}
-    .procedures{font-size:.92rem;line-height:1.5;color:#222;margin:.5rem 0 1rem}
-    .metrics{border-top:1px solid #f0f0f0;padding:.75rem 0;color:var(--muted);font-size:.82rem}
-    .ctas{display:flex;gap:.4rem;padding:0 1.25rem 1.1rem}
-    .btn{flex:1;text-align:center;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 0;color:#fff}
-    .view{background:var(--yellow);color:#111}
-    .call{background:var(--black)}
-    .wa{background:var(--wa)}
-    @media(max-width:480px){header h1{font-size:1.6rem}.card{border-radius:15px}}
+    html,body{margin:0;background:linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    a{color:inherit}/* Header (sticky toolbar) */
+header{position:sticky;top:0;z-index:20;background:#fff;background:rgba(255,255,255,.86);backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
+.toolbar{max-width:1200px;margin:0 auto;padding:14px 16px;display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center}
+.brand{display:flex;gap:10px;align-items:center}
+.logo{width:36px;height:36px;border-radius:10px;background:radial-gradient(60% 60% at 30% 30%, #00BFA6 0%, #059669 45%, #0ea5e9 100%)}
+.brand h1{margin:0;font-weight:800;font-size:1.3rem;letter-spacing:.2px}
+.muted{color:var(--muted);font-size:.9rem}
+
+/* Inputs */
+.controls{display:flex;gap:10px;align-items:center}
+.input{padding:.65rem .9rem;border-radius:12px;border:1px solid var(--border);font-size:.95rem;outline:none;background:#fff;min-width:260px}
+.select{padding:.65rem .9rem;border-radius:12px;border:1px solid var(--border);font-size:.95rem;background:#fff}
+.counter{font-size:.9rem;color:var(--muted)}
+
+/* Grid */
+.wrap{max-width:1200px;margin:0 auto;padding:18px 16px 28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 2px 14px}
+.chip{background:var(--pill);padding:6px 12px;border-radius:999px;font-size:.85rem;color:#0f172a;border:1px solid var(--border)}
+
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+
+/* Card */
+.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid #eee;transition:transform .28s ease, box-shadow .28s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadowH)}
+.head{padding:1.1rem 1.25rem .4rem;display:flex;gap:10px;align-items:flex-start}
+.avatar{width:42px;height:42px;border-radius:50%;background:#e2e8f0;flex:0 0 42px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hmeta{flex:1}
+.hmeta h2{margin:0 0 2px;font-size:1.1rem}
+.city{color:var(--muted);font-size:.9rem}
+.meta{color:#6b7280;font-size:.82rem;margin-top:4px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#ecfeff;color:#155e75;border:1px solid #a5f3fc;padding:4px 10px;border-radius:999px;font-size:.77rem;font-weight:700}
+
+.body{padding:.4rem 1.25rem .8rem}
+.tags{margin:.55rem 0}
+.tag{display:inline-block;background:var(--pill);border-radius:12px;padding:4px 10px;font-size:.78rem;margin:2px;border:1px solid var(--border)}
+.addr{font-size:.9rem;color:#374151;margin:.2rem 0 .6rem}
+.procedures{font-size:.93rem;line-height:1.5;color:#111827;margin:.5rem 0 1rem}
+.metrics{border-top:1px solid #f1f5f9;padding:.75rem 0;color:#475569;font-size:.83rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.metrics .verify{color:var(--primary);font-weight:700}
+.metrics .label{background:#fff7ed;color:#9a3412;border:1px solid #fdba74;padding:3px 8px;border-radius:999px;font-size:.75rem}
+
+.map{width:100%;height:180px;border:0;border-radius:12px;margin-top:.6rem}
+
+.ctas{display:flex;gap:.5rem;padding:0 1.25rem 1.1rem}
+.btn{flex:1;text-align:center;text-decoration:none;font-weight:800;border-radius:12px;padding:12px 0;color:#fff;transition:filter .2s}
+.btn:hover{filter:brightness(.95)}
+.view{background:var(--primary)}
+.view:hover{background:var(--primaryH)}
+.call{background:#111827}
+.wa{background:var(--wa)}
+
+/* Animations */
+.reveal{opacity:0;transform:translateY(16px);animation:reveal .6s ease forwards}
+@keyframes reveal{to{opacity:1;transform:translateY(0)}}
+
+/* Footer */
+footer{text-align:center;padding:24px 12px;color:#475569;font-size:.92rem}
+footer a{color:var(--primary);text-decoration:none;font-weight:700}
+
+/* Responsive tweaks */
+@media(max-width:640px){
+  .toolbar{grid-template-columns:1fr;gap:10px}
+  .input{min-width:unset;width:100%}
+  .select{width:100%}
+}
+
   </style>
 </head>
-<body>
+<body>  <!-- Sticky Toolbar -->  <header>
+    <div class="toolbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>DoctorMRP – Verified Hospitals</h1>
+          <div class="muted">30–100 bed hospitals • Transparent prices • Built by doctors</div>
+        </div>
+      </div><input id="searchBox" class="input" type="text" placeholder="Search hospital, doctor, or procedure…" onkeyup="searchHospitals()" />
 
-  <header>
-    <h1>🏥 Browse Verified Hospitals</h1>
-    <p>30–100 bed hospitals • Transparent Prices • Verified by DoctorMRP</p>
-    <label for="stateSelect">Sort by State:</label>
-    <select id="stateSelect" onchange="filterByState()">
+  <div class="controls">
+    <select id="stateSelect" class="select" onchange="filterByState()">
       <option value="all">All States</option>
       <option value="maharashtra">Maharashtra</option>
       <option value="gujarat">Gujarat</option>
       <option value="mp">Madhya Pradesh</option>
     </select>
-  </header>
+  </div>
+</div>
 
-  <section class="grid" id="hospitalGrid">
+  </header>  <div class="wrap">
+    <div class="chips" id="counters">
+      <span class="chip">💬 <strong id="enquiries">42</strong> enquiries this week</span>
+      <span class="chip">🆕 Newly added: <strong id="newCount">6</strong></span>
+      <span class="chip">⭐ Avg rating: <strong>4.7</strong></span>
+      <span class="chip">✅ Verified by DoctorMRP</span>
+    </div><!-- GRID START -->
+<section class="grid" id="hospitalGrid">
 
-    <!-- Maharashtra -->
-    <div class="card" data-state="maharashtra">
-      <div class="head">
-        <h2>🏥 Sai Care Hospital</h2>
+  <!-- Maharashtra -->
+  <article class="card reveal" data-state="maharashtra" data-updated="15" data-name="sai care hospital aurangabad" data-doctors="rahul patil,kedar deshmukh" data-procedures="fracture fixation,acl reconstruction">
+    <div class="head">
+      <div class="avatar">🏥</div>
+      <div class="hmeta">
+        <h2> Sai Care Hospital <span class="badge" title="DoctorMRP Verified">✔ Verified</span></h2>
         <div class="city">Aurangabad, Maharashtra</div>
         <div class="meta">DoctorMRP · 3.2K views · Updated 15 days ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Orthopedics</span><span class="tag">General Surgery</span></div>
-        <div class="addr">Jalna Road, Aurangabad 431001</div>
-        <div class="procedures">
-          🦴 Fracture Fixation — ₹18,000+ (Dr. Rahul Patil)<br>
-          🦵 ACL Reconstruction — ₹48,000+ (Dr. Kedar Deshmukh)
-        </div>
-        <div class="metrics">⭐ 4.7 • Verified • 60 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Sai%20Care%20Hospital%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">Orthopedics</span><span class="tag">General Surgery</span></div>
+      <div class="addr">Jalna Road, Aurangabad 431001</div>
+      <div class="procedures">
+        🦴 Fracture Fixation — ₹18,000+ (Dr. Rahul Patil)<br>
+        🦵 ACL Reconstruction — ₹48,000+ (Dr. Kedar Deshmukh)
+      </div>
+      <div class="metrics">
+        <span>⭐ 4.7</span> • <span class="verify">Verified by DoctorMRP</span> • <span>60 beds</span>
+        <span class="label">Top Rated</span>
+      </div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Sai+Care+Hospital+Aurangabad&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Sai%20Care%20Hospital%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <div class="card" data-state="maharashtra">
-      <div class="head">
-        <h2>💓 Sanjivani Heart & General Hospital</h2>
+  <article class="card reveal" data-state="maharashtra" data-updated="21" data-name="sanjivani heart general hospital nashik" data-doctors="mangesh borse,megha kulkarni" data-procedures="angioplasty,pacemaker">
+    <div class="head">
+      <div class="avatar">💓</div>
+      <div class="hmeta">
+        <h2> Sanjivani Heart & General Hospital <span class="badge">✔ Verified</span></h2>
         <div class="city">Nashik, Maharashtra</div>
         <div class="meta">DoctorMRP · 4.5K views · Updated 3 weeks ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Cardiology</span><span class="tag">ICU</span></div>
-        <div class="addr">Canada Corner, Nashik 422005</div>
-        <div class="procedures">
-          ❤️ Angioplasty — ₹70,000–₹1,10,000 (Dr. Mangesh Borse)<br>
-          🫀 Pacemaker Implant — ₹95,000+ (Dr. Megha Kulkarni)
-        </div>
-        <div class="metrics">⭐ 4.8 • Verified • 80 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Sanjivani%20Hospital%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">Cardiology</span><span class="tag">ICU</span></div>
+      <div class="addr">Canada Corner, Nashik 422005</div>
+      <div class="procedures">❤️ Angioplasty — ₹70,000–₹1,10,000 (Dr. Mangesh Borse)<br> 🫀 Pacemaker Implant — ₹95,000+ (Dr. Megha Kulkarni)</div>
+      <div class="metrics"><span>⭐ 4.8</span> • <span class="verify">Verified by DoctorMRP</span> • <span>80 beds</span> <span class="label">Popular</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Nashik+Sanjivani+Hospital&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Sanjivani%20Hospital%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <div class="card" data-state="maharashtra">
-      <div class="head">
-        <h2>🧠 Pioneer Neuro Care Centre</h2>
+  <article class="card reveal" data-state="maharashtra" data-updated="12" data-name="pioneer neuro care centre nagpur" data-doctors="ankush dhote,gaurav bhagat" data-procedures="craniotomy,lumbar discectomy">
+    <div class="head">
+      <div class="avatar">🧠</div>
+      <div class="hmeta">
+        <h2> Pioneer Neuro Care Centre <span class="badge">✔ Verified</span></h2>
         <div class="city">Nagpur, Maharashtra</div>
         <div class="meta">DoctorMRP · 2.9K views · Updated 12 days ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Neurology</span><span class="tag">Spine</span></div>
-        <div class="addr">Bajaj Nagar, Nagpur 440010</div>
-        <div class="procedures">
-          🧠 Craniotomy — ₹1,20,000+ (Dr. Ankush Dhote)<br>
-          🩺 Lumbar Discectomy — ₹85,000+ (Dr. Gaurav Bhagat)
-        </div>
-        <div class="metrics">⭐ 4.6 • Verified • 55 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Pioneer%20Neuro%20Care%20Centre%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">Neurology</span><span class="tag">Spine</span></div>
+      <div class="addr">Bajaj Nagar, Nagpur 440010</div>
+      <div class="procedures">🧠 Craniotomy — ₹1,20,000+ (Dr. Ankush Dhote)<br> 🩺 Lumbar Discectomy — ₹85,000+ (Dr. Gaurav Bhagat)</div>
+      <div class="metrics"><span>⭐ 4.6</span> • <span class="verify">Verified by DoctorMRP</span> • <span>55 beds</span> <span class="label">New</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Bajaj+Nagar+Nagpur&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Pioneer%20Neuro%20Care%20Centre%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <div class="card" data-state="maharashtra">
-      <div class="head">
-        <h2>👁️ Insight Eye Hospital</h2>
+  <article class="card reveal" data-state="maharashtra" data-updated="30" data-name="insight eye hospital kolhapur" data-doctors="sonal gandhi" data-procedures="phaco iol,retina laser">
+    <div class="head">
+      <div class="avatar">👁️</div>
+      <div class="hmeta">
+        <h2> Insight Eye Hospital <span class="badge">✔ Verified</span></h2>
         <div class="city">Kolhapur, Maharashtra</div>
         <div class="meta">DoctorMRP · 3.8K views · Updated 1 month ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Ophthalmology</span></div>
-        <div class="addr">Rajaram Rd, Kolhapur 416003</div>
-        <div class="procedures">
-          👁️ Phaco + IOL — ₹22,000+ (Dr. Sonal Gandhi)<br>
-          🔬 Retina Laser — ₹12,000+ (Dr. Sonal Gandhi)
-        </div>
-        <div class="metrics">⭐ 4.9 • Verified • 40 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Insight%20Eye%20Hospital%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">Ophthalmology</span></div>
+      <div class="addr">Rajaram Rd, Kolhapur 416003</div>
+      <div class="procedures">👁️ Phaco + IOL — ₹22,000+ (Dr. Sonal Gandhi)<br> 🔬 Retina Laser — ₹12,000+ (Dr. Sonal Gandhi)</div>
+      <div class="metrics"><span>⭐ 4.9</span> • <span class="verify">Verified by DoctorMRP</span> • <span>40 beds</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Rajaram+Road+Kolhapur&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Insight%20Eye%20Hospital%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <!-- Gujarat -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>💉 Sunshine Multispeciality Hospital</h2>
+  <!-- Gujarat -->
+  <article class="card reveal" data-state="gujarat" data-updated="10" data-name="sunshine multispeciality hospital vadodara" data-doctors="nisha trivedi,rupal patel" data-procedures="appendectomy,cesarean section">
+    <div class="head">
+      <div class="avatar">💉</div>
+      <div class="hmeta">
+        <h2> Sunshine Multispeciality Hospital <span class="badge">✔ Verified</span></h2>
         <div class="city">Vadodara, Gujarat</div>
         <div class="meta">DoctorMRP · 4.1K views · Updated 10 days ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">General Surgery</span><span class="tag">Gynecology</span></div>
-        <div class="addr">Alkapuri, Vadodara 390007</div>
-        <div class="procedures">
-          🩺 Appendectomy — ₹28,000+ (Dr. Nisha Trivedi)<br>
-          👶 Cesarean Section — ₹45,000+ (Dr. Rupal Patel)
-        </div>
-        <div class="metrics">⭐ 4.7 • Verified • 70 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Sunshine%20Hospital%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">General Surgery</span><span class="tag">Gynecology</span></div>
+      <div class="addr">Alkapuri, Vadodara 390007</div>
+      <div class="procedures">🩺 Appendectomy — ₹28,000+ (Dr. Nisha Trivedi)<br> 👶 Cesarean Section — ₹45,000+ (Dr. Rupal Patel)</div>
+      <div class="metrics"><span>⭐ 4.7</span> • <span class="verify">Verified by DoctorMRP</span> • <span>70 beds</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Alkapuri+Vadodara&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Sunshine%20Hospital%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>💓 Pulse Heart Clinic & Hospital</h2>
+  <article class="card reveal" data-state="gujarat" data-updated="21" data-name="pulse heart clinic hospital surat" data-doctors="hardik mehta" data-procedures="angiography,angioplasty">
+    <div class="head">
+      <div class="avatar">💓</div>
+      <div class="hmeta">
+        <h2> Pulse Heart Clinic & Hospital <span class="badge">✔ Verified</span></h2>
         <div class="city">Surat, Gujarat</div>
         <div class="meta">DoctorMRP · 6.2K views · Updated 3 weeks ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Cardiology</span><span class="tag">Critical Care</span></div>
-        <div class="addr">Adajan Rd, Surat 395009</div>
-        <div class="procedures">
-          ❤️ Angiography — ₹9,000+ (Dr. Hardik Mehta)<br>
-          💉 Angioplasty — ₹65,000–₹1,10,000 (Dr. Hardik Mehta)
-        </div>
-        <div class="metrics">⭐ 4.8 • Verified • 90 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Pulse%20Heart%20Clinic%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">Cardiology</span><span class="tag">Critical Care</span></div>
+      <div class="addr">Adajan Rd, Surat 395009</div>
+      <div class="procedures">❤️ Angiography — ₹9,000+ (Dr. Hardik Mehta)<br> 💉 Angioplasty — ₹65,000–₹1,10,000 (Dr. Hardik Mehta)</div>
+      <div class="metrics"><span>⭐ 4.8</span> • <span class="verify">Verified by DoctorMRP</span> • <span>90 beds</span> <span class="label">Top Rated</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Adajan+Road+Surat&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Pulse%20Heart%20Clinic%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🦴 Aarogyam Orthopedic Centre</h2>
+  <article class="card reveal" data-state="gujarat" data-updated="60" data-name="aarogyam orthopedic centre ahmedabad" data-doctors="bhavesh shah" data-procedures="knee replacement,arthroscopy">
+    <div class="head">
+      <div class="avatar">🦴</div>
+      <div class="hmeta">
+        <h2> Aarogyam Orthopedic Centre <span class="badge">✔ Verified</span></h2>
         <div class="city">Ahmedabad, Gujarat</div>
         <div class="meta">DoctorMRP · 5.4K views · Updated 2 months ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Sports Injury</span></div>
-        <div class="addr">Satellite Area, Ahmedabad 380015</div>
-        <div class="procedures">
-          🦴 Knee Replacement — ₹1,25,000+ (Dr. Bhavesh Shah)<br>
-          🦵 Arthroscopy — ₹75,000+ (Dr. Bhavesh Shah)
-        </div>
-        <div class="metrics">⭐ 4.7 • Verified • 65 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Aarogyam%20Orthopedic%20Centre%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Sports Injury</span></div>
+      <div class="addr">Satellite Area, Ahmedabad 380015</div>
+      <div class="procedures">🦴 Knee Replacement — ₹1,25,000+ (Dr. Bhavesh Shah)<br> 🦵 Arthroscopy — ₹75,000+ (Dr. Bhavesh Shah)</div>
+      <div class="metrics"><span>⭐ 4.7</span> • <span class="verify">Verified by DoctorMRP</span> • <span>65 beds</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Satellite+Area+Ahmedabad&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Aarogyam%20Orthopedic%20Centre%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🩺 Navjeevan Hospital</h2>
+  <article class="card reveal" data-state="gujarat" data-updated="28" data-name="navjeevan hospital rajkot" data-doctors="ketan bhatt" data-procedures="icu,angiography">
+    <div class="head">
+      <div class="avatar">🩺</div>
+      <div class="hmeta">
+        <h2> Navjeevan Hospital <span class="badge">✔ Verified</span></h2>
         <div class="city">Rajkot, Gujarat</div>
         <div class="meta">DoctorMRP · 3.6K views · Updated 4 weeks ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Medicine</span><span class="tag">Critical Care</span></div>
-        <div class="addr">150 Feet Ring Road, Rajkot 360005</div>
-        <div class="procedures">
-          🫁 ICU Stay per day — ₹7,000+ (Dr. Ketan Bhatt)<br>
-          ❤️ Angiography — ₹10,000+ (Dr. Ketan Bhatt)
-        </div>
-        <div class="metrics">⭐ 4.6 • Verified • 50 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=Navjeevan%20Hospital%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">Medicine</span><span class="tag">Critical Care</span></div>
+      <div class="addr">150 Feet Ring Road, Rajkot 360005</div>
+      <div class="procedures">🫁 ICU Stay per day — ₹7,000+ (Dr. Ketan Bhatt)<br> ❤️ Angiography — ₹10,000+ (Dr. Ketan Bhatt)</div>
+      <div class="metrics"><span>⭐ 4.6</span> • <span class="verify">Verified by DoctorMRP</span> • <span>50 beds</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=150+Feet+Ring+Road+Rajkot&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=Navjeevan%20Hospital%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-    <!-- MP -->
-    <div class="card" data-state="mp">
-      <div class="head">
-        <h2>🏥 LifeLine Hospital</h2>
+  <!-- MP -->
+  <article class="card reveal" data-state="mp" data-updated="14" data-name="lifeline hospital indore" data-doctors="neha garg,vikas bhatnagar" data-procedures="appendectomy,echo consult">
+    <div class="head">
+      <div class="avatar">🏥</div>
+      <div class="hmeta">
+        <h2> LifeLine Hospital <span class="badge">✔ Verified</span></h2>
         <div class="city">Indore, Madhya Pradesh</div>
         <div class="meta">DoctorMRP · 2.7K views · Updated 2 weeks ago</div>
       </div>
-      <div class="body">
-        <div class="tags"><span class="tag">General Medicine</span><span class="tag">ICU</span></div>
-        <div class="addr">AB Road, Indore 452001</div>
-        <div class="procedures">
-          🩺 Appendectomy — ₹25,000+ (Dr. Neha Garg)<br>
-          ❤️ 2D Echo + Consult — ₹1,800+ (Dr. Vikas Bhatnagar)
-        </div>
-        <div class="metrics">⭐ 4.5 • Verified • 75 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="#">View Prices</a>
-        <a class="btn call" href="tel:+919270343376">Call</a>
-        <a class="btn wa" href="https://wa.me/919270343376?text=LifeLine%20Hospital%20enquiry">WhatsApp</a>
-      </div>
     </div>
+    <div class="body">
+      <div class="tags"><span class="tag">General Medicine</span><span class="tag">ICU</span></div>
+      <div class="addr">AB Road, Indore 452001</div>
+      <div class="procedures">🩺 Appendectomy — ₹25,000+ (Dr. Neha Garg)<br> ❤️ 2D Echo + Consult — ₹1,800+ (Dr. Vikas Bhatnagar)</div>
+      <div class="metrics"><span>⭐ 4.5</span> • <span class="verify">Verified by DoctorMRP</span> • <span>75 beds</span> <span class="label">New</span></div>
+      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=AB+Road+Indore&output=embed"></iframe>
+    </div>
+    <div class="ctas">
+      <a class="btn view" href="#">View Prices</a>
+      <a class="btn call" href="tel:+919270343376">Call</a>
+      <a class="btn wa" href="https://wa.me/919270343376?text=LifeLine%20Hospital%20enquiry">WhatsApp</a>
+    </div>
+  </article>
 
-  </section>
+</section>
+<!-- GRID END -->
 
-  <script>
-    function filterByState(){
-      const state=document.getElementById('stateSelect').value;
-      const cards=document.querySelectorAll('.card');
-      cards.forEach(c=>{
-        c.style.display=(state==='all'||c.dataset.state===state)?'block':'none';
+  </div>  <!-- Footer -->  <footer>
+    © 2025 <strong>DoctorMRP</strong> · Built by Doctors for Transparency ·
+    <a href="/privacy-policy">Privacy Policy</a>
+  </footer>  <!-- JSON-LD: Example schema for a few hospitals (duplicate and modify per hospital) -->  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Sai Care Hospital",
+    "address": {"@type": "PostalAddress","streetAddress": "Jalna Road","addressLocality": "Aurangabad","addressRegion": "Maharashtra","postalCode": "431001","addressCountry": "IN"},
+    "telephone": "+91-9270343376",
+    "url": "https://doctormrp.com/aurangabad/sai-care",
+    "department": [{"@type":"MedicalSpecialty","name":"Orthopedics"},{"@type":"MedicalSpecialty","name":"General Surgery"}]
+  },{
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Sanjivani Heart & General Hospital",
+    "address": {"@type": "PostalAddress","streetAddress": "Canada Corner","addressLocality": "Nashik","addressRegion": "Maharashtra","postalCode": "422005","addressCountry": "IN"},
+    "telephone": "+91-9270343376",
+    "url": "https://doctormrp.com/nashik/sanjivani-heart"
+  }]
+  </script>  <script>
+    // Reveal on load
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.animationDelay = (i * 60) + 'ms';
+    });
+
+    // Search: matches name, doctors, procedures and text
+    function searchHospitals(){
+      const q = (document.getElementById('searchBox').value || '').toLowerCase().trim();
+      document.querySelectorAll('.card').forEach(c => {
+        const blob = [
+          c.dataset.name || '',
+          c.dataset.doctors || '',
+          c.dataset.procedures || '',
+          c.textContent || ''
+        ].join(' ').toLowerCase();
+        c.style.display = blob.includes(q) ? 'block' : 'none';
       });
+      updateCounters();
     }
-  </script>
 
-<!-- Pune Hospitals -->
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🦴 Dr. Swaroop’s Ortho & Polyclinic</h2>
-    <div class="city">Pimpri-Chinchwad, Pune</div>
-    <div class="meta">DoctorMRP · 4.1K views · Updated 7 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Fracture</span></div>
-    <div class="addr">Akurdi Station Road, Pimpri-Chinchwad, Pune 411035</div>
-    <div class="procedures">
-      🦴 Fracture Fixation — ₹15,000+ (Dr. Swaroop Solunke)<br>
-      🦵 ACL Reconstruction — ₹45,000+ (Dr. Swaroop Solunke)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 25 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://orthopedicclinicinpcmc.com/">Website</a>
-    <a class="btn call" href="tel:+919561112345">Call</a>
-    <a class="btn wa" href="https://wa.me/919561112345?text=Dr%20Swaroop%20Ortho%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💉 Ameya Clinic</h2>
-    <div class="city">Baner, Pune</div>
-    <div class="meta">DoctorMRP · 3.2K views · Updated 12 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Joint Replacement</span></div>
-    <div class="addr">Baner Rd, Pune 411045</div>
-    <div class="procedures">
-      🦵 Knee Replacement — ₹1,20,000+ (Dr. Ameya Kelkar)<br>
-      🦴 Shoulder Arthroscopy — ₹75,000+ (Dr. Ameya Kelkar)
-    </div>
-    <div class="metrics">⭐ 4.6 • Verified • 30 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://ameyaclinic.in/">Website</a>
-    <a class="btn call" href="tel:+918308228896">Call</a>
-    <a class="btn wa" href="https://wa.me/918308228896?text=Ameya%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🩺 Dr. Sachin Tapasvi Orthopaedic Clinic</h2>
-    <div class="city">Deccan Gymkhana, Pune</div>
-    <div class="meta">DoctorMRP · 6.4K views · Updated 3 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Sports Medicine</span></div>
-    <div class="addr">Bhandarkar Rd, Deccan, Pune 411004</div>
-    <div class="procedures">
-      🦵 Ligament Reconstruction — ₹55,000+ (Dr. Sachin Tapasvi)<br>
-      🦴 Total Knee Replacement — ₹1,25,000+ (Dr. Sachin Tapasvi)
-    </div>
-    <div class="metrics">⭐ 4.9 • Verified • 40 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://drsachintapasvi.com/">Website</a>
-    <a class="btn call" href="tel:+919112233445">Call</a>
-    <a class="btn wa" href="https://wa.me/919112233445?text=Dr%20Sachin%20Tapasvi%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🦴 Latkar Hospital</h2>
-    <div class="city">Sadashiv Peth, Pune</div>
-    <div class="meta">DoctorMRP · 2.9K views · Updated 1 month ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Trauma</span></div>
-    <div class="addr">Tilak Rd, Sadashiv Peth, Pune 411030</div>
-    <div class="procedures">
-      🦴 Hip Replacement — ₹95,000+ (Dr. Rajendra Latkar)<br>
-      🦵 Bone Plating — ₹30,000+ (Dr. Rajendra Latkar)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 35 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://latkarhospital.com/">Website</a>
-    <a class="btn call" href="tel:+919168341678">Call</a>
-    <a class="btn wa" href="https://wa.me/919168341678?text=Latkar%20Hospital%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🩹 Dr. Shubham Katti Ortho Clinic</h2>
-    <div class="city">Sinhgad Rd, Pune</div>
-    <div class="meta">DoctorMRP · 2.6K views · Updated 10 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Trauma</span></div>
-    <div class="addr">Vadgaon Budruk, Sinhgad Rd, Pune 411041</div>
-    <div class="procedures">
-      🦴 Fracture Fixation — ₹18,000+ (Dr. Shubham Katti)<br>
-      🦵 Knee Arthroscopy — ₹65,000+ (Dr. Shubham Katti)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 20 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://drshubhamkatti.com/">Website</a>
-    <a class="btn call" href="tel:+918793009809">Call</a>
-    <a class="btn wa" href="https://wa.me/918793009809?text=Dr%20Shubham%20Katti%20Ortho%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💊 Dr. Desai Dermacare</h2>
-    <div class="city">Kothrud, Pune</div>
-    <div class="meta">DoctorMRP · 4.2K views · Updated 2 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Cosmetology</span></div>
-    <div class="addr">Paud Rd, Kothrud, Pune 411038</div>
-    <div class="procedures">
-      💆‍♀️ Acne Treatment — ₹2,000+ (Dr. Laxmikant Desai)<br>
-      💫 Chemical Peel — ₹2,500+ (Dr. Laxmikant Desai)
-    </div>
-    <div class="metrics">⭐ 4.9 • Verified • 10 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.drdesaidermacare.in/">Website</a>
-    <a class="btn call" href="tel:+919112244355">Call</a>
-    <a class="btn wa" href="https://wa.me/919112244355?text=Dr%20Desai%20Dermacare%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💆‍♀️ Pandit Clinic</h2>
-    <div class="city">Shivajinagar, Pune</div>
-    <div class="meta">DoctorMRP · 3.8K views · Updated 3 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Aesthetic</span></div>
-    <div class="addr">Jangali Maharaj Rd, Shivajinagar, Pune 411005</div>
-    <div class="procedures">
-      💫 Laser Hair Removal — ₹3,000+ (Dr. Sharvari Pandit)<br>
-      💆 Skin Rejuvenation — ₹4,500+ (Dr. Sharvari Pandit)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 12 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.panditclinic.com/meet-dr-sharvari-pandit/">Website</a>
-    <a class="btn call" href="tel:+918888888888">Call</a>
-    <a class="btn wa" href="https://wa.me/918888888888?text=Pandit%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- Pune One/Two Doctor Hospitals – Verified Websites -->
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🦴 Dr. Swaroop’s Ortho & Polyclinic</h2>
-    <div class="city">Pimpri-Chinchwad, Pune</div>
-    <div class="meta">DoctorMRP · 4.2K views · Updated 7 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Fracture Care</span></div>
-    <div class="addr">Akurdi Station Rd, Nigdi, Pune 411035</div>
-    <div class="procedures">
-      🦴 Fracture Fixation — ₹15,000+ (Dr. Swaroop Solunke)<br>
-      🦵 ACL Reconstruction — ₹48,000+ (Dr. Swaroop Solunke)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 25 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://orthopedicclinicinpcmc.com/">Website</a>
-    <a class="btn call" href="tel:+919561112345">Call</a>
-    <a class="btn wa" href="https://wa.me/919561112345?text=Dr%20Swaroop%20Ortho%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💉 Ameya Clinic</h2>
-    <div class="city">Baner, Pune</div>
-    <div class="meta">DoctorMRP · 3.9K views · Updated 10 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Joint Replacement</span></div>
-    <div class="addr">Baner Rd, Pune 411045</div>
-    <div class="procedures">
-      🦵 Knee Replacement — ₹1,20,000+ (Dr. Ameya Kelkar)<br>
-      🦴 Shoulder Arthroscopy — ₹75,000+ (Dr. Ameya Kelkar)
-    </div>
-    <div class="metrics">⭐ 4.6 • Verified • 30 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.ameyaclinic.in/">Website</a>
-    <a class="btn call" href="tel:+918308228896">Call</a>
-    <a class="btn wa" href="https://wa.me/918308228896?text=Ameya%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🦴 Latkar Hospital</h2>
-    <div class="city">Sadashiv Peth, Pune</div>
-    <div class="meta">DoctorMRP · 2.9K views · Updated 2 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Trauma</span></div>
-    <div class="addr">Tilak Rd, Pune 411030</div>
-    <div class="procedures">
-      🦴 Hip Replacement — ₹95,000+ (Dr. Rajendra Latkar)<br>
-      🦵 Bone Plating — ₹30,000+ (Dr. Rajendra Latkar)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 35 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://latkarhospital.com/">Website</a>
-    <a class="btn call" href="tel:+919168341678">Call</a>
-    <a class="btn wa" href="https://wa.me/919168341678?text=Latkar%20Hospital%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💆‍♀️ Dr. Desai Dermacare</h2>
-    <div class="city">Kothrud, Pune</div>
-    <div class="meta">DoctorMRP · 4.2K views · Updated 3 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Cosmetology</span></div>
-    <div class="addr">Paud Rd, Kothrud, Pune 411038</div>
-    <div class="procedures">
-      💆 Acne Treatment — ₹2,000+ (Dr. Laxmikant Desai)<br>
-      💫 Laser Skin Resurfacing — ₹3,500+ (Dr. Laxmikant Desai)
-    </div>
-    <div class="metrics">⭐ 4.9 • Verified • 10 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.drdesaidermacare.in/">Website</a>
-    <a class="btn call" href="tel:+919112244355">Call</a>
-    <a class="btn wa" href="https://wa.me/919112244355?text=Dr%20Desai%20Dermacare%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💫 Pandit Clinic</h2>
-    <div class="city">Shivajinagar, Pune</div>
-    <div class="meta">DoctorMRP · 3.8K views · Updated 1 month ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Aesthetic Medicine</span></div>
-    <div class="addr">J.M. Road, Shivajinagar, Pune 411005</div>
-    <div class="procedures">
-      💫 Laser Hair Removal — ₹3,000+ (Dr. Sharvari Pandit)<br>
-      💆‍♀️ Skin Rejuvenation — ₹4,000+ (Dr. Sharvari Pandit)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 15 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.panditclinic.com/meet-dr-sharvari-pandit/">Website</a>
-    <a class="btn call" href="tel:+918888888888">Call</a>
-    <a class="btn wa" href="https://wa.me/918888888888?text=Pandit%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🩺 Olive Hospital</h2>
-    <div class="city">Fatima Nagar, Pune</div>
-    <div class="meta">DoctorMRP · 3.5K views · Updated 2 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">General Surgery</span><span class="tag">Laparoscopy</span></div>
-    <div class="addr">Near Kalubai Temple, Fatima Nagar, Pune 411040</div>
-    <div class="procedures">
-      🔪 Laparoscopic Appendectomy — ₹30,000+ (Dr. Sandeep Gore)<br>
-      🩹 Hernia Repair — ₹45,000+ (Dr. Sandeep Gore)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 30 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="http://olivehospital.co.in/">Website</a>
-    <a class="btn call" href="tel:+919970002223">Call</a>
-    <a class="btn wa" href="https://wa.me/919970002223?text=Olive%20Hospital%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🩹 Dr. Shubham Katti Orthopaedic Clinic</h2>
-    <div class="city">Sinhgad Road, Pune</div>
-    <div class="meta">DoctorMRP · 2.7K views · Updated 1 week ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Trauma</span></div>
-    <div class="addr">Vadgaon Budruk, Pune 411041</div>
-    <div class="procedures">
-      🦴 Bone Fracture Fixation — ₹18,000+ (Dr. Shubham Katti)<br>
-      🦵 Arthroscopy — ₹65,000+ (Dr. Shubham Katti)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 20 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.drshubhamkatti.com/">Website</a>
-    <a class="btn call" href="tel:+918793009809">Call</a>
-    <a class="btn wa" href="https://wa.me/918793009809?text=Dr%20Shubham%20Katti%20Orthopaedic%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💓 Sanjivani Heart & General Hospital</h2>
-    <div class="city">Nashik (Serving Pune Patients)</div>
-    <div class="meta">DoctorMRP · 4.4K views · Updated 3 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Cardiology</span><span class="tag">Surgery</span></div>
-    <div class="addr">Canada Corner, Nashik 422005</div>
-    <div class="procedures">
-      ❤️ Angioplasty — ₹75,000–₹1,10,000 (Dr. Mangesh Borse)<br>
-      🫀 Pacemaker Implant — ₹95,000+ (Dr. Megha Kulkarni)
-    </div>
-    <div class="metrics">⭐ 4.9 • Verified • 45 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://heartssanjivani.com/">Website</a>
-    <a class="btn call" href="tel:+919822000019">Call</a>
-    <a class="btn wa" href="https://wa.me/919822000019?text=Sanjivani%20Hospital%20enquiry">WhatsApp</a>
-  </div>
-</div>.<!-- Ahmedabad small clinics with their own websites -->
-
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🌿 Sparsh Skin Clinic</h2>
-    <div class="city">Narol, Ahmedabad</div>
-    <div class="meta">DoctorMRP · 2.1K views · Updated 4 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Cosmetology</span></div>
-    <div class="addr">3rd Floor, Shiv Chamber, CTM Cross Road, Naroda Road, Ahmedabad</div>
-    <div class="procedures">
-      💆 Skin Treatments — from ₹1,000 (Dr. Milap Jolapara)<br>
-      💫 Laser Hair Reduction — ₹2,500+ (Dr. Milap Jolapara)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 5 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.sparsh-clinic.com/">Website</a>
-    <a class="btn call" href="tel:+919724693940">Call</a>
-    <a class="btn wa" href="https://wa.me/919724693940?text=Sparsh%20Skin%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🌟 Anya Skin Clinic</h2>
-    <div class="city">Ahmedabad</div>
-    <div class="meta">DoctorMRP · 1.9K views · Updated 1 week ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Dermatosurgery</span></div>
-    <div class="addr">Ahmedabad, Gujarat</div>
-    <div class="procedures">
-      ⚕️ Skin & Hair Treatment — from ₹1,200 (Dr. Smita A. Nagpal)<br>
-      🔬 Dermatosurgery — from ₹3,000+ (Dr. Smita A. Nagpal)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 4 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.anyaskinclinic.com/">Website</a>
-    <a class="btn call" href="tel:+917962200000">Call</a>
-    <a class="btn wa" href="https://wa.me/917962200000?text=Anya%20Skin%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🩺 Ahmedabad Orthopedic Center</h2>
-    <div class="city">Paldi, Ahmedabad</div>
-    <div class="meta">DoctorMRP · 1.5K views · Updated 2 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Joint & Trauma</span></div>
-    <div class="addr">Paldi, Ahmedabad, Gujarat</div>
-    <div class="procedures">
-      🦴 Joint & Trauma Care — from ₹5,000+ (Dr. Krunal Shah)<br>
-      🦵 Knee & Hip Procedures — from ₹25,000+ (Dr. Krunal Shah)
-    </div>
-    <div class="metrics">⭐ 4.6 • Verified • 3 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://aocahmedabad.com/">Website</a>
-    <a class="btn call" href="tel:+919825609994">Call</a>
-    <a class="btn wa" href="https://wa.me/919825609994?text=Ahmedabad%20Orthopedic%20Center%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>✨ Sakhiya Skin Clinic</h2>
-    <div class="city">Satellite, Ahmedabad</div>
-    <div class="meta">DoctorMRP · 2.3K views · Updated 5 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Laser & Cosmetic</span></div>
-    <div class="addr">Satellite, Ahmedabad, Gujarat</div>
-    <div class="procedures">
-      💫 Laser Hair Removal — from ₹2,000+ (Dr. Jagdish Sakhiya)<br>
-      🔬 Skin & Cosmetic Procedures — from ₹3,500+ (Dr. Jagdish Sakhiya)
-    </div>
-    <div class="metrics">⭐ 4.9 • Verified • 6 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.sakhiyaskinclinic.com/">Website</a>
-    <a class="btn call" href="tel:+917982600000">Call</a>
-    <a class="btn wa" href="https://wa.me/917982600000?text=Sakhiya%20Skin%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🌱 Vaishnavi Skin Clinic</h2>
-    <div class="city">Ahmedabad</div>
-    <div class="meta">DoctorMRP · 1.8K views · Updated 1 week ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span></div>
-    <div class="addr">Ahmedabad, Gujarat</div>
-    <div class="procedures">
-      ⚕️ Skin Consultation — from ₹800 (Dr. Vaishnavi Modi)<br>
-      💆 Skin Care Services — from ₹2,000+ (Dr. Vaishnavi Modi)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 3 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.vaishnaviskinclinic.com/">Website</a>
-    <a class="btn call" href="tel:+919876543210">Call</a>
-    <a class="btn wa" href="https://wa.me/919876543210?text=Vaishnavi%20Skin%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-<!-- 1) Dr. Swaroop’s Ortho & Polyclinic — Pune -->
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🦴 Dr. Swaroop’s Ortho & Polyclinic</h2>
-    <div class="city">Wakad, Pune</div>
-    <div class="meta">DoctorMRP · 4.2K views · Updated 7 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Fracture Care</span></div>
-    <div class="addr">Shop 304, Sonigara Keshar, Near PNB Bank, Chhatrapati Chowk, Wakad 411057</div>
-    <div class="procedures">
-      🦴 Fracture Fixation — ₹15,000+ (Dr. Swaroop Solunke)<br>
-      🦵 ACL Reconstruction — ₹45,000+ (Dr. Swaroop Solunke)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 10 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://orthopedicclinicinpcmc.com/">Website</a>
-    <a class="btn call" href="tel:+917385486860">Call</a>
-    <a class="btn wa" href="https://wa.me/917385486860?text=Ortho%20%2F%20Polyclinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 2) Ameya Clinic — Pune (Ortho + OBGYN) -->
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💉 Ameya Clinic</h2>
-    <div class="city">Erandwane, Pune</div>
-    <div class="meta">DoctorMRP · 3.9K views · Updated 10 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">OBGYN</span></div>
-    <div class="addr">Karve Rd, Erandwane, Pune 411004</div>
-    <div class="procedures">
-      🦵 Knee Replacement — ₹1,20,000+ (Ortho Team)<br>
-      👶 Cesarean Section — ₹45,000+ (OBGYN Team)
-    </div>
-    <div class="metrics">⭐ 4.6 • Verified • 20 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.ameyaclinic.in/">Website</a>
-    <a class="btn call" href="tel:+918308228896">Call</a>
-    <a class="btn wa" href="https://wa.me/918308228896?text=Ameya%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 3) Latkar Hospital — Pune (MS Ortho) -->
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🦴 Latkar Hospital</h2>
-    <div class="city">Aundh, Pune</div>
-    <div class="meta">DoctorMRP · 2.9K views · Updated 2 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Trauma</span></div>
-    <div class="addr">Niyoshi Park 2, DP Road, Near Bremen Chowk, Aundh 411007</div>
-    <div class="procedures">
-      🦴 Hip Replacement — ₹95,000+ (Dr. Rajendra Latkar)<br>
-      🦵 Arthroscopy — ₹70,000+ (Dr. Rajendra Latkar)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 15 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.latkarhospital.com/">Website</a>
-    <a class="btn call" href="tel:+919822038588">Call</a>
-    <a class="btn wa" href="https://wa.me/919822038588?text=Latkar%20Hospital%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 4) Dr. Desai Dermacare — Pune (Dermatology) -->
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>💆‍♀️ Dr. Desai Dermacare</h2>
-    <div class="city">Rasta Peth, Pune</div>
-    <div class="meta">DoctorMRP · 4.2K views · Updated 3 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Cosmetology</span></div>
-    <div class="addr">Office 1, Sarthak Square, Near KEM Hospital, Rasta Peth 411011</div>
-    <div class="procedures">
-      💆 Acne Care — ₹2,000+ (Dr. Laxmikant Desai)<br>
-      💫 Laser Resurfacing — ₹3,500+ (Dr. Laxmikant Desai)
-    </div>
-    <div class="metrics">⭐ 4.9 • Verified • 8 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.drdesaidermacare.in/">Website</a>
-    <a class="btn call" href="tel:+918048128168">Call</a>
-    <a class="btn wa" href="https://wa.me/918048128168?text=Dr%20Desai%20Dermacare%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 5) Pandit Clinic (Dermatology Unit) — Pune -->
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>✨ Pandit Clinic (Dermatology)</h2>
-    <div class="city">Shivajinagar, Pune</div>
-    <div class="meta">DoctorMRP · 3.8K views · Updated 1 month ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Aesthetic</span></div>
-    <div class="addr">J.M. Road, Shivajinagar, Pune 411005</div>
-    <div class="procedures">
-      💫 Laser Hair Removal — ₹3,000+ (Dr. Sharvari Pandit)<br>
-      💆 Skin Rejuvenation — ₹4,000+ (Dr. Sharvari Pandit)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 10 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.panditclinic.com/meet-dr-sharvari-pandit/">Website</a>
-    <a class="btn call" href="tel:+918888888888">Call</a>
-    <a class="btn wa" href="https://wa.me/918888888888?text=Pandit%20Clinic%20Dermatology%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 6) Olive Hospital — Pune (Gen Surgery / OBGYN) -->
-<div class="card" data-state="maharashtra">
-  <div class="head">
-    <h2>🩺 Olive Hospital</h2>
-    <div class="city">Kondhwa, Pune</div>
-    <div class="meta">DoctorMRP · 3.5K views · Updated 2 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">General Surgery</span><span class="tag">OBGYN</span></div>
-    <div class="addr">Kausar Baugh, Kondhwa, Pune 411048</div>
-    <div class="procedures">
-      🔪 Lap. Appendectomy — ₹30,000+ (Surgery Team)<br>
-      👶 Normal Delivery — ₹28,000+ (OBGYN Team)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 20 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://olivehospital.co.in/">Website</a>
-    <a class="btn call" href="tel:+919890098813">Call</a>
-    <a class="btn wa" href="https://wa.me/919890098813?text=Olive%20Hospital%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 7) Ahmedabad Orthopaedic Centre — Ahmedabad -->
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🦴 Ahmedabad Orthopaedic Centre</h2>
-    <div class="city">Paldi, Ahmedabad</div>
-    <div class="meta">DoctorMRP · 1.6K views · Updated 2 weeks ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Joint & Trauma</span></div>
-    <div class="addr">Paldi, Ahmedabad 380007</div>
-    <div class="procedures">
-      🦴 Joint & Trauma Care — ₹5,000+ (Ortho Team)<br>
-      🦵 Knee/Hip Procedures — ₹25,000+ (Ortho Team)
-    </div>
-    <div class="metrics">⭐ 4.6 • Verified • 6 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://aocahmedabad.com/">Website</a>
-    <a class="btn call" href="tel:+919825609994">Call</a>
-    <a class="btn wa" href="https://wa.me/919825609994?text=Ahmedabad%20Orthopaedic%20Centre%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 8) Anya Skin Clinic — Ahmedabad -->
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🌟 Anya Skin Clinic</h2>
-    <div class="city">Navrangpura, Ahmedabad</div>
-    <div class="meta">DoctorMRP · 1.9K views · Updated 1 week ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Dermatosurgery</span></div>
-    <div class="addr">Navrangpura, Ahmedabad 380009</div>
-    <div class="procedures">
-      ⚕️ Skin & Hair Treatment — ₹1,200+ (Dr. Smita Nagpal)<br>
-      🔬 Dermatosurgery — ₹3,000+ (Dr. Smita Nagpal)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 5 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.anyaskinclinic.com/">Website</a>
-    <a class="btn call" href="tel:+917962200000">Call</a>
-    <a class="btn wa" href="https://wa.me/917962200000?text=Anya%20Skin%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 9) Sparsh Skin Clinic — Ahmedabad (Dr. Milap Jolapara) -->
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🌿 Sparsh Skin Clinic</h2>
-    <div class="city">CTM–Narol Rd, Ahmedabad</div>
-    <div class="meta">DoctorMRP · 2.1K views · Updated 4 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Laser</span></div>
-    <div class="addr">3rd Flr, Shiv Chamber, CTM Cross Rd, Narol–Naroda Rd, Ahmedabad 380026</div>
-    <div class="procedures">
-      💫 Diode Laser Hair Reduction — ₹2,500+ (Dr. Milap Jolapara)<br>
-      💆 Vitiligo Surgery — ₹6,000+ (Dr. Milap Jolapara)
-    </div>
-    <div class="metrics">⭐ 4.8 • Verified • 4 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://www.sparsh-clinic.com/">Website</a>
-    <a class="btn call" href="tel:+919724693940">Call</a>
-    <a class="btn wa" href="https://wa.me/919724693940?text=Sparsh%20Skin%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-
-<!-- 10) Sparsh Skin & Laser Clinic — Ahmedabad (Bopal, Dr. Nikhil) -->
-<div class="card" data-state="gujarat">
-  <div class="head">
-    <h2>🌱 Sparsh Skin & Laser Clinic</h2>
-    <div class="city">Bopal, Ahmedabad</div>
-    <div class="meta">DoctorMRP · 1.7K views · Updated 6 days ago</div>
-  </div>
-  <div class="body">
-    <div class="tags"><span class="tag">Dermatology</span><span class="tag">Aesthetics</span></div>
-    <div class="addr">11–12 Krishna Complex, Near HP Petrol Pump, Bopal, Ahmedabad</div>
-    <div class="procedures">
-      💆 Acne/Scar Care — ₹2,000+ (Dr. Nikhil — Dermatosurgeon)<br>
-      💫 Laser Treatments — ₹3,500+ (Dr. Nikhil)
-    </div>
-    <div class="metrics">⭐ 4.7 • Verified • 4 beds</div>
-  </div>
-  <div class="ctas">
-    <a class="btn view" href="https://sparshskinandlaserclinic.com/">Website</a>
-    <a class="btn call" href="tel:+919979942409">Call</a>
-    <a class="btn wa" href="https://wa.me/919979942409?text=Sparsh%20Skin%20%26%20Laser%20Clinic%20enquiry">WhatsApp</a>
-  </div>
-</div>
-<<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verified Small Hospitals | DoctorMRP</title>
-  <meta name="description" content="List of verified 2–3 doctor hospitals and clinics in Ahmedabad and Pune. Transparent prices, doctor names, and direct contact options." />
-  <meta name="robots" content="index,follow" />
-  <style>
-    :root{
-      --bg:#f9fafb;--text:#111;--muted:#777;--card:#fff;
-      --shadow:0 4px 12px rgba(0,0,0,.08);--shadowH:0 8px 20px rgba(0,0,0,.12);
-      --pill:#eef2f6;--yellow:#ffc107;--black:#000;--wa:#25D366;
-    }
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
-    header{text-align:center;padding:2rem 1rem 1rem}
-    header h1{margin:0;font-weight:800;font-size:1.9rem}
-    header p{margin:.4rem 0 1rem;color:#555}
-    .grid{max-width:1100px;margin:0 auto;padding:1.25rem;display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
-    .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid #eee;transition:.25s}
-    .card:hover{transform:translateY(-5px);box-shadow:var(--shadowH)}
-    .head{padding:1.1rem 1.25rem .4rem}
-    .head h2{margin:0;font-size:1.15rem}
-    .city{color:var(--muted);font-size:.92rem}
-    .meta{color:#777;font-size:.85rem;margin-top:2px;}
-    .body{padding:.4rem 1.25rem 0}
-    .tags{margin:.55rem 0}
-    .tag{display:inline-block;background:var(--pill);border-radius:12px;padding:4px 10px;font-size:.8rem;margin:2px}
-    .addr{font-size:.88rem;color:#444;margin:.2rem 0 .6rem}
-    .procedures{font-size:.92rem;line-height:1.5;color:#222;margin:.5rem 0 1rem}
-    .metrics{border-top:1px solid #f0f0f0;padding:.75rem 0;color:var(--muted);font-size:.82rem}
-    .ctas{display:flex;gap:.4rem;padding:0 1.25rem 1.1rem}
-    .btn{flex:1;text-align:center;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 0;color:#fff}
-    .view{background:var(--yellow);color:#111}
-    .call{background:var(--black)}
-    .wa{background:var(--wa)}
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>🏥 Verified Small Hospitals</h1>
-    <p>2–3 Doctor Clinics · Orthopedics · OBGYN · Medicine · Surgery</p>
-  </header>
-
-  <section class="grid" id="hospitalGrid">
-
-    <!-- 1 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🦴 Ahmedabad Orthopedic Center</h2>
-        <div class="city">Paldi, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 1.5K views · Updated 2 weeks ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Joint & Trauma</span></div>
-        <div class="addr">Paldi, Ahmedabad</div>
-        <div class="procedures">
-          🦴 Knee Replacement — ₹1,25,000+ (Dr. Krunal Shah)<br>
-          🦵 Arthroscopy — ₹75,000+ (Dr. Krunal Shah)
-        </div>
-        <div class="metrics">⭐ 4.7 • Verified • 8 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://aocahmedabad.com/">Website</a>
-        <a class="btn call" href="tel:+919825609994">Call</a>
-        <a class="btn wa" href="https://wa.me/919825609994?text=Ahmedabad%20Orthopedic%20Center%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 2 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🌿 Sparsh Skin & Laser Clinic</h2>
-        <div class="city">Bopal, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 1.7K views · Updated 6 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Dermatology</span><span class="tag">Aesthetics</span></div>
-        <div class="addr">11–12 Krishna Complex, Near HP Petrol Pump, Bopal, Ahmedabad</div>
-        <div class="procedures">
-          💆 Acne/Scar Care — ₹2,000+ (Dr. Nikhil — Dermatosurgeon)<br>
-          💫 Laser Treatments — ₹3,500+ (Dr. Nikhil)
-        </div>
-        <div class="metrics">⭐ 4.7 • Verified • 4 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://sparshskinclinic.in/">Website</a>
-        <a class="btn call" href="tel:+919898745612">Call</a>
-        <a class="btn wa" href="https://wa.me/919898745612?text=Sparsh%20Skin%20Clinic%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 3 -->
-    <div class="card" data-state="maharashtra">
-      <div class="head">
-        <h2>🦵 Dr. Kothari Ortho Clinic</h2>
-        <div class="city">Baner, Pune</div>
-        <div class="meta">DoctorMRP · 1.6K views · Updated 5 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Physiotherapy</span></div>
-        <div class="addr">Near Orchid School, Baner, Pune</div>
-        <div class="procedures">
-          🦴 Knee Replacement — ₹1,10,000+ (Dr. Rahul Kothari)<br>
-          🦵 Shoulder Arthroscopy — ₹60,000+ (Dr. Rahul Kothari)
-        </div>
-        <div class="metrics">⭐ 4.8 • Verified • 10 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://drkothariortho.com/">Website</a>
-        <a class="btn call" href="tel:+919421960478">Call</a>
-        <a class="btn wa" href="https://wa.me/919421960478?text=Dr%20Kothari%20Ortho%20Clinic%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="card" data-state="maharashtra">
-      <div class="head">
-        <h2>👶 Aastha Women’s Hospital</h2>
-        <div class="city">Nikol, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 2.4K views · Updated 6 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">OBGYN</span><span class="tag">Fertility</span></div>
-        <div class="addr">Nikol Gam Road, Ahmedabad</div>
-        <div class="procedures">
-          👶 Delivery Package — ₹30,000+ (Dr. Anjali Patel)<br>
-          💉 IVF Consult — ₹5,000+ (Dr. Anjali Patel)
-        </div>
-        <div class="metrics">⭐ 4.9 • Verified • 10 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://aasthawomenshospital.com/">Website</a>
-        <a class="btn call" href="tel:+919925013456">Call</a>
-        <a class="btn wa" href="https://wa.me/919925013456?text=Aastha%20Women%20Hospital%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🏥 CureWell Hospital</h2>
-        <div class="city">Maninagar, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 1.8K views · Updated 10 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Medicine</span><span class="tag">Critical Care</span></div>
-        <div class="addr">Opp. Maninagar Railway Station, Ahmedabad</div>
-        <div class="procedures">
-          🫁 ICU Stay per day — ₹6,000+ (Dr. Amit Patel)<br>
-          🩺 Diabetes Management — ₹800+ (Dr. Amit Patel)
-        </div>
-        <div class="metrics">⭐ 4.5 • Verified • 12 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://curewellhospital.in/">Website</a>
-        <a class="btn call" href="tel:+919898245982">Call</a>
-        <a class="btn wa" href="https://wa.me/919898245982?text=CureWell%20Hospital%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 6 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🏥 Shreeji Hospital</h2>
-        <div class="city">Naranpura, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 1.7K views · Updated 9 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">General Surgery</span><span class="tag">Medicine</span></div>
-        <div class="addr">Naranpura, Ahmedabad</div>
-        <div class="procedures">
-          🔪 Hernia Repair — ₹35,000+ (Dr. Hitesh Shah)<br>
-          🩺 General Checkup — ₹500 (Dr. Hitesh Shah)
-        </div>
-        <div class="metrics">⭐ 4.5 • Verified • 15 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://shreejihospital.co.in/">Website</a>
-        <a class="btn call" href="tel:+919377744588">Call</a>
-        <a class="btn wa" href="https://wa.me/919377744588?text=Shreeji%20Hospital%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 7 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🩺 Medistar Hospital</h2>
-        <div class="city">Memnagar, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 2.3K views · Updated 11 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Medicine</span><span class="tag">Surgery</span></div>
-        <div class="addr">Memnagar, Ahmedabad</div>
-        <div class="procedures">
-          🩺 OPD Consultation — ₹600 (Dr. Dhaval Patel)<br>
-          🔪 Lap Appendectomy — ₹35,000 (Dr. Dhaval Patel)
-        </div>
-        <div class="metrics">⭐ 4.6 • Verified • 18 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://medistarhospital.com/">Website</a>
-        <a class="btn call" href="tel:+919099188900">Call</a>
-        <a class="btn wa" href="https://wa.me/919099188900?text=Medistar%20Hospital%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 8 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🏥 Navkar Hospital</h2>
-        <div class="city">Vastral, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 1.9K views · Updated 6 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Medicine</span><span class="tag">Critical Care</span></div>
-        <div class="addr">Vastral, Ahmedabad</div>
-        <div class="procedures">
-          🫁 ICU Stay — ₹7,000 (Dr. Vijay Mehta)<br>
-          🩺 Fever/Diabetes Care — ₹500 (Dr. Vijay Mehta)
-        </div>
-        <div class="metrics">⭐ 4.8 • Verified • 10 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://navkarhospital.co.in/">Website</a>
-        <a class="btn call" href="tel:+918238388888">Call</a>
-        <a class="btn wa" href="https://wa.me/918238388888?text=Navkar%20Hospital%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 9 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🏥 Rudraksh Hospital</h2>
-        <div class="city">Chandkheda, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 2.1K views · Updated 7 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">General Surgery</span><span class="tag">OBGYN</span></div>
-        <div class="addr">Chandkheda, Ahmedabad</div>
-        <div class="procedures">
-          👶 Delivery Package — ₹30,000+ (Dr. Priya Patel)<br>
-          🔪 Lap Appendectomy — ₹35,000+ (Dr. Mahesh Patel)
-        </div>
-        <div class="metrics">⭐ 4.7 • Verified • 18 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://rudrakshhospital.com/">Website</a>
-        <a class="btn call" href="tel:+919825101818">Call</a>
-        <a class="btn wa" href="https://wa.me/919825101818?text=Rudraksh%20Hospital%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- 10 -->
-    <div class="card" data-state="gujarat">
-      <div class="head">
-        <h2>🌼 Parth Hospital</h2>
-        <div class="city">Satellite, Ahmedabad</div>
-        <div class="meta">DoctorMRP · 2.0K views · Updated 5 days ago</div>
-      </div>
-      <div class="body">
-        <div class="tags"><span class="tag">Medicine</span><span class="tag">Surgery</span></div>
-        <div class="addr">Satellite Road, Ahmedabad</div>
-        <div class="procedures">
-          🩺 General Medicine — ₹800+ (Dr. Harsh Mehta)<br>
-          🔪 Minor Surgery — ₹4,000+ (Dr. Harsh Mehta)
-        </div>
-        <div class="metrics">⭐ 4.6 • Verified • 9 beds</div>
-      </div>
-      <div class="ctas">
-        <a class="btn view" href="https://parthhospitalahmedabad.com/">Website</a>
-        <a class="btn call" href="tel:+919824055023">Call</a>
-        <a class="btn wa" href="https://wa.me/919824055023?text=Parth%20Hospital%20enquiry">WhatsApp</a>
-      </div>
-    </div>
-
-  </section>
-
-  <script>
+    // Filter by state dropdown
     function filterByState(){
-      const state = document.getElementById('stateSelect')?.value;
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(c => {
-        c.style.display = (state === 'all' || !state ||
+      const state = document.getElementById('stateSelect').value;
+      document.querySelectorAll('.card').forEach(c => {
+        const visible = (state === 'all' || c.dataset.state === state);
+        c.style.display = visible ? 'block' : 'none';
+      });
+      updateCounters();
+    }
+
+    // Update small counters (visible cards)
+    function updateCounters(){
+      const visible = Array.from(document.querySelectorAll('.card')).filter(c => c.style.display !== 'none');
+      const newOnes = visible.filter(c => (parseInt(c.dataset.updated || '999', 10) <= 14));
+      document.getElementById('newCount').textContent = newOnes.length;
+      document.getElementById('enquiries').textContent = Math.max(21, Math.min(420, visible.length * 7));
+    }
+
+    // Initial counters
+    updateCounters();
+  </script></body>
+</html>
