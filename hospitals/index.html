@@ -1,397 +1,144 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Browse Verified Hospitals | DoctorMRP</title>
-  <meta name="description" content="Compare verified 30–100 bed hospitals across Maharashtra, Gujarat & MP. View transparent procedure prices, doctor names, and contact details — Verified by DoctorMRP." />
+  <title>Mahavir Arogya Sansthan | DoctorMRP Verified</title>
+  <meta name="description" content="Mahavir Arogya Sansthan — transparent procedure prices, doctors, address and instant WhatsApp inquiry. Verified by DoctorMRP." />
   <meta name="robots" content="index,follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg1:#f9fafb;--bg2:#eef2f6;--text:#0f172a;--muted:#6b7280;--card:#fff;
       --shadow:0 4px 12px rgba(0,0,0,.08);--shadowH:0 10px 24px rgba(0,0,0,.14);
-      --pill:#eef2f6;--yellow:#ffc107;--black:#000;--wa:#25D366;--primary:#00BFA6;--primaryH:#00a78e;
-      --accent:#0ea5e9;--border:#e5e7eb;--success:#16a34a;--warning:#f59e0b;
+      --pill:#eef2f6;--wa:#25D366;--primary:#00BFA6;--primaryH:#00a78e;
+      --border:#e5e7eb;
     }
-    html,body{margin:0;background:linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
-    a{color:inherit}/* Header (sticky toolbar) */
-header{position:sticky;top:0;z-index:20;background:#fff;background:rgba(255,255,255,.86);backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
-.toolbar{max-width:1200px;margin:0 auto;padding:14px 16px;display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center}
-.brand{display:flex;gap:10px;align-items:center}
-.logo{width:36px;height:36px;border-radius:10px;background:radial-gradient(60% 60% at 30% 30%, #00BFA6 0%, #059669 45%, #0ea5e9 100%)}
-.brand h1{margin:0;font-weight:800;font-size:1.3rem;letter-spacing:.2px}
-.muted{color:var(--muted);font-size:.9rem}
+    html,body{margin:0;background:linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:inherit;text-decoration:none}
 
-/* Inputs */
-.controls{display:flex;gap:10px;align-items:center}
-.input{padding:.65rem .9rem;border-radius:12px;border:1px solid var(--border);font-size:.95rem;outline:none;background:#fff;min-width:260px}
-.select{padding:.65rem .9rem;border-radius:12px;border:1px solid var(--border);font-size:.95rem;background:#fff}
-.counter{font-size:.9rem;color:var(--muted)}
+    /* Header */
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
+    .toolbar{max-width:1200px;margin:0 auto;padding:14px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:10px;background:radial-gradient(60% 60% at 30% 30%, #00BFA6 0%, #059669 45%, #0ea5e9 100%)}
+    .brand h1{margin:0;font-weight:800;font-size:1.2rem}
+    .muted{color:var(--muted);font-size:.9rem}
 
-/* Grid */
-.wrap{max-width:1200px;margin:0 auto;padding:18px 16px 28px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 2px 14px}
-.chip{background:var(--pill);padding:6px 12px;border-radius:999px;font-size:.85rem;color:#0f172a;border:1px solid var(--border)}
+    /* Layout */
+    .wrap{max-width:1200px;margin:0 auto;padding:18px 16px 28px}
+    .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid #eee;transition:transform .28s ease, box-shadow .28s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadowH)}
+    .head{padding:1.1rem 1.25rem .4rem;display:flex;gap:12px;align-items:flex-start}
+    .avatar{width:42px;height:42px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .hmeta{flex:1}
+    .hmeta h2{margin:0 0 2px;font-size:1.25rem}
+    .city{color:var(--muted);font-size:.93rem}
+    .badge{display:inline-flex;align-items:center;gap:6px;background:#ecfeff;color:#155e75;border:1px solid #a5f3fc;padding:4px 10px;border-radius:999px;font-size:.77rem;font-weight:700}
+    .body{padding:.6rem 1.25rem 1rem}
+    .tags{margin:.55rem 0}
+    .tag{display:inline-block;background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:4px 10px;font-size:.78rem;margin:2px}
+    .addr{font-size:.95rem;color:#374151;margin:.35rem 0 .7rem}
+    .procedures{font-size:.95rem;line-height:1.55;color:#111827;margin:.5rem 0 1rem}
+    .metrics{border-top:1px solid #f1f5f9;padding:.75rem 0;color:#475569;font-size:.85rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .map{width:100%;height:220px;border:0;border-radius:12px;margin-top:.6rem}
+    .ctas{display:flex;gap:.6rem;padding:0 1.25rem 1.1rem;flex-wrap:wrap}
+    .btn{flex:1 1 160px;text-align:center;font-weight:800;border-radius:12px;padding:12px 0;color:#fff;transition:filter .2s}
+    .btn:hover{filter:brightness(.95)}
+    .view{background:var(--primary)}
+    .view:hover{background:var(--primaryH)}
+    .call{background:#111827}
+    .wa{background:var(--wa)}
 
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-
-/* Card */
-.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid #eee;transition:transform .28s ease, box-shadow .28s ease}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadowH)}
-.head{padding:1.1rem 1.25rem .4rem;display:flex;gap:10px;align-items:flex-start}
-.avatar{width:42px;height:42px;border-radius:50%;background:#e2e8f0;flex:0 0 42px;display:flex;align-items:center;justify-content:center;font-weight:700}
-.hmeta{flex:1}
-.hmeta h2{margin:0 0 2px;font-size:1.1rem}
-.city{color:var(--muted);font-size:.9rem}
-.meta{color:#6b7280;font-size:.82rem;margin-top:4px}
-.badge{display:inline-flex;align-items:center;gap:6px;background:#ecfeff;color:#155e75;border:1px solid #a5f3fc;padding:4px 10px;border-radius:999px;font-size:.77rem;font-weight:700}
-
-.body{padding:.4rem 1.25rem .8rem}
-.tags{margin:.55rem 0}
-.tag{display:inline-block;background:var(--pill);border-radius:12px;padding:4px 10px;font-size:.78rem;margin:2px;border:1px solid var(--border)}
-.addr{font-size:.9rem;color:#374151;margin:.2rem 0 .6rem}
-.procedures{font-size:.93rem;line-height:1.5;color:#111827;margin:.5rem 0 1rem}
-.metrics{border-top:1px solid #f1f5f9;padding:.75rem 0;color:#475569;font-size:.83rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.metrics .verify{color:var(--primary);font-weight:700}
-.metrics .label{background:#fff7ed;color:#9a3412;border:1px solid #fdba74;padding:3px 8px;border-radius:999px;font-size:.75rem}
-
-.map{width:100%;height:180px;border:0;border-radius:12px;margin-top:.6rem}
-
-.ctas{display:flex;gap:.5rem;padding:0 1.25rem 1.1rem}
-.btn{flex:1;text-align:center;text-decoration:none;font-weight:800;border-radius:12px;padding:12px 0;color:#fff;transition:filter .2s}
-.btn:hover{filter:brightness(.95)}
-.view{background:var(--primary)}
-.view:hover{background:var(--primaryH)}
-.call{background:#111827}
-.wa{background:var(--wa)}
-
-/* Animations */
-.reveal{opacity:0;transform:translateY(16px);animation:reveal .6s ease forwards}
-@keyframes reveal{to{opacity:1;transform:translateY(0)}}
-
-/* Footer */
-footer{text-align:center;padding:24px 12px;color:#475569;font-size:.92rem}
-footer a{color:var(--primary);text-decoration:none;font-weight:700}
-
-/* Responsive tweaks */
-@media(max-width:640px){
-  .toolbar{grid-template-columns:1fr;gap:10px}
-  .input{min-width:unset;width:100%}
-  .select{width:100%}
-}
-
+    footer{text-align:center;padding:24px 12px;color:#475569;font-size:.92rem}
+    footer a{color:var(--primary);font-weight:700}
   </style>
 </head>
-<body>  <!-- Sticky Toolbar -->  <header>
+<body>
+
+  <!-- Header -->
+  <header>
     <div class="toolbar">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <h1>DoctorMRP – Verified Hospitals</h1>
-          <div class="muted">30–100 bed hospitals • Transparent prices • Built by doctors</div>
+          <h1>DoctorMRP – Verified Hospital</h1>
+          <div class="muted">Transparent prices • Built by doctors</div>
         </div>
-      </div><input id="searchBox" class="input" type="text" placeholder="Search hospital, doctor, or procedure…" onkeyup="searchHospitals()" />
+      </div>
+      <a class="btn view" href="https://wa.me/919270343376?text=Mahavir%20Arogya%20Sansthan%20enquiry" style="padding:10px 14px;border-radius:10px">WhatsApp</a>
+    </div>
+  </header>
 
-  <div class="controls">
-    <select id="stateSelect" class="select" onchange="filterByState()">
-      <option value="all">All States</option>
-      <option value="maharashtra">Maharashtra</option>
-      <option value="gujarat">Gujarat</option>
-      <option value="mp">Madhya Pradesh</option>
-    </select>
+  <div class="wrap">
+    <article class="card">
+      <div class="head">
+        <div class="avatar">🏥</div>
+        <div class="hmeta">
+          <h2>Mahavir Arogya Sansthan <span class="badge">✔ Verified by DoctorMRP</span></h2>
+          <div class="city">Patana, Bihar</div>
+          <div class="muted">DoctorMRP · Updated recently</div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="tags">
+          <span class="tag">Orthopedics</span><span class="tag">General Surgery</span><span class="tag">ICU</span>
+        </div>
+        <div class="addr">Address: (Publicly available) — Mahavir Arogya Sansthan, Patana, Bihar</div>
+
+        <div class="procedures">
+          <strong>Popular Procedures & Indicative Rates</strong><br>
+          🦴 Fracture Fixation — ₹18,000+<br>
+          🦵 ACL Reconstruction — ₹25,000–₹50,000+<br>
+          🦴 Total Knee Replacement — ₹1,25,000–₹3,00,000+<br>
+          👶 Cesarean Section — ₹45,000+<br>
+          ❤️ Angiography — ₹9,000–₹12,000+
+        </div>
+
+        <div class="metrics">
+          <span>⭐ 4.6</span> • <span>Approx. 60–100 beds</span> • <span>Price transparency available</span>
+        </div>
+
+        <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Mahavir+Arogya+Sansthan+Patna&output=embed" title="Map"></iframe>
+      </div>
+
+      <div class="ctas">
+        <!-- Link to your internal prices page or subdomain you set up -->
+        <a class="btn view" href="/hospitals/patana/mahavirarogya/">View Full Prices</a>
+        <a class="btn call" href="tel:+919270343376">Call</a>
+        <a class="btn wa" href="https://wa.me/919270343376?text=Mahavir%20Arogya%20Sansthan%20enquiry">WhatsApp</a>
+      </div>
+    </article>
   </div>
-</div>
 
-  </header>  <div class="wrap">
-    <div class="chips" id="counters">
-      <span class="chip">💬 <strong id="enquiries">42</strong> enquiries this week</span>
-      <span class="chip">🆕 Newly added: <strong id="newCount">6</strong></span>
-      <span class="chip">⭐ Avg rating: <strong>4.7</strong></span>
-      <span class="chip">✅ Verified by DoctorMRP</span>
-    </div><!-- GRID START -->
-<section class="grid" id="hospitalGrid">
-
-  <!-- Maharashtra -->
-  <article class="card reveal" data-state="maharashtra" data-updated="15" data-name="sai care hospital aurangabad" data-doctors="rahul patil,kedar deshmukh" data-procedures="fracture fixation,acl reconstruction">
-    <div class="head">
-      <div class="avatar">🏥</div>
-      <div class="hmeta">
-        <h2> Sai Care Hospital <span class="badge" title="DoctorMRP Verified">✔ Verified</span></h2>
-        <div class="city">Aurangabad, Maharashtra</div>
-        <div class="meta">DoctorMRP · 3.2K views · Updated 15 days ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">Orthopedics</span><span class="tag">General Surgery</span></div>
-      <div class="addr">Jalna Road, Aurangabad 431001</div>
-      <div class="procedures">
-        🦴 Fracture Fixation — ₹18,000+ (Dr. Rahul Patil)<br>
-        🦵 ACL Reconstruction — ₹48,000+ (Dr. Kedar Deshmukh)
-      </div>
-      <div class="metrics">
-        <span>⭐ 4.7</span> • <span class="verify">Verified by DoctorMRP</span> • <span>60 beds</span>
-        <span class="label">Top Rated</span>
-      </div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Sai+Care+Hospital+Aurangabad&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Sai%20Care%20Hospital%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <article class="card reveal" data-state="maharashtra" data-updated="21" data-name="sanjivani heart general hospital nashik" data-doctors="mangesh borse,megha kulkarni" data-procedures="angioplasty,pacemaker">
-    <div class="head">
-      <div class="avatar">💓</div>
-      <div class="hmeta">
-        <h2> Sanjivani Heart & General Hospital <span class="badge">✔ Verified</span></h2>
-        <div class="city">Nashik, Maharashtra</div>
-        <div class="meta">DoctorMRP · 4.5K views · Updated 3 weeks ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">Cardiology</span><span class="tag">ICU</span></div>
-      <div class="addr">Canada Corner, Nashik 422005</div>
-      <div class="procedures">❤️ Angioplasty — ₹70,000–₹1,10,000 (Dr. Mangesh Borse)<br> 🫀 Pacemaker Implant — ₹95,000+ (Dr. Megha Kulkarni)</div>
-      <div class="metrics"><span>⭐ 4.8</span> • <span class="verify">Verified by DoctorMRP</span> • <span>80 beds</span> <span class="label">Popular</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Nashik+Sanjivani+Hospital&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Sanjivani%20Hospital%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <article class="card reveal" data-state="maharashtra" data-updated="12" data-name="pioneer neuro care centre nagpur" data-doctors="ankush dhote,gaurav bhagat" data-procedures="craniotomy,lumbar discectomy">
-    <div class="head">
-      <div class="avatar">🧠</div>
-      <div class="hmeta">
-        <h2> Pioneer Neuro Care Centre <span class="badge">✔ Verified</span></h2>
-        <div class="city">Nagpur, Maharashtra</div>
-        <div class="meta">DoctorMRP · 2.9K views · Updated 12 days ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">Neurology</span><span class="tag">Spine</span></div>
-      <div class="addr">Bajaj Nagar, Nagpur 440010</div>
-      <div class="procedures">🧠 Craniotomy — ₹1,20,000+ (Dr. Ankush Dhote)<br> 🩺 Lumbar Discectomy — ₹85,000+ (Dr. Gaurav Bhagat)</div>
-      <div class="metrics"><span>⭐ 4.6</span> • <span class="verify">Verified by DoctorMRP</span> • <span>55 beds</span> <span class="label">New</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Bajaj+Nagar+Nagpur&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Pioneer%20Neuro%20Care%20Centre%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <article class="card reveal" data-state="maharashtra" data-updated="30" data-name="insight eye hospital kolhapur" data-doctors="sonal gandhi" data-procedures="phaco iol,retina laser">
-    <div class="head">
-      <div class="avatar">👁️</div>
-      <div class="hmeta">
-        <h2> Insight Eye Hospital <span class="badge">✔ Verified</span></h2>
-        <div class="city">Kolhapur, Maharashtra</div>
-        <div class="meta">DoctorMRP · 3.8K views · Updated 1 month ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">Ophthalmology</span></div>
-      <div class="addr">Rajaram Rd, Kolhapur 416003</div>
-      <div class="procedures">👁️ Phaco + IOL — ₹22,000+ (Dr. Sonal Gandhi)<br> 🔬 Retina Laser — ₹12,000+ (Dr. Sonal Gandhi)</div>
-      <div class="metrics"><span>⭐ 4.9</span> • <span class="verify">Verified by DoctorMRP</span> • <span>40 beds</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Rajaram+Road+Kolhapur&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Insight%20Eye%20Hospital%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <!-- Gujarat -->
-  <article class="card reveal" data-state="gujarat" data-updated="10" data-name="sunshine multispeciality hospital vadodara" data-doctors="nisha trivedi,rupal patel" data-procedures="appendectomy,cesarean section">
-    <div class="head">
-      <div class="avatar">💉</div>
-      <div class="hmeta">
-        <h2> Sunshine Multispeciality Hospital <span class="badge">✔ Verified</span></h2>
-        <div class="city">Vadodara, Gujarat</div>
-        <div class="meta">DoctorMRP · 4.1K views · Updated 10 days ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">General Surgery</span><span class="tag">Gynecology</span></div>
-      <div class="addr">Alkapuri, Vadodara 390007</div>
-      <div class="procedures">🩺 Appendectomy — ₹28,000+ (Dr. Nisha Trivedi)<br> 👶 Cesarean Section — ₹45,000+ (Dr. Rupal Patel)</div>
-      <div class="metrics"><span>⭐ 4.7</span> • <span class="verify">Verified by DoctorMRP</span> • <span>70 beds</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Alkapuri+Vadodara&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Sunshine%20Hospital%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <article class="card reveal" data-state="gujarat" data-updated="21" data-name="pulse heart clinic hospital surat" data-doctors="hardik mehta" data-procedures="angiography,angioplasty">
-    <div class="head">
-      <div class="avatar">💓</div>
-      <div class="hmeta">
-        <h2> Pulse Heart Clinic & Hospital <span class="badge">✔ Verified</span></h2>
-        <div class="city">Surat, Gujarat</div>
-        <div class="meta">DoctorMRP · 6.2K views · Updated 3 weeks ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">Cardiology</span><span class="tag">Critical Care</span></div>
-      <div class="addr">Adajan Rd, Surat 395009</div>
-      <div class="procedures">❤️ Angiography — ₹9,000+ (Dr. Hardik Mehta)<br> 💉 Angioplasty — ₹65,000–₹1,10,000 (Dr. Hardik Mehta)</div>
-      <div class="metrics"><span>⭐ 4.8</span> • <span class="verify">Verified by DoctorMRP</span> • <span>90 beds</span> <span class="label">Top Rated</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Adajan+Road+Surat&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Pulse%20Heart%20Clinic%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <article class="card reveal" data-state="gujarat" data-updated="60" data-name="aarogyam orthopedic centre ahmedabad" data-doctors="bhavesh shah" data-procedures="knee replacement,arthroscopy">
-    <div class="head">
-      <div class="avatar">🦴</div>
-      <div class="hmeta">
-        <h2> Aarogyam Orthopedic Centre <span class="badge">✔ Verified</span></h2>
-        <div class="city">Ahmedabad, Gujarat</div>
-        <div class="meta">DoctorMRP · 5.4K views · Updated 2 months ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">Orthopedics</span><span class="tag">Sports Injury</span></div>
-      <div class="addr">Satellite Area, Ahmedabad 380015</div>
-      <div class="procedures">🦴 Knee Replacement — ₹1,25,000+ (Dr. Bhavesh Shah)<br> 🦵 Arthroscopy — ₹75,000+ (Dr. Bhavesh Shah)</div>
-      <div class="metrics"><span>⭐ 4.7</span> • <span class="verify">Verified by DoctorMRP</span> • <span>65 beds</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Satellite+Area+Ahmedabad&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Aarogyam%20Orthopedic%20Centre%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <article class="card reveal" data-state="gujarat" data-updated="28" data-name="navjeevan hospital rajkot" data-doctors="ketan bhatt" data-procedures="icu,angiography">
-    <div class="head">
-      <div class="avatar">🩺</div>
-      <div class="hmeta">
-        <h2> Navjeevan Hospital <span class="badge">✔ Verified</span></h2>
-        <div class="city">Rajkot, Gujarat</div>
-        <div class="meta">DoctorMRP · 3.6K views · Updated 4 weeks ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">Medicine</span><span class="tag">Critical Care</span></div>
-      <div class="addr">150 Feet Ring Road, Rajkot 360005</div>
-      <div class="procedures">🫁 ICU Stay per day — ₹7,000+ (Dr. Ketan Bhatt)<br> ❤️ Angiography — ₹10,000+ (Dr. Ketan Bhatt)</div>
-      <div class="metrics"><span>⭐ 4.6</span> • <span class="verify">Verified by DoctorMRP</span> • <span>50 beds</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=150+Feet+Ring+Road+Rajkot&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=Navjeevan%20Hospital%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-  <!-- MP -->
-  <article class="card reveal" data-state="mp" data-updated="14" data-name="lifeline hospital indore" data-doctors="neha garg,vikas bhatnagar" data-procedures="appendectomy,echo consult">
-    <div class="head">
-      <div class="avatar">🏥</div>
-      <div class="hmeta">
-        <h2> LifeLine Hospital <span class="badge">✔ Verified</span></h2>
-        <div class="city">Indore, Madhya Pradesh</div>
-        <div class="meta">DoctorMRP · 2.7K views · Updated 2 weeks ago</div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="tags"><span class="tag">General Medicine</span><span class="tag">ICU</span></div>
-      <div class="addr">AB Road, Indore 452001</div>
-      <div class="procedures">🩺 Appendectomy — ₹25,000+ (Dr. Neha Garg)<br> ❤️ 2D Echo + Consult — ₹1,800+ (Dr. Vikas Bhatnagar)</div>
-      <div class="metrics"><span>⭐ 4.5</span> • <span class="verify">Verified by DoctorMRP</span> • <span>75 beds</span> <span class="label">New</span></div>
-      <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=AB+Road+Indore&output=embed"></iframe>
-    </div>
-    <div class="ctas">
-      <a class="btn view" href="#">View Prices</a>
-      <a class="btn call" href="tel:+919270343376">Call</a>
-      <a class="btn wa" href="https://wa.me/919270343376?text=LifeLine%20Hospital%20enquiry">WhatsApp</a>
-    </div>
-  </article>
-
-</section>
-<!-- GRID END -->
-
-  </div>  <!-- Footer -->  <footer>
-    © 2025 <strong>DoctorMRP</strong> · Built by Doctors for Transparency ·
+  <footer>
+    © 2025 <strong>DoctorMRP</strong> · Transparency → Patient Leads ·
     <a href="/privacy-policy">Privacy Policy</a>
-  </footer>  <!-- JSON-LD: Example schema for a few hospitals (duplicate and modify per hospital) -->  <script type="application/ld+json">
-  [{
+  </footer>
+
+  <!-- JSON-LD (Hospital) -->
+  <script type="application/ld+json">
+  {
     "@context": "https://schema.org",
-    "@type": "MedicalOrganization",
-    "name": "Sai Care Hospital",
-    "address": {"@type": "PostalAddress","streetAddress": "Jalna Road","addressLocality": "Aurangabad","addressRegion": "Maharashtra","postalCode": "431001","addressCountry": "IN"},
+    "@type": "Hospital",
+    "name": "Mahavir Arogya Sansthan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Patana",
+      "addressRegion": "Bihar",
+      "addressCountry": "IN"
+    },
+    "url": "https://mahavirarogya.patana.doctormrp.com",
     "telephone": "+91-9270343376",
-    "url": "https://doctormrp.com/aurangabad/sai-care",
-    "department": [{"@type":"MedicalSpecialty","name":"Orthopedics"},{"@type":"MedicalSpecialty","name":"General Surgery"}]
-  },{
-    "@context": "https://schema.org",
-    "@type": "MedicalOrganization",
-    "name": "Sanjivani Heart & General Hospital",
-    "address": {"@type": "PostalAddress","streetAddress": "Canada Corner","addressLocality": "Nashik","addressRegion": "Maharashtra","postalCode": "422005","addressCountry": "IN"},
-    "telephone": "+91-9270343376",
-    "url": "https://doctormrp.com/nashik/sanjivani-heart"
-  }]
-  </script>  <script>
-    // Reveal on load
-    document.querySelectorAll('.reveal').forEach((el, i) => {
-      el.style.animationDelay = (i * 60) + 'ms';
-    });
-
-    // Search: matches name, doctors, procedures and text
-    function searchHospitals(){
-      const q = (document.getElementById('searchBox').value || '').toLowerCase().trim();
-      document.querySelectorAll('.card').forEach(c => {
-        const blob = [
-          c.dataset.name || '',
-          c.dataset.doctors || '',
-          c.dataset.procedures || '',
-          c.textContent || ''
-        ].join(' ').toLowerCase();
-        c.style.display = blob.includes(q) ? 'block' : 'none';
-      });
-      updateCounters();
-    }
-
-    // Filter by state dropdown
-    function filterByState(){
-      const state = document.getElementById('stateSelect').value;
-      document.querySelectorAll('.card').forEach(c => {
-        const visible = (state === 'all' || c.dataset.state === state);
-        c.style.display = visible ? 'block' : 'none';
-      });
-      updateCounters();
-    }
-
-    // Update small counters (visible cards)
-    function updateCounters(){
-      const visible = Array.from(document.querySelectorAll('.card')).filter(c => c.style.display !== 'none');
-      const newOnes = visible.filter(c => (parseInt(c.dataset.updated || '999', 10) <= 14));
-      document.getElementById('newCount').textContent = newOnes.length;
-      document.getElementById('enquiries').textContent = Math.max(21, Math.min(420, visible.length * 7));
-    }
-
-    // Initial counters
-    updateCounters();
-  </script></body>
+    "department": [
+      {"@type":"MedicalSpecialty","name":"Orthopedics"},
+      {"@type":"MedicalSpecialty","name":"General Surgery"},
+      {"@type":"MedicalSpecialty","name":"Critical Care"}
+    ]
+  }
+  </script>
+</body>
 </html>
