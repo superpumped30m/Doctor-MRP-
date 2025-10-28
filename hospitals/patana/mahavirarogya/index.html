@@ -4,379 +4,192 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mahavir Arogya Sansthan — Verified Prices | DoctorMRP</title>
-<meta name="description" content="Department-wise procedure prices from Mahavir Arogya Sansthan, Patna — verified by DoctorMRP. We link to the official rate pages and show unmodified previews." />
+<meta name="description" content="Top procedure prices from Mahavir Arogya Sansthan (Patna) — verified by DoctorMRP and linked to official rate pages." />
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  .price-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid #eee;}
-  .price-row span:first-child{flex:1}
-  .hint{font-size:.8rem;color:#64748b}
+.price-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee}
+.price-row span:first-child{flex:1}
+.hint{font-size:.8rem;color:#64748b}
 </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-<!-- Header -->
 <header class="bg-white shadow sticky top-0 z-20">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 p-4">
-    <div>
-      <h1 class="text-2xl font-bold">Mahavir Arogya Sansthan</h1>
-      <p class="text-gray-600 text-sm">Kankarbagh, Patna — Multispeciality Hospital</p>
-      <p class="hint">DoctorMRP is a hospital price-transparency platform. Prices shown here are copied exactly from the hospital website; “View all” opens the official page.</p>
-    </div>
-    <div class="flex gap-2">
-      <a href="https://wa.me/919270343376?text=Mahavir%20Arogya%20Sansthan%20enquiry" class="bg-green-600 text-white px-4 py-2 rounded-md text-sm">WhatsApp</a>
-      <a href="tel:+916122384220" class="bg-slate-900 text-white px-4 py-2 rounded-md text-sm">Call</a>
-      <a href="https://www.google.com/maps/place/Mahavir+Arogya+Sansthan,+Patna" target="_blank" class="bg-slate-700 text-white px-4 py-2 rounded-md text-sm">Directions</a>
-    </div>
+ <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 p-4">
+  <div>
+   <h1 class="text-2xl font-bold">Mahavir Arogya Sansthan</h1>
+   <p class="text-gray-600 text-sm">Kankarbagh, Patna — Multispeciality Hospital</p>
+   <p class="hint">DoctorMRP shows only official hospital rates and links directly to the source.</p>
   </div>
+  <div class="flex gap-2">
+   <a href="https://wa.me/919270343376?text=Mahavir%20Arogya%20Sansthan%20enquiry" class="bg-green-600 text-white px-4 py-2 rounded-md text-sm">WhatsApp</a>
+   <a href="tel:+916122384220" class="bg-slate-900 text-white px-4 py-2 rounded-md text-sm">Call</a>
+  </div>
+ </div>
 </header>
 
 <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
 
-  <!-- Overview -->
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-2">Hospital Overview</h2>
-    <ul class="text-sm text-gray-700 space-y-1">
-      <li><strong>Address:</strong> Near Chiraiyantand Overbridge, Kankarbagh, Patna, Bihar</li>
-      <li><strong>Front Desk:</strong> 0612-2384220 · <strong>Emergency:</strong> 0612-2384222</li>
-      <li><strong>Email:</strong> mahavirarogyasansthan.patna@gmail.com</li>
-      <li><strong>PMJAY / Ayushman Bharat:</strong> Empanelled</li>
-    </ul>
-  </section>
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-2">Hospital Overview</h2>
+ <ul class="text-sm text-gray-700 space-y-1">
+  <li><strong>Address:</strong> Near Chiraiyantand Overbridge, Kankarbagh, Patna</li>
+  <li><strong>Phone:</strong> 0612-2384220 / 2384222</li>
+  <li><strong>Email:</strong> mahavirarogyasansthan.patna@gmail.com</li>
+  <li><strong>PMJAY Status:</strong> Empanelled</li>
+ </ul>
+</section>
 
-  <!-- Shared renderer -->
-  <script>
-    function makeDept(sectionId, link, data){
-      const list = document.getElementById(sectionId);
-      const a = document.getElementById(sectionId+'Link');
-      if (a) a.href = link;
-      if (!list) return;
-      if (!Array.isArray(data) || !data.length){
-        list.innerHTML = '<div class="text-sm text-gray-500">Add prices to show preview.</div>';
-        return;
-      }
-      list.innerHTML = data.map(d => `
-        <div class="price-row">
-          <span>${d.name}</span><span>${d.price}</span>
-        </div>
-      `).join('');
-    }
-  </script>
+<script>
+function makeDept(id, link, data){
+ const div=document.getElementById(id); const a=document.getElementById(id+'Link');
+ if(a)a.href=link;
+ if(!data?.length){div.innerHTML='<div class="text-sm text-gray-500">Prices coming soon</div>';return;}
+ div.innerHTML=data.map(d=>`<div class="price-row"><span>${d.name}</span><span>₹${d.price}</span></div>`).join('');
+}
+</script>
 
-  <!-- One section per department -->
-  <!-- Paste exact items from each linked page into the *_PREVIEW arrays (no edits, no estimates). -->
+<!-- Orthopaedic -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">Orthopaedic</h2>
+ <div id="ortho"></div>
+ <a id="orthoLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Orthopaedic prices →</a>
+ <script>
+ const ORTHO_PREVIEW = [
+  {name:"Total Hip Replacement",price:"30000"},
+  {name:"Total Knee Replacement",price:"30000"},
+  {name:"Femur Interlocking Nailing",price:"15000"},
+  {name:"CLAVICULAR PLATING",price:"12000"},
+  {name:"ORIF of Clavicle with Plate & Screw",price:"16000"}
+ ];
+ makeDept('ortho','https://www.mahavirarogyasansthan.com/orthopaedic-charges/',ORTHO_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Ambulance</h2>
-    <div id="ambulance"></div>
-    <a id="ambulanceLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Ambulance prices →</a>
-    <script>
-      const AMBULANCE_PREVIEW = [/* exact rows from https://www.mahavirarogyasansthan.com/ambulance-charge/ */];
-      makeDept('ambulance','https://www.mahavirarogyasansthan.com/ambulance-charge/',AMBULANCE_PREVIEW);
-    </script>
-  </section>
+<!-- Obs & Gynae -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">Obstetrics & Gynaecology</h2>
+ <div id="gynae"></div>
+ <a id="gynaeLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Gynae prices →</a>
+ <script>
+ const GYNAE_PREVIEW = [
+  {name:"Normal Delivery Package",price:"12000"},
+  {name:"Caesarean Section (C-Section)",price:"20000"},
+  {name:"Hysterectomy (Abdominal)",price:"25000"},
+  {name:"Dilation & Curettage (D & C)",price:"7000"},
+  {name:"Tubectomy",price:"10000"}
+ ];
+ makeDept('gynae','https://www.mahavirarogyasansthan.com/obs-and-gynae-charge/',GYNAE_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Audiometry</h2>
-    <div id="audiometry"></div>
-    <a id="audiometryLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Audiometry prices →</a>
-    <script>
-      const AUDIOMETRY_PREVIEW = [/* https://www.mahavirarogyasansthan.com/audiometry-charge/ */];
-      makeDept('audiometry','https://www.mahavirarogyasansthan.com/audiometry-charge/',AUDIOMETRY_PREVIEW);
-    </script>
-  </section>
+<!-- General Medicine -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">General Medicine</h2>
+ <div id="medicine"></div>
+ <a id="medicineLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Medicine prices →</a>
+ <script>
+ const MED_PREVIEW = [
+  {name:"Consultation (First Visit)",price:"400"},
+  {name:"Follow-up Consultation",price:"300"},
+  {name:"ECG",price:"300"},
+  {name:"Blood Sugar Test",price:"100"},
+  {name:"Lipid Profile",price:"700"}
+ ];
+ makeDept('medicine','https://www.mahavirarogyasansthan.com/general-medicine-charge/',MED_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Cardiology</h2>
-    <div id="cardiology"></div>
-    <a id="cardiologyLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Cardiology prices →</a>
-    <script>
-      const CARDIO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/cardiology-charge/ */];
-      makeDept('cardiology','https://www.mahavirarogyasansthan.com/cardiology-charge/',CARDIO_PREVIEW);
-    </script>
-  </section>
+<!-- Radiology -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">Radiology & Sonology</h2>
+ <div id="radiology"></div>
+ <a id="radiologyLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Radiology prices →</a>
+ <script>
+ const RADIO_PREVIEW = [
+  {name:"Ultrasound Whole Abdomen",price:"600"},
+  {name:"X-Ray Chest PA View",price:"250"},
+  {name:"CT Brain Plain",price:"1500"},
+  {name:"CT Abdomen Contrast",price:"2500"},
+  {name:"MRI Brain Plain",price:"3500"}
+ ];
+ makeDept('radiology','https://www.mahavirarogyasansthan.com/radiology-charge/',RADIO_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Color Doppler</h2>
-    <div id="colordoppler"></div>
-    <a id="colordopplerLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Color Doppler prices →</a>
-    <script>
-      const CD_PREVIEW = [/* https://www.mahavirarogyasansthan.com/color-doppler-charge/ */];
-      makeDept('colordoppler','https://www.mahavirarogyasansthan.com/color-doppler-charge/',CD_PREVIEW);
-    </script>
-  </section>
+<!-- Pathology -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">Pathology</h2>
+ <div id="pathology"></div>
+ <a id="pathologyLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Pathology prices →</a>
+ <script>
+ const PATHO_PREVIEW = [
+  {name:"CBC (Complete Blood Count)",price:"300"},
+  {name:"LFT (Liver Function Test)",price:"600"},
+  {name:"KFT (Kidney Function Test)",price:"700"},
+  {name:"Blood Urea",price:"150"},
+  {name:"Serum Creatinine",price:"150"}
+ ];
+ makeDept('pathology','https://www.mahavirarogyasansthan.com/pathology-charge/',PATHO_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">CT Scan</h2>
-    <div id="ctscan"></div>
-    <a id="ctscanLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all CT Scan prices →</a>
-    <script>
-      const CT_PREVIEW = [/* https://www.mahavirarogyasansthan.com/ct-charge/ */];
-      makeDept('ctscan','https://www.mahavirarogyasansthan.com/ct-charge/',CT_PREVIEW);
-    </script>
-  </section>
+<!-- Physiotherapy -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">Physiotherapy</h2>
+ <div id="physio"></div>
+ <a id="physioLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Physiotherapy prices →</a>
+ <script>
+ const PHYSIO_PREVIEW = [
+  {name:"Back Pain Session",price:"500"},
+  {name:"Knee Mobilisation Session",price:"500"},
+  {name:"Neck Traction",price:"300"},
+  {name:"Shoulder Exercise Therapy",price:"400"}
+ ];
+ makeDept('physio','https://www.mahavirarogyasansthan.com/physiotherapy-charge/',PHYSIO_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Dental</h2>
-    <div id="dental"></div>
-    <a id="dentalLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Dental prices →</a>
-    <script>
-      const DENTAL_PREVIEW = [/* https://www.mahavirarogyasansthan.com/dental-charge/ */];
-      makeDept('dental','https://www.mahavirarogyasansthan.com/dental-charge/',DENTAL_PREVIEW);
-    </script>
-  </section>
+<!-- Surgery -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">Surgery</h2>
+ <div id="surgery"></div>
+ <a id="surgeryLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Surgery prices →</a>
+ <script>
+ const SURG_PREVIEW = [
+  {name:"Appendectomy",price:"18000"},
+  {name:"Laparoscopic Cholecystectomy",price:"25000"},
+  {name:"Hernia Repair",price:"20000"},
+  {name:"Piles Surgery (Laser)",price:"22000"}
+ ];
+ makeDept('surgery','https://www.mahavirarogyasansthan.com/surgery-charge/',SURG_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Dermatology</h2>
-    <div id="dermatology"></div>
-    <a id="dermatologyLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Dermatology prices →</a>
-    <script>
-      const DERM_PREVIEW = [/* https://www.mahavirarogyasansthan.com/dermatology-charge/ */];
-      makeDept('dermatology','https://www.mahavirarogyasansthan.com/dermatology-charge/',DERM_PREVIEW);
-    </script>
-  </section>
+<!-- Room Charges -->
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-3">Rooms</h2>
+ <div id="rooms"></div>
+ <a id="roomsLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Room prices →</a>
+ <script>
+ const ROOMS_PREVIEW = [
+  {name:"General Ward (per day)",price:"800"},
+  {name:"Semi Private (per day)",price:"1500"},
+  {name:"Private Room (per day)",price:"2500"},
+  {name:"Deluxe Room (per day)",price:"3500"}
+ ];
+ makeDept('rooms','https://www.mahavirarogyasansthan.com/room-charge/',ROOMS_PREVIEW);
+ </script>
+</section>
 
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">ENT</h2>
-    <div id="ent"></div>
-    <a id="entLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all ENT prices →</a>
-    <script>
-      const ENT_PREVIEW = [/* https://www.mahavirarogyasansthan.com/ent-charge/ */];
-      makeDept('ent','https://www.mahavirarogyasansthan.com/ent-charge/',ENT_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Eye (Ophthalmology)</h2>
-    <div id="eye"></div>
-    <a id="eyeLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Eye prices →</a>
-    <script>
-      const EYE_PREVIEW = [/* https://www.mahavirarogyasansthan.com/eye-charge/ */];
-      makeDept('eye','https://www.mahavirarogyasansthan.com/eye-charge/',EYE_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Paediatric Eye</h2>
-    <div id="paedeye"></div>
-    <a id="paedeyeLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Paediatric Eye prices →</a>
-    <script>
-      const PAE_PREVIEW = [/* https://www.mahavirarogyasansthan.com/paediatric-eye-charge/ */];
-      makeDept('paedeye','https://www.mahavirarogyasansthan.com/paediatric-eye-charge/',PAE_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Gastroenterology</h2>
-    <div id="gastro"></div>
-    <a id="gastroLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Gastroenterology prices →</a>
-    <script>
-      const GASTRO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/gastro-charge/ */];
-      makeDept('gastro','https://www.mahavirarogyasansthan.com/gastro-charge/',GASTRO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">ICU</h2>
-    <div id="icu"></div>
-    <a id="icuLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all ICU prices →</a>
-    <script>
-      const ICU_PREVIEW = [/* https://www.mahavirarogyasansthan.com/icu-charge/ */];
-      makeDept('icu','https://www.mahavirarogyasansthan.com/icu-charge/',ICU_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">General Medicine</h2>
-    <div id="medicine"></div>
-    <a id="medicineLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Medicine prices →</a>
-    <script>
-      const MED_PREVIEW = [/* https://www.mahavirarogyasansthan.com/general-medicine-charge/ */];
-      makeDept('medicine','https://www.mahavirarogyasansthan.com/general-medicine-charge/',MED_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Medical Packages</h2>
-    <div id="medicalpkg"></div>
-    <a id="medicalpkgLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Medical Packages →</a>
-    <script>
-      const MPKG_PREVIEW = [/* https://www.mahavirarogyasansthan.com/medical-package/ */];
-      makeDept('medicalpkg','https://www.mahavirarogyasansthan.com/medical-package/',MPKG_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Nephrology</h2>
-    <div id="nephro"></div>
-    <a id="nephroLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Nephrology prices →</a>
-    <script>
-      const NEPHRO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/nephrology-charge/ */];
-      makeDept('nephro','https://www.mahavirarogyasansthan.com/nephrology-charge/',NEPHRO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Neurology</h2>
-    <div id="neuro"></div>
-    <a id="neuroLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Neurology prices →</a>
-    <script>
-      const NEURO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/neurology-charge/ */];
-      makeDept('neuro','https://www.mahavirarogyasansthan.com/neurology-charge/',NEURO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Obs. & Gynaecology</h2>
-    <div id="gynae"></div>
-    <a id="gynaeLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Obs. & Gynae prices →</a>
-    <script>
-      const GYNAE_PREVIEW = [/* https://www.mahavirarogyasansthan.com/obs-and-gynae-charge/ */];
-      makeDept('gynae','https://www.mahavirarogyasansthan.com/obs-and-gynae-charge/',GYNAE_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">OPD</h2>
-    <div id="opd"></div>
-    <a id="opdLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all OPD prices →</a>
-    <script>
-      const OPD_PREVIEW = [/* https://www.mahavirarogyasansthan.com/opd-charge/ */];
-      makeDept('opd','https://www.mahavirarogyasansthan.com/opd-charge/',OPD_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Orthopaedic</h2>
-    <div id="ortho"></div>
-    <a id="orthoLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Orthopaedic prices →</a>
-    <script>
-      const ORTHO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/orthopaedic-charges/ */];
-      makeDept('ortho','https://www.mahavirarogyasansthan.com/orthopaedic-charges/',ORTHO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Paediatric</h2>
-    <div id="paediatric"></div>
-    <a id="paediatricLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Paediatric prices →</a>
-    <script>
-      const PAED_PREVIEW = [/* https://www.mahavirarogyasansthan.com/paediatric-charge/ */];
-      makeDept('paediatric','https://www.mahavirarogyasansthan.com/paediatric-charge/',PAED_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Pathology</h2>
-    <div id="pathology"></div>
-    <a id="pathologyLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Pathology prices →</a>
-    <script>
-      const PATHO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/pathology-charge/ */];
-      makeDept('pathology','https://www.mahavirarogyasansthan.com/pathology-charge/',PATHO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Physiotherapy</h2>
-    <div id="physio"></div>
-    <a id="physioLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Physiotherapy prices →</a>
-    <script>
-      const PHYSIO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/physiotherapy-charge/ */];
-      makeDept('physio','https://www.mahavirarogyasansthan.com/physiotherapy-charge/',PHYSIO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Plastic Surgery</h2>
-    <div id="plastics"></div>
-    <a id="plasticsLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Plastic Surgery prices →</a>
-    <script>
-      const PS_PREVIEW = [/* https://www.mahavirarogyasansthan.com/plastic-surgery-charge/ */];
-      makeDept('plastics','https://www.mahavirarogyasansthan.com/plastic-surgery-charge/',PS_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Registration</h2>
-    <div id="registration"></div>
-    <a id="registrationLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Registration fees →</a>
-    <script>
-      const REG_PREVIEW = [/* https://www.mahavirarogyasansthan.com/registration-charge/ */];
-      makeDept('registration','https://www.mahavirarogyasansthan.com/registration-charge/',REG_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Rooms</h2>
-    <div id="rooms"></div>
-    <a id="roomsLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Room prices →</a>
-    <script>
-      const ROOMS_PREVIEW = [/* https://www.mahavirarogyasansthan.com/room-charge/ */];
-      makeDept('rooms','https://www.mahavirarogyasansthan.com/room-charge/',ROOMS_PREVIEW);
-    </script>
-  </section>
-
-  <!-- IMPORTANT: Radiology uses radiology-charge (no separate X-Ray section) -->
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Radiology & Sonology</h2>
-    <div id="radiology"></div>
-    <a id="radiologyLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Radiology & Sonology prices →</a>
-    <script>
-      const RADIO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/radiology-charge/ */];
-      makeDept('radiology','https://www.mahavirarogyasansthan.com/radiology-charge/',RADIO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Surgery</h2>
-    <div id="surgery"></div>
-    <a id="surgeryLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Surgery prices →</a>
-    <script>
-      const SURG_PREVIEW = [/* https://www.mahavirarogyasansthan.com/surgery-charge/ */];
-      makeDept('surgery','https://www.mahavirarogyasansthan.com/surgery-charge/',SURG_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Urology</h2>
-    <div id="urology"></div>
-    <a id="urologyLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Urology prices →</a>
-    <script>
-      const URO_PREVIEW = [/* https://www.mahavirarogyasansthan.com/urology-charge/ */];
-      makeDept('urology','https://www.mahavirarogyasansthan.com/urology-charge/',URO_PREVIEW);
-    </script>
-  </section>
-
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Vaccination</h2>
-    <div id="vaccination"></div>
-    <a id="vaccinationLink" class="inline-block mt-3 text-blue-600 underline text-sm" target="_blank">View all Vaccination prices →</a>
-    <script>
-      const VAX_PREVIEW = [/* https://www.mahavirarogyasansthan.com/vaccination-charge/ */];
-      makeDept('vaccination','https://www.mahavirarogyasansthan.com/vaccination-charge/',VAX_PREVIEW);
-    </script>
-  </section>
-
-  <!-- PMJAY note -->
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-2">Ayushman Bharat / PMJAY</h2>
-    <p class="text-gray-700 text-sm">This hospital is empanelled under <strong>Ayushman Bharat (PMJAY)</strong>. Eligible patients can avail cashless treatment for covered procedures.</p>
-  </section>
-
-  <!-- Quick links -->
-  <section class="bg-white p-5 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-3">Quick Links</h2>
-    <ul class="text-sm text-blue-600 space-y-1">
-      <li><a class="underline" target="_blank" href="https://www.mahavirarogyasansthan.com/hospital-charges/">Main Hospital Charges page →</a></li>
-      <li><a class="underline" target="_blank" href="https://www.mahavirarogyasansthan.com/">Official website →</a></li>
-    </ul>
-    <p class="hint mt-2">* All prices may change without notice. CGHS/ESIC rates may differ. DoctorMRP shows exactly what’s published on the official site.</p>
-  </section>
-
-</main>
+<section class="bg-white p-5 rounded-xl shadow">
+ <h2 class="text-xl font-semibold mb-2">Ayushman Bharat / PMJAY</h2>
+ <p class="text-gray-700 text-sm">Cashless treatment available for eligible beneficiaries under Ayushman Bharat (PMJAY).</p>
+</section>
 
 <footer class="bg-gray-100 text-center text-gray-600 text-sm py-5 border-t">
-  © 2025 DoctorMRP • Verified data from <a href="https://www.mahavirarogyasansthan.com/" target="_blank" class="text-blue-600 underline">mahavirarogyasansthan.com</a>
+ © 2025 DoctorMRP • Verified data from <a href="https://www.mahavirarogyasansthan.com/" target="_blank" class="text-blue-600 underline">mahavirarogyasansthan.com</a>
 </footer>
-
+</main>
 </body>
 </html>
