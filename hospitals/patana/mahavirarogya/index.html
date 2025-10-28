@@ -1,347 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mahavir Arogya Sansthan — Verified Prices | DoctorMRP</title>
-<meta name="description" content="Official department-wise prices for Mahavir Arogya Sansthan, Patna. DoctorMRP shows real hospital rates and links to the source.">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  .price-row{display:flex;justify-content:space-between;gap:12px;padding:.5rem 0;border-bottom:1px solid #eee}
-  .price-row span:first-child{flex:1}
-  .hint{font-size:.82rem;color:#64748b}
-  .section{background:#fff;border-radius:12px;padding:16px 16px 10px}
-  .more{margin-top:.5rem}
-</style>
-</head>
-<body class="bg-gray-50 text-gray-800">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahavir Arogya Sansthan — Official Prices (Linked) | DoctorMRP</title>
+  <meta name="description" content="Department-wise prices for Mahavir Arogya Sansthan, Kankarbagh, Patna. DoctorMRP publishes official rates and links directly to the hospital’s pages." />
+  <link rel="canonical" href="https://doctormrp.com/hospitals/patana/mahavirarogya/" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Mahavir Arogya Sansthan — Official Prices (Linked)" />
+  <meta property="og:description" content="Transparent, department-wise prices with direct links to the hospital’s official rate pages." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://doctormrp.com/hospitals/patana/mahavirarogya/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--ink:#0f172a;--muted:#64748b;--line:#e5e7eb;--brand:#0ea5e9}
+    body{color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+    .btn{display:inline-block;background:#111827;color:#fff;padding:10px 14px;border-radius:10px;font-weight:700}
+    .link{color:var(--brand);text-decoration:underline}
+    .box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+    .stack{display:grid;gap:12px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:1024px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    header.sticky{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.2) blur(8px);z-index:40;border-bottom:1px solid var(--line)}
+  </style>
 
-<header class="bg-white/90 backdrop-blur sticky top-0 z-20 border-b">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-    <div>
-      <h1 class="text-2xl font-bold">Mahavir Arogya Sansthan</h1>
-      <p class="text-gray-600 text-sm">Kankarbagh, Patna • Multispeciality Hospital</p>
-      <p class="hint">We display <b>official</b> prices and link to the hospital’s pages. No changes made.</p>
-    </div>
-    <div class="flex gap-2">
-      <a class="px-4 py-2 rounded-md bg-green-600 text-white text-sm" href="https://wa.me/919270343376?text=Mahavir%20Arogya%20Sansthan%20enquiry">WhatsApp</a>
-      <a class="px-4 py-2 rounded-md bg-slate-900 text-white text-sm" href="tel:+916122384220">Call Front Desk</a>
-      <a class="px-4 py-2 rounded-md bg-slate-200 text-slate-900 text-sm" target="_blank" href="https://www.mahavirarogyasansthan.com/hospital-charges/">Hospital Charges (official)</a>
-    </div>
-  </div>
-</header>
-
-<main class="max-w-6xl mx-auto px-4 py-8 space-y-6">
-
-  <!-- Helper (don’t edit) -->
-  <script>
-    function makeDept(id, link, rows){
-      const box=document.getElementById(id), a=document.getElementById(id+'Link');
-      if(a) a.href=link;
-      if(!rows || !rows.length){ box.innerHTML='<div class="hint">Prices coming soon…</div>'; return; }
-      box.innerHTML = rows.map(r=>(
-        `<div class="price-row"><span>${r.name}</span><span>₹${r.price}</span></div>`
-      )).join('');
-    }
+  <!-- Hospital schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Hospital",
+    "name":"Mahavir Arogya Sansthan",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Near Chiraiyantand Overbridge, Kankarbagh",
+      "addressLocality":"Patna",
+      "addressRegion":"Bihar",
+      "addressCountry":"IN"
+    },
+    "telephone":"+91-612-2384220",
+    "url":"https://www.mahavirarogyasansthan.com/"
+  }
   </script>
+</head>
+<body class="bg-gray-50">
 
-  <!-- Orthopaedic -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Orthopaedic</h2>
-    <div id="ortho"></div>
-    <a id="orthoLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Orthopaedic prices →</a>
-    <script>
-      const ORTHO = [
-        {name:"Amputation of A/K, B/K, B/E, A/E",price:"12000"},
-        {name:"Arthroscopic ACL Reconstruction",price:"25000"},
-        {name:"D.H.S.",price:"15000"},
-        {name:"CLAVICULAR PLATING",price:"12000"},
-        {name:"ORIF of clavicle with plates & screw",price:"16000"},
-        {name:"Femur interlocking nailing",price:"15000"},
-        {name:"Total Hip Replacement",price:"30000"},
-        {name:"Total Knee Replacement",price:"30000"}
-      ];
-      makeDept('ortho','https://www.mahavirarogyasansthan.com/orthopaedic-charges/', ORTHO);
-    </script>
-  </section>
+  <!-- Top -->
+  <header class="sticky">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
+      <div>
+        <h1 class="text-2xl font-extrabold">Mahavir Arogya Sansthan</h1>
+        <p class="text-sm text-gray-600">Kankarbagh, Patna — Multispeciality Hospital</p>
+        <p class="text-xs text-gray-500 mt-1">DoctorMRP publishes official hospital prices without alteration. “View all prices” opens the hospital’s page.</p>
+      </div>
+      <div class="flex gap-2">
+        <a href="https://wa.me/919270343376?text=Mahavir%20Arogya%20Sansthan%20price%20enquiry" class="btn">WhatsApp</a>
+        <a href="tel:+916122384220" class="btn">Call</a>
+      </div>
+    </div>
+  </header>
 
-  <!-- Obstetrics & Gynaecology -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Obstetrics & Gynaecology</h2>
-    <div id="gynae"></div>
-    <a id="gynaeLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Obs & Gynae prices →</a>
-    <script>
-      const GYNAE = [
-        {name:"Normal Delivery Package",price:"12000"},
-        {name:"Caesarean Section (C-Section)",price:"20000"},
-        {name:"Hysterectomy (Abdominal)",price:"25000"},
-        {name:"Dilation & Curettage (D & C)",price:"7000"},
-        {name:"Tubectomy",price:"10000"}
-      ];
-      makeDept('gynae','https://www.mahavirarogyasansthan.com/obs-and-gynae-charge/', GYNAE);
-    </script>
-  </section>
+  <main class="max-w-6xl mx-auto px-4 py-8 stack">
 
-  <!-- General Medicine -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">General Medicine</h2>
-    <div id="med"></div>
-    <a id="medLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all General Medicine prices →</a>
-    <script>
-      const MED = [
-        {name:"ECG",price:"125.00"},
-        {name:"Blood Transfusion",price:"250"},
-        {name:"Catheterization",price:"100"},
-        {name:"Oxygen (per hour)",price:"60"},
-        {name:"RBS by Glucometer",price:"30"}
-      ];
-      makeDept('med','https://www.mahavirarogyasansthan.com/general-medicine-charge/', MED);
-    </script>
-  </section>
+    <!-- Hospital Overview -->
+    <section class="box">
+      <h2 class="text-xl font-semibold">Hospital Overview</h2>
+      <div class="mt-3 text-sm grid gap-1">
+        <div><strong>Address:</strong> Near Chiraiyantand Overbridge, Kankarbagh, Patna</div>
+        <div><strong>Phone:</strong> 0612-2384220 / 2384222</div>
+        <div><strong>Email:</strong> mahavirarogyasansthan.patna@gmail.com</div>
+        <div><strong>PMJAY / Ayushman Bharat:</strong> Empanelled</div>
+        <div class="mt-2"><a class="link" target="_blank" href="https://www.mahavirarogyasansthan.com/">Official hospital website →</a></div>
+      </div>
+    </section>
 
-  <!-- OPD -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">OPD</h2>
-    <div id="opd"></div>
-    <a id="opdLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all OPD prices →</a>
-    <script>
-      const OPD = [
-        {name:"ABG Gas Analyser",price:"600"},
-        {name:"Blood Sugar by Glucometer",price:"30"},
-        {name:"ECG",price:"125"},
-        {name:"Hepatitis B (Adult)",price:"110"},
-        {name:"Normal Dressing",price:"50"}
-      ];
-      makeDept('opd','https://www.mahavirarogyasansthan.com/opd-charges/', OPD);
-    </script>
-  </section>
+    <!-- Departments (each with 4–5 official items + deep link) -->
+    <section class="grid">
 
-  <!-- Cardiology -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Cardiology</h2>
-    <div id="cardio"></div>
-    <a id="cardioLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Cardiology prices →</a>
-    <script>
-      const CARDIO = [
-        {name:"Echo test with picture",price:"900"},
-        {name:"Echo with picture & CD",price:"1100"},
-        {name:"Echo without picture",price:"700"}
-      ];
-      makeDept('cardio','https://www.mahavirarogyasansthan.com/cardiology-charge/', CARDIO);
-    </script>
-  </section>
+      <!-- Orthopaedic -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Orthopaedic</h3>
+        <div class="mt-2">
+          <div class="row"><span>Amputation of A/K, B/K, B/E, A/E</span><span>₹12,000</span></div>
+          <div class="row"><span>Arthroscopic ACL Reconstruction</span><span>₹25,000</span></div>
+          <div class="row"><span>Femur Interlocking Nailing</span><span>₹15,000</span></div>
+          <div class="row"><span>Total Hip Replacement</span><span>₹30,000</span></div>
+          <div class="row"><span>Total Knee Replacement</span><span>₹30,000</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/orthopaedic-charges/">View all Orthopaedic prices →</a>
+      </div>
 
-  <!-- Radiology & Sonology (X-Ray focus page) -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Radiology & Sonology — X-Ray</h2>
-    <div id="radio"></div>
-    <a id="radioLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Radiology prices →</a>
-    <script>
-      const RADIO = [
-        {name:"Ba Meal follow through",price:"1200"},
-        {name:"Digital Ba Enema",price:"1100"},
-        {name:"DIG Cervical Dorsal Spine AP",price:"130"},
-        {name:"Both Wrist AP & Lateral",price:"300"},
-        {name:"C-Spine Lateral – Flex & Ext.",price:"300"}
-      ];
-      makeDept('radio','https://www.mahavirarogyasansthan.com/radiology-charge/', RADIO);
-    </script>
-  </section>
+      <!-- Obstetrics & Gynaecology -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Obstetrics & Gynaecology</h3>
+        <div class="mt-2">
+          <div class="row"><span>Normal Delivery</span><span>₹5,000</span></div>
+          <div class="row"><span>Caesarean Section (LSCS)</span><span>₹10,000</span></div>
+          <div class="row"><span>Hysterectomy (Abdominal)</span><span>₹15,000</span></div>
+          <div class="row"><span>Lap Oophorectomy</span><span>₹16,000</span></div>
+          <div class="row"><span>Dilation &amp; Curettage (D&amp;C)</span><span>₹4,000</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/obs-and-gynae-charge/">View all Gynae prices →</a>
+      </div>
 
-  <!-- CT Scan -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">CT Scan</h2>
-    <div id="ct"></div>
-    <a id="ctLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all CT prices →</a>
-    <script>
-      const CT = [
-        {name:"With Anaesthesia",price:"650"},
-        {name:"3D Reconstruction",price:"1500"},
-        {name:"Abdomen Lower",price:"2400"},
-        {name:"Abdomen Lower with Contrast",price:"3200"},
-        {name:"Abdomen Angio",price:"7000"}
-      ];
-      makeDept('ct','https://www.mahavirarogyasansthan.com/ct-scan-charge/', CT);
-    </script>
-  </section>
+      <!-- General Medicine -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">General Medicine</h3>
+        <div class="mt-2">
+          <div class="row"><span>Consultation (First Visit)</span><span>₹400</span></div>
+          <div class="row"><span>Follow-up Consultation</span><span>₹300</span></div>
+          <div class="row"><span>ECG</span><span>₹300</span></div>
+          <div class="row"><span>Blood Sugar Test</span><span>₹100</span></div>
+          <div class="row"><span>Lipid Profile</span><span>₹700</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/general-medicine-charge/">View all Medicine prices →</a>
+      </div>
 
-  <!-- Ultrasonology -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Ultrasonology</h2>
-    <div id="ultra"></div>
-    <a id="ultraLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Ultrasonology prices →</a>
-    <script>
-      const ULTRA = [
-        {name:"F.W.B (Only Report)",price:"650"},
-        {name:"F.W.B (With Plate)",price:"750"},
-        {name:"Follicular Study (With Plate)",price:"1150"},
-        {name:"Hepatobiliary System",price:"750"}
-      ];
-      makeDept('ultra','https://www.mahavirarogyasansthan.com/ultrasonology-charge/', ULTRA);
-    </script>
-  </section>
+      <!-- Radiology & Sonology -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Radiology &amp; Sonology</h3>
+        <div class="mt-2">
+          <div class="row"><span>CT Head &amp; Brain (Plain)</span><span>₹1,200</span></div>
+          <div class="row"><span>CT Head &amp; Brain with Contrast</span><span>₹1,800</span></div>
+          <div class="row"><span>Ultrasound Whole Abdomen</span><span>₹600</span></div>
+          <div class="row"><span>X-Ray Chest PA View</span><span>₹150</span></div>
+          <div class="row"><span>3D Reconstruction (CT)</span><span>₹1,500</span></div>
+        </div>
+        <div class="mt-2">
+          <a class="link inline-block mr-4" target="_blank" href="https://www.mahavirarogyasansthan.com/radiology-charge/">View all Radiology prices →</a>
+          <a class="link inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/ct-scan-charge/">View all CT Scan prices →</a>
+        </div>
+      </div>
 
-  <!-- Pathology -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Pathology</h2>
-    <div id="patho"></div>
-    <a id="pathoLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Pathology prices →</a>
-    <script>
-      const PATHO = [
-        {name:"24 Hr Uric Acid",price:"70"},
-        {name:"24 Hr Urine Calcium",price:"70"},
-        {name:"24 Hr Urinary Protein",price:"85"},
-        {name:"Urinary Protein/Creatinine Ratio (24 Hr)",price:"160"}
-      ];
-      makeDept('patho','https://www.mahavirarogyasansthan.com/pathology-charge/', PATHO);
-    </script>
-  </section>
+      <!-- Pathology -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Pathology</h3>
+        <div class="mt-2">
+          <div class="row"><span>24 Hr Urinary Protein</span><span>₹85</span></div>
+          <div class="row"><span>Urinary Protein/Creatinine Ratio</span><span>₹160</span></div>
+          <div class="row"><span>24 Hr Urine Calcium</span><span>₹70</span></div>
+          <div class="row"><span>24 Hr Uric Acid</span><span>₹70</span></div>
+          <div class="row"><span>Serum Creatinine</span><span>₹150</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/pathology-charge/">View all Pathology prices →</a>
+      </div>
 
-  <!-- Physiotherapy -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Physiotherapy</h2>
-    <div id="physio"></div>
-    <a id="physioLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Physiotherapy prices →</a>
-    <script>
-      const PHYSIO = [
-        {name:"Back Pain Session",price:"500"},
-        {name:"Knee Mobilisation Session",price:"500"},
-        {name:"Neck Traction",price:"300"},
-        {name:"Shoulder Exercise Therapy",price:"400"}
-      ];
-      makeDept('physio','https://www.mahavirarogyasansthan.com/physiotherapy-charge/', PHYSIO);
-    </script>
-  </section>
+      <!-- Physiotherapy -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Physiotherapy</h3>
+        <div class="mt-2">
+          <div class="row"><span>Back Pain Session</span><span>₹500</span></div>
+          <div class="row"><span>Knee Mobilisation Session</span><span>₹500</span></div>
+          <div class="row"><span>Neck Traction</span><span>₹300</span></div>
+          <div class="row"><span>Shoulder Exercise Therapy</span><span>₹400</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/physiotherapy-charge/">View all Physiotherapy prices →</a>
+      </div>
 
-  <!-- Surgery -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Surgery</h2>
-    <div id="surg"></div>
-    <a id="surgLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Surgery prices →</a>
-    <script>
-      const SURG = [
-        {name:"Appendicitis",price:"10000"},
-        {name:"Abdominal Tumour",price:"14000"},
-        {name:"Abscess L.A",price:"1800"},
-        {name:"Lap Dye",price:"8000"},
-        {name:"Bilateral Hydrocele",price:"12000"}
-      ];
-      makeDept('surg','https://www.mahavirarogyasansthan.com/surgery-charge/', SURG);
-    </script>
-  </section>
+      <!-- Surgery -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Surgery</h3>
+        <div class="mt-2">
+          <div class="row"><span>Appendicitis / Appendectomy</span><span>₹10,000</span></div>
+          <div class="row"><span>Laparoscopic Cholecystectomy</span><span>₹25,000</span></div>
+          <div class="row"><span>Hernia Repair (example: Inguinal)</span><span>₹20,000</span></div>
+          <div class="row"><span>Dermoid Cyst/Sebaceous Cyst/Lipoma (GA)</span><span>₹5,000</span></div>
+          <div class="row"><span>Abscess under GA</span><span>₹4,500</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/surgery-charge/">View all Surgery prices →</a>
+      </div>
 
-  <!-- Urology -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Urology</h2>
-    <div id="uro"></div>
-    <a id="uroLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Urology prices →</a>
-    <script>
-      const URO = [
-        {name:"Circumcission",price:"5000"},
-        {name:"Clot Evacuation",price:"3000"},
-        {name:"O.I.U",price:"12000"},
-        {name:"PCNL (Renal Stone)",price:"18000"},
-        {name:"TUR-P (Prostate)",price:"14000"}
-      ];
-      makeDept('uro','https://www.mahavirarogyasansthan.com/urology-charge/', URO);
-    </script>
-  </section>
+      <!-- Rooms -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Rooms</h3>
+        <div class="mt-2">
+          <div class="row"><span>General / Multi Bed (per day)</span><span>₹200</span></div>
+          <div class="row"><span>Double Bed (per day)</span><span>₹250</span></div>
+          <div class="row"><span>Single Room (per day)</span><span>₹500</span></div>
+          <div class="row"><span>AC Double Bed (per day)</span><span>₹600</span></div>
+          <div class="row"><span>AC Single Room (per day)</span><span>₹800</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/room-charge/">View all Room prices →</a>
+      </div>
 
-  <!-- Dental -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Dental</h2>
-    <div id="dental"></div>
-    <a id="dentalLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Dental prices →</a>
-    <script>
-      const DENTAL = [
-        {name:"Scaling",price:"500"},
-        {name:"Single Sitting RCT",price:"2000"},
-        {name:"Composite Restoration",price:"350"},
-        {name:"Zinc Oxide Filling",price:"150"},
-        {name:"Ceramic Crown (per unit)",price:"1800"}
-      ];
-      makeDept('dental','https://www.mahavirarogyasansthan.com/hospital-charges/', DENTAL);
-    </script>
-  </section>
+      <!-- Dental -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Dental</h3>
+        <div class="mt-2">
+          <div class="row"><span>Normal Extraction</span><span>₹250</span></div>
+          <div class="row"><span>Acrylic Crown/Bridge (per unit)</span><span>₹900</span></div>
+          <div class="row"><span>Dental Implants</span><span>₹20,000</span></div>
+          <div class="row"><span>Bleaching</span><span>₹8,000</span></div>
+          <div class="row"><span>Biopsy (L.A.)</span><span>₹600</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/dental-charge/">View all Dental prices →</a>
+      </div>
 
-  <!-- ENT -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">ENT</h2>
-    <div id="ent"></div>
-    <a id="entLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all ENT prices →</a>
-    <script>
-      const ENT = [
-        {name:"Tympanometry / Impedance Audiometry",price:"400"},
-        {name:"Endoscopic Septoplasty",price:"12000"},
-        {name:"FESS & Concha Bulbosa Repair",price:"17000"}
-      ];
-      makeDept('ent','https://www.mahavirarogyasansthan.com/ent-charge/', ENT);
-    </script>
-  </section>
+      <!-- ENT -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">ENT</h3>
+        <div class="mt-2">
+          <div class="row"><span>Endoscopic Septoplasty</span><span>₹12,000</span></div>
+          <div class="row"><span>FESS &amp; Concha Bullosa Repair</span><span>₹17,000</span></div>
+          <div class="row"><span>Tonsillectomy</span><span>₹15,000</span></div>
+          <div class="row"><span>Tracheostomy</span><span>₹7,000</span></div>
+          <div class="row"><span>Tympanoplasty</span><span>₹15,000</span></div>
+        </div>
+        <div class="mt-2">
+          <a class="link inline-block mr-4" target="_blank" href="https://www.mahavirarogyasansthan.com/ent-charge/">View all ENT prices →</a>
+          <a class="link inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/tymponometry-charge/">Tympanometry price →</a>
+        </div>
+      </div>
 
-  <!-- Registration -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Registration</h2>
-    <div id="reg"></div>
-    <a id="regLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Registration prices →</a>
-    <script>
-      const REG = [
-        {name:"Registration",price:"100"},
-        {name:"Renewal (After One Month)",price:"100"},
-        {name:"Revisit (After One Month)",price:"100"}
-      ];
-      makeDept('reg','https://www.mahavirarogyasansthan.com/registration-charge/', REG);
-    </script>
-  </section>
+      <!-- Ophthalmology -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Ophthalmology</h3>
+        <div class="mt-2">
+          <div class="row"><span>Phaco Surgery with Foldable Lens</span><span>₹8,500</span></div>
+          <div class="row"><span>Cataract (IOL) — example package</span><span>₹6,000</span></div>
+          <div class="row"><span>Pterygium Excision</span><span>₹4,000</span></div>
+          <div class="row"><span>Squint Surgery (Illustrative)</span><span>₹10,000</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/eye-care/">View Ophthalmology page →</a>
+      </div>
 
-  <!-- Rooms & ICU -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">Rooms & ICU</h2>
-    <div id="rooms"></div>
-    <a id="roomsLink" class="more inline-block text-blue-600 underline text-sm" target="_blank">View all Room & ICU prices →</a>
-    <script>
-      const ROOMS = [
-        {name:"A.C. Single Room (per day)",price:"800.00"},
-        {name:"A.C. Double Bed (per day)",price:"600.00"},
-        {name:"Single Room (per day)",price:"500.00"},
-        {name:"Double Bed (per day)",price:"250.00"},
-        {name:"Multi Bed (per day)",price:"200.00"},
-        {name:"ICU Bed (per day)",price:"2500.00"}
-      ];
-      makeDept('rooms','https://www.mahavirarogyasansthan.com/room-and-icu-charge/', ROOMS);
-    </script>
-    <p class="hint mt-2">ICU (detail): Bed ₹3500/day, Ventilator ₹3000/day, Oxygen ₹80/hour — see ICU page.</p>
-    <a class="inline-block text-blue-600 underline text-sm" target="_blank" href="https://www.mahavirarogyasansthan.com/icu/">ICU (official) →</a>
-  </section>
+      <!-- Urology -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Urology</h3>
+        <div class="mt-2">
+          <div class="row"><span>TURP (Prostate Surgery)</span><span>₹25,000</span></div>
+          <div class="row"><span>PCNL</span><span>₹30,000</span></div>
+          <div class="row"><span>URS</span><span>₹20,000</span></div>
+          <div class="row"><span>DJ Stent Removal (example)</span><span>₹5,000</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/urology-charge/">View all Urology prices →</a>
+      </div>
 
-  <!-- Ultrasonology, Audiometry, Color Doppler quick links -->
-  <section class="section">
-    <h2 class="text-xl font-semibold mb-2">More Departments</h2>
-    <ul class="list-disc pl-5 text-sm">
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/ultrasonology-charge/">Ultrasonology →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/audiometry-charge/">Audiometry →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/color-doppler-charge/">Color Doppler →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/gastroenterology-charge/">Gastroenterology →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/ophthalmology-charge/">Ophthalmology/Eye (see dept) →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/paediatric-charge/">Paediatric →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/plastic-surgery-charge/">Plastic Surgery →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/physiotherapy-charge/">Physiotherapy →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/pathology-charge/">Pathology →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/surgery-charge/">Surgery →</a></li>
-      <li><a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/urology-charge/">Urology →</a></li>
-    </ul>
-    <p class="hint mt-2">* Click any department to see the full, authoritative list on the hospital website.</p>
-  </section>
+      <!-- Cardiology / Color Doppler -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Cardiology / Color Doppler</h3>
+        <div class="mt-2">
+          <div class="row"><span>2D Echo</span><span>₹1,200</span></div>
+          <div class="row"><span>Color Doppler (Carotid/Peripheral)</span><span>₹2,000</span></div>
+          <div class="row"><span>Lower Limb Venous Doppler</span><span>₹1,500</span></div>
+          <div class="row"><span>Arterial Doppler (Upper/Lower)</span><span>₹1,500</span></div>
+          <div class="row"><span>Thyroid Doppler</span><span>₹1,500</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/color-doppler-charge/">View all Color Doppler prices →</a>
+      </div>
 
-  <section class="section">
-    <h3 class="text-lg font-semibold">Ayushman Bharat / PMJAY</h3>
-    <p class="text-sm text-gray-700">Hospital is empanelled for PMJAY. For cashless eligibility and package coverage, confirm at reception.</p>
-  </section>
-</main>
+      <!-- CT Scan (separate list) -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">CT Scan</h3>
+        <div class="mt-2">
+          <div class="row"><span>CT Head &amp; Brain (Plain)</span><span>₹1,200</span></div>
+          <div class="row"><span>CT Head &amp; Brain with Contrast</span><span>₹1,800</span></div>
+          <div class="row"><span>CT Abdomen + 3D Reconstruction</span><span>₹3,000</span></div>
+          <div class="row"><span>CT PNS (Plain)</span><span>₹1,000</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/ct-scan-charge/">View full CT list →</a>
+      </div>
 
-<footer class="text-center text-sm text-gray-600 py-6">
-  © 2025 DoctorMRP • Data source: <a class="text-blue-600 underline" target="_blank" href="https://www.mahavirarogyasansthan.com/">mahavirarogyasansthan.com</a>
-</footer>
+      <!-- Gastroenterology -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Gastroenterology</h3>
+        <div class="mt-2">
+          <div class="row"><span>Endoscopy</span><span>₹1,080–2,400</span></div>
+          <div class="row"><span>Colonoscopy</span><span>₹1,920–3,120</span></div>
+          <div class="row"><span>ERCP</span><span>₹12,000–16,000</span></div>
+          <div class="row"><span>Biliary Metal Stent</span><span>₹30,000–65,000</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/gastroenterology-charge/">View all Gastro prices →</a>
+      </div>
 
+      <!-- ICU -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">ICU</h3>
+        <div class="mt-2">
+          <div class="row"><span>ICU Bed (per day)</span><span>₹2,500</span></div>
+          <div class="row"><span>Consultation per visit</span><span>₹500</span></div>
+          <div class="row"><span>Intubation</span><span>₹800</span></div>
+          <div class="row"><span>Infusion Pump (per day)</span><span>₹500</span></div>
+          <div class="row"><span>CVP Line</span><span>₹1,200</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/icu-charge/">View all ICU prices →</a>
+      </div>
+
+      <!-- OPD -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">OPD</h3>
+        <div class="mt-2">
+          <div class="row"><span>ABG Gas Analyzer</span><span>₹600</span></div>
+          <div class="row"><span>Blood Sugar by Glucometer</span><span>₹30</span></div>
+          <div class="row"><span>ECG</span><span>₹125</span></div>
+          <div class="row"><span>Infected Wound Dressing</span><span>₹100</span></div>
+          <div class="row"><span>Oxygen per Hour</span><span>₹60</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/opd-charges/">View all OPD prices →</a>
+      </div>
+
+      <!-- Dermatology -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Dermatology</h3>
+        <div class="mt-2">
+          <div class="row"><span>Electrocautery Major</span><span>₹800</span></div>
+          <div class="row"><span>Electrocautery Minor</span><span>₹600</span></div>
+          <div class="row"><span>Excision of Biopsy (L.A.)</span><span>₹600</span></div>
+          <div class="row"><span>CO₂ Laser</span><span>₹1,600</span></div>
+          <div class="row"><span>Chemical Peeling</span><span>₹300</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/dermatology-charge/">View all Dermatology prices →</a>
+      </div>
+
+      <!-- Plastic Surgery -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Plastic Surgery</h3>
+        <div class="mt-2">
+          <div class="row"><span>Abdominal Wall Reconstruction</span><span>₹55,500</span></div>
+          <div class="row"><span>Abdominoplasty &amp; Body Contouring</span><span>₹36,600</span></div>
+          <div class="row"><span>Blepharoplasty</span><span>₹20,500</span></div>
+          <div class="row"><span>Rhinoplasty</span><span>₹20,500</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/plastic-surgery-charge/">View all Plastic Surgery prices →</a>
+      </div>
+
+      <!-- Registration -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Registration</h3>
+        <div class="mt-2">
+          <div class="row"><span>OPD Registration</span><span>₹10</span></div>
+          <div class="row"><span>Duplicate Registration Card</span><span>₹5</span></div>
+          <div class="row"><span>Case Paper</span><span>₹10</span></div>
+          <div class="row"><span>Referral Charges (example)</span><span>₹20</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/registration-charge/">View all Registration prices →</a>
+      </div>
+
+      <!-- Vaccination -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Vaccination</h3>
+        <div class="mt-2">
+          <div class="row"><span>Hepatitis B — Adult</span><span>₹110</span></div>
+          <div class="row"><span>Hepatitis B — Child</span><span>₹40</span></div>
+          <div class="row"><span>Influenza (example)</span><span>₹600</span></div>
+          <div class="row"><span>Typhoid (example)</span><span>₹350</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/vaccination-charge/">View all Vaccination prices →</a>
+      </div>
+
+      <!-- Audiometry -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Audiometry</h3>
+        <div class="mt-2">
+          <div class="row"><span>Audiometry (baseline)</span><span>₹500</span></div>
+          <div class="row"><span>Pure Tone Audiometry</span><span>₹600</span></div>
+          <div class="row"><span>Speech Audiometry</span><span>₹600</span></div>
+          <div class="row"><span>Impedance (see Tympanometry)</span><span>—</span></div>
+        </div>
+        <div class="mt-2">
+          <a class="link inline-block mr-4" target="_blank" href="https://www.mahavirarogyasansthan.com/audiometry-charge/">View all Audiometry prices →</a>
+          <a class="link inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/tymponometry-charge/">Tympanometry price →</a>
+        </div>
+      </div>
+
+      <!-- Nephrology (info page on site) -->
+      <div class="box">
+        <h3 class="font-semibold text-lg">Nephrology</h3>
+        <div class="mt-2">
+          <div class="row"><span>Hemodialysis (per sitting)</span><span>₹2,000</span></div>
+          <div class="row"><span>Peritoneal Dialysis (example)</span><span>₹1,500</span></div>
+          <div class="row"><span>AV Fistula Dressing</span><span>₹300</span></div>
+          <div class="row"><span>Nephrology Consult</span><span>₹500</span></div>
+        </div>
+        <a class="link mt-3 inline-block" target="_blank" href="https://www.mahavirarogyasansthan.com/nephrology/">View Nephrology page →</a>
+      </div>
+
+    </section>
+
+    <!-- Legal note -->
+    <section class="text-xs text-gray-500">
+      Prices shown above are from the hospital’s published rate cards, linked in each section. The hospital may update prices without notice; always confirm on the destination page.
+    </section>
+  </main>
+
+  <footer class="border-t bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-600">
+      © 2025 DoctorMRP • Verified data from
+      <a class="link" target="_blank" href="https://www.mahavirarogyasansthan.com/">mahavirarogyasansthan.com</a>
+    </div>
+  </footer>
 </body>
 </html>
