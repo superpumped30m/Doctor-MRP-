@@ -1,162 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DoctorMRP – Built by Doctors, for Trust</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-  <!-- 🔹 SEO for Google / ChatGPT / Perplexity -->
-  <meta name="description" content="DoctorMRP is India's verified hospital transparency network. Built by doctors, it helps hospitals earn patient trust by showing real procedure prices verified by doctors.">
-  <meta name="keywords" content="DoctorMRP, hospital pricing India, healthcare transparency, verified hospitals, medical cost India, hospital price comparison, trust in healthcare, verified by doctors">
-  <meta name="author" content="DoctorMRP Team">
-
-  <!-- 🔹 Open Graph (Facebook, LinkedIn) -->
-  <meta property="og:title" content="DoctorMRP – Built by Doctors, for Trust">
-  <meta property="og:description" content="India’s verified hospital transparency network — see real procedure prices, verified by doctors.">
-  <meta property="og:image" content="https://doctormrp.com/og-image.jpg">
-  <meta property="og:url" content="https://doctormrp.com">
-  <meta property="og:type" content="website">
-
-  <!-- 🔹 Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DoctorMRP – Built by Doctors, for Trust">
-  <meta name="twitter:description" content="Show real hospital prices. Build trust. Grow your OPD.">
-  <meta name="twitter:image" content="https://doctormrp.com/og-image.jpg">
-
-  <!-- 🔹 Perplexity AI & ChatGPT SEO Signals -->
-  <meta name="ai-summary" content="DoctorMRP helps hospitals attract more patients by being transparent — verified prices, doctors, and trust-based growth.">
-  <meta name="chatgpt:summary" content="DoctorMRP makes hospitals more discoverable and trustworthy by showing verified procedure prices, building transparency and patient trust.">
-
-  <style>
-    @keyframes fadeUp {
-      from {opacity:0; transform:translateY(30px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-    .fade-up {opacity:0; animation:fadeUp 1s ease-out forwards;}
-    .delay-1 {animation-delay:0.2s;}
-    .delay-2 {animation-delay:0.4s;}
-    .delay-3 {animation-delay:0.6s;}
-  </style>
-</head>
-
-<body class="bg-white text-gray-900 font-sans antialiased">
-
-  <!-- HERO -->
-  <section class="bg-black text-white text-center py-24 px-6">
+  <title>DoctorMRP — Show Verified Prices. Win Trust. Grow OPD.</title>  <!-- Tailwind (CDN) -->  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  <!-- Favicons / App Icons (upload files into /assets/ first) -->  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="192x192" href="/assets/logo-192.png">
+  <meta name="theme-color" content="#11C5B4">
+  <link rel="manifest" href="/manifest.json">  <!-- SEO -->  <meta name="description" content="DoctorMRP publishes doctor‑verified hospital price pages that rank on Google and route calls/WhatsApps to OPD. Live in 72 hours. 7‑day ROI guarantee.">
+  <meta name="keywords" content="DoctorMRP, hospital prices India, transparency, verified by doctors, hospital SEO, OPD growth">
+  <meta name="author" content="DoctorMRP Team">  <!-- Open Graph / Twitter -->  <meta property="og:title" content="DoctorMRP — Show Verified Prices. Win Trust. Grow OPD." />
+  <meta property="og:description" content="We build your doctor‑verified price page, rank it on Google, and route calls/WhatsApps to your OPD. Live in 72 hours. 7‑day ROI guarantee." />
+  <meta property="og:image" content="https://doctormrp.com/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://doctormrp.com" />
+  <meta name="twitter:card" content="summary_large_image" />  <style>
+    @keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+    .fade-up {opacity:0; animation:fadeUp 0.9s ease-out forwards;}
+    .delay-1 {animation-delay:0.2s;} .delay-2 {animation-delay:0.4s;} .delay-3 {animation-delay:0.6s;}
+  </style></head>
+<body class="bg-white text-gray-900 antialiased">  <!-- Top Nav -->  <header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="/assets/logo-192.png" alt="DoctorMRP" class="h-8 w-8 rounded-md">
+        <span class="font-extrabold text-xl tracking-tight">DoctorMRP</span>
+      </a>
+      <nav class="hidden sm:flex items-center gap-6">
+        <a href="#how" class="text-gray-700 hover:text-black">How it works</a>
+        <a href="#pricing" class="text-gray-700 hover:text-black">Pricing</a>
+        <a href="#examples" class="text-gray-700 hover:text-black">Examples</a>
+        <a href="https://wa.me/917588343376" data-cta="nav_whatsapp" class="bg-black text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-800">List My Hospital</a>
+      </nav>
+    </div>
+  </header>  <!-- HERO -->  <section class="bg-black text-white text-center py-20 px-6">
     <div class="max-w-3xl mx-auto fade-up">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-        Transparency Builds Trust.<br class="hidden sm:block">Trust Builds Patients.
-      </h1>
-      <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-10">
-        DoctorMRP helps hospitals become the most trusted in their city — by showing real procedure prices, verified by doctors.
-      </p>
+      <p class="uppercase tracking-widest text-xs text-gray-300 mb-3">Built by Doctors • Trusted by Patients</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Show Verified Prices. Win Trust. Grow OPD.</h1>
+      <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-8">We build your <strong>doctor‑verified price page</strong>, make it discoverable on Google, and route calls/WhatsApps to your OPD. <strong>7‑day ROI guarantee</strong> — or your money back.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-        <a href="#pricing"
-           class="bg-yellow-400 text-black w-full sm:w-auto px-8 py-3 font-bold rounded-lg hover:bg-yellow-300 transition text-center">
-          List My Hospital →
-        </a>
-        <a href="https://doctormrp.com/hospitals"
-           class="border border-gray-400 w-full sm:w-auto px-8 py-3 font-bold rounded-lg hover:bg-gray-100 transition text-center">
-          Browse Hospitals
-        </a>
+        <a href="#pricing" data-cta="hero_list" class="bg-yellow-400 text-black w-full sm:w-auto px-8 py-3 font-bold rounded-lg hover:bg-yellow-300 transition">List My Hospital →</a>
+        <a href="#examples" data-cta="hero_examples" class="border border-gray-400 w-full sm:w-auto px-8 py-3 font-bold rounded-lg hover:bg-gray-100 transition">See Live Examples</a>
       </div>
     </div>
-  </section>
-
-  <!-- MINI PROOF BAR -->
-  <section class="py-4 bg-gray-50 text-center text-gray-700 text-sm">
-    <p class="fade-up delay-1">40+ Hospitals Verified • 25K+ Monthly Patient Views • 4.8★ Trust Score</p>
-  </section>
-
-  <!-- FEAR / NEED -->
-  <section class="py-20 px-6 md:px-20 text-center bg-white">
+  </section>  <!-- Proof bar -->  <section class="py-4 bg-gray-50 text-center text-gray-700 text-sm">
+    <p class="fade-up"><strong>40+ Hospitals</strong> • <strong>25,000+ Monthly Patient Views</strong> • <strong>4.8★ Trust Score</strong> • <strong>Go‑Live: 72 hours</strong></p>
+  </section>  <!-- Problem / Need -->  <section class="py-20 px-6 md:px-20 text-center bg-white">
     <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-up">Patients Compare Hospitals Every Day.</h2>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-up delay-1">
-      The only question is — are they seeing your prices, or someone else’s?  
-      In a world full of ads, the hospitals that open up about their prices become trusted first.
-    </p>
-  </section>
-
-  <!-- SOLUTION -->
-  <section class="py-20 bg-black text-white text-center px-6 md:px-20">
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-up delay-1">Are they seeing <em>your</em> prices — or someone else’s? Hospitals that open up about prices become trusted first.</p>
+  </section>  <!-- How it works -->  <section id="how" class="py-20 bg-white px-6 md:px-20">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-up">How DoctorMRP Works</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-gray-50 p-6 rounded-xl shadow fade-up">
+        <h3 class="font-semibold text-lg mb-2">1) Verify & Collect</h3>
+        <p class="text-gray-600">We confirm your procedures & prices with your doctors and set up contact/OPD routing.</p>
+      </div>
+      <div class="bg-gray-50 p-6 rounded-xl shadow fade-up delay-1">
+        <h3 class="font-semibold text-lg mb-2">2) Publish & Rank</h3>
+        <p class="text-gray-600">Your SEO‑optimized transparency page goes live and is indexed on Google.</p>
+      </div>
+      <div class="bg-gray-50 p-6 rounded-xl shadow fade-up delay-2">
+        <h3 class="font-semibold text-lg mb-2">3) Track Calls & ROI</h3>
+        <p class="text-gray-600">Calls & WhatsApps are routed to you; we report monthly views → leads → OPD conversions.</p>
+      </div>
+    </div>
+  </section>  <!-- Solution / 72 hours -->  <section class="py-20 bg-black text-white text-center px-6 md:px-20">
     <div class="fade-up">
       <h2 class="text-4xl font-extrabold mb-6">We Make Your Hospital Transparent in 72 Hours.</h2>
-      <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-        Your verified page appears in Google search, complete with your procedures, doctor names, and contact details — ready to convert visitors into real OPD patients.
-      </p>
-      <a href="#pricing"
-         class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition">Get Verified Now</a>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">Your verified page appears in Google search, complete with your procedures, doctor names, and contact details — ready to convert visitors into real OPD patients.</p>
+      <a href="#pricing" data-cta="solution_cta" class="bg-yellow-400 text-black px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition">Get Verified Now</a>
     </div>
-  </section>
-
-  <!-- NETWORK -->
-  <section class="py-20 px-6 md:px-20 bg-white text-center">
+  </section>  <!-- Network / Logos -->  <section id="examples" class="py-20 px-6 md:px-20 bg-white text-center">
     <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">India’s Trusted Transparency Network</h2>
-    <p class="text-gray-600 mb-10 max-w-2xl mx-auto fade-up delay-1">
-      From Maharashtra to Gujarat, hospitals are joining DoctorMRP to lead with honesty and win patient trust.
-    </p>
-    <div class="flex flex-wrap justify-center gap-6 fade-up delay-2">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Hospital_sign.svg" class="h-12" alt="hospital sign icon">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Medical_cross_icon.svg" class="h-12" alt="medical cross icon">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Health_symbol.svg" class="h-12" alt="health symbol">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Red_Cross.svg" class="h-12" alt="red cross icon">
+    <p class="text-gray-600 mb-10 max-w-2xl mx-auto fade-up delay-1">From Maharashtra to Gujarat, hospitals are joining DoctorMRP to lead with honesty and win patient trust.</p>
+    <div class="flex flex-wrap justify-center gap-8 fade-up delay-2">
+      <!-- Replace these logo src with real client logos -->
+      <img src="/assets/logos/deshmukh-eye.png" class="h-12" alt="Deshmukh Eye Hospital">
+      <img src="/assets/logos/sanjivani-heart.png" class="h-12" alt="Sanjivani Heart & General Hospital">
+      <img src="/assets/logos/insight-eye.png" class="h-12" alt="Insight Eye Hospital">
+      <!-- Example site link (replace with your live case) -->
     </div>
     <div class="mt-8 fade-up delay-3">
-      <a href="https://doctormrp.com/hospitals" class="underline text-yellow-500 font-semibold hover:text-yellow-400">
-        → Browse Verified Hospitals
-      </a>
+      <a href="https://doctormrp.com/hospitals" class="underline text-yellow-500 font-semibold hover:text-yellow-400">→ Browse Verified Hospitals</a>
     </div>
-  </section>
-
-  <!-- VALUE / ROI -->
-  <section class="py-20 bg-gray-50 px-6 md:px-20">
+  </section>  <!-- Offer / Pricing -->  <section id="pricing" class="py-20 bg-gray-50 px-6 md:px-20">
     <div class="text-center mb-12 fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">₹25,000 / month — A 7-Day ROI Guarantee</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        One cataract surgery ≈ ₹10,000 profit. Three extra surgeries a month cover your DoctorMRP plan entirely.
-      </p>
-    </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">₹25,000 / month — 7‑Day ROI Guarantee</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">One cataract ≈ ₹10,000 profit. Three extra surgeries cover your plan entirely.</p>
+    </div><div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+  <div class="bg-white p-8 rounded-xl shadow text-gray-800 fade-up delay-1">
+    <h3 class="text-xl font-semibold mb-3">You Get</h3>
+    <ul class="space-y-2">
+      <li>✅ Doctor‑verified Transparency Page (SEO‑ready)</li>
+      <li>✅ “Price Transparency” Badge (website & reception)</li>
+      <li>✅ Google + Meta ads setup & management</li>
+      <li>✅ Call & WhatsApp lead routing (tracking numbers)</li>
+      <li>✅ Monthly ROI report: views → calls → OPD</li>
+    </ul>
+  </div>
+  <div class="bg-black text-white p-8 rounded-xl shadow fade-up delay-2">
+    <h3 class="text-xl font-semibold mb-3">You Risk Nothing</h3>
+    <ul class="space-y-2">
+      <li>💰 <strong>7‑day ROI guarantee</strong> — no lead, full refund</li>
+      <li>🚀 <strong>Go live within 72 hours</strong></li>
+      <li>🔒 Secure payments via Razorpay / UPI</li>
+      <li>🧾 Cancel anytime</li>
+    </ul>
+  </div>
+</div>
 
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="bg-white p-8 rounded-xl shadow text-gray-800 fade-up delay-1">
-        <h3 class="text-xl font-semibold mb-3">You Get:</h3>
-        <ul class="space-y-2">
-          <li>✅ Verified DoctorMRP Page (SEO optimized)</li>
-          <li>✅ “Price Transparency” Badge for your hospital</li>
-          <li>✅ Managed Google + Meta Ads</li>
-          <li>✅ Call & WhatsApp Lead Tracking</li>
-          <li>✅ Monthly Report of Views, Leads, Conversions</li>
-        </ul>
+<!-- Pilot card -->
+<div class="max-w-5xl mx-auto mt-10">
+  <div class="bg-white border rounded-xl p-6 md:p-8 shadow-sm">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <p class="text-sm uppercase tracking-wider text-gray-500">Early Adopter Pilot</p>
+        <h3 class="text-2xl font-extrabold">First 3 hospitals per city — ₹9,999 one‑time setup</h3>
+        <p class="text-gray-600 mt-1">Then ₹24,999/month only if you choose to continue after 30 days.</p>
       </div>
-      <div class="bg-black text-white p-8 rounded-xl shadow fade-up delay-2">
-        <h3 class="text-xl font-semibold mb-3">You Risk Nothing:</h3>
-        <ul class="space-y-2">
-          <li>💰 Money-Back Guarantee: No lead in 7 days → Full refund.</li>
-          <li>🚀 Go live within 72 hours.</li>
-          <li>🔒 Secure payments via Razorpay / UPI.</li>
-          <li>🧾 Cancel anytime — you’ll stay because it works.</li>
-        </ul>
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/917588343376" data-cta="pilot_whatsapp" class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800">Join Pilot →</a>
+        <a href="tel:+917588343376" class="underline text-gray-700">Call +91 75883 43376</a>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- FOMO -->
-  <section class="py-16 text-center bg-yellow-50">
+  </section>  <!-- FOMO / Exclusivity -->  <section class="py-16 text-center bg-yellow-50">
     <h2 class="text-3xl font-bold mb-3 fade-up">We Only Onboard 3 New Hospitals Per City</h2>
     <p class="text-gray-700 mb-6 fade-up delay-1">Maintain exclusivity. Stay the only verified hospital in your area.</p>
-    <a href="#pricing"
-       class="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition fade-up delay-2">Apply for Verification →</a>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="py-20 px-6 md:px-20 bg-white text-center">
+    <a href="https://wa.me/917588343376" data-cta="exclusivity_whatsapp" class="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition fade-up delay-2">Apply for Verification →</a>
+  </section>  <!-- Testimonials -->  <section class="py-20 px-6 md:px-20 bg-white text-center">
     <h2 class="text-3xl font-bold mb-10 fade-up">Hospitals That Joined — Results That Speak</h2>
     <div class="grid md:grid-cols-3 gap-8 text-gray-800">
       <div class="bg-gray-50 p-6 rounded-lg shadow fade-up delay-1">
-        <p class="italic mb-3">“Patients started calling within 3 days of listing.”</p>
-        <p class="font-semibold">Deshmukh Eye Hospital</p>
-        <p class="text-sm text-gray-500">2.8K patient views • Verified</p>
+        <p class="italic mb-3">“Patients started calling within 3 days.”</p>
+        <p class="font-semibold">Dr. A. Deshmukh, Deshmukh Eye Hospital</p>
+        <p class="text-sm text-gray-500">2.8K monthly views • 19 calls • Verified</p>
       </div>
       <div class="bg-gray-50 p-6 rounded-lg shadow fade-up delay-2">
         <p class="italic mb-3">“Transparency increased trust — OPD up 20%.”</p>
@@ -169,129 +147,82 @@
         <p class="text-sm text-gray-500">4.2K monthly views • Verified</p>
       </div>
     </div>
-  </section>
-
-  <!-- 🔹 PEOPLE ALSO ASK SECTION -->
-  <section class="py-20 bg-gray-50 px-6 md:px-20 text-gray-800">
+  </section>  <!-- FAQ -->  <section class="py-20 bg-gray-50 px-6 md:px-20 text-gray-800">
     <div class="max-w-4xl mx-auto text-center mb-12 fade-up">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">People Also Ask</h2>
       <p class="text-gray-600">Common questions hospitals ask before joining DoctorMRP.</p>
-    </div>
+    </div><div class="space-y-6 text-left max-w-3xl mx-auto">
+  <details open class="border-b pb-4">
+    <summary class="font-semibold text-lg cursor-pointer">What is DoctorMRP?</summary>
+    <p class="mt-2 text-gray-600">DoctorMRP is India’s verified hospital transparency network. We publish your doctor‑verified prices to build patient trust and grow OPD.</p>
+  </details>
 
-    <div class="space-y-6 text-left max-w-3xl mx-auto">
-      <details class="border-b pb-4">
-        <summary class="font-semibold text-lg cursor-pointer">What is DoctorMRP?</summary>
-        <p class="mt-2 text-gray-600">DoctorMRP is India's verified hospital transparency network. It helps hospitals show real prices verified by doctors, building patient trust.</p>
-      </details>
+  <details class="border-b pb-4">
+    <summary class="font-semibold text-lg cursor-pointer">How does DoctorMRP help hospitals?</summary>
+    <p class="mt-2 text-gray-600">We build an SEO‑ready transparency page, index it on Google, and route calls/WhatsApps directly to your OPD.</p>
+  </details>
 
-      <details class="border-b pb-4">
-        <summary class="font-semibold text-lg cursor-pointer">How does DoctorMRP help hospitals?</summary>
-        <p class="mt-2 text-gray-600">DoctorMRP builds your verified Google page, adds procedure lists, and manages ads — helping hospitals get more patient calls and OPD growth.</p>
-      </details>
+  <details class="border-b pb-4">
+    <summary class="font-semibold text-lg cursor-pointer">How much does it cost?</summary>
+    <p class="mt-2 text-gray-600">Pilot setup is ₹9,999 for the first 3 hospitals per city. Standard plan is ₹25,000/month with a 7‑day ROI guarantee.</p>
+  </details>
 
-      <details class="border-b pb-4">
-        <summary class="font-semibold text-lg cursor-pointer">How much does it cost?</summary>
-        <p class="mt-2 text-gray-600">The plan starts at ₹25,000/month with a 7-day ROI or full refund guarantee.</p>
-      </details>
+  <details class="border-b pb-4">
+    <summary class="font-semibold text-lg cursor-pointer">Is DoctorMRP verified by doctors?</summary>
+    <p class="mt-2 text-gray-600">Yes. All pages and prices are verified by licensed medical doctors for accuracy.</p>
+  </details>
 
-      <details class="border-b pb-4">
-        <summary class="font-semibold text-lg cursor-pointer">Is DoctorMRP verified by doctors?</summary>
-        <p class="mt-2 text-gray-600">Yes. Every hospital page is verified by licensed doctors for authenticity and accuracy.</p>
-      </details>
+  <details class="border-b pb-4">
+    <summary class="font-semibold text-lg cursor-pointer">How do I get listed?</summary>
+    <p class="mt-2 text-gray-600">Tap any “List My Hospital” button or WhatsApp <a class="underline" href="https://wa.me/917588343376">+91 75883 43376</a>. We’ll collect your procedures and go live in 72 hours.</p>
+  </details>
+</div>
 
-      <details>
-        <summary class="font-semibold text-lg cursor-pointer">How do I get listed?</summary>
-        <p class="mt-2 text-gray-600">Click ‘List My Hospital’ and submit your details. Your verified listing goes live within 72 hours.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="pricing" class="py-24 bg-black text-white text-center">
+  </section>  <!-- CTA -->  <section class="py-24 bg-black text-white text-center">
     <h2 class="text-4xl font-bold mb-4 fade-up">Start Your DoctorMRP Journey Today</h2>
-    <p class="text-gray-400 mb-10 fade-up delay-1">
-      We’ll build your verified hospital page, run your ads, and send your first patient inquiry — or your money back.
-    </p>
+    <p class="text-gray-400 mb-10 fade-up delay-1">We’ll build your verified hospital page, run your ads, and send your first patient inquiry — or your money back.</p>
     <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-up delay-2">
-      <a href="https://wa.me/917588343376"
-         class="bg-yellow-400 text-black w-full sm:w-auto px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition text-center">
-        Talk to DoctorMRP →
-      </a>
-      <a href="https://doctormrp.com/hospitals"
-         class="border border-gray-400 w-full sm:w-auto px-10 py-4 font-bold rounded-lg hover:bg-gray-900 transition text-center">
-        Browse Hospitals
-      </a>
+      <a href="https://wa.me/917588343376" data-cta="cta_whatsapp" class="bg-yellow-400 text-black w-full sm:w-auto px-10 py-4 font-bold rounded-lg hover:bg-yellow-300 transition text-center">Talk to DoctorMRP →</a>
+      <a href="#examples" class="border border-gray-400 w-full sm:w-auto px-10 py-4 font-bold rounded-lg hover:bg-gray-900 transition text-center">See Examples</a>
     </div>
     <p class="mt-6 text-gray-500 text-sm fade-up delay-3">Built by Doctors. Trusted by Patients. Protected by Transparency.</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 bg-white text-center text-gray-600 text-sm">
+  </section>  <!-- Footer -->  <footer class="py-10 bg-white text-center text-gray-600 text-sm">
     <p>© 2025 DoctorMRP. All rights reserved.</p>
     <p class="mt-2">DoctorMRP is a verified healthcare transparency platform — empowering hospitals to grow through trust.</p>
-  </footer>
-
-  <!-- 🔹 FAQ Schema for Google Rich Results -->
-  <script type="application/ld+json">
+  </footer>  <!-- Sticky mobile CTA -->  <div class="fixed bottom-0 inset-x-0 bg-white shadow-2xl sm:hidden">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <p class="text-sm"><strong>DoctorMRP</strong> — Get verified in 72 hrs</p>
+      <a href="https://wa.me/917588343376" data-cta="sticky_whatsapp" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold">List My Hospital</a>
+    </div>
+  </div>  <!-- Structured Data -->  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is DoctorMRP?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "DoctorMRP is India's verified hospital transparency platform built by doctors. It helps hospitals publish real procedure prices and build patient trust online."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does DoctorMRP help hospitals?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "DoctorMRP verifies hospital prices, adds SEO-optimized listings, and runs targeted ad campaigns to increase OPD and patient trust."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does DoctorMRP cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "DoctorMRP plans start at ₹25,000/month with a 7-day ROI guarantee and full refund if no patient lead is generated."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is DoctorMRP verified by doctors?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. All DoctorMRP hospital listings and procedure prices are verified by licensed medical doctors for accuracy and trust."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can I list my hospital on DoctorMRP?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Hospitals can apply for verification at doctormrp.com by clicking 'List My Hospital'. The listing goes live within 72 hours after verification."
-        }
-      }
-    ]
+    "@type": "Organization",
+    "name": "DoctorMRP",
+    "url": "https://doctormrp.com",
+    "logo": "https://doctormrp.com/assets/logo-512.png",
+    "sameAs": ["https://www.linkedin.com/company/doctormrp"]
   }
-  </script>
-
-  <!-- Fade-up animation trigger -->
-  <script>
+  </script>  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "DoctorMRP Hospital Verification & Transparency Page",
+    "brand": {"@type":"Brand","name":"DoctorMRP"},
+    "image": "https://doctormrp.com/assets/logo-512.png",
+    "description": "Verified procedure‑price page, SEO, call/WhatsApp lead routing, monthly ROI reporting.",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "price": "25000",
+      "availability": "https://schema.org/InStock",
+      "url": "https://doctormrp.com/#pricing"
+    }
+  }
+  </script>  <!-- Fade-up trigger -->  <script>
     const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){e.target.style.animationPlayState='running';}
-      });
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.animationPlayState='running'; } });
     },{threshold:0.2});
-    document.querySelectorAll('.fade-up').forEach(el=>{
-      el.style.animationPlayState='paused';
-      observer.observe(el);
-    });
-  </script>
-</body>
+    document.querySelectorAll('.fade-up').forEach(el=>{ el.style.animationPlayState='paused'; observer.observe(el); });
+  </script></body>
 </html>
