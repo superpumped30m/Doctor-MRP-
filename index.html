@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>MRI Brain Price in Mumbai | Compare MRI Centres – DoctorMRP</title>
+<title>MRI Brain Price in Mumbai | Area-wise Comparison – DoctorMRP</title>
 
-<meta name="description" content="Compare MRI Brain prices across Mumbai diagnostic centres. View location, contact number, and pricing on DoctorMRP.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="Compare MRI Brain prices across Mumbai diagnostic centres. Filter by area, view prices, location, and contact details on DoctorMRP.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://doctormrp.com/mumbai/mri-brain">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#f6f7f9;
+  --bg:#f5f7fb;
   --card:#ffffff;
   --text:#0f172a;
   --muted:#64748b;
@@ -46,12 +44,16 @@ header{
 }
 .brand{
   font-weight:800;
-  font-size:1.1rem;
 }
 .brand small{
   display:block;
   font-size:.85rem;
   color:var(--muted);
+}
+
+.cta{
+  font-weight:700;
+  font-size:.95rem;
 }
 
 .wrap{
@@ -63,17 +65,31 @@ header{
 h1{
   font-size:2rem;
   font-weight:800;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .subtitle{
-  font-size:1.05rem;
   color:var(--muted);
-  margin-bottom:28px;
+  margin-bottom:20px;
 }
 
+/* FILTER */
+.filter-bar{
+  display:flex;
+  gap:12px;
+  margin-bottom:28px;
+}
+select{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  font-size:.95rem;
+  background:#fff;
+}
+
+/* GRID */
 .grid{
   display:grid;
-  gap:24px;
+  gap:20px;
 }
 @media(min-width:900px){
   .grid{grid-template-columns:repeat(2,1fr)}
@@ -83,29 +99,39 @@ h1{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:18px;
-  padding:16px;
+  padding:18px;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(0,0,0,.06);
 }
 
 .card h2{
-  margin:0 0 6px 0;
+  margin:0;
   font-size:1.1rem;
 }
-
-.meta{
+.area{
   font-size:.9rem;
   color:var(--muted);
   margin-bottom:10px;
 }
 
-.price{
-  font-size:1.2rem;
-  font-weight:800;
-  margin:10px 0;
+.prices{
+  margin:14px 0;
 }
-
-.phone{
+.price-row{
+  display:flex;
+  justify-content:space-between;
   font-size:.95rem;
-  margin-bottom:8px;
+  padding:6px 0;
+  border-bottom:1px dashed #edf2f7;
+}
+.price-row:last-child{border-bottom:0}
+
+.contact{
+  font-size:.9rem;
+  margin-top:10px;
 }
 
 .map{
@@ -113,6 +139,7 @@ h1{
   height:220px;
   border:0;
   border-radius:14px;
+  margin-top:14px;
 }
 
 .highlight{
@@ -124,12 +151,9 @@ footer{
   margin:40px auto;
   padding:0 20px;
   font-size:.9rem;
-  color:#64748b;
+  color:var(--muted);
 }
-footer a{
-  font-weight:700;
-  color:#111827;
-}
+footer a{font-weight:700;color:#111827}
 </style>
 </head>
 
@@ -141,7 +165,7 @@ footer a{
       DoctorMRP
       <small>Healthcare price discovery</small>
     </div>
-    <a href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+    <a class="cta" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
       List your diagnostic centre →
     </a>
   </div>
@@ -151,69 +175,69 @@ footer a{
 
 <h1>MRI Brain Price in Mumbai</h1>
 <div class="subtitle">
-Compare MRI Brain prices, locations, and contact details across Mumbai.
+Compare MRI Brain prices across diagnostic centres. Filter by area.
 </div>
 
-<section class="grid">
+<div class="filter-bar">
+  <select id="areaFilter">
+    <option value="all">All areas</option>
+    <option value="Andheri">Andheri</option>
+    <option value="Bandra">Bandra</option>
+    <option value="Thane">Thane</option>
+    <option value="Navi Mumbai">Navi Mumbai</option>
+  </select>
+</div>
+
+<section class="grid" id="grid">
 
   <!-- YOUR CENTRE -->
-  <article class="card highlight">
+  <article class="card highlight" data-area="Andheri">
     <h2>Your Diagnostic Centre</h2>
-    <div class="meta">Andheri East, Mumbai</div>
-    <div class="price">₹5,500</div>
-    <div class="phone">Contact: Listed on DoctorMRP</div>
+    <div class="area">Andheri East</div>
+    <div class="prices">
+      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹5,500</strong></div>
+      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹7,500</strong></div>
+      <div class="price-row"><span>MRI Brain + Screening</span><strong>₹6,200</strong></div>
+    </div>
+    <div class="contact">Contact: Listed on DoctorMRP</div>
     <iframe class="map" loading="lazy"
       src="https://www.google.com/maps?q=Andheri+East+Mumbai&output=embed"></iframe>
   </article>
 
-  <!-- SRL -->
-  <article class="card">
-    <h2>SRL Diagnostics</h2>
-    <div class="meta">Andheri West, Mumbai</div>
-    <div class="price">₹6,500</div>
-    <div class="phone">022-6780-1111</div>
-    <iframe class="map" loading="lazy"
-      src="https://www.google.com/maps?q=SRL+Diagnostics+Andheri+West&output=embed"></iframe>
-  </article>
-
-  <!-- NM MEDICAL -->
-  <article class="card">
+  <article class="card" data-area="Bandra">
     <h2>NM Medical Imaging</h2>
-    <div class="meta">Bandra West, Mumbai</div>
-    <div class="price">₹7,200</div>
-    <div class="phone">022-2604-9090</div>
+    <div class="area">Bandra West</div>
+    <div class="prices">
+      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹7,200</strong></div>
+      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹9,500</strong></div>
+    </div>
+    <div class="contact">022-2604-9090</div>
     <iframe class="map" loading="lazy"
       src="https://www.google.com/maps?q=NM+Medical+Bandra&output=embed"></iframe>
   </article>
 
-  <!-- AARTHI -->
-  <article class="card">
+  <article class="card" data-area="Thane">
     <h2>Aarthi Scans</h2>
-    <div class="meta">Thane West</div>
-    <div class="price">₹5,900</div>
-    <div class="phone">022-2520-7550</div>
+    <div class="area">Thane West</div>
+    <div class="prices">
+      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹5,900</strong></div>
+      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹8,000</strong></div>
+    </div>
+    <div class="contact">022-2520-7550</div>
     <iframe class="map" loading="lazy"
       src="https://www.google.com/maps?q=Aarthi+Scans+Thane&output=embed"></iframe>
   </article>
 
-  <!-- APOLLO -->
-  <article class="card">
+  <article class="card" data-area="Navi Mumbai">
     <h2>Apollo Diagnostics</h2>
-    <div class="meta">Vashi, Navi Mumbai</div>
-    <div class="price">₹6,300</div>
-    <div class="phone">022-3355-3355</div>
+    <div class="area">Vashi</div>
+    <div class="prices">
+      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹6,300</strong></div>
+      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹8,600</strong></div>
+    </div>
+    <div class="contact">022-3355-3355</div>
     <iframe class="map" loading="lazy"
       src="https://www.google.com/maps?q=Apollo+Diagnostics+Vashi&output=embed"></iframe>
-  </article>
-
-  <!-- JHANKARIA -->
-  <article class="card">
-    <h2>Jhankaria Imaging</h2>
-    <div class="meta">Lower Parel, Mumbai</div>
-    <div class="price">₹7,500</div>
-    <div class="phone">022-6617-3312</div>
-    <iframe class="map" loading="lazy"
-      src="https://www.google.com/maps?q=Jhankaria+Imaging+Lower+Parel&output=embed"></iframe>
   </article>
 
 </section>
@@ -221,18 +245,20 @@ Compare MRI Brain prices, locations, and contact details across Mumbai.
 </main>
 
 <footer>
-© 2026 DoctorMRP · Inspired by clarity, not complexity
+© 2026 DoctorMRP · Transparency builds trust
 </footer>
 
-<!-- SEO STRUCTURED DATA -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"MedicalProcedure",
-  "name":"MRI Brain",
-  "areaServed":{"@type":"City","name":"Mumbai"},
-  "provider":{"@type":"Organization","name":"DoctorMRP","url":"https://doctormrp.com"}
-}
+<script>
+const filter = document.getElementById("areaFilter");
+const cards = document.querySelectorAll(".card");
+
+filter.addEventListener("change", () => {
+  const val = filter.value;
+  cards.forEach(card => {
+    card.style.display =
+      val === "all" || card.dataset.area === val ? "block" : "none";
+  });
+});
 </script>
 
 </body>
