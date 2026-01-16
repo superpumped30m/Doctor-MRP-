@@ -2,19 +2,338 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Contact Us | DoctorMRP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MRI Brain Price in Mumbai | Compare Centres | DoctorMRP</title>
+
+<meta name="description" content="Compare MRI Brain prices across Mumbai diagnostic centres. DoctorMRP helps patients request verified prices and helps centres get high-intent MRI leads.">
+<meta name="robots" content="index,follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:Arial,sans-serif;max-width:800px;margin:auto;padding:20px;line-height:1.6;color:#333}
+:root{
+  --bg:#f6f7f9;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --primary:#0f766e;
+  --primaryH:#0d5f58;
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+}
+
+a{text-decoration:none;color:inherit}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+
+.toolbar{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.logo{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#0f766e,#14b8a6);
+}
+
+.btn{
+  padding:10px 16px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:.95rem;
+  border:0;
+  cursor:pointer;
+}
+
+.btn.primary{
+  background:var(--primary);
+  color:#fff;
+}
+
+.btn.primary:hover{background:var(--primaryH)}
+
+.btn.outline{
+  background:#fff;
+  color:var(--primary);
+  border:1px solid var(--primary);
+}
+
+.wrap{
+  max-width:1200px;
+  margin:28px auto;
+  padding:0 16px;
+}
+
+.hero{
+  max-width:760px;
+  margin-bottom:32px;
+}
+
+.hero h1{
+  font-size:2rem;
+  line-height:1.25;
+  margin:0 0 10px 0;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+.grid{
+  display:grid;
+  gap:20px;
+}
+
+@media(min-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+.card h2{
+  margin:0;
+  font-size:1.2rem;
+}
+
+.area{
+  color:var(--muted);
+  font-size:.9rem;
+  margin-top:2px;
+}
+
+.prices{
+  margin-top:14px;
+}
+
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  border-bottom:1px dashed #eaeef3;
+  font-size:.95rem;
+}
+
+.price-row:last-child{border-bottom:0}
+
+.map{
+  width:100%;
+  height:200px;
+  border:0;
+  border-radius:12px;
+  margin-top:14px;
+}
+
+.cta{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.owner{
+  margin-top:40px;
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+}
+
+.owner h3{margin:0 0 8px 0}
+
+footer{
+  margin:40px auto 24px;
+  max-width:1200px;
+  padding:0 16px;
+  color:var(--muted);
+  font-size:.9rem;
+}
 </style>
 </head>
+
 <body>
-<h1>Contact Us</h1>
-<p>If you have any questions regarding payments, listings, or technical support, please reach out to us:</p>
-<ul>
-  <li>Email: <strong>support@doctormrp.com</strong></li>
-  <li>Phone: <strong>+91 75883 43376</strong></li>
-  <li>Address: Aurangabad, Maharashtra, India</li>
-</ul>
+
+<header>
+  <div class="toolbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <strong>DoctorMRP</strong><br>
+        <span style="color:#64748b;font-size:.85rem">Healthcare price transparency</span>
+      </div>
+    </div>
+    <a class="btn primary" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+      List your centre
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>MRI Brain Price in Mumbai</h1>
+    <p>
+      Compare indicative MRI Brain prices across Mumbai diagnostic centres.
+      Request verified prices directly through DoctorMRP.
+    </p>
+  </section>
+
+  <section class="grid">
+
+    <!-- Centre 1 -->
+    <article class="card">
+      <h2>NM Medical Imaging</h2>
+      <div class="area">Andheri West · Mumbai</div>
+
+      <div class="prices">
+        <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹6,800</strong></div>
+        <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹9,200</strong></div>
+        <div class="price-row"><span>MRI Brain Screening</span><strong>₹7,400</strong></div>
+      </div>
+
+      <iframe class="map"
+        src="https://www.google.com/maps?q=NM+Medical+Imaging+Andheri+Mumbai&output=embed">
+      </iframe>
+
+      <div class="cta">
+        <a class="btn primary" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Request price via DoctorMRP
+        </a>
+        <a class="btn outline" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Claim this centre
+        </a>
+      </div>
+    </article>
+
+    <!-- Centre 2 -->
+    <article class="card">
+      <h2>SRL Diagnostics</h2>
+      <div class="area">Bandra East · Mumbai</div>
+
+      <div class="prices">
+        <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹7,500</strong></div>
+        <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹10,000</strong></div>
+        <div class="price-row"><span>MRI Brain with Screening</span><strong>₹8,200</strong></div>
+      </div>
+
+      <iframe class="map"
+        src="https://www.google.com/maps?q=SRL+Diagnostics+Bandra+Mumbai&output=embed">
+      </iframe>
+
+      <div class="cta">
+        <a class="btn primary" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Request price via DoctorMRP
+        </a>
+        <a class="btn outline" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Claim this centre
+        </a>
+      </div>
+    </article>
+
+    <!-- Centre 3 -->
+    <article class="card">
+      <h2>Suburban Diagnostics</h2>
+      <div class="area">Dadar West · Mumbai</div>
+
+      <div class="prices">
+        <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹6,200</strong></div>
+        <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹8,900</strong></div>
+        <div class="price-row"><span>MRI Brain Emergency</span><strong>₹9,500</strong></div>
+      </div>
+
+      <iframe class="map"
+        src="https://www.google.com/maps?q=Suburban+Diagnostics+Dadar+Mumbai&output=embed">
+      </iframe>
+
+      <div class="cta">
+        <a class="btn primary" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Request price via DoctorMRP
+        </a>
+        <a class="btn outline" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Claim this centre
+        </a>
+      </div>
+    </article>
+
+    <!-- Centre 4 -->
+    <article class="card">
+      <h2>Metropolis Healthcare</h2>
+      <div class="area">Thane West · Mumbai</div>
+
+      <div class="prices">
+        <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹6,900</strong></div>
+        <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹9,600</strong></div>
+        <div class="price-row"><span>MRI Brain Screening</span><strong>₹7,800</strong></div>
+      </div>
+
+      <iframe class="map"
+        src="https://www.google.com/maps?q=Metropolis+Diagnostics+Thane&output=embed">
+      </iframe>
+
+      <div class="cta">
+        <a class="btn primary" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Request price via DoctorMRP
+        </a>
+        <a class="btn outline" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+          Claim this centre
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="owner">
+    <h3>Own a diagnostic centre?</h3>
+    <p style="color:#64748b">
+      Patients are already comparing MRI prices on DoctorMRP.
+      Verified centres get priority visibility, direct enquiries, and pricing control.
+    </p>
+    <a class="btn primary" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+      Verify prices · Get MRI leads
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 DoctorMRP · Transparency before treatment  
+</footer>
+
 </body>
 </html>
