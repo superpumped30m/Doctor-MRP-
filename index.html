@@ -1,265 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>MRI Brain Price in Mumbai | Area-wise Comparison – DoctorMRP</title>
-
-<meta name="description" content="Compare MRI Brain prices across Mumbai diagnostic centres. Filter by area, view prices, location, and contact details on DoctorMRP.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://doctormrp.com/mumbai/mri-brain">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --bg:#f5f7fb;
-  --card:#ffffff;
-  --text:#0f172a;
-  --muted:#64748b;
-  --border:#e5e7eb;
-  --primary:#111827;
-}
-*{box-sizing:border-box}
-html,body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-}
-a{text-decoration:none;color:inherit}
-
-header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
-}
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.brand{
-  font-weight:800;
-}
-.brand small{
-  display:block;
-  font-size:.85rem;
-  color:var(--muted);
-}
-
-.cta{
-  font-weight:700;
-  font-size:.95rem;
-}
-
-.wrap{
-  max-width:1200px;
-  margin:32px auto;
-  padding:0 20px;
-}
-
-h1{
-  font-size:2rem;
-  font-weight:800;
-  margin-bottom:6px;
-}
-.subtitle{
-  color:var(--muted);
-  margin-bottom:20px;
-}
-
-/* FILTER */
-.filter-bar{
-  display:flex;
-  gap:12px;
-  margin-bottom:28px;
-}
-select{
-  padding:10px 14px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  font-size:.95rem;
-  background:#fff;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  gap:20px;
-}
-@media(min-width:900px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:18px;
-  transition:transform .15s ease, box-shadow .15s ease;
-}
-.card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 30px rgba(0,0,0,.06);
-}
-
-.card h2{
-  margin:0;
-  font-size:1.1rem;
-}
-.area{
-  font-size:.9rem;
-  color:var(--muted);
-  margin-bottom:10px;
-}
-
-.prices{
-  margin:14px 0;
-}
-.price-row{
-  display:flex;
-  justify-content:space-between;
-  font-size:.95rem;
-  padding:6px 0;
-  border-bottom:1px dashed #edf2f7;
-}
-.price-row:last-child{border-bottom:0}
-
-.contact{
-  font-size:.9rem;
-  margin-top:10px;
-}
-
-.map{
-  width:100%;
-  height:220px;
-  border:0;
-  border-radius:14px;
-  margin-top:14px;
-}
-
-.highlight{
-  border:2px solid var(--primary);
-}
-
-footer{
-  max-width:1200px;
-  margin:40px auto;
-  padding:0 20px;
-  font-size:.9rem;
-  color:var(--muted);
-}
-footer a{font-weight:700;color:#111827}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DoctorMRP | MRI Brain Price in Mumbai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #111;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 16px;
+    }
+    h1 {
+      color: #0a4cff;
+      font-size: 26px;
+      margin-bottom: 4px;
+    }
+    h2 {
+      font-size: 18px;
+      margin-top: 0;
+      color: #333;
+    }
+    .note {
+      background: #fff3cd;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .paid {
+      border: 2px solid #0a4cff;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .cta {
+      margin-top: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      margin-right: 8px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .call {
+      background: #28a745;
+      color: white;
+    }
+    .whatsapp {
+      background: #25d366;
+      color: white;
+    }
+    .meta {
+      font-size: 13px;
+      color: #555;
+      margin-top: 6px;
+    }
+    .footer {
+      font-size: 13px;
+      text-align: center;
+      color: #777;
+      margin-top: 24px;
+    }
+    .owner-cta {
+      background: #0a4cff;
+      color: white;
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .owner-cta a {
+      color: white;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
 
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      DoctorMRP
-      <small>Healthcare price discovery</small>
+    <h1>DoctorMRP</h1>
+    <h2>MRI Brain Price Comparison — Call Centres Directly</h2>
+    <p>📍 Mumbai · Area-wise MRI price comparison</p>
+
+    <div class="note">
+      Prices are shown to help you call the right diagnostic centre faster.  
+      Please confirm final pricing and slot availability directly with the centre.
     </div>
-    <a class="cta" href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
-      List your diagnostic centre →
-    </a>
+
+    <!-- PAID LISTING -->
+    <div class="card paid">
+      <h3>🟦 Your Diagnostic Centre</h3>
+      <p>📍 Andheri East</p>
+      <p class="price">MRI Brain (Plain): ₹5,500</p>
+      <p class="price">MRI Brain + Contrast: ₹7,500</p>
+      <p class="price">MRI Brain + Screening: ₹6,200</p>
+
+      <div class="cta">
+        <a href="tel:+91XXXXXXXXXX" class="btn call">📞 Call Now</a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp">💬 WhatsApp</a>
+      </div>
+      <div class="meta">✅ Prices verified · ⏱ Updated this month</div>
+    </div>
+
+    <!-- FREE LISTINGS -->
+    <div class="card">
+      <h3>NM Medical Imaging</h3>
+      <p>📍 Bandra West</p>
+      <p>MRI Brain (Plain): ₹7,200</p>
+      <p>MRI Brain + Contrast: ₹9,500</p>
+      <div class="cta">
+        <a href="tel:02226049090" class="btn call">📞 022-2604-9090</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Aarthi Scans</h3>
+      <p>📍 Thane West</p>
+      <p>MRI Brain (Plain): ₹5,900</p>
+      <p>MRI Brain + Contrast: ₹8,000</p>
+      <div class="cta">
+        <a href="tel:02225207550" class="btn call">📞 022-2520-7550</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Apollo Diagnostics</h3>
+      <p>📍 Vashi</p>
+      <p>MRI Brain (Plain): ₹6,300</p>
+      <p>MRI Brain + Contrast: ₹8,600</p>
+      <div class="cta">
+        <a href="tel:02233553355" class="btn call">📞 022-3355-3355</a>
+      </div>
+    </div>
+
+    <!-- OWNER CTA -->
+    <div class="owner-cta">
+      <p><strong>Own an MRI centre?</strong></p>
+      <p>Get direct patient calls through transparent MRI pricing.</p>
+      <p>
+        👉 <a href="https://superprofile.bio/vp/doctor-mrp-listing" target="_blank">
+        List your MRI centre on DoctorMRP
+        </a>
+      </p>
+    </div>
+
+    <div class="footer">
+      © 2026 DoctorMRP · Transparency builds trust
+    </div>
+
   </div>
-</header>
-
-<main class="wrap">
-
-<h1>MRI Brain Price in Mumbai</h1>
-<div class="subtitle">
-Compare MRI Brain prices across diagnostic centres. Filter by area.
-</div>
-
-<div class="filter-bar">
-  <select id="areaFilter">
-    <option value="all">All areas</option>
-    <option value="Andheri">Andheri</option>
-    <option value="Bandra">Bandra</option>
-    <option value="Thane">Thane</option>
-    <option value="Navi Mumbai">Navi Mumbai</option>
-  </select>
-</div>
-
-<section class="grid" id="grid">
-
-  <!-- YOUR CENTRE -->
-  <article class="card highlight" data-area="Andheri">
-    <h2>Your Diagnostic Centre</h2>
-    <div class="area">Andheri East</div>
-    <div class="prices">
-      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹5,500</strong></div>
-      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹7,500</strong></div>
-      <div class="price-row"><span>MRI Brain + Screening</span><strong>₹6,200</strong></div>
-    </div>
-    <div class="contact">Contact: Listed on DoctorMRP</div>
-    <iframe class="map" loading="lazy"
-      src="https://www.google.com/maps?q=Andheri+East+Mumbai&output=embed"></iframe>
-  </article>
-
-  <article class="card" data-area="Bandra">
-    <h2>NM Medical Imaging</h2>
-    <div class="area">Bandra West</div>
-    <div class="prices">
-      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹7,200</strong></div>
-      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹9,500</strong></div>
-    </div>
-    <div class="contact">022-2604-9090</div>
-    <iframe class="map" loading="lazy"
-      src="https://www.google.com/maps?q=NM+Medical+Bandra&output=embed"></iframe>
-  </article>
-
-  <article class="card" data-area="Thane">
-    <h2>Aarthi Scans</h2>
-    <div class="area">Thane West</div>
-    <div class="prices">
-      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹5,900</strong></div>
-      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹8,000</strong></div>
-    </div>
-    <div class="contact">022-2520-7550</div>
-    <iframe class="map" loading="lazy"
-      src="https://www.google.com/maps?q=Aarthi+Scans+Thane&output=embed"></iframe>
-  </article>
-
-  <article class="card" data-area="Navi Mumbai">
-    <h2>Apollo Diagnostics</h2>
-    <div class="area">Vashi</div>
-    <div class="prices">
-      <div class="price-row"><span>MRI Brain (Plain)</span><strong>₹6,300</strong></div>
-      <div class="price-row"><span>MRI Brain + Contrast</span><strong>₹8,600</strong></div>
-    </div>
-    <div class="contact">022-3355-3355</div>
-    <iframe class="map" loading="lazy"
-      src="https://www.google.com/maps?q=Apollo+Diagnostics+Vashi&output=embed"></iframe>
-  </article>
-
-</section>
-
-</main>
-
-<footer>
-© 2026 DoctorMRP · Transparency builds trust
-</footer>
-
-<script>
-const filter = document.getElementById("areaFilter");
-const cards = document.querySelectorAll(".card");
-
-filter.addEventListener("change", () => {
-  const val = filter.value;
-  cards.forEach(card => {
-    card.style.display =
-      val === "all" || card.dataset.area === val ? "block" : "none";
-  });
-});
-</script>
-
 </body>
 </html>
